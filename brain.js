@@ -24,5 +24,7 @@ function surprise() {
   hideSecretButton();
   hideHint();
   alert('Hi!');
-  focusOnLearningLink();
+  setTimeout(() => {
+    focusOnLearningLink();
+  }, 100);
 }
