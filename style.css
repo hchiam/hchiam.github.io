@@ -14,6 +14,16 @@ a:hover {
     color: lightblue;
 }
 
+button {
+    border-radius: 10px;
+}
+
+button:hover, button:focus {
+    background: lime;
+    color: black;
+    font-weight: bold;
+}
+
 .center {
     text-align: center;
 }
