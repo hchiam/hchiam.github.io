@@ -1,0 +1,19 @@
+* {
+    background: rgb(32,32,32);
+    color: whitesmoke;
+    font-family: avenir, arial;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+a {
+    color: green;
+}
+
+a:hover {
+    color: lime;
+}
+
+.center {
+    text-align: center;
+}
