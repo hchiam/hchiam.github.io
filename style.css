@@ -36,3 +36,13 @@ a:hover {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+#hint {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: rgb(50,50,50);
+}
+
+#secret-button:focus {
+    left: 10% !important;
+}
