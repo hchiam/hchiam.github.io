@@ -16,7 +16,7 @@ function hideSecretButton() {
 
 function focusOnLearningLink() {
   // a skip link. https://classroom.udacity.com/courses/ud891/lessons/7962031279/concepts/79590516900923
-  document.querySelector('#learning-link a').focus();
+  document.querySelector('#learning-link button').focus();
 }
 
 function surprise() {
