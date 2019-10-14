@@ -1,5 +1,8 @@
 setTimeout(() => {
-  showHint();
+  var onDesktop = (window.screen.availWidth > 640);
+  if (onDesktop) {
+    showHint();
+  }
 }, 3000);
 
 function showHint() {
