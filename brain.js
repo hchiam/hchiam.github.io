@@ -1,4 +1,6 @@
-coolAnimation();
+setTimeout(() => {
+    coolAnimation();
+}, 100);
 
 setTimeout(() => {
   var onDesktop = (window.screen.availWidth > 640);

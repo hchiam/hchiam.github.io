@@ -74,7 +74,5 @@ button:hover, button:focus {
 }
 
 .cool-animation {
-    min-width: 48px;
-    min-height: 48px;
     margin: 10px;
 }
