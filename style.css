@@ -4,6 +4,7 @@
     font-family: avenir, arial;
     padding: 10px;
     transition: 0.5s;
+    transition-delay: 0.5s;
 }
 
 a {
@@ -63,4 +64,12 @@ button:hover, button:focus {
 
 #secret-button:focus {
     left: 10% !important;
+}
+
+@media only screen and (max-device-width : 640px) {
+    button {
+    min-width: 48px;
+    min-height: 48px;
+    margin: 10px;
+    }
 }
