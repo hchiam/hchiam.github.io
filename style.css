@@ -67,8 +67,14 @@ button:hover, button:focus {
 
 @media only screen and (max-device-width : 640px) {
     button {
+        min-width: 48px;
+        min-height: 48px;
+        margin: 10px;
+    }
+}
+
+.cool-animation {
     min-width: 48px;
     min-height: 48px;
     margin: 10px;
-    }
 }
