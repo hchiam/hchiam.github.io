@@ -7,12 +7,12 @@ setTimeout(() => {
   if (onDesktop) {
     showHint();
   }
-}, 3000);
+}, 2000);
 
 function coolAnimation() {
   var btns = Array.prototype.slice.call(document.querySelectorAll('button'));
   for (var i=0; i<btns.length; i++) {
-    btns[i].classList.add('cool-animation');
+    btns[i].classList.add('view-resize-animation');
   }
 }
 

@@ -6,14 +6,6 @@
     transition: 0.5s;
 }
 
-a {
-    color: lime;
-}
-
-a:hover {
-    color: lightblue;
-}
-
 button {
     border-radius: 10px;
     border-style: solid;
@@ -21,15 +13,20 @@ button {
     border-width: 1px;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus,
+a:hover,
+a:focus {
     background: lime;
     color: black;
     text-decoration: underline;
-}
-
-:focus {
     outline: 0;
     box-shadow: 0 0 0 2pt white;
+}
+
+button:focus,
+a:focus {
+    box-shadow: 0 0 0 4pt white;
 }
 
 .center {
@@ -73,6 +70,28 @@ button:hover, button:focus {
     }
 }
 
-.cool-animation {
+.view-resize-animation {
     margin: 10px;
+}
+
+#hint,
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+    animation-name: wobble;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wobble {
+    0% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
 }
