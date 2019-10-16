@@ -3,17 +3,22 @@ setTimeout(() => {
 }, 100);
 
 setTimeout(() => {
-  var onDesktop = (window.screen.availWidth > 640);
-  if (onDesktop) {
+  if (onDesktop()) {
     showHint();
   }
 }, 2000);
+
+setUpGame();
 
 function coolAnimation() {
   var btns = Array.prototype.slice.call(document.querySelectorAll('button'));
   for (var i=0; i<btns.length; i++) {
     btns[i].classList.add('view-resize-animation');
   }
+}
+
+function onDesktop() {
+  return (window.screen.availWidth > 640);
 }
 
 function showHint() {
@@ -37,8 +42,117 @@ function surprise() {
   document.getElementById('learning-link').style.visibility = 'visible';
   hideSecretButton();
   hideHint();
-  alert('Hi!');
   setTimeout(() => {
+    showHint();
+    $('#hint').text('Hint: drag the icon to move things around.');
     focusOnLearningLink();
   }, 100);
+}
+
+function getRandomNumber(start, stop) {
+  return Math.floor((Math.random() * stop) + start);
+}
+
+// silly game
+let gameOn = false;
+let turnedGameOnOnce = false;
+let continueGame = false;
+function setUpGame() {
+  $(document).ready(function() {
+    // game controls on:
+    document.getElementById('draggable-handle').onmouseenter = function() {
+      if (turnedGameOnOnce || onDesktop()) {
+        $('#draggable').draggable();
+        hideHint();
+        if (turnedGameOnOnce) {
+          showGameButtons();
+        }
+      }
+    }
+    // game controls off:
+    document.getElementById('draggable-handle').onmouseleave = function() {
+      if (onDesktop() && !continueGame) {
+        $('#draggable').draggable('destroy');
+        resetGameButtons();
+        gameOn = false;
+      }
+    }
+  });
+}
+
+function showGameButtons() {
+  setUpGameButtons();
+  gameOn = true;
+  turnedGameOnOnce = true;
+}
+
+function setUpGameButtons() {
+  $('button:contains("GitHub")').text(' A ');
+  $('button:contains("CodePen")').text(' S ');
+  $('button:contains("Glitch")').text(' D ');
+  $('button:contains("LinkedIn")').text(' F ');
+  $('button:contains("Blog")').text(' SPACE ');
+  $('button:contains("Memrise")').text(' C ');
+}
+
+function resetGameButtons() {
+  $('#game-container *').remove();
+  $('button:contains(" A ")').text('GitHub');
+  $('button:contains(" S ")').text('CodePen');
+  $('button:contains(" D ")').text('Glitch');
+  $('button:contains(" F ")').text('LinkedIn');
+  $('button:contains(" SPACE ")').text('Blog');
+  $('button:contains(" C ")').text('Memrise');
+}
+
+$(document).keydown(function(e) {
+  if (gameOn) {
+    if (e.keyCode === 65) { // a
+      $('#game-container').append('<button>?</button>');
+    } else if (e.keyCode === 83) { // s
+      $('#game-container *:last-child').remove();
+    } else if (e.keyCode === 68) { // d
+      $('#game-container *').remove();
+    } else if (e.keyCode === 70) { // f
+      $('#game-container *').remove();
+      for (let i=0; i<30; i++) {
+        $('#game-container').append('<button>?</button>');
+      }
+    } else if (e.keyCode === 67) { // c
+      continueGame = !continueGame;
+      if (!continueGame) {
+        $('#draggable').draggable('destroy');
+        resetGameButtons();
+        gameOn = false;
+      }
+    }
+  }
+  if (turnedGameOnOnce && e.keyCode === 32) { // space
+    showHint();
+    $('#hint').text('Hint: refresh the page.');
+    childrenExodus('section');
+    childrenExodus('#draggable');
+    scatterSpace();
+  }
+});
+
+function childrenExodus(parentSelector) {
+  let children = $(parentSelector + ' *').detach();
+  $('body').append(children);
+  $(parentSelector).remove();
+}
+
+function scatterSpace() {
+  $('button, img, #hint, h1, p').each(function() {
+    const randomleft = getRandomNumber(0, window.innerWidth);
+    const randomtop = getRandomNumber(0, window.innerHeight);
+    $(this)
+      .css({
+        position: 'absolute',
+      })
+      .animate({
+        left: randomleft + "px",
+        top: randomtop + "px",
+      }, 'fast', 'swing');
+  });
 }

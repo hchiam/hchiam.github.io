@@ -81,3 +81,11 @@ a:focus {
         transform: rotate(-5deg);
     }
 }
+
+#draggable-handle {
+    cursor: move;
+}
+
+#draggable {
+    z-index: 1;
+}

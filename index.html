@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="shortcut icon" href="htc.png"/>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
   <script src="brain.js"></script>
 </head>
 <body>
@@ -12,16 +14,19 @@
   <section class="center">
     <h1>Howard T. Chiam</h1>
     <p>Learning. Languages.</p>
-    <button onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
-    <button onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
-    <button onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
-    <button onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
-    <button onclick="window.open('https:\/\/hchiam.blogspot.com/', '_blank');">Blog</button>
-    <button onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning/', '_blank');">Memrise</button>
-    <div>
-      <img class="shake" src="htc.png" alt="htc icon" width="100px">
+    <div id="draggable" draggable ondrag="showGameButtons()">
+      <button onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
+      <button onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
+      <button onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
+      <button onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
+      <button onclick="window.open('https:\/\/hchiam.blogspot.com/', '_blank');">Blog</button>
+      <button onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning/', '_blank');">Memrise</button>
+      <div>
+        <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
+      </div>
+      <div id="game-container"></div>
     </div>
-    <div style="visibility: hidden;" aria-hidden="true">
+    <div style="visibility: hidden;">
       <p id="hint">Hint: hit tab</p>
     </div>
     <div id="learning-link" style="visibility: hidden;">
