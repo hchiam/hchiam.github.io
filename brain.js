@@ -144,13 +144,12 @@ function childrenExodus(parentSelector) {
 }
 
 function makeCommandKeysConspicuous() {
-  const colour = 'navy';
-  $('button:contains(" A ")').css('background', colour);
-  $('button:contains(" S ")').css('background', colour);
-  $('button:contains(" D ")').css('background', colour);
-  $('button:contains(" F ")').css('background', colour);
-  $('button:contains(" C ")').css('background', colour);
-  $('button:contains(" SPACE ")').css('background', colour);
+  $('button:contains(" A ")').addClass('commandKey');
+  $('button:contains(" S ")').addClass('commandKey');
+  $('button:contains(" D ")').addClass('commandKey');
+  $('button:contains(" F ")').addClass('commandKey');
+  $('button:contains(" C ")').addClass('commandKey');
+  $('button:contains(" SPACE ")').addClass('commandKey');
 }
 
 function scatterSpace() {
