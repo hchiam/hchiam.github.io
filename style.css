@@ -44,6 +44,10 @@ a:focus {
     color: rgb(50,50,50);
 }
 
+#hint:hover {
+    color: lime;
+}
+
 #secret-button:focus {
     left: 10% !important;
 }
