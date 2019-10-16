@@ -44,8 +44,9 @@ function surprise() {
   hideHint();
   setTimeout(() => {
     showHint();
-    $('#hint').text('Hint: drag the icon to move things around.');
     focusOnLearningLink();
+    // do this last in case jQuery is unavailable:
+    $('#hint').text('Hint: drag the icon to move things around.');
   }, 100);
 }
 
