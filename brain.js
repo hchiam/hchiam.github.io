@@ -88,21 +88,33 @@ function showGameButtons() {
 }
 
 function setUpGameButtons() {
-  $('button:contains("GitHub")').text(' A ');
-  $('button:contains("CodePen")').text(' S ');
-  $('button:contains("Glitch")').text(' D ');
-  $('button:contains("LinkedIn")').text(' F ');
-  $('button:contains("Blog")').text(' C ');
-  $('button:contains("Memrise")').text(' SPACE ');
+  $('button:contains("GitHub")').text(' A ')
+    .attr('onclick', "jQuery.event.trigger({ type : 'keydown', keyCode : 65 });");
+  $('button:contains("CodePen")').text(' S ')
+    .attr('onclick', "jQuery.event.trigger({ type : 'keydown', keyCode : 83 });");
+  $('button:contains("Glitch")').text(' D ')
+    .attr('onclick', "jQuery.event.trigger({ type : 'keydown', keyCode : 68 });");
+  $('button:contains("LinkedIn")').text(' F ')
+    .attr('onclick', "jQuery.event.trigger({ type : 'keydown', keyCode : 70 });");
+  $('button:contains("Blog")').text(' C ')
+    .attr('onclick', "jQuery.event.trigger({ type : 'keydown', keyCode : 67 });");
+  $('button:contains("Memrise")').text(' SPACE ')
+    .attr('onclick', "jQuery.event.trigger({ type : 'keydown', keyCode : 32 });");
 }
 
 function resetGameButtons() {
-  $('button:contains(" A ")').text('GitHub');
-  $('button:contains(" S ")').text('CodePen');
-  $('button:contains(" D ")').text('Glitch');
-  $('button:contains(" F ")').text('LinkedIn');
-  $('button:contains(" C ")').text('Blog');
-  $('button:contains(" SPACE ")').text('Memrise');
+  $('button:contains(" A ")').text('GitHub')
+    .attr('onclick', "window.open('https:\/\/github.com/hchiam', '_blank');");
+  $('button:contains(" S ")').text('CodePen')
+    .attr('onclick', "window.open('https:\/\/codepen.io/hchiam', '_blank');");
+  $('button:contains(" D ")').text('Glitch')
+    .attr('onclick', "window.open('https:\/\/glitch.com/@hchiam', '_blank');");
+  $('button:contains(" F ")').text('LinkedIn')
+    .attr('onclick', "window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');");
+  $('button:contains(" C ")').text('Blog')
+    .attr('onclick', "window.open('https:\/\/hchiam.blogspot.com', '_blank');");
+  $('button:contains(" SPACE ")').text('Memrise')
+    .attr('onclick', "window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');");
 }
 
 $(document).keydown(function(e) {
