@@ -96,7 +96,6 @@ function setUpGameButtons() {
 }
 
 function resetGameButtons() {
-  $('#game-container *').remove();
   $('button:contains(" A ")').text('GitHub');
   $('button:contains(" S ")').text('CodePen');
   $('button:contains(" D ")').text('Glitch');
