@@ -91,8 +91,8 @@ function setUpGameButtons() {
   $('button:contains("CodePen")').text(' S ');
   $('button:contains("Glitch")').text(' D ');
   $('button:contains("LinkedIn")').text(' F ');
-  $('button:contains("Blog")').text(' SPACE ');
-  $('button:contains("Memrise")').text(' C ');
+  $('button:contains("Blog")').text(' C ');
+  $('button:contains("Memrise")').text(' SPACE ');
 }
 
 function resetGameButtons() {
@@ -101,8 +101,8 @@ function resetGameButtons() {
   $('button:contains(" S ")').text('CodePen');
   $('button:contains(" D ")').text('Glitch');
   $('button:contains(" F ")').text('LinkedIn');
-  $('button:contains(" SPACE ")').text('Blog');
-  $('button:contains(" C ")').text('Memrise');
+  $('button:contains(" C ")').text('Blog');
+  $('button:contains(" SPACE ")').text('Memrise');
 }
 
 $(document).keydown(function(e) {
