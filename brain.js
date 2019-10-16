@@ -132,6 +132,7 @@ $(document).keydown(function(e) {
     $('#hint').text('Hint: refresh the page.');
     childrenExodus('section');
     childrenExodus('#draggable');
+    makeCommandKeysConspicuous();
     scatterSpace();
   }
 });
@@ -142,10 +143,22 @@ function childrenExodus(parentSelector) {
   $(parentSelector).remove();
 }
 
+function makeCommandKeysConspicuous() {
+  const colour = 'navy';
+  $('button:contains(" A ")').css('background', colour);
+  $('button:contains(" S ")').css('background', colour);
+  $('button:contains(" D ")').css('background', colour);
+  $('button:contains(" F ")').css('background', colour);
+  $('button:contains(" C ")').css('background', colour);
+  $('button:contains(" SPACE ")').css('background', colour);
+}
+
 function scatterSpace() {
   $('button, img, #hint, h1, p').each(function() {
-    const randomleft = getRandomNumber(0, window.innerWidth);
-    const randomtop = getRandomNumber(0, window.innerHeight);
+    const myWidth = $(this).width();
+    const myHeight = $(this).height();
+    const randomleft = getRandomNumber(0, window.innerWidth-myWidth);
+    const randomtop = getRandomNumber(0, window.innerHeight-myHeight);
     $(this)
       .css({
         position: 'absolute',
