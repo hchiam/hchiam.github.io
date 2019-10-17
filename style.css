@@ -97,3 +97,7 @@ a:focus {
 .commandKey {
     background: navy;
 }
+
+div, img, p {
+    background: rgba(0,0,0,0);
+}
