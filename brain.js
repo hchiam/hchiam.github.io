@@ -133,6 +133,7 @@ $(document).keydown(function(e) {
     } else if (e.keyCode === 67) { // c
       continueGame = !continueGame;
       if (!continueGame) {
+        // game controls off:
         $('#draggable').draggable('destroy');
         resetGameButtons();
         gameOn = false;
