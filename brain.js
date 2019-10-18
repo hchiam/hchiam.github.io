@@ -165,6 +165,7 @@ function makeCommandKeysConspicuous() {
   $('button:contains(" SPACE ")').addClass('commandKey');
 }
 
+let scatteredSpace = false;
 function scatterSpace() {
   $('button, img, #hint, h1, p').each(function() {
     const myWidth = $(this).width();
@@ -180,4 +181,5 @@ function scatterSpace() {
         top: randomtop + "px",
       }, 'fast', 'swing');
   });
+  scatteredSpace = true;
 }
