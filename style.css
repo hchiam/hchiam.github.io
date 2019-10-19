@@ -6,6 +6,12 @@
     transition: 0.5s;
 }
 
+body {
+    position: absolute;
+    width:100vw;
+    height:100vh;
+}
+
 button {
     border-radius: 10px;
     border-style: solid;

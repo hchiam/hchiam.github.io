@@ -15,6 +15,8 @@ function playNotes() {
 }
 
 function playNoteOnExit() {
+  if (!gameOn) return; // gameOn is from brain.js
+  if (scatteredSpace) return; // scatteredSpace is from brain.js
   const exitDelay = 0.5;
   playNoteOfId('draggable-handle', exitDelay);
 }
