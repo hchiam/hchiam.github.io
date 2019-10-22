@@ -98,6 +98,7 @@ a:focus {
 
 #draggable {
     z-index: 1;
+    transition: none;
 }
 
 .commandKey {
