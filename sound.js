@@ -5,20 +5,16 @@ const audioCtx = new AudioContext();
 let notes = [];
 
 function playNotes() {
-  if (!gameOn) return; // gameOn is from brain.js
-  if (scatteredSpace) return; // scatteredSpace is from brain.js
+  $('#hint')
+    .text('To stop audio, click off or stop dragging.')
+    .show()
+    .css('color', 'lime');
+  showHint(); // from brain.js
   playNoteOfId('draggable-handle');
   // playNoteOfId('a');
   // playNoteOfId('s');
   // playNoteOfId('d');
   // playNoteOfId('f');
-}
-
-function playNoteOnExit() {
-  if (!gameOn) return; // gameOn is from brain.js
-  if (scatteredSpace) return; // scatteredSpace is from brain.js
-  const exitDelay = 0.5;
-  playNoteOfId('draggable-handle', exitDelay);
 }
 
 function adjustNotes() {
@@ -39,6 +35,7 @@ function stopNotes() {
     oscillator.stop(audioCtx.currentTime);
   }
   notes = [];
+  $('#hint').hide();
 }
 
 function playNoteOfId(id, delay) {
@@ -69,8 +66,11 @@ function playNote([x, y], delay=4) {
   oscillator.connect(volumeSetup);
   // instead of oscillator.connect(audioCtx.destination);
   oscillator.start();
-  const delayToAutoStopSound = delay;
-  oscillator.stop(audioCtx.currentTime + delayToAutoStopSound);
+  const useDelay = false;
+  if (useDelay) {
+    const delayToAutoStopSound = delay;
+    oscillator.stop(audioCtx.currentTime + delayToAutoStopSound);
+  }
   notes.push({oscillator, volumeSetup});
 }
 
