@@ -76,7 +76,7 @@ function playNote([x, y], delay=4) {
 
 function getFrequencyFromX(x) {
   const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-  const minComfyFreq = 100;
+  const minComfyFreq = 150;
   const maxComfyFreq = 400;
   const frequency = normalize(x, 
                               0,screenWidth, 
