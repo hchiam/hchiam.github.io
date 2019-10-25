@@ -26,7 +26,25 @@ function adjustNotes() {
     volumeSetup.gain.value = volume;
     const oscillator = notes[i].oscillator;
     oscillator.frequency.value = frequency;
+    indicateNoteWithColour('img#draggable-handle', volume, frequency);
   }
+}
+
+function indicateNoteWithColour(selector, volume, frequency) {
+  const minComfyVolume = 0;
+  const maxComfyVolume = 0.5;
+  let volumeNum = normalize(volume, 
+                            minComfyVolume,maxComfyVolume, 
+                            0,100);
+  volumeNum = Math.round(volumeNum);
+  const minComfyFreq = 150;
+  const maxComfyFreq = 400;
+  let frequencyNum = normalize(frequency, 
+                               minComfyFreq,maxComfyFreq, 
+                               0,359);
+  frequencyNum = Math.round(frequencyNum);
+  let output = 'hsl(' + String(frequencyNum) + ',' + String(volumeNum) + '%, 50%)';
+  document.querySelector(selector).style.background = output;
 }
 
 function stopNotes() {
