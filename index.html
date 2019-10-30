@@ -15,7 +15,13 @@
   <section class="center">
     <h1>Howard T. Chiam</h1>
     <p>Learning. Languages.</p>
-    <div id="draggable" draggable ondragstart="showGameButtons();playNotes();" ondrag="adjustNotes();">
+    <div id="draggable" 
+         draggable 
+         ondragstart="showGameButtons();playNotes();" 
+         ondrag="adjustNotes();" 
+         ontouchstart="showGameButtons();playNotes();" 
+         ontouchmove="adjustNotes();" 
+         ontouchend="stopNotes()">
       <button id="a" onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
       <button id="s" onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
       <button id="d" onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
