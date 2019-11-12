@@ -109,3 +109,11 @@ a:focus {
 div, img, p {
     background: rgba(0,0,0,0);
 }
+
+#cover {
+    z-index: 5;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: inherit;
+}

@@ -1,6 +1,10 @@
 setTimeout(() => {
-    coolAnimation();
-}, 100);
+  slideIn();
+}, 0);
+
+setTimeout(() => {
+  expandButtons();
+}, 1000);
 
 setTimeout(() => {
   if (onDesktop()) {
@@ -10,7 +14,13 @@ setTimeout(() => {
 
 setUpGame();
 
-function coolAnimation() {
+function slideIn() {
+  document.getElementById('cover').style.visibility = 'hidden';
+  $('section').css({position: 'relative', top: '-100%'});
+  $('section').animate({top: 0});
+}
+
+function expandButtons() {
   var btns = Array.prototype.slice.call(document.querySelectorAll('button'));
   for (var i=0; i<btns.length; i++) {
     btns[i].classList.add('view-resize-animation');
