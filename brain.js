@@ -92,6 +92,9 @@ function setUpGame() {
 }
 
 function showGameButtons() {
+  var hasSmallScreen = (document.documentElement.clientWidth < 640);
+  if (hasSmallScreen) return;
+
   setUpGameButtons();
   gameOn = true;
   turnedGameOnOnce = true;

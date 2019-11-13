@@ -5,6 +5,9 @@ const audioCtx = new AudioContext();
 let notes = [];
 
 function playNotes() {
+  var hasSmallScreen = (document.documentElement.clientWidth < 640);
+  if (hasSmallScreen) return;
+
   $('#hint')
     .text('To stop audio, click off or stop dragging.')
     .show()
@@ -18,6 +21,9 @@ function playNotes() {
 }
 
 function adjustNotes() {
+  var hasSmallScreen = (document.documentElement.clientWidth < 640);
+  if (hasSmallScreen) return;
+
   for (let i in notes) {
     const [x, y] = getCoordinates('draggable-handle');
     const frequency = getFrequencyFromX(x);
