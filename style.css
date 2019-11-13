@@ -6,12 +6,6 @@
     transition: 0.5s;
 }
 
-body {
-    position: absolute;
-    width:100vw;
-    height:100vh;
-}
-
 button {
     border-radius: 10px;
     border-style: solid;
@@ -54,16 +48,26 @@ a:focus {
     color: lime;
 }
 
-#secret-button:focus {
-    left: 10% !important;
+#secret-button {
+    position: absolute;
+    left: -20%;
     z-index: 3;
 }
 
-@media only screen and (max-device-width : 640px) {
+#secret-button:focus {
+    left: 10% !important;
+}
+
+@media only screen and (max-device-width: 640px) {
     button {
         min-width: 48px;
         min-height: 48px;
         margin: 10px;
+    }
+
+    #secret-button {
+        left: 0;
+        top: 100vh;
     }
 }
 
@@ -109,6 +113,9 @@ a:focus {
 
 div, img, p {
     background: rgba(0,0,0,0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #cover {

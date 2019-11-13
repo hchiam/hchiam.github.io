@@ -12,7 +12,7 @@
   <script src="sound.js"></script>
 </head>
 <body onmouseup="stopNotes()">
-  <button id="secret-button" style="position: absolute; left: -20%;" onclick="surprise()">Secret Button!</button>
+  <button id="secret-button" onclick="surprise()">Secret Button!</button>
   <div id="cover" aria-hidden="true"></div>
   <section class="center">
     <h1>Howard Chiam</h1>
@@ -30,9 +30,7 @@
       <button id="f" onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
       <button id="c" onclick="window.open('https:\/\/hchiam.blogspot.com', '_blank');">Blog</button>
       <button id="space" onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
-      <div>
-        <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
-      </div>
+      <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
       <div id="game-container"></div>
     </div>
     <div style="visibility: hidden;">
