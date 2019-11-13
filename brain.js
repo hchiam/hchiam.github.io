@@ -7,9 +7,10 @@ setTimeout(() => {
 }, 1000);
 
 setTimeout(() => {
-  if (onDesktop()) {
-    showHint();
+  if (!onDesktop()) {
+    document.getElementById('hint').innerHTML = 'Hint: scroll down';
   }
+  showHint();
 }, 2000);
 
 setUpGame();
