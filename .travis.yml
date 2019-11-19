@@ -4,6 +4,7 @@ node_js:
 before_install:
   - npm install -g @lhci/cli@0.3.x
 script:
+  - bash copy-to-public-folder.sh
   - lhci autorun
 addons:
   chrome: stable
