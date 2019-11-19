@@ -1,0 +1,127 @@
+* {
+    background: rgb(32,32,32);
+    color: whitesmoke;
+    font-family: avenir, arial;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+button {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+    background: lime;
+    color: black;
+    text-decoration: underline;
+    outline: 0;
+    box-shadow: 0 0 0 2pt white;
+}
+
+button:focus,
+a:focus {
+    box-shadow: 0 0 0 4pt white;
+}
+
+.center {
+    text-align: center;
+}
+
+.shake:hover {
+    animation: wobble 0.5s;
+    animation-iteration-count: 1;
+}
+
+#hint {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: rgb(50,50,50);
+}
+
+#hint:hover {
+    color: lime;
+}
+
+#secret-button {
+    position: absolute;
+    left: -20%;
+    z-index: 3;
+}
+
+#secret-button:focus {
+    left: 10% !important;
+}
+
+@media only screen and (max-device-width: 640px) {
+    button {
+        min-width: 48px;
+        min-height: 48px;
+        margin: 10px;
+    }
+
+    #secret-button {
+        left: 0;
+        top: 120vh;
+    }
+}
+
+.view-resize-animation {
+    margin: 10px;
+}
+
+#hint,
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+    animation-name: wobble;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wobble {
+    0% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+#draggable-handle {
+    cursor: move;
+    border-radius: 1em;
+}
+
+#draggable {
+    z-index: 1;
+    transition: none;
+}
+
+.commandKey {
+    background: navy;
+}
+
+div, img, p {
+    background: rgba(0,0,0,0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cover {
+    z-index: 2;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: inherit;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Howard Chiam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="htc.png"/>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="minified-style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <!-- <script src="brain.js"></script>
+  <script src="sound.js"></script> -->
+  <script src="minified-code.js"></script>
+</head>
+<body onmouseup="stopNotes()">
+  <button id="secret-button" onclick="surprise()">Secret Button!</button>
+  <div id="cover" aria-hidden="true"></div>
+  <section class="center">
+    <h1>Howard Chiam</h1>
+    <p>Learning. Languages. Other stuff.</p>
+    <div id="draggable" 
+         draggable 
+         ondragstart="showGameButtons();playNotes();" 
+         ondrag="adjustNotes();" 
+         ontouchstart="showGameButtons();playNotes();" 
+         ontouchmove="adjustNotes();" 
+         ontouchend="stopNotes()">
+      <button id="a" onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
+      <button id="s" onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
+      <button id="d" onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
+      <button id="f" onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
+      <button id="c" onclick="window.open('https:\/\/hchiam.blogspot.com', '_blank');">Blog</button>
+      <button id="space" onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
+      <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
+      <div id="game-container"></div>
+    </div>
+    <div style="visibility: hidden;">
+      <p id="hint" aria-live="polite">Hint: hit tab</p>
+    </div>
+    <div id="learning-link" style="visibility: hidden;">
+      <p>Here are things I've been learning and working on: <button onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');" 
+                                                                    aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>
+    </div>
+  </section>
+</body>
+</html>
