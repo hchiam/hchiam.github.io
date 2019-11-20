@@ -6,6 +6,12 @@ then
   rm public/*
 fi
 
+# create public folder if it doesn't exist already
+if ! [ -e public ]
+then
+  mkdir public
+fi
+
 # copy specific files into the public folder:
 cp brain.js public/brain.js
 cp htc.png public/htc.png
