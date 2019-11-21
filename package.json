@@ -4,6 +4,7 @@
   "dependencies": {
   },
   "scripts": {
+    "test": "jest"
   },
   "eslintConfig": {
   },
@@ -18,5 +19,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest-cli": "^24.9.0"
   }
 }
