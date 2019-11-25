@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# to run this file in CLI: bash copy-to-public-folder.sh
+
 # empty public folder if it has anything in it:
 if [[ -e public/* ]]
 then
@@ -20,3 +22,5 @@ cp minified-code.js public/minified-code.js
 cp minified-style.css public/minified-style.css
 cp sound.js public/sound.js
 cp style.css public/style.css
+cp offline-page.html public/offline-page.html
+cp service-worker.js public/service-worker.js
