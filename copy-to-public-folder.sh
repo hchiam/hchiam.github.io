@@ -24,3 +24,5 @@ cp sound.js public/sound.js
 cp style.css public/style.css
 cp offline-page.html public/offline-page.html
 cp service-worker.js public/service-worker.js
+cp jquery.min.js public/jquery.min.js
+cp jquery-ui.min.js public/jquery-ui.min.js
