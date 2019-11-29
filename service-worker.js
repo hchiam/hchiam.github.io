@@ -1,6 +1,7 @@
-var CACHE_NAME = 'version_02';
+var CACHE_NAME = 'version_03';
 
 var URLS = [
+  'htc.png',
   'index.html',
   'offline-page.html',
   'script.js',
