@@ -1,8 +1,8 @@
 var CACHE_NAME = 'version_06';
 
 var appShellURLs = [
-  'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
-  'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js',
+  'jquery.min.js',
+  'jquery-ui.min.js',
   'brain.js',
   'htc.png',
   'index.html',
