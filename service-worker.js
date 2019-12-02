@@ -1,6 +1,6 @@
-var CACHE_NAME = 'version_05';
+var CACHE_NAME = 'version_06';
 
-var URLS = [
+var appShellURLs = [
   'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
   'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js',
   'brain.js',
@@ -12,26 +12,41 @@ var URLS = [
   'sound.js',
 ];
 
-self.addEventListener('install', function (e) {
-  e.waitUntil(caches.open(CACHE_NAME)
+self.addEventListener('install', function (event) {
+  event.waitUntil(caches.open(CACHE_NAME)
     .then(function (cache) {
       console.log('Service worker installing.')
-      return cache.addAll(URLS);
+      return cache.addAll(appShellURLs);
     })
   );
 });
 
-self.addEventListener('fetch', function (e) {
-  if (e.request.mode === 'navigate') {
-    e.respondWith(fetch(e.request)
-      .catch(function (err) {
-        return caches.open(CACHE_NAME)
-          .then(function (cache) {
-            console.log('Service worker working even though you are offline.')
-            // return cache.matchAll(URLS);
-            return cache.match('offline-page.html');
-          });
+self.addEventListener('fetch', function (event) {
+  var url = new URL(event.request.url);
+  if (appShellURLs.indexOf(url.pathname) !== -1) {
+    event.respondWith(caches.match(event.request)
+      .then(function (response) {
+        if (!response) {
+          throw new Error(event.request + ' not found in cache');
+        }
+        console.log('Service worker working even though you are offline.');
+        return response;
+      })
+      .catch(function (error) {
+        fetch(event.request);
       })
     );
   }
+  // if (event.request.mode === 'navigate') {
+  //   event.respondWith(fetch(event.request)
+  //     .catch(function (error) {
+  //       return caches.open(CACHE_NAME)
+  //         .then(function (cache) {
+  //           console.log('Service worker working even though you are offline.');
+  //           // return cache.matchAll(URLS);
+  //           return cache.match('offline-page.html');
+  //         });
+  //     })
+  //   );
+  // }
 });
