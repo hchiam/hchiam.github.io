@@ -1,4 +1,4 @@
-var CACHE_NAME = 'version_06';
+var CACHE_NAME = 'version_07';
 
 var appShellURLs = [
   'jquery.min.js',
@@ -36,17 +36,16 @@ self.addEventListener('fetch', function (event) {
         fetch(event.request);
       })
     );
+  } else if (event.request.mode === 'navigate') {
+    event.respondWith(fetch(event.request)
+      .catch(function (error) {
+        return caches.open(CACHE_NAME)
+          .then(function (cache) {
+            console.log('Service worker working even though you are offline.');
+            // return cache.matchAll(URLS);
+            return cache.match('offline-page.html');
+          });
+      })
+    );
   }
-  // if (event.request.mode === 'navigate') {
-  //   event.respondWith(fetch(event.request)
-  //     .catch(function (error) {
-  //       return caches.open(CACHE_NAME)
-  //         .then(function (cache) {
-  //           console.log('Service worker working even though you are offline.');
-  //           // return cache.matchAll(URLS);
-  //           return cache.match('offline-page.html');
-  //         });
-  //     })
-  //   );
-  // }
 });
