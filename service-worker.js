@@ -1,9 +1,15 @@
-var CACHE_NAME = 'version_04';
+var CACHE_NAME = 'version_05';
 
 var URLS = [
+  'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
+  'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js',
+  'brain.js',
   'htc.png',
   'index.html',
+  'minified-code.js',
+  'minified-style.css',
   'offline-page.html',
+  'sound.js',
 ];
 
 self.addEventListener('install', function (e) {
@@ -22,7 +28,7 @@ self.addEventListener('fetch', function (e) {
         return caches.open(CACHE_NAME)
           .then(function (cache) {
             console.log('Service worker working even though you are offline.')
-            return cache.match('offline-page.html');
+            return cache.matchAll(URLS);
           });
       })
     );
