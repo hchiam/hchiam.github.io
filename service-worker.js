@@ -28,7 +28,8 @@ self.addEventListener('fetch', function (e) {
         return caches.open(CACHE_NAME)
           .then(function (cache) {
             console.log('Service worker working even though you are offline.')
-            return cache.matchAll(URLS);
+            // return cache.matchAll(URLS);
+            return cache.match('offline-page.html');
           });
       })
     );
