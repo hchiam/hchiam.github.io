@@ -1,13 +1,12 @@
 {
   "name": "hchiam.github.io",
   "version": "1.0.0",
-  "dependencies": {
-  },
+  "dependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js; bash copy-to-public-folder.sh;"
   },
-  "eslintConfig": {
-  },
+  "eslintConfig": {},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -21,6 +20,8 @@
     ]
   },
   "devDependencies": {
-    "jest-cli": "^24.9.0"
+    "express": "^4.17.1",
+    "jest-cli": "^24.9.0",
+    "minify": "^4.1.3"
   }
 }
