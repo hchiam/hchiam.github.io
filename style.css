@@ -125,3 +125,7 @@ div, img, p {
     height: 100vh;
     background: inherit;
 }
+
+p#noscript {
+    text-align: center !important;
+}
