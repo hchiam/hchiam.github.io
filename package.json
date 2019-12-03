@@ -4,7 +4,8 @@
   "dependencies": {},
   "scripts": {
     "test": "jest",
-    "build": "minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js; bash copy-to-public-folder.sh;"
+    "build": "minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js; bash copy-to-public-folder.sh;",
+    "start": "node index.js"
   },
   "eslintConfig": {},
   "browserslist": {
