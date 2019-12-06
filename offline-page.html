@@ -32,7 +32,29 @@
       <button id="f" onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
       <button id="c" onclick="window.open('https:\/\/hchiam.blogspot.com', '_blank');">Blog</button>
       <button id="space" onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
-      <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
+      <div id="draggable-handle" 
+           width="100px" 
+           role="none" 
+           aria-hidden="true" 
+           aria-label="Howard signature icon"
+           style="font-size: 10px;">
+        <img id="preferred-icon" 
+             src="htc.png" 
+             onerror="imageFallback();" 
+             alt="Howard signature icon" 
+             width="100px" 
+             class="shake">
+        <div id="ascii-art" style="display:none;" class="shake">
+          <!-- hi :) -->
+          <p style="padding:0;margin:-1px;color:black!important;">████████████████████</p>
+          <p style="padding:0;margin:-1px;color:black!important;">██░░██░░░░░░░░░░░░██</p>
+          <p style="padding:0;margin:-1px;color:black!important;">██░░██████░░████████</p>
+          <p style="padding:0;margin:-1px;color:black!important;">██░░░░░░██░░██░░░░██</p>
+          <p style="padding:0;margin:-1px;color:black!important;">██░░██░░██░░██░░████</p>
+          <p style="padding:0;margin:-1px;color:black!important;">██░░██░░██░░██░░░░██</p>
+          <p style="padding:0;margin:-1px;color:black!important;">████████████████████</p>
+        </div>
+      </div>
       <div id="game-container"></div>
     </div>
     <div style="visibility: hidden;">

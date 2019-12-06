@@ -32,7 +32,7 @@ function adjustNotes() {
     volumeSetup.gain.value = volume;
     const oscillator = notes[i].oscillator;
     oscillator.frequency.value = frequency;
-    indicateNoteWithColour('img#draggable-handle', volume, frequency);
+    indicateNoteWithColour('#draggable-handle', volume, frequency);
   }
 }
 

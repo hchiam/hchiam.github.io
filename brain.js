@@ -218,3 +218,8 @@ function goToCRPrep() {
     $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>');
   });
 }
+
+function imageFallback() {
+  $('img').remove();
+  $('#ascii-art').show();
+}
