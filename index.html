@@ -34,6 +34,7 @@
          ontouchstart="showGameButtons();playNotes();" 
          ontouchmove="adjustNotes();" 
          ontouchend="stopNotes()">
+      <div id="button-notification" role="status" aria-live="polite" style="position: absolute; left: -9999px;"></div>
       <button id="a" onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
       <button id="s" onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
       <button id="d" onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
@@ -43,9 +44,7 @@
       <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
       <div id="game-container"></div>
     </div>
-    <div style="visibility: hidden;">
-      <p id="hint" aria-live="polite">Hint: hit tab</p>
-    </div>
+    <div id="hint" role="status" aria-live="polite"></div>
     <div id="learning-link" style="visibility: hidden;">
       <p>Here are things I've been learning and working on: <button onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');" 
                                                                     aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>

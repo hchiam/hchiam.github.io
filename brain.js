@@ -4,11 +4,14 @@ setTimeout(() => {
 
 setTimeout(() => {
   expandButtons();
+  document.getElementById('button-notification').innerText = 'Within scrolling view, there are six buttons in a group.';
 }, 1000);
 
 setTimeout(() => {
   if (!onDesktop()) {
-    document.getElementById('hint').innerHTML = 'Hint: scroll down';
+    document.getElementById('hint').innerText = 'Hint: scroll down';
+  } else {
+    document.getElementById('hint').innerText = 'Hint: hit tab';
   }
   showHint();
 }, 2000);
