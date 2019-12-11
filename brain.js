@@ -221,11 +221,12 @@ function goToSNPromptGenerator() {
 // goToCRPrep();
 function goToCRPrep() {
   $(function(){
-    $('body').load('https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/index.html #button-bar, #checkbox-box, #hover-info');
-    disableOldStyles();
-    $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/style.css">');
-    $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/download-page-as-image.js"></script>');
-    $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>');
+    $('body').load('https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/index.html #button-bar, #checkbox-box, #hover-info', function() {
+      disableOldStyles();
+      $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/style.css">');
+      $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/download-page-as-image.js"></script>');
+      $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>');
+    });
   });
 }
 
