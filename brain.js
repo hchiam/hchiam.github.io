@@ -203,6 +203,7 @@ function scatterSpace() {
 
 function disableOldStyles() {
   $('link[href="style.css"]').prop('disabled', true);
+  $('link[href$="style.css"]').prop('disabled', true);
   $('link[href="minified-style.css"]').prop('disabled', true);
 }
 
