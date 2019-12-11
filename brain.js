@@ -201,6 +201,11 @@ function scatterSpace() {
   scatteredSpace = true;
 }
 
+function imageFallback() {
+  $('img').remove();
+  $('#ascii-art').show();
+}
+
 function disableOldStyles() {
   $('link[href="style.css"]').prop('disabled', true);
   $('link[href="/style.css"]').prop('disabled', true);
@@ -230,7 +235,11 @@ function goToCRPrep() {
   });
 }
 
-function imageFallback() {
-  $('img').remove();
-  $('#ascii-art').show();
-}
+const snpg = goToSNPromptGenerator;
+const cr = goToCRPrep;
+console.log(`If you have an internet connection, \nyou can enter these commands:
+
+snpg()
+
+cr()
+`);
