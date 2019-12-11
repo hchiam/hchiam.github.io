@@ -2,16 +2,16 @@
 
 # to run this file in CLI: bash copy-to-public-folder.sh
 
-# empty public folder if it has anything in it:
-if [[ -e public/* ]]
-then
-  rm public/*
-fi
-
 # create public folder if it doesn't exist already
 if ! [ -e public ]
 then
   mkdir public
+fi
+
+# empty public folder if it has anything in it:
+if [[ -e public/* ]]
+then
+  rm public/*
 fi
 
 # copy specific files into the public folder:

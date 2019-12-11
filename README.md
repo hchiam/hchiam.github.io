@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.com/hchiam/hchiam.github.io)
 
 ```bash
+minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js;
 bash copy-to-public-folder.sh
 lhci autorun
 ```
