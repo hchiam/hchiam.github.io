@@ -210,10 +210,11 @@ function disableOldStyles() {
 // goToSNPromptGenerator();
 function goToSNPromptGenerator() {
   $(function(){
-    $('body').load('https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html');
-    disableOldStyles();
-    $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/style.css">');
-    $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/script.js"></script>');
+    $('body').load('https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html', function() {
+      disableOldStyles();
+      $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/style.css">');
+      $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/script.js"></script>');
+    });
   });
 }
 
