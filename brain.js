@@ -201,11 +201,16 @@ function scatterSpace() {
   scatteredSpace = true;
 }
 
+function disableOldStyles() {
+  $('link[href="style.css"]').prop('disabled', true);
+  $('link[href="minified-style.css"]').prop('disabled', true);
+}
+
 // goToSNPromptGenerator();
 function goToSNPromptGenerator() {
   $(function(){
     $('body').load('https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html');
-    $('link[href="style.css"]').prop('disabled', true);
+    disableOldStyles();
     $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/style.css">');
     $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/script.js"></script>');
   });
@@ -215,7 +220,7 @@ function goToSNPromptGenerator() {
 function goToCRPrep() {
   $(function(){
     $('body').load('https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/index.html #button-bar, #checkbox-box, #hover-info');
-    $('link[href="style.css"]').prop('disabled', true);
+    disableOldStyles();
     $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/style.css">');
     $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/download-page-as-image.js"></script>');
     $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>');
