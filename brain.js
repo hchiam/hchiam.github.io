@@ -134,10 +134,12 @@ function resetGameButtons() {
     .attr('onclick', "window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');");
 }
 
+const mysterySpawnButton = '<button onclick="$(this).text(\'\').css({background:\'blue\',color:\'white\',width:0,height:0,padding:0});var t = this;setTimeout(function(){t.parentNode.removeChild(t)}, 500);">?</button>';
+
 $(document).keydown(function(e) {
   if (gameOn) {
     if (e.keyCode === 65) { // a
-      $('#game-container').append('<button>?</button>');
+      $('#game-container').append(mysterySpawnButton);
     } else if (e.keyCode === 83) { // s
       $('#game-container *:last-child').remove();
     } else if (e.keyCode === 68) { // d
@@ -145,7 +147,7 @@ $(document).keydown(function(e) {
     } else if (e.keyCode === 70) { // f
       $('#game-container *').remove();
       for (let i=0; i<30; i++) {
-        $('#game-container').append('<button>?</button>');
+        $('#game-container').append(mysterySpawnButton);
       }
     } else if (e.keyCode === 67) { // c
       continueGame = !continueGame;
