@@ -10,6 +10,6 @@ app.get("/", (request, response) => {
 });
 
 // make this app actually listen for requests:
-const listener = app.listen(process.env.PORT | 3000, () => { // | 3000 in case testing locally
+const listener = app.listen(process.env.PORT | 8000, () => { // | 3000 in case testing locally
   console.log('Your app is listening on port ' + listener.address().port);
 });
