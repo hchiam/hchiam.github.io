@@ -13,3 +13,9 @@ npm run test # or just: jest
 npm run build
 npm run start # for testing locally on localhost:3000
 ```
+
+You can automatically rebuild and restart (instead of typing `npm run start`) every time you edit a file:
+
+```bash
+npm run continuous-restart # see package.json for details
+```
