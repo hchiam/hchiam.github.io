@@ -214,7 +214,6 @@ function disableOldStyles() {
   $('link[href="minified-style.css"]').prop('disabled', true);
 }
 
-// goToSNPromptGenerator();
 function goToSNPromptGenerator() {
   $(function(){
     $('body').load('https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html', function() {
@@ -225,7 +224,6 @@ function goToSNPromptGenerator() {
   });
 }
 
-// goToCRPrep();
 function goToCRPrep() {
   $(function(){
     $('body').load('https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/index.html #button-bar, #checkbox-box, #hover-info', function() {
@@ -237,11 +235,18 @@ function goToCRPrep() {
   });
 }
 
+function home() {
+  location.reload();
+}
+
 const snpg = goToSNPromptGenerator;
 const cr = goToCRPrep;
-console.log(`If you have an internet connection, \nyou can enter these commands:
+console.log(`If you have an internet connection, 
+you can enter these commands: 
 
 snpg()
 
 cr()
+
+home()
 `);
