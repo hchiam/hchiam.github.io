@@ -127,6 +127,6 @@ div, img, p {
     background: inherit;
 }
 
-p#noscript {
+#noscript p {
     text-align: center !important;
 }
