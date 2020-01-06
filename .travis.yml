@@ -1,3 +1,4 @@
+# automatic testing with Travis CI!
 language: node_js
 node_js:
   - 10
