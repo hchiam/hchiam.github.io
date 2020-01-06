@@ -1,6 +1,6 @@
 # [hchiam.github.io](https://hchiam.github.io)
 
-[![Build Status](https://travis-ci.com/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.com/hchiam/hchiam.github.io)
+[![Build Status](https://travis-ci.org/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.org/hchiam/hchiam.github.io)
 
 ```bash
 minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js;
