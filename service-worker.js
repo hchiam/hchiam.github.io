@@ -10,6 +10,7 @@ const appShellURLs = [
   'minified-style.css',
   'offline-page.html',
   'sound.js',
+  'manifest.webmanifest',
 ];
 
 // when install service worker:
