@@ -9,10 +9,10 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": "/index.html",
   "background_color": "rgb(32,32,32)",
   "display": "standalone",
   "scope": "/",
   "theme_color": "rgb(32,32,32)",
-  "prefer_related_applications": "false"
+  "prefer_related_applications": false
 }
