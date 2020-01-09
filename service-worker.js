@@ -1,16 +1,16 @@
 const SW_VERSION = 'version_08'; // also can serve as cache name
 
 const appShellURLs = [
-  'jquery.min.js',
-  'jquery-ui.min.js',
-  'brain.js',
-  'htc.png',
-  'index.html',
-  'minified-code.js',
-  'minified-style.css',
-  'offline-page.html',
-  'sound.js',
-  'manifest.webmanifest',
+  '/jquery.min.js',
+  '/jquery-ui.min.js',
+  '/brain.js',
+  '/htc.png',
+  '/index.html',
+  '/minified-code.js',
+  '/minified-style.css',
+  '/offline-page.html',
+  '/sound.js',
+  '/manifest.webmanifest',
 ];
 
 // when install service worker:
