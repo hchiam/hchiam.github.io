@@ -2,10 +2,14 @@
 language: node_js
 node_js:
   - 10
+cache:
+  - yarn: true
+  directories:
+    - node_modules
 before_install:
-  - npm install -g @lhci/cli@0.3.x
+  - yarn global add @lhci/cli@0.3.x
 script:
-  - npm run build
+  - yarn run build
   - lhci autorun
 addons:
   chrome: stable
