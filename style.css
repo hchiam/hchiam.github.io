@@ -51,7 +51,7 @@ a:focus {
 
 #secret-button {
     position: absolute;
-    left: -20%;
+    left: -100%;
     z-index: 3;
 }
 

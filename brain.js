@@ -10,8 +10,10 @@ setTimeout(() => {
 setTimeout(() => {
   if (!onDesktop()) {
     document.getElementById('hint').innerText = 'Hint: scroll down';
+    document.getElementById('secret-button').innerText = 'Secret button!';
   } else {
     document.getElementById('hint').innerText = 'Hint: hit tab';
+    document.getElementById('secret-button').innerText = 'Hit Enter or Spacebar!';
   }
   showHint();
 }, 2000);
