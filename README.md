@@ -20,4 +20,4 @@ You can automatically rebuild and restart (instead of typing `yarn run start`) e
 yarn run continuous-restart # see package.json for details
 ```
 
-(Don't have `yarn`? [Install `yarn`](https://yarnpkg.com/en/docs/install) and try again. Try replacing `yarn` with `npm` in the commands above and in the scripts commands in [`package.json`](https://github.com/hchiam/hchiam.github.io/blob/master/package.json). If the commands still don't work, you might need to [find the equivalent syntax in `npm`](https://github.com/hchiam/learning-yarn#example-commands).)
+(Don't have `yarn`? [Install `yarn`](https://yarnpkg.com/en/docs/install) and try again. Try replacing `yarn` with `npm` in the commands above.)

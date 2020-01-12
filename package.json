@@ -5,9 +5,10 @@
   "scripts": {
     "test": "jest",
     "minify": "minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js;",
-    "build": "yarn run minify; bash copy-to-public-folder.sh;",
+    "build": "yarn run minify || npm run minify; bash copy-to-public-folder.sh;",
     "start": "node index.js",
-    "continuous-restart": "nodemon -x 'yarn run build; yarn run start' --ignore public --ignore 'minified*.*'"
+    "continuous-restart": "nodemon -x 'yarn run build; yarn run start' --ignore public --ignore 'minified*.*'",
+    "npm-continuous-restart": "nodemon -x 'npm run build; npm run start' --ignore public --ignore 'minified*.*'; killall -9 node;"
   },
   "eslintConfig": {},
   "browserslist": {
