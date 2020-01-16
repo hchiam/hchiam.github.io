@@ -233,6 +233,7 @@ function goToCRPrep() {
       $('head').append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/style.css">');
       $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/download-page-as-image.js"></script>');
       $('head').append('<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>');
+      $('head').append('<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>');
     });
   });
 }
