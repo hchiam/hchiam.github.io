@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo 'Did you build first?'; echo; npm test"
+      "pre-commit": "echo; echo 'Reminder: Did you build first?'; echo; npm test; echo; echo 'Reminder: Did you build first?'; echo;"
     }
   },
   "license": "MIT"
