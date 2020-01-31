@@ -9,6 +9,10 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + '/index.html');
 });
 
+app.get("/can-you-find-the-hidden-features?", (request, response) => {
+  response.sendFile(__dirname + '/index.html');
+});
+
 // make this app actually listen for requests:
 const listener = app.listen(process.env.PORT | 8000, () => { // | 8000 in case testing locally
   console.log('Your app is listening on port ' + listener.address().port);
