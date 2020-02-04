@@ -1,15 +1,13 @@
-const SW_VERSION = 'hchiam.github.io-version_09'; // also can serve as cache name
+const SW_VERSION = 'hchiam.github.io-version_10'; // also can serve as cache name
 
 const appShellURLs = [
   '/jquery.min.js',
   '/jquery-ui.min.js',
-  '/brain.js',
   '/htc.png',
   '/index.html',
   '/minified-code.js',
   '/minified-style.css',
   '/offline-page.html',
-  '/sound.js',
   '/manifest.webmanifest',
 ];
 

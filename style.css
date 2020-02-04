@@ -130,3 +130,9 @@ div, img, p {
 #noscript p {
     text-align: center !important;
 }
+
+#cursor-shadow {
+    position: absolute;
+    box-shadow: 0 0 50px 50px rgba(0,0,0,0.1);
+    transition: 0s;
+}
