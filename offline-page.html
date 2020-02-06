@@ -16,7 +16,15 @@
   <script src="minified-code.js"></script>
 </head>
 <body onmouseup="stopNotes()">
-  <button id="secret-button" onclick="surprise()">Secret Button!</button>
+  <noscript>
+    <div id="noscript">
+      <p>Please enable JavaScript to learn more about Howard</p>
+      <p>Or visit <a href="https://github.com/hchiam" 
+                     target="_blank" 
+                     style="padding:0;">Howard's GitHub profile</a></p>
+    </div>
+  </noscript>
+  <button id="secret-button" onclick="surprise()">Hit Enter or Spacebar!</button>
   <div id="cover" aria-hidden="true"></div>
   <section class="center">
     <h1>Howard Chiam</h1>
@@ -28,6 +36,7 @@
          ontouchstart="showGameButtons();playNotes();" 
          ontouchmove="adjustNotes();" 
          ontouchend="stopNotes()">
+      <div id="button-notification" role="status" aria-live="polite" style="position: absolute; left: -9999px;"></div>
       <button id="a" onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
       <button id="s" onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
       <button id="d" onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
@@ -59,9 +68,8 @@
       </div>
       <div id="game-container"></div>
     </div>
-    <div style="visibility: hidden;">
-      <p id="hint" aria-live="polite">Hint: hit tab</p>
-    </div>
+    <div id="hint" role="status" aria-live="polite"></div>
+    <p id="extra-info"></p>
     <div id="learning-link" style="visibility: hidden;">
       <p>Here are things I've been learning and working on: <button onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');" 
                                                                     aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>

@@ -1,11 +1,12 @@
 setTimeout(() => {
   slideIn();
-}, 0);
+  advertiseOfflineAbility();
+}, 10);
 
 setTimeout(() => {
   expandButtons();
   document.getElementById('button-notification').innerText = 'Within scrolling view, there are six buttons in a group.';
-}, 1000);
+}, 100);
 
 setTimeout(() => {
   if (!onDesktop()) {
@@ -24,6 +25,12 @@ function slideIn() {
   document.getElementById('cover').style.visibility = 'hidden';
   $('section').css({position: 'relative', top: '-100%'});
   $('section').animate({top: 0});
+}
+
+function advertiseOfflineAbility() {
+  if (navigator.serviceWorker) {
+    $('#extra-info').text('(BTW: This page works offline!)');
+  }
 }
 
 function expandButtons() {

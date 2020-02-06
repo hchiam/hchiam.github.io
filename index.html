@@ -16,7 +16,7 @@
   <script src="minified-code.js"></script>
   <script>
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('service-worker.js', {scope: ''})
+      navigator.serviceWorker.register('service-worker.js', {scope: ''});
     }
   </script>
 </head>
@@ -52,6 +52,7 @@
       <div id="game-container"></div>
     </div>
     <div id="hint" role="status" aria-live="polite"></div>
+    <p id="extra-info"></p>
     <div id="learning-link" style="visibility: hidden;">
       <p>Here are things I've been learning and working on: <button onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');" 
                                                                     aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>

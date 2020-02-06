@@ -136,3 +136,7 @@ div, img, p {
     box-shadow: 0 0 50px 50px rgba(0,0,0,0.1);
     transition: 0s;
 }
+
+#extra-info {
+    color: #808080;
+}
