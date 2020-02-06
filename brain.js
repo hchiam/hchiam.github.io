@@ -6,7 +6,7 @@ setTimeout(() => {
 setTimeout(() => {
   expandButtons();
   document.getElementById('button-notification').innerText = 'Within scrolling view, there are six buttons in a group.';
-}, 100);
+}, 1000);
 
 setTimeout(() => {
   if (!onDesktop()) {
