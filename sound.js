@@ -69,14 +69,12 @@ function playNoteOfId(id, delay) {
 
 function getCoordinates(id) {
   const rect = document.getElementById(id).getBoundingClientRect();
-  console.log(rect.top, rect.right, rect.bottom, rect.left);
   const x = rect.left;
   const y = rect.top;
   return [x, y];
 }
 
 function playNote([x, y], delay=4) {
-  console.log(x, y);
   // example usage: <body onmousemove="playNote(event)" style="width: 100vw; height: 100vh;"></body>
   // can play another note simultaneously with another playNote(e) call
   const frequency = getFrequencyFromX(x);
