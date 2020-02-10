@@ -22,7 +22,6 @@ setTimeout(() => {
 setUpGame();
 
 function slideIn() {
-  document.getElementById('cover').style.visibility = 'hidden';
   $('section').css({position: 'relative', top: '-100%'});
   $('section').animate({top: 0});
 }

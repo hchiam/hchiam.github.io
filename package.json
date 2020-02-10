@@ -8,7 +8,7 @@
     "build": "yarn run minify || npm run minify; bash copy-to-public-folder.sh;",
     "start": "node index.js & open http://localhost:8000",
     "stop": "killall -9 node",
-    "continuous-restart": "nodemon -x 'yarn build; node index.js;' --ignore public --ignore 'minified*.*';"
+    "continuous-restart": "nodemon -e js,html,css -x 'yarn build; node index.js;' --ignore public --ignore 'minified*.*';"
   },
   "eslintConfig": {},
   "browserslist": {
