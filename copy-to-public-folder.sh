@@ -12,6 +12,7 @@ fi
 rm public/*
 
 # copy specific files into the public folder:
+cp CNAME public/CNAME
 cp htc.png public/htc.png
 cp index.html public/index.html
 cp minified-code.js public/minified-code.js
