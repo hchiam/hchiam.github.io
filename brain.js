@@ -18,7 +18,7 @@ setTimeout(() => {
     document.getElementById('hint').innerText = 'Hint: scroll down';
     document.getElementById('secret-button').innerText = 'Secret button!';
   } else {
-    document.getElementById('hint').innerText = 'Hint: hit tab';
+    document.getElementById('hint').innerText = 'Hint: hit Tab, or Shift + Tab';
     document.getElementById('secret-button').innerText = 'Hit Enter or Spacebar!';
   }
   showHint();
