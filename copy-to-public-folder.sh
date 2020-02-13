@@ -9,9 +9,10 @@ then
 fi
 
 # empty public folder if it has anything in it:
-rm public/*
+rm -r public/*
 
 # copy specific files into the public folder:
+cp -r phaser-game public
 cp htc.png public/htc.png
 cp index.html public/index.html
 cp minified-code.js public/minified-code.js

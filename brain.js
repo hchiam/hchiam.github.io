@@ -227,6 +227,10 @@ function disableOldStyles() {
   $('link[href="minified-style.css"]').prop('disabled', true);
 }
 
+function goToGame() {
+  window.location.href = "/phaser-game/index.html";
+}
+
 function goToSNPromptGenerator() {
   $(function(){
     $('body').load('https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html', function() {
@@ -253,14 +257,18 @@ function home() {
   location.reload();
 }
 
+const game = goToGame;
 const snpg = goToSNPromptGenerator;
 const cr = goToCRPrep;
 console.log(`If you have an internet connection, 
 you can enter these commands: 
+
+game()
 
 snpg()
 
 cr()
 
 home()
+
 `);
