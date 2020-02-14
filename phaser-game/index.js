@@ -276,3 +276,7 @@ function updateCounter(counter) {
     text.text = message;
     counter--;
 }
+
+function home() {
+    window.location.href = '/';
+}
