@@ -1,4 +1,4 @@
-const SW_VERSION = 'hchiam.github.io-version_12'; // also can serve as cache name
+const SW_VERSION = 'hchiam.github.io-version_13'; // also can serve as cache name
 
 const appShellURLs = [
   '/jquery.min.js',
@@ -15,7 +15,7 @@ const appShellURLs = [
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(SW_VERSION)
     .then((cache) => {
-      console.log('Service worker installing.')
+      // console.log('Service worker installing.')
       // cache app shell URLs/resources:
       return cache.addAll(appShellURLs);
     })
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (event) => {
         if (!response) {
           throw new Error(event.request + ' not found in cache');
         }
-        console.log(`Service worker fetching resource even though you're offline: ${url}`);
+        // console.log(`Service worker fetching resource even though you're offline: ${url}`);
         // get resource from cache:
         return response;
       })
@@ -61,7 +61,7 @@ self.addEventListener('fetch', (event) => {
       .catch((error) => {
         return caches.open(SW_VERSION)
           .then((cache) => {
-            console.log(`Service worker fetching page even though you're offline: ${url}`);
+            // console.log(`Service worker fetching page even though you're offline: ${url}`);
             // get page from cache:
             return cache.match('offline-page.html');
           });
