@@ -1,4 +1,6 @@
-console.log(`If you have an internet connection,
+console.log(`Close the browser dev tools to play.
+
+If you have an internet connection,
 you can enter this command: 
 
 home()
