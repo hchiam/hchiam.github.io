@@ -260,15 +260,21 @@ function home() {
 const game = goToGame;
 const snpg = goToSNPromptGenerator;
 const cr = goToCRPrep;
-console.log(`If you have an internet connection, 
-you can enter these commands: 
+console.log(`%cIf you have an internet connection,
+you can enter these commands:%c
 
-game()
+%cgame()%c
 
-snpg()
+%csnpg()%c
 
-cr()
+%ccr()%c
 
-home()
+%chome()%c
 
-`);
+`,
+'color: blue; background: lightgrey;','',
+'color: lime; background: black; padding: 5px 10px;','',
+'color: lime; background: black; padding: 5px 10px;','',
+'color: lime; background: black; padding: 5px 10px;','',
+'color: lime; background: black; padding: 5px 10px;','',
+);

@@ -1,11 +1,15 @@
-console.log(`Close the browser dev tools to play.
+console.log(`%cClose the browser dev tools to play.%c
 
-If you have an internet connection,
-you can enter this command: 
+%cIf you have an internet connection,
+you can enter this command:%c
 
-home()
+%chome()%c
 
-`);
+`,
+'color: blue; background: lightgrey;','',
+'color: blue; background: lightgrey;','',
+'color: lime; background: black; padding: 5px 10px;','',
+);
 
 /*
  * Made using Phaser 2.6.2
