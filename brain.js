@@ -294,4 +294,5 @@ you can enter these commands:%c
 'color: lime; background: black; padding: 5px 10px;','',
 'color: lime; background: black; padding: 5px 10px;','',
 'color: lime; background: black; padding: 5px 10px;','',
+'color: lime; background: black; padding: 5px 10px;','',
 );
