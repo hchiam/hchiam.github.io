@@ -253,6 +253,21 @@ function goToCRPrep() {
   });
 }
 
+function skew() {
+  $('body').css({
+    'transform': 'skewY(-10deg)',
+    'transform-origin': '150% top',
+    'background': 'black',
+  });
+  setTimeout(function() {
+    $('body').css({
+      'transform': '',
+      'background': 'transparent',
+      'top': '0',
+    })
+  }, 1000);  
+}
+
 function home() {
   location.reload();
 }
@@ -268,6 +283,8 @@ you can enter these commands:%c
 %csnpg()%c
 
 %ccr()%c
+
+%cskew()%c
 
 %chome()%c
 
