@@ -227,6 +227,16 @@ function disableOldStyles() {
   $('link[href="minified-style.css"]').prop('disabled', true);
 }
 
+const tilt = UniversalTilt.init({
+  elements: document.querySelectorAll('.tilt'),
+  settings: {
+    // options...
+  },
+  callbacks: {
+    // callbacks...
+  }
+});
+
 function goToGame() {
   window.location.href = "/phaser-game/index.html";
 }

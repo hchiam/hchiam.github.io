@@ -32,7 +32,14 @@
   <button id="secret-button" onclick="surprise()">Hit Enter or Spacebar!</button>
   <section id="main" class="center">
     <div id="cover" aria-hidden="true"></div>
-    <h1>Howard Chiam</h1>
+    <h1 class="tilt"
+        data-tilt 
+        data-scale="1.2" 
+        data-shine="true" 
+        data-shine-opacity="0.5" 
+        data-shine-save="true" 
+        tilt-change
+        title="This is my name">Howard Chiam</h1>
     <p>Learning. Languages. Other stuff.</p>
     <div id="draggable" 
          draggable 
@@ -48,7 +55,11 @@
       <button id="f" onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
       <button id="c" onclick="window.open('https:\/\/hchiam.blogspot.com', '_blank');">Blog</button>
       <button id="space" onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
-      <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
+      <img id="draggable-handle" 
+           class="shake" 
+           src="htc.png" 
+           alt="Howard signature icon" 
+           width="100px">
       <div id="game-container"></div>
     </div>
     <div id="hint" role="status" aria-live="polite"></div>
@@ -58,6 +69,7 @@
                                                                     aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>
     </div>
   </section>
+  <script src="https://unpkg.com/universal-tilt.js"></script>
   <div id="cursor-shadow"></div>
 </body>
 </html>

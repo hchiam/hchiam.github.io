@@ -3,15 +3,17 @@
     --secondary-color: hsl(0, 3%, 23%);
 }
 
-* {
+*:not(div) {
     background: var(--main-color);
     color: whitesmoke;
     font-family: avenir, arial;
     padding: 10px;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
-body, section#main, h1 {
+body,
+section#main,
+h1 {
     background: transparent;
 }
 
@@ -51,7 +53,7 @@ a:focus {
 #hint {
     font-size: xx-large;
     font-weight: bolder;
-    color: rgb(50,50,50);
+    color: rgb(50, 50, 50);
 }
 
 #hint:hover {
@@ -99,9 +101,11 @@ a:focus {
     0% {
         transform: rotate(-5deg);
     }
+
     50% {
         transform: rotate(5deg);
     }
+
     100% {
         transform: rotate(-5deg);
     }
@@ -121,8 +125,10 @@ a:focus {
     background: navy;
 }
 
-div, img, p {
-    background: rgba(0,0,0,0);
+div,
+img,
+p {
+    background: rgba(0, 0, 0, 0);
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -146,10 +152,49 @@ div, img, p {
 
 #cursor-shadow {
     position: absolute;
-    box-shadow: 0 0 50px 50px rgba(0,0,0,0.1);
+    box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.1);
     transition: 0s;
 }
 
 #extra-info {
     color: #808080;
+}
+
+.tilt {
+    width: 15ch;
+    margin: auto;
+    transform-style: preserve-3d;
+    border-radius: 3px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.tilt:hover {
+    background: lime;
+    color: black;
+}
+
+.tilt>.tilt-element-inner-text {
+    transform: translateZ(20px);
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    line-height: 50px;
+    font-family: avenir, arial, tahoma, monospace;
+
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.tilt>.tilt-element-inner-text.middle {
+    top: 10px;
+    left: 25px;
+    background: rgba(0, 0, 255, 0.75);
+}
+
+.tilt>.tilt-element-inner-text.top-right {
+    top: -30px;
+    right: -10px;
+    background: rgba(255, 255, 0, 0.2);
 }
