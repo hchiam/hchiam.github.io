@@ -1,6 +1,6 @@
 # [hchiam.github.io](https://hchiam.github.io/?can-you-find-the-hidden-features?)
 
-[![Build Status](https://travis-ci.org/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.org/hchiam/hchiam.github.io) [![Coverage Status](https://coveralls.io/repos/github/hchiam/hchiam.github.io/badge.svg?branch=master)](https://coveralls.io/github/hchiam/hchiam.github.io?branch=master)
+![version](https://img.shields.io/github/release/hchiam/hchiam.github.io) [![Build Status](https://travis-ci.org/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.org/hchiam/hchiam.github.io) [![Coverage Status](https://coveralls.io/repos/github/hchiam/hchiam.github.io/badge.svg?branch=master)](https://coveralls.io/github/hchiam/hchiam.github.io?branch=master)
 
 ```bash
 minify style.css > minified-style.css; minify brain.js sound.js > minified-code.js;
