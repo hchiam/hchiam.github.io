@@ -29,8 +29,8 @@
   "devDependencies": {
     "express": "^4.17.1",
     "husky": "^4.2.3",
-    "jest-cli": "^25.1.0",
-    "minify": "^5.1.0"
+    "jest-cli": "^25.2.7",
+    "minify": "^5.1.1"
   },
   "husky": {
     "hooks": {
