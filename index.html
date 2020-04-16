@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Howard Chiam</title>
   <meta name="description" content="Howard's Portfolio Central" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="rgb(32,32,32)"/>
-  <link rel="shortcut icon" href="htc.png"/>
+  <meta name="theme-color" content="rgb(32,32,32)" />
+  <link rel="shortcut icon" href="htc.png" />
   <!-- <link rel="stylesheet" href="style.css"> -->
   <link rel="stylesheet" href="minified-style.css">
   <script src="jquery.min.js"></script>
@@ -15,61 +16,51 @@
   <script src="sound.js"></script> -->
   <script>
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('service-worker.js', {scope: ''});
+      navigator.serviceWorker.register('service-worker.js', {
+        scope: ''
+      });
     }
   </script>
 </head>
+
 <body onmouseup="stopNotes()">
   <noscript>
     <div id="noscript">
       <p>Please enable JavaScript to learn more about Howard</p>
-      <p>Or visit <a href="https://github.com/hchiam" 
-                     target="_blank" 
-                     style="padding:0;">Howard's GitHub profile</a></p>
+      <p>Or visit <a href="https://github.com/hchiam" target="_blank" style="padding:0;">Howard's GitHub profile</a></p>
     </div>
   </noscript>
   <button id="secret-button" onclick="surprise()">Hit Enter or Spacebar!</button>
   <section id="main" class="center">
     <div id="cover" aria-hidden="true"></div>
-    <h1 class="tilt"
-        data-tilt 
-        data-scale="1.2" 
-        data-shine="true" 
-        data-shine-opacity="0.5" 
-        data-shine-save="true" 
-        tilt-change
-        title="This is my name">Howard Chiam</h1>
+    <h1 class="tilt" data-tilt data-scale="1.2" data-shine="true" data-shine-opacity="0.5" data-shine-save="true"
+      tilt-change title="This is my name">Howard Chiam</h1>
     <p>Learning. Languages. Other stuff.</p>
-    <div id="draggable" 
-         draggable 
-         ondragstart="showGameButtons();playNotes();" 
-         ondrag="adjustNotes();" 
-         ontouchstart="showGameButtons();playNotes();" 
-         ontouchmove="adjustNotes();" 
-         ontouchend="stopNotes()">
+    <div id="draggable" draggable ondragstart="showGameButtons();playNotes();" ondrag="adjustNotes();"
+      ontouchstart="showGameButtons();playNotes();" ontouchmove="adjustNotes();" ontouchend="stopNotes()">
       <div id="button-notification" role="status" aria-live="polite" style="position: absolute; left: -9999px;"></div>
       <button id="a" onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
       <button id="s" onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
       <button id="d" onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
       <button id="f" onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
       <button id="c" onclick="window.open('https:\/\/hchiam.blogspot.com', '_blank');">Blog</button>
-      <button id="space" onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
-      <img id="draggable-handle" 
-           class="shake" 
-           src="htc.png" 
-           alt="Howard signature icon" 
-           width="100px">
+      <button id="space"
+        onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
+      <img id="draggable-handle" class="shake" src="htc.png" alt="Howard signature icon" width="100px">
       <div id="game-container"></div>
     </div>
     <div id="hint" role="status" aria-live="polite"></div>
     <p id="extra-info"></p>
     <div id="learning-link" style="visibility: hidden;">
-      <p>Here are things I've been learning and working on: <button onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');" 
-                                                                    aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>
+      <!-- You've found one of the hidden features! :) -->
+      <p>Here are things I've been learning and working on: <button
+          onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');"
+          aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>
     </div>
   </section>
   <div id="cursor-shadow"></div>
   <script src="https://unpkg.com/universal-tilt.js"></script>
   <script src="minified-code.js"></script>
 </body>
+
 </html>
