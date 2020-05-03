@@ -1,6 +1,6 @@
 // note generation JS reference: https://github.com/hchiam/learning-js/blob/master/note-sound-generator.js
 
-const audioCtx = new AudioContext();
+let audioCtx = new AudioContext();
 // multiple oscillators can use this one context
 let notes = [];
 

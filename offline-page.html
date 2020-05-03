@@ -1,72 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>Howard Chiam</title>
-  <meta name="description" content="Howard's Portfolio Central" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="rgb(32,32,32)" />
-  <link rel="shortcut icon" href="htc.png" />
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <link rel="stylesheet" href="minified-style.css">
-  <script src="jquery.min.js"></script>
-  <script src="jquery-ui.min.js"></script>
-  <!-- <script src="brain.js"></script>
+  <head>
+    <title>Howard Chiam</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src http://localhost:8000/jquery.min.js https://hchiam.github.io/jquery.min.js http://localhost:8000/jquery-ui.min.js https://hchiam.github.io/jquery-ui.min.js https://unpkg.com/universal-tilt.js http://localhost:8000/minified-code.js https://hchiam.github.io/minified-code.js http://localhost:8000/service-worker.js https://hchiam.github.io/service-worker.js; style-src http://localhost:8000/minified-style.css https://hchiam.github.io/minified-style.css; img-src http://localhost:8000/htc.png https://hchiam.github.io/htc.png;"
+    />
+    <meta name="description" content="Howard's Portfolio Central" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="rgb(32,32,32)" />
+    <link rel="shortcut icon" href="htc.png" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="minified-style.css" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <!-- <script src="brain.js"></script>
   <script src="sound.js"></script> -->
-</head>
+  </head>
 
-<body onmouseup="stopNotes()">
-  <noscript>
-    <div id="noscript">
-      <p>Please enable JavaScript to learn more about Howard</p>
-      <p>Or visit <a href="https://github.com/hchiam" target="_blank" style="padding:0;">Howard's GitHub profile</a></p>
-    </div>
-  </noscript>
-  <button id="secret-button" onclick="surprise()">Hit Enter or Spacebar!</button>
-  <section id="main" class="center">
-    <div id="cover" aria-hidden="true"></div>
-    <h1 class="tilt" data-tilt data-scale="1.2" data-shine="true" data-shine-opacity="0.5" data-shine-save="true"
-      tilt-change title="This is my name">Howard Chiam</h1>
-    <p>Learning. Languages. Other stuff.</p>
-    <div id="draggable" draggable ondragstart="showGameButtons();playNotes();" ondrag="adjustNotes();"
-      ontouchstart="showGameButtons();playNotes();" ontouchmove="adjustNotes();" ontouchend="stopNotes()">
-      <div id="button-notification" role="status" aria-live="polite" style="position: absolute; left: -9999px;"></div>
-      <button id="a" onclick="window.open('https:\/\/github.com/hchiam', '_blank');">GitHub</button>
-      <button id="s" onclick="window.open('https:\/\/codepen.io/hchiam', '_blank');">CodePen</button>
-      <button id="d" onclick="window.open('https:\/\/glitch.com/@hchiam', '_blank');">Glitch</button>
-      <button id="f" onclick="window.open('https:\/\/ca.linkedin.com/in/howardchiam', '_blank');">LinkedIn</button>
-      <button id="c" onclick="window.open('https:\/\/hchiam.blogspot.com', '_blank');">Blog</button>
-      <button id="space"
-        onclick="window.open('https:\/\/www.memrise.com/user/hchiam/courses/learning', '_blank');">Memrise</button>
-      <div id="draggable-handle" width="100px" role="none" aria-hidden="true" aria-label="Howard signature icon"
-        style="font-size: 10px;">
-        <img id="preferred-icon" src="htc.png" onerror="imageFallback();" alt="Howard signature icon" width="100px"
-          class="shake">
-        <div id="ascii-art" style="display:none;" class="shake">
-          <!-- hi :) -->
-          <p style="padding:0;margin:-1px;color:black!important;">████████████████████</p>
-          <p style="padding:0;margin:-1px;color:black!important;">██░░██░░░░░░░░░░░░██</p>
-          <p style="padding:0;margin:-1px;color:black!important;">██░░██████░░████████</p>
-          <p style="padding:0;margin:-1px;color:black!important;">██░░░░░░██░░██░░░░██</p>
-          <p style="padding:0;margin:-1px;color:black!important;">██░░██░░██░░██░░████</p>
-          <p style="padding:0;margin:-1px;color:black!important;">██░░██░░██░░██░░░░██</p>
-          <p style="padding:0;margin:-1px;color:black!important;">████████████████████</p>
-        </div>
+  <body>
+    <noscript>
+      <div id="noscript">
+        <p>Please enable JavaScript to learn more about Howard</p>
+        <p>
+          Or visit
+          <a
+            id="link-to-github-profile"
+            href="https://github.com/hchiam"
+            target="_blank"
+            >Howard's GitHub profile</a
+          >
+        </p>
       </div>
-      <div id="game-container"></div>
-    </div>
-    <div id="hint" role="status" aria-live="polite"></div>
-    <p id="extra-info"></p>
-    <div id="learning-link" style="visibility: hidden;">
-      <p>Here are things I've been learning and working on: <button
-          onclick="window.open('https:\/\/github.com/hchiam/learning#learning', '_blank');"
-          aria-label="link to my learning repo">https://github.com/hchiam/learning</button></p>
-    </div>
-  </section>
-  <div id="cursor-shadow"></div>
-  <script src="https://unpkg.com/universal-tilt.js"></script>
-  <script src="minified-code.js"></script>
-</body>
-
+    </noscript>
+    <button id="secret-button">
+      Hit Enter or Spacebar!
+    </button>
+    <section id="main" class="center">
+      <div id="cover" aria-hidden="true"></div>
+      <h1
+        class="tilt"
+        data-tilt
+        data-scale="1.2"
+        data-shine="true"
+        data-shine-opacity="0.5"
+        data-shine-save="true"
+        tilt-change
+        title="This is my name"
+      >
+        Howard Chiam
+      </h1>
+      <p>Learning. Languages. Other stuff.</p>
+      <div id="draggable" draggable>
+        <div id="button-notification" role="status" aria-live="polite"></div>
+        <button id="a">
+          GitHub
+        </button>
+        <button id="s">
+          CodePen
+        </button>
+        <button id="d">
+          Glitch
+        </button>
+        <button id="f">
+          LinkedIn
+        </button>
+        <button id="c">
+          Blog
+        </button>
+        <button id="space">
+          Memrise
+        </button>
+        <div
+          id="draggable-handle"
+          width="100px"
+          role="none"
+          aria-hidden="true"
+          aria-label="Howard signature icon"
+        >
+          <img
+            id="preferred-icon"
+            src="htc.png"
+            alt="Howard signature icon"
+            width="100px"
+            class="shake"
+          />
+          <div id="ascii-art" style="display: none;" class="shake">
+            <!-- hi :) -->
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ████████████████████
+            </p>
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ██░░██░░░░░░░░░░░░██
+            </p>
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ██░░██████░░████████
+            </p>
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ██░░░░░░██░░██░░░░██
+            </p>
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ██░░██░░██░░██░░████
+            </p>
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ██░░██░░██░░██░░░░██
+            </p>
+            <p style="padding: 0; margin: -1px; color: black !important;">
+              ████████████████████
+            </p>
+          </div>
+        </div>
+        <div id="game-container"></div>
+      </div>
+      <div id="hint" role="status" aria-live="polite"></div>
+      <p id="extra-info"></p>
+      <div id="learning-link">
+        <!-- You've found one of the hidden features! :) -->
+        <p>
+          Here are things I've been learning and working on:
+          <button id="go-to-learning" aria-label="link to my learning repo">
+            https://github.com/hchiam/learning
+          </button>
+        </p>
+      </div>
+    </section>
+    <div id="cursor-shadow"></div>
+    <script src="https://unpkg.com/universal-tilt.js"></script>
+    <script src="minified-code.js"></script>
+  </body>
 </html>

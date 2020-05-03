@@ -7,6 +7,70 @@ if (
     "https:" + window.location.href.substring(window.location.protocol.length);
 }
 
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("service-worker.js", {
+    scope: "",
+  });
+}
+
+setListeners();
+function setListeners() {
+  document.body.addEventListener("mouseup", stopNotes);
+
+  if (document.getElementById("preferred-icon")) {
+    document
+      .getElementById("preferred-icon")
+      .addEventListener("error", imageFallback);
+  }
+
+  document.getElementById("secret-button").addEventListener("click", surprise);
+  document.getElementById("a").addEventListener("click", function () {
+    window.open("https://github.com/hchiam", "_blank");
+  });
+  document.getElementById("s").addEventListener("click", function () {
+    window.open("https://codepen.io/hchiam", "_blank");
+  });
+  document.getElementById("d").addEventListener("click", function () {
+    window.open("https://glitch.com/@hchiam", "_blank");
+  });
+  document.getElementById("f").addEventListener("click", function () {
+    window.open("https://ca.linkedin.com/in/howardchiam", "_blank");
+  });
+  document.getElementById("c").addEventListener("click", function () {
+    window.open("https://hchiam.blogspot.com", "_blank");
+  });
+  document.getElementById("space").addEventListener("click", function () {
+    window.open(
+      "https://www.memrise.com/user/hchiam/courses/learning",
+      "_blank"
+    );
+  });
+
+  document
+    .getElementById("go-to-learning")
+    .addEventListener("click", function () {
+      window.open("https://github.com/hchiam/learning#learning", "_blank");
+    });
+
+  document
+    .getElementById("draggable")
+    .addEventListener("dragstart", function () {
+      showGameButtons();
+      playNotes();
+    });
+  document.getElementById("draggable").addEventListener("drag", adjustNotes);
+  document
+    .getElementById("draggable")
+    .addEventListener("touchstart", function () {
+      showGameButtons();
+      playNotes();
+    });
+  document
+    .getElementById("draggable")
+    .addEventListener("touchmove", adjustNotes);
+  document.getElementById("draggable").addEventListener("touchend", stopNotes);
+}
+
 setTimeout(() => {
   slideIn();
   advertiseOfflineAbility();
