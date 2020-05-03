@@ -6,7 +6,7 @@
     "test": "jest",
     "minify": "minify style.css > minified-style.css; minify brain.js sound.js cursor.js > minified-code.js;",
     "build": "yarn minify || npm run minify; bash copy-to-public-folder.sh;",
-    "start": "node index.js & open http://localhost:8000",
+    "start": "yarn stop || npm run stop; yarn build || npm run build; node index.js & open http://localhost:8000",
     "stop": "killall -9 node",
     "sbs": "yarn stop || npm run stop; yarn build || npm run build; yarn start || npm run start;",
     "continuous-restart": "nodemon -e js,html,css -x 'yarn build; node index.js;' --ignore public --ignore 'minified*.*';",
