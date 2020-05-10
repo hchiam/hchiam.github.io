@@ -7,6 +7,67 @@ if (
     "https:" + window.location.href.substring(window.location.protocol.length);
 }
 
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("service-worker.js", {
+    scope: "",
+  });
+}
+
+setListeners();
+function setListeners() {
+  document.body.addEventListener("mouseup", stopNotes);
+
+  if (document.getElementById("preferred-icon")) {
+    document
+      .getElementById("preferred-icon")
+      .addEventListener("error", imageFallback);
+  }
+
+  document.getElementById("secret-button").addEventListener("click", surprise);
+  document.getElementById("a").addEventListener("click", function () {
+    window.open("https://github.com/hchiam", "_blank");
+  });
+  document.getElementById("s").addEventListener("click", function () {
+    window.open("https://codepen.io/hchiam", "_blank");
+  });
+  document.getElementById("d").addEventListener("click", function () {
+    window.open("https://glitch.com/@hchiam", "_blank");
+  });
+  document.getElementById("f").addEventListener("click", function () {
+    window.open("https://ca.linkedin.com/in/howardchiam", "_blank");
+  });
+  document.getElementById("c").addEventListener("click", function () {
+    window.open("https://hchiam.blogspot.com", "_blank");
+  });
+  document.getElementById("space").addEventListener("click", function () {
+    window.open(
+      "https://www.memrise.com/user/hchiam/courses/learning",
+      "_blank"
+    );
+  });
+
+  document
+    .getElementById("go-to-learning")
+    .addEventListener("click", function () {
+      window.open("https://github.com/hchiam/learning#learning", "_blank");
+    });
+
+  $(document).ready(function () {
+    $("#draggable").draggable({
+      start: function (event, ui) {
+        showGameButtons();
+        playNotes();
+      },
+      drag: function () {
+        adjustNotes();
+      },
+      stop: function () {
+        stopNotes();
+      },
+    });
+  });
+}
+
 setTimeout(() => {
   slideIn();
   advertiseOfflineAbility();
@@ -95,9 +156,8 @@ let continueGame = false;
 function setUpGame() {
   $(document).ready(function () {
     // game controls on:
-    document.getElementById("draggable-handle").onmouseenter = function () {
+    document.getElementById("draggable").onmouseenter = function () {
       if (turnedGameOnOnce || onDesktop()) {
-        $("#draggable").draggable();
         hideHint();
         if (turnedGameOnOnce) {
           showGameButtons();
@@ -105,9 +165,8 @@ function setUpGame() {
       }
     };
     // game controls off:
-    document.getElementById("draggable-handle").onmouseleave = function () {
+    document.getElementById("draggable").onmouseleave = function () {
       if (onDesktop() && !continueGame) {
-        $("#draggable").draggable("destroy");
         resetGameButtons();
         gameOn = false;
       }
@@ -127,71 +186,98 @@ function showGameButtons() {
 function setUpGameButtons() {
   $('button:contains("GitHub")')
     .text(" A ")
-    .attr(
-      "onclick",
-      "jQuery.event.trigger({ type : 'keydown', keyCode : 65 });"
-    );
+    .off("click")
+    .on("click", function () {
+      "jQuery.event.trigger({ type : 'keydown', keyCode : 65 });";
+    });
   $('button:contains("CodePen")')
     .text(" S ")
-    .attr(
-      "onclick",
-      "jQuery.event.trigger({ type : 'keydown', keyCode : 83 });"
-    );
+    .off("click")
+    .on("click", function () {
+      "jQuery.event.trigger({ type : 'keydown', keyCode : 83 });";
+    });
   $('button:contains("Glitch")')
     .text(" D ")
-    .attr(
-      "onclick",
-      "jQuery.event.trigger({ type : 'keydown', keyCode : 68 });"
-    );
+    .off("click")
+    .on("click", function () {
+      "jQuery.event.trigger({ type : 'keydown', keyCode : 68 });";
+    });
   $('button:contains("LinkedIn")')
     .text(" F ")
-    .attr(
-      "onclick",
-      "jQuery.event.trigger({ type : 'keydown', keyCode : 70 });"
-    );
+    .off("click")
+    .on("click", function () {
+      "jQuery.event.trigger({ type : 'keydown', keyCode : 70 });";
+    });
   $('button:contains("Blog")')
     .text(" C ")
-    .attr(
-      "onclick",
-      "jQuery.event.trigger({ type : 'keydown', keyCode : 67 });"
-    );
+    .off("click")
+    .on("click", function () {
+      "jQuery.event.trigger({ type : 'keydown', keyCode : 67 });";
+    });
   $('button:contains("Memrise")')
     .text(" SPACE ")
-    .attr(
-      "onclick",
-      "jQuery.event.trigger({ type : 'keydown', keyCode : 32 });"
-    );
+    .off("click")
+    .on("click", function () {
+      "jQuery.event.trigger({ type : 'keydown', keyCode : 32 });";
+    });
 }
 
 function resetGameButtons() {
   $('button:contains(" A ")')
     .text("GitHub")
-    .attr("onclick", "window.open('https://github.com/hchiam', '_blank');");
+    .off("click")
+    .on("click", function () {
+      "window.open('https://github.com/hchiam', '_blank');";
+    });
   $('button:contains(" S ")')
     .text("CodePen")
-    .attr("onclick", "window.open('https://codepen.io/hchiam', '_blank');");
+    .off("click")
+    .on("click", function () {
+      "window.open('https://codepen.io/hchiam', '_blank');";
+    });
   $('button:contains(" D ")')
     .text("Glitch")
-    .attr("onclick", "window.open('https://glitch.com/@hchiam', '_blank');");
+    .off("click")
+    .on("click", function () {
+      "window.open('https://glitch.com/@hchiam', '_blank');";
+    });
   $('button:contains(" F ")')
     .text("LinkedIn")
-    .attr(
-      "onclick",
-      "window.open('https://ca.linkedin.com/in/howardchiam', '_blank');"
-    );
+    .off("click")
+    .on("click", function () {
+      "window.open('https://ca.linkedin.com/in/howardchiam', '_blank');";
+    });
   $('button:contains(" C ")')
     .text("Blog")
-    .attr("onclick", "window.open('https://hchiam.blogspot.com', '_blank');");
+    .off("click")
+    .on("click", function () {
+      "window.open('https://hchiam.blogspot.com', '_blank');";
+    });
   $('button:contains(" SPACE ")')
     .text("Memrise")
-    .attr(
-      "onclick",
-      "window.open('https://www.memrise.com/user/hchiam/courses/learning', '_blank');"
-    );
+    .off("click")
+    .on("click", function () {
+      "window.open('https://www.memrise.com/user/hchiam/courses/learning', '_blank');";
+    });
 }
 
-const mysterySpawnButton =
-  "<button onclick=\"$(this).text('').css({background:'blue',color:'white',width:0,height:0,padding:0});var t = this;setTimeout(function(){t.parentNode.removeChild(t)}, 500);\">?</button>";
+const mysterySpawnButton = "<button class='mystery-spawn-button'>?</button>";
+
+/**
+ * use delegated event handling to dynamically add event listeners
+ * to children elements that don't exist yet:
+ */
+$(document).on("click", ".mystery-spawn-button", function () {
+  $(this).text("").css({
+    width: 0,
+    height: 0,
+    padding: 0,
+  });
+  var t = this;
+  setTimeout(function () {
+    t.parentNode.removeChild(t);
+  }, 500);
+});
 
 $(document).keydown(function (e) {
   if (gameOn) {
@@ -249,7 +335,7 @@ function makeCommandKeysConspicuous() {
 
 let scatteredSpace = false;
 function scatterSpace() {
-  $("button, img, #hint, h1, p").each(function () {
+  $("button, img, #hint, h1, p, span").each(function () {
     const myWidth = $(this).width();
     const myHeight = $(this).height();
     const randomleft = getRandomNumber(0, window.innerWidth - myWidth);
@@ -357,26 +443,19 @@ function home() {
 const game = goToGame;
 const snpg = goToSNPromptGenerator;
 const cr = goToCRPrep;
+
 console.log(
   `%cIf you have an internet connection,
 you can enter these commands:%c
 
-%cgame()%c
-
-%csnpg()%c
-
-%ccr()%c
-
 %cskew()%c
+
+%cgame()%c
 
 %chome()%c
 
 `,
   "color: blue; background: lightgrey;",
-  "",
-  "color: lime; background: black; padding: 5px 10px;",
-  "",
-  "color: lime; background: black; padding: 5px 10px;",
   "",
   "color: lime; background: black; padding: 5px 10px;",
   "",
