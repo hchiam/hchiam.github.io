@@ -52,50 +52,20 @@ function setListeners() {
       window.open("https://github.com/hchiam/learning#learning", "_blank");
     });
 
-  document
-    .getElementById("draggable")
-    .addEventListener("dragstart", function () {
-      console.log("dragstart");
-      showGameButtons();
-      playNotes();
+  $(document).ready(function () {
+    $("#draggable").draggable({
+      start: function (event, ui) {
+        showGameButtons();
+        playNotes();
+      },
+      drag: function () {
+        adjustNotes();
+      },
+      stop: function () {
+        stopNotes();
+      },
     });
-  document.getElementById("draggable").addEventListener("drag", function () {
-    console.log("drag");
-    adjustNotes();
   });
-  document
-    .getElementById("draggable")
-    .addEventListener("touchstart", function () {
-      console.log("touchstart");
-      showGameButtons();
-      playNotes();
-    });
-  document
-    .getElementById("draggable")
-    .addEventListener("touchmove", function () {
-      console.log("touchmove");
-      adjustNotes();
-    });
-  document
-    .getElementById("draggable")
-    .addEventListener("touchend", function () {
-      console.log("touchend");
-      stopNotes();
-    });
-
-  // document
-  //   .getElementById("draggable")
-  //   .setAttribute("ondragstart", "showGameButtons();playNotes();");
-  // document.getElementById("draggable").setAttribute("ondrag", "adjustNotes();");
-  // document
-  //   .getElementById("draggable")
-  //   .setAttribute("ontouchstart", "showGameButtons();playNotes();");
-  // document
-  //   .getElementById("draggable")
-  //   .setAttribute("ontouchmove", "adjustNotes();");
-  // document
-  //   .getElementById("draggable")
-  //   .setAttribute("ontouchend", "stopNotes();");
 }
 
 setTimeout(() => {
@@ -186,9 +156,8 @@ let continueGame = false;
 function setUpGame() {
   $(document).ready(function () {
     // game controls on:
-    document.getElementById("draggable-handle").onmouseenter = function () {
+    document.getElementById("draggable").onmouseenter = function () {
       if (turnedGameOnOnce || onDesktop()) {
-        $("#draggable").draggable();
         hideHint();
         if (turnedGameOnOnce) {
           showGameButtons();
@@ -196,9 +165,8 @@ function setUpGame() {
       }
     };
     // game controls off:
-    document.getElementById("draggable-handle").onmouseleave = function () {
+    document.getElementById("draggable").onmouseleave = function () {
       if (onDesktop() && !continueGame) {
-        $("#draggable").draggable("destroy");
         resetGameButtons();
         gameOn = false;
       }
@@ -293,8 +261,19 @@ function resetGameButtons() {
     });
 }
 
-const mysterySpawnButton =
-  "<button onclick=\"$(this).text('').css({background:'blue',color:'white',width:0,height:0,padding:0});var t = this;setTimeout(function(){t.parentNode.removeChild(t)}, 500);\">?</button>";
+const mysterySpawnButton = "<button class='mystery-spawn-button'>?</button>";
+
+$(document).on("click", ".mystery-spawn-button", function () {
+  $(this).text("").css({
+    width: 0,
+    height: 0,
+    padding: 0,
+  });
+  var t = this;
+  setTimeout(function () {
+    t.parentNode.removeChild(t);
+  }, 500);
+});
 
 $(document).keydown(function (e) {
   if (gameOn) {
@@ -352,7 +331,7 @@ function makeCommandKeysConspicuous() {
 
 let scatteredSpace = false;
 function scatterSpace() {
-  $("button, img, #hint, h1, p").each(function () {
+  $("button, img, #hint, h1, p, span").each(function () {
     const myWidth = $(this).width();
     const myHeight = $(this).height();
     const randomleft = getRandomNumber(0, window.innerWidth - myWidth);

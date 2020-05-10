@@ -13,7 +13,7 @@ function playNotes() {
     .show()
     .css("color", "lime");
   showHint(); // from brain.js
-  playNoteOfId("draggable-handle");
+  playNoteOfId("draggable");
   // playNoteOfId('a');
   // playNoteOfId('s');
   // playNoteOfId('d');
@@ -25,14 +25,14 @@ function adjustNotes() {
   if (hasSmallScreen) return;
 
   for (let i in notes) {
-    const [x, y] = getCoordinates("draggable-handle");
+    const [x, y] = getCoordinates("draggable");
     const frequency = getFrequencyFromX(x);
     const volume = getVolumeFromY(y);
     const volumeSetup = notes[i].volumeSetup;
     volumeSetup.gain.value = volume;
     const oscillator = notes[i].oscillator;
     oscillator.frequency.value = frequency;
-    indicateNoteWithColour("#draggable-handle", volume, frequency);
+    indicateNoteWithColour("#draggable", volume, frequency);
   }
 }
 
