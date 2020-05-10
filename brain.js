@@ -263,6 +263,10 @@ function resetGameButtons() {
 
 const mysterySpawnButton = "<button class='mystery-spawn-button'>?</button>";
 
+/**
+ * use delegated event handling to dynamically add event listeners
+ * to children elements that don't exist yet:
+ */
 $(document).on("click", ".mystery-spawn-button", function () {
   $(this).text("").css({
     width: 0,
