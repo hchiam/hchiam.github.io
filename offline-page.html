@@ -4,7 +4,7 @@
     <title>Howard Chiam</title>
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src http://localhost:8000/jquery.min.js https://hchiam.github.io/jquery.min.js http://localhost:8000/jquery-ui.min.js https://hchiam.github.io/jquery-ui.min.js https://unpkg.com/universal-tilt.js http://localhost:8000/minified-code.js https://hchiam.github.io/minified-code.js http://localhost:8000/service-worker.js https://hchiam.github.io/service-worker.js; style-src http://localhost:8000/minified-style.css https://hchiam.github.io/minified-style.css; img-src http://localhost:8000/htc.png https://hchiam.github.io/htc.png;"
+      content="default-src 'none'; script-src http://localhost:8000/jquery.min.js https://hchiam.github.io/jquery.min.js https://hchiam.surge.sh/jquery.min.js http://localhost:8000/jquery-ui.min.js https://hchiam.github.io/jquery-ui.min.j https://hchiam.surge.sh/jquery-ui.min.js https://unpkg.com/universal-tilt.js http://localhost:8000/minified-code.js https://hchiam.github.io/minified-code.js https://hchiam.surge.sh/minified-code.js http://localhost:8000/service-worker.js https://hchiam.github.io/service-worker.js https://hchiam.surge.sh/service-worker.js; style-src http://localhost:8000/minified-style.css https://hchiam.github.io/minified-style.css https://hchiam.surge.sh/minified-style.css; img-src http://localhost:8000/htc.png https://hchiam.github.io/htc.png https://hchiam.surge.sh/htc.png;"
     />
     <meta name="description" content="Howard's Portfolio Central" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,7 +51,11 @@
       >
         Howard Chiam
       </h1>
-      <p>Learning. Languages. Other stuff.</p>
+      <p class="sequence" title="Stuff I like">
+        <span role="presentation">Learning. </span
+        ><span role="presentation">Languages. </span
+        ><span role="presentation">Other stuff.</span>
+      </p>
       <div id="draggable" draggable>
         <div id="button-notification" role="status" aria-live="polite"></div>
         <button id="a">

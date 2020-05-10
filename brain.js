@@ -55,20 +55,47 @@ function setListeners() {
   document
     .getElementById("draggable")
     .addEventListener("dragstart", function () {
+      console.log("dragstart");
       showGameButtons();
       playNotes();
     });
-  document.getElementById("draggable").addEventListener("drag", adjustNotes);
+  document.getElementById("draggable").addEventListener("drag", function () {
+    console.log("drag");
+    adjustNotes();
+  });
   document
     .getElementById("draggable")
     .addEventListener("touchstart", function () {
+      console.log("touchstart");
       showGameButtons();
       playNotes();
     });
   document
     .getElementById("draggable")
-    .addEventListener("touchmove", adjustNotes);
-  document.getElementById("draggable").addEventListener("touchend", stopNotes);
+    .addEventListener("touchmove", function () {
+      console.log("touchmove");
+      adjustNotes();
+    });
+  document
+    .getElementById("draggable")
+    .addEventListener("touchend", function () {
+      console.log("touchend");
+      stopNotes();
+    });
+
+  // document
+  //   .getElementById("draggable")
+  //   .setAttribute("ondragstart", "showGameButtons();playNotes();");
+  // document.getElementById("draggable").setAttribute("ondrag", "adjustNotes();");
+  // document
+  //   .getElementById("draggable")
+  //   .setAttribute("ontouchstart", "showGameButtons();playNotes();");
+  // document
+  //   .getElementById("draggable")
+  //   .setAttribute("ontouchmove", "adjustNotes();");
+  // document
+  //   .getElementById("draggable")
+  //   .setAttribute("ontouchend", "stopNotes();");
 }
 
 setTimeout(() => {
@@ -421,26 +448,19 @@ function home() {
 const game = goToGame;
 const snpg = goToSNPromptGenerator;
 const cr = goToCRPrep;
+
 console.log(
   `%cIf you have an internet connection,
 you can enter these commands:%c
 
-%cgame()%c
-
-%csnpg()%c
-
-%ccr()%c
-
 %cskew()%c
+
+%cgame()%c
 
 %chome()%c
 
 `,
   "color: blue; background: lightgrey;",
-  "",
-  "color: lime; background: black; padding: 5px 10px;",
-  "",
-  "color: lime; background: black; padding: 5px 10px;",
   "",
   "color: lime; background: black; padding: 5px 10px;",
   "",

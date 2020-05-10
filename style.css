@@ -212,3 +212,46 @@ p {
 #learning-link {
   visibility: hidden;
 }
+
+.sequence {
+  border: none;
+  transition: 0.25s;
+}
+
+.sequence span {
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.sequence span:first-child {
+  padding-left: 10px;
+  border-radius: 10px 0 0 10px;
+}
+
+.sequence span:last-child {
+  padding-right: 10px;
+  border-radius: 0 10px 10px 0;
+}
+
+.sequence:hover span:nth-child(1),
+.sequence:focus span:nth-child(1) {
+  background: lime;
+  color: black;
+  transition-delay: 100ms;
+}
+
+.sequence:hover span:nth-child(2),
+.sequence:focus span:nth-child(2) {
+  background: lime;
+  color: black;
+  transition-delay: 200ms;
+}
+
+.sequence:hover span:nth-child(3),
+.sequence:focus span:nth-child(3) {
+  background: lime;
+  color: black;
+  transition-delay: 300ms;
+}

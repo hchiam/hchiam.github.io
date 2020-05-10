@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "# npm run reminder; if (npm test); then npm run reminder; else (npm run reminder; exit 1); fi;"
+      "pre-commit": "npm run reminder; if (npm test); then npm run reminder; else (npm run reminder; exit 1); fi;"
     }
   },
   "license": "MIT"
