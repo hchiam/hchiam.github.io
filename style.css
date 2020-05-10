@@ -214,6 +214,7 @@ p {
 }
 
 .sequence {
+  width: 33ch;
   border: none;
   transition: 0.25s;
 }
@@ -235,23 +236,48 @@ p {
   border-radius: 0 10px 10px 0;
 }
 
-.sequence:hover span:nth-child(1),
-.sequence:focus span:nth-child(1) {
+.sequence:hover span {
   background: lime;
   color: black;
-  transition-delay: 100ms;
 }
 
-.sequence:hover span:nth-child(2),
-.sequence:focus span:nth-child(2) {
-  background: lime;
-  color: black;
-  transition-delay: 200ms;
+.sequence:hover span:nth-child(1) {
+  transition-delay: 0.1s;
 }
 
-.sequence:hover span:nth-child(3),
-.sequence:focus span:nth-child(3) {
+.sequence:hover span:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.sequence:hover span:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.sequence:hover ~ #draggable button {
   background: lime;
   color: black;
-  transition-delay: 300ms;
+}
+
+.sequence:hover ~ #draggable button:nth-of-type(1) {
+  transition-delay: 0.4s;
+}
+
+.sequence:hover ~ #draggable button:nth-of-type(2) {
+  transition-delay: 0.5s;
+}
+
+.sequence:hover ~ #draggable button:nth-of-type(3) {
+  transition-delay: 0.6s;
+}
+
+.sequence:hover ~ #draggable button:nth-of-type(4) {
+  transition-delay: 0.7s;
+}
+
+.sequence:hover ~ #draggable button:nth-of-type(5) {
+  transition-delay: 0.8s;
+}
+
+.sequence:hover ~ #draggable button:nth-of-type(6) {
+  transition-delay: 0.9s;
 }
