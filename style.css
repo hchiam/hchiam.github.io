@@ -292,3 +292,25 @@ p {
 .sequence:hover ~ #button-group button:nth-of-type(6) {
   transition-delay: 0.9s;
 }
+
+#flying-focus-ring-element {
+  position: absolute;
+  background: transparent;
+  /* -webkit-transition-property: left, top, width, height; */
+  transition-property: left, top, width, height;
+  /* -webkit-transition-timing-function: cubic-bezier(0,1,0,1); */
+  transition-timing-function: cubic-bezier(0, 1, 0, 1);
+  visibility: hidden;
+  pointer-events: none;
+  box-shadow: 0 0 2px 3px lightblue, 0 0 2px lightblue inset;
+  border-radius: 2px;
+}
+#flying-focus-ring-element.flying-focus_visible {
+  visibility: visible;
+  z-index: 9999;
+}
+@media (prefers-reduced-motion) {
+  #flying-focus-ring-element {
+    display: none;
+  }
+}

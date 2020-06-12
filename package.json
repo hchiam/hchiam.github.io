@@ -4,7 +4,7 @@
   "dependencies": {},
   "scripts": {
     "test": "jest",
-    "minify": "minify style.css > minified-style.css; minify brain.js sound.js cursor.js > minified-code.js;",
+    "minify": "minify style.css > minified-style.css; minify brain.js sound.js cursor.js flying-focus-ring.js > minified-code.js;",
     "build": "yarn minify || npm run minify; bash copy-to-public-folder.sh;",
     "start": "yarn stop || npm run stop; yarn build || npm run build; node index.js & open http://localhost:8000",
     "stop": "killall -9 node",
