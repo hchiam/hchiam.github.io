@@ -382,43 +382,45 @@ function goToGame() {
 }
 
 function goToSNPromptGenerator() {
-  $(function () {
-    $("body").load(
-      "https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html",
-      function () {
-        disableOldStyles();
-        $("head").append(
-          '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/style.css">'
-        );
-        $("head").append(
-          '<script src="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/script.js"></script>'
-        );
-      }
-    );
-  });
+  window.location.href = "https://sn-prompt-generator.surge.sh";
+  // $(function () {
+  //   $("body").load(
+  //     "https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/index.html",
+  //     function () {
+  //       disableOldStyles();
+  //       $("head").append(
+  //         '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/style.css">'
+  //       );
+  //       $("head").append(
+  //         '<script src="https://cdn.jsdelivr.net/gh/hchiam/sn-prompt-generator@master/script.js"></script>'
+  //       );
+  //     }
+  //   );
+  // });
 }
 
 function goToCRPrep() {
-  $(function () {
-    $("body").load(
-      "https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/index.html #button-bar, #checkbox-box, #hover-info",
-      function () {
-        disableOldStyles();
-        $("head").append(
-          '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/style.css">'
-        );
-        $("head").append(
-          '<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/download-page-as-image.js"></script>'
-        );
-        $("head").append(
-          '<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>'
-        );
-        $("head").append(
-          '<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>'
-        );
-      }
-    );
-  });
+  window.location.href = "https://cr-prep.glitch.me";
+  // $(function () {
+  //   $("body").load(
+  //     "https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/index.html #button-bar, #checkbox-box, #hover-info",
+  //     function () {
+  //       disableOldStyles();
+  //       $("head").append(
+  //         '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/style.css">'
+  //       );
+  //       $("head").append(
+  //         '<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/download-page-as-image.js"></script>'
+  //       );
+  //       $("head").append(
+  //         '<script src="https://cdn.jsdelivr.net/gh/hchiam/cr-prep@master/script.js"></script>'
+  //       );
+  //       $("head").append(
+  //         '<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>'
+  //       );
+  //     }
+  //   );
+  // });
 }
 
 function skew() {
