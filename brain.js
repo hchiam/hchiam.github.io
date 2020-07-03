@@ -456,6 +456,8 @@ you can enter these commands:%c
 
 %chome()%c
 
+You can see my auto-generated GitHub résumé here: 
+%chttps://resume.github.io/?hchiam%c
 `,
   "color: blue; background: lightgrey;",
   "",
@@ -464,5 +466,7 @@ you can enter these commands:%c
   "color: lime; background: black; padding: 5px 10px;",
   "",
   "color: lime; background: black; padding: 5px 10px;",
+  "",
+  "color: lime;",
   ""
 );
