@@ -1,4 +1,4 @@
-const SW_VERSION = "hchiam.github.io-version_20"; // also can serve as cache name
+const SW_VERSION = "hchiam.github.io-version_21"; // also can serve as cache name
 
 const appShellURLs = [
   "/jquery.min.js",

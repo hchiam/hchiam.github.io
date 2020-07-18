@@ -377,6 +377,11 @@ const tilt = UniversalTilt.init({
   },
 });
 
+const wowYouFoundAHiddenCommand = absolutelyAwesomeYouFoundAHiddenCommand;
+function absolutelyAwesomeYouFoundAHiddenCommand() {
+  alert("Cool!");
+}
+
 function goToGame() {
   window.location.href = "/phaser-game/index.html";
 }
