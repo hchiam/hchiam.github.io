@@ -49,7 +49,7 @@ function setListeners() {
   document
     .getElementById("go-to-learning")
     .addEventListener("click", function () {
-      window.open("https://github.com/hchiam/learning#learning", "_blank");
+      window.open("https://github.com/hchiam/learning#--", "_blank");
     });
 
   $(document).ready(function () {
