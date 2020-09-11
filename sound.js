@@ -28,15 +28,18 @@ function adjustNotes() {
     const [x, y] = getCoordinates("draggable");
     const frequency = getFrequencyFromX(x);
     const volume = getVolumeFromY(y);
+    const pan = getPanFromX(x);
     const volumeSetup = notes[i].volumeSetup;
     volumeSetup.gain.value = volume;
     const oscillator = notes[i].oscillator;
     oscillator.frequency.value = frequency;
-    indicateNoteWithColour("#draggable", volume, frequency);
+    var panner = notes[i].panner;
+    panner.pan.value = pan;
+    indicateNoteWithColour("#draggable", volume, frequency, pan);
   }
 }
 
-function indicateNoteWithColour(selector, volume, frequency) {
+function indicateNoteWithColour(selector, volume, frequency, pan) {
   const minComfyVolume = 0;
   const maxComfyVolume = 0.5;
   let volumeNum = normalize(volume, minComfyVolume, maxComfyVolume, 0, 100);
@@ -75,6 +78,7 @@ function playNote([x, y], delay = 4) {
   // example usage: <body onmousemove="playNote(event)" style="width: 100vw; height: 100vh;"></body>
   // can play another note simultaneously with another playNote(e) call
   const frequency = getFrequencyFromX(x);
+  const pan = getPanFromX(x);
   const volume = getVolumeFromY(y);
   const volumeSetup = audioCtx.createGain();
   volumeSetup.connect(audioCtx.destination);
@@ -84,13 +88,17 @@ function playNote([x, y], delay = 4) {
   oscillator.frequency.value = frequency;
   oscillator.connect(volumeSetup);
   // instead of oscillator.connect(audioCtx.destination);
+  const panner = audioCtx.createStereoPanner();
+  if (pan) panner.pan.value = pan;
+  volumeSetup.connect(panner);
+  panner.connect(audioCtx.destination);
   oscillator.start();
   const useDelay = false;
   if (useDelay) {
     const delayToAutoStopSound = delay;
     oscillator.stop(audioCtx.currentTime + delayToAutoStopSound);
   }
-  notes.push({ oscillator, volumeSetup });
+  notes.push({ oscillator, volumeSetup, panner });
 }
 
 function getFrequencyFromX(x) {
@@ -102,6 +110,17 @@ function getFrequencyFromX(x) {
   const maxComfyFreq = 400;
   const frequency = normalize(x, 0, screenWidth, minComfyFreq, maxComfyFreq);
   return frequency;
+}
+
+function getPanFromX(x) {
+  const screenWidth = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
+  const minPanning = -1;
+  const maxPanning = 1;
+  const panning = normalize(x, 0, screenWidth, minPanning, maxPanning);
+  return panning;
 }
 
 function getVolumeFromY(y) {
