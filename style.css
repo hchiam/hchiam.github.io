@@ -41,6 +41,31 @@ a:focus {
   box-shadow: 0 0 0 4pt white;
 }
 
+button {
+  position: relative;
+}
+
+button > svg {
+  position: absolute;
+  left: -75px;
+  top: -100px;
+  background: transparent;
+  pointer-events: none;
+  height: 200px;
+  width: 200px;
+  z-index: -1;
+  transform: scale(0);
+}
+
+button > svg > path {
+  fill: #a7f0ba;
+}
+
+button:hover > svg,
+button:focus > svg {
+  animation: bouncy-growth 2s forwards;
+}
+
 .center {
   text-align: center;
 }
@@ -312,5 +337,21 @@ p {
 @media (prefers-reduced-motion) {
   #flying-focus-ring-element {
     display: none;
+  }
+}
+
+@keyframes bouncy-growth {
+  0% {
+    transform: scale(0);
+  }
+  10% {
+    transform: scale(2);
+  }
+  20%,
+  90% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(0);
   }
 }
