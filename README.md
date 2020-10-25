@@ -9,9 +9,14 @@ lhci autorun
 ```
 
 ```bash
-yarn run test # or just: jest
-yarn run build
-yarn run start # for testing locally on localhost:8000
+yarn # to get set up
+```
+
+```bash
+yarn test # or just: jest
+yarn build
+yarn start # for testing locally on localhost:8000
+yarn stop
 ```
 
 You can automatically rebuild and restart (instead of typing `yarn run start`) every time you edit a file:
