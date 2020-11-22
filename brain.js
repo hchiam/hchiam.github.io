@@ -468,6 +468,10 @@ function skew() {
   }, 1000);
 }
 
+function slides() {
+  location = "https://simple-slides.surge.sh";
+}
+
 function home() {
   location.reload();
 }
@@ -482,6 +486,8 @@ you can enter these commands:%c
 
 %cskew()%c
 
+%cslides()%c
+
 %cgame()%c
 
 %chome()%c
@@ -490,6 +496,8 @@ You can see my auto-generated GitHub résumé here:
 %chttps://resume.github.io/?hchiam%c
 `,
   "color: blue; background: lightgrey;",
+  "",
+  "color: lime; background: black; padding: 5px 10px;",
   "",
   "color: lime; background: black; padding: 5px 10px;",
   "",
