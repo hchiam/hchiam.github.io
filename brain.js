@@ -486,9 +486,9 @@ you can enter these commands:%c
 
 %cskew()%c
 
-%cslides()%c
-
 %cgame()%c
+
+%cslides()%c
 
 %chome()%c
 
