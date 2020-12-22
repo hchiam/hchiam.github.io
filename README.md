@@ -9,7 +9,7 @@ lhci autorun
 ```
 
 ```bash
-yarn # to get set up
+npm i # to get set up
 ```
 
 ```bash
