@@ -1,6 +1,6 @@
 {
-  "name": "hchiam.github.io",
-  "version": "1.0.0",
+  "name": "hchiam.com",
+  "version": "3.0.0",
   "dependencies": {},
   "scripts": {
     "test": "jest",
