@@ -139,5 +139,7 @@ function normalize(value, inMin, inMax, outMin, outMax) {
   const inputBias = value - inMin;
   const ratioAdjustment = (outMax - outMin) / (inMax - inMin);
   const outputBias = outMin;
-  return inputBias * ratioAdjustment + outputBias;
+  var output = inputBias * ratioAdjustment + outputBias;
+  var clampedOutput = Math.min(Math.max(output, outMin), outMax);
+  return clampedOutput;
 }
