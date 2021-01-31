@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "deploy": "next build && next export && surge out https://hchiam.surge.sh"
   },
   "dependencies": {
     "next": "10.0.6",
