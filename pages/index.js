@@ -1,14 +1,45 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [slideIn, setSlideIn] = useState(false);
   const [showSecretButton, setShowSecretButton] = useState(true);
   const [showLearningLink, setShowLearningLink] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [secretButtonText, setSecretButtonText] = useState("");
   const [hint, setHint] = useState("");
-
+  const [turnedGameOnOnce, setTurnedGameOnOnce] = useState(false);
+  const [continueGame, setContinueGame] = useState(false);
+  const [gameOn, setGameOn] = useState(false);
   const inputRef = useRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSlideIn(true);
+    }, 10);
+
+    setTimeout(() => {
+      expandButtons();
+      document.getElementById("button-notification").innerText =
+        "Within scrolling view, there are six buttons in a group.";
+    }, 1000);
+
+    setTimeout(() => {
+      showSecretButtonInstructions();
+    }, 2000);
+
+    setUpGame();
+  }, []);
+
+  function onDesktop() {
+    return window.screen.availWidth > 640;
+  }
+
+  function getRandomNumber(start, stop) {
+    return Math.floor(Math.random() * stop + start);
+  }
+
   function surprise() {
     setShowLearningLink(true);
     setShowSecretButton(false);
@@ -19,6 +50,132 @@ export default function Home() {
       setHint("Hint: drag the icon to move things around.");
     }, 100);
   }
+
+  function expandButtons() {
+    var btns = Array.prototype.slice.call(document.querySelectorAll("button"));
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.add("view-resize-animation");
+    }
+  }
+
+  function showSecretButtonInstructions() {
+    if (!onDesktop()) {
+      setHint("Hint: scroll down");
+      setSecretButtonText("Secret button!");
+    } else {
+      setHint("Hint: hit Tab, or Shift + Tab a few times.");
+      setSecretButtonText("Hit Enter or Spacebar!");
+    }
+    setShowHint(true);
+  }
+
+  function setUpGame() {
+    // game controls on:
+    document.getElementById("draggable").onmouseenter = function () {
+      if (turnedGameOnOnce || onDesktop()) {
+        setShowHint(false);
+        if (turnedGameOnOnce) {
+          showGameButtons();
+        }
+      }
+    };
+    // game controls off:
+    document.getElementById("draggable").onmouseleave = function () {
+      if (onDesktop() && !continueGame) {
+        resetGameButtons();
+        setGameOn(false);
+      }
+    };
+  }
+
+  function showGameButtons() {
+    alert("showGameButtons");
+    var hasSmallScreen = document.documentElement.clientWidth < 640;
+    if (hasSmallScreen) return;
+
+    setUpGameButtons();
+    setGameOn(true);
+    setTurnedGameOnOnce(true);
+  }
+
+  function setUpGameButtons() {
+    // $('button:contains("GitHub")')
+    //   .text(" A ")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 65 });";
+    //   });
+    // $('button:contains("CodePen")')
+    //   .text(" S ")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 83 });";
+    //   });
+    // $('button:contains("Glitch")')
+    //   .text(" D ")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 68 });";
+    //   });
+    // $('button:contains("LinkedIn")')
+    //   .text(" F ")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 70 });";
+    //   });
+    // $('button:contains("Blog")')
+    //   .text(" C ")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 67 });";
+    //   });
+    // $('button:contains("Memrise")')
+    //   .text(" SPACE ")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 32 });";
+    //   });
+  }
+
+  function resetGameButtons() {
+    // $('button:contains(" A ")')
+    //   .text("GitHub")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "window.open('https://github.com/hchiam', '_blank');";
+    //   });
+    // $('button:contains(" S ")')
+    //   .text("CodePen")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "window.open('https://codepen.io/hchiam', '_blank');";
+    //   });
+    // $('button:contains(" D ")')
+    //   .text("Glitch")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "window.open('https://glitch.com/@hchiam', '_blank');";
+    //   });
+    // $('button:contains(" F ")')
+    //   .text("LinkedIn")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "window.open('https://ca.linkedin.com/in/howardchiam', '_blank');";
+    //   });
+    // $('button:contains(" C ")')
+    //   .text("Blog")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "window.open('https://hchiam.blogspot.com', '_blank');";
+    //   });
+    // $('button:contains(" SPACE ")')
+    //   .text("Memrise")
+    //   .off("click")
+    //   .on("click", function () {
+    //     "window.open('https://www.memrise.com/user/hchiam/courses/learning', '_blank');";
+    //   });
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +186,7 @@ export default function Home() {
         <link rel="shortcut icon" href="htc.png" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={`${styles.mainStart} ${slideIn && styles.mainSlideIn}`}>
         <noscript>
           <div id="noscript">
             <p>Please enable JavaScript to learn more about Howard</p>
@@ -47,7 +204,7 @@ export default function Home() {
         </noscript>
         {showSecretButton && (
           <button id="secret-button" onClick={() => surprise()}>
-            Hit Enter or Spacebar!
+            {`Hit Enter or Spacebar!` || secretButtonText}
           </button>
         )}
         <section id="main" className="center">

@@ -24,64 +24,7 @@ function setListeners() {
   });
 }
 
-setTimeout(() => {
-  slideIn();
-}, 10);
-
-setTimeout(() => {
-  expandButtons();
-  document.getElementById("button-notification").innerText =
-    "Within scrolling view, there are six buttons in a group.";
-}, 1000);
-
-setTimeout(() => {
-  if (!onDesktop()) {
-    document.getElementById("hint").innerText = "Hint: scroll down";
-    document.getElementById("secret-button").innerText = "Secret button!";
-  } else {
-    document.getElementById("hint").innerText =
-      "Hint: hit Tab, or Shift + Tab a few times.";
-    document.getElementById("secret-button").innerText =
-      "Hit Enter or Spacebar!";
-  }
-  showHint();
-}, 2000);
-
 setUpGame();
-
-function slideIn() {
-  $("section").css({ position: "relative", top: "-100%" });
-  $("section").animate({ top: 0 });
-}
-
-function advertiseOfflineAbility() {
-  if (navigator.serviceWorker) {
-    $("#extra-info").text("(BTW: This page works offline!)");
-  }
-}
-
-function expandButtons() {
-  var btns = Array.prototype.slice.call(document.querySelectorAll("button"));
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].classList.add("view-resize-animation");
-  }
-}
-
-function onDesktop() {
-  return window.screen.availWidth > 640;
-}
-
-function showHint() {
-  document.getElementById("hint").style.visibility = "visible";
-}
-
-function hideHint() {
-  document.getElementById("hint").style.visibility = "hidden";
-}
-
-function getRandomNumber(start, stop) {
-  return Math.floor(Math.random() * stop + start);
-}
 
 // silly game
 let gameOn = false;
