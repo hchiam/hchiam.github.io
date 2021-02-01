@@ -7,11 +7,18 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "deploy": "next build && next export && surge out https://hchiam.surge.sh"
+    "deploy": "next build && next export && surge out https://hchiam.surge.sh",
+    "reminder": "echo; echo 'Reminder: Do you need to [skip ci]?'; echo;"
   },
   "dependencies": {
+    "husky": "^4.3.8",
     "next": "10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run reminder"
+    }
   }
 }
