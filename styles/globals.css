@@ -230,10 +230,6 @@ p {
   left: -9999px;
 }
 
-#learning-link {
-  visibility: hidden;
-}
-
 .draggable-offline {
   width: 26ch;
   border-radius: 0 !important;

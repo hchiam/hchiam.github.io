@@ -1,7 +1,24 @@
+import { useState, useRef } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [showSecretButton, setShowSecretButton] = useState(true);
+  const [showLearningLink, setShowLearningLink] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+  const [hint, setHint] = useState("");
+
+  const inputRef = useRef();
+  function surprise() {
+    setShowLearningLink(true);
+    setShowSecretButton(false);
+    setShowHint(false);
+    setTimeout(() => {
+      setShowHint(true);
+      inputRef.current.focus();
+      setHint("Hint: drag the icon to move things around.");
+    }, 100);
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -28,7 +45,11 @@ export default function Home() {
             </p>
           </div>
         </noscript>
-        <button id="secret-button">Hit Enter or Spacebar!</button>
+        {showSecretButton && (
+          <button id="secret-button" onClick={() => surprise()}>
+            Hit Enter or Spacebar!
+          </button>
+        )}
         <section id="main" className="center">
           <div id="cover" aria-hidden="true"></div>
           <h1
@@ -54,7 +75,10 @@ export default function Home() {
               role="status"
               aria-live="polite"
             ></div>
-            <button id="a">
+            <button
+              id="a"
+              onClick={() => window.open("https://github.com/hchiam", "_blank")}
+            >
               GitHub
               <svg view-box="0 0 200 200">
                 <path
@@ -63,7 +87,10 @@ export default function Home() {
                 ></path>
               </svg>
             </button>
-            <button id="s">
+            <button
+              id="s"
+              onClick={() => window.open("https://codepen.io/hchiam", "_blank")}
+            >
               CodePen
               <svg view-box="0 0 200 200">
                 <path
@@ -72,7 +99,12 @@ export default function Home() {
                 ></path>
               </svg>
             </button>
-            <button id="d">
+            <button
+              id="d"
+              onClick={() =>
+                window.open("https://glitch.com/@hchiam", "_blank")
+              }
+            >
               Glitch
               <svg view-box="0 0 200 200">
                 <path
@@ -81,7 +113,12 @@ export default function Home() {
                 ></path>
               </svg>
             </button>
-            <button id="f">
+            <button
+              id="f"
+              onClick={() =>
+                window.open("https://ca.linkedin.com/in/howardchiam", "_blank")
+              }
+            >
               LinkedIn
               <svg view-box="0 0 200 200">
                 <path
@@ -90,7 +127,12 @@ export default function Home() {
                 ></path>
               </svg>
             </button>
-            <button id="c">
+            <button
+              id="c"
+              onClick={() =>
+                window.open("https://hchiam.blogspot.com", "_blank")
+              }
+            >
               Blog
               <svg view-box="0 0 200 200">
                 <path
@@ -99,7 +141,15 @@ export default function Home() {
                 ></path>
               </svg>
             </button>
-            <button id="space">
+            <button
+              id="space"
+              onClick={() =>
+                window.open(
+                  "https://www.memrise.com/user/hchiam/courses/learning",
+                  "_blank"
+                )
+              }
+            >
               Memrise
               <svg view-box="0 0 200 200">
                 <path
@@ -119,17 +169,33 @@ export default function Home() {
             />
             <div id="game-container"></div>
           </div>
-          <div id="hint" role="status" aria-live="polite"></div>
+          {showHint && (
+            <div id="hint" role="status" aria-live="polite">
+              {hint}
+            </div>
+          )}
           <p id="extra-info"></p>
-          <div id="learning-link">
-            {/* <!-- You've found one of the hidden features! :) --> */}
-            <p>
-              Here are things I've been learning and working on:
-              <button id="go-to-learning" aria-label="link to my learning repo">
-                https://github.com/hchiam/learning
-              </button>
-            </p>
-          </div>
+          {showLearningLink && (
+            <div id="learning-link">
+              {/* <!-- You've found one of the hidden features! :) --> */}
+              <p>
+                Here are things I've been learning and working on:
+                <button
+                  id="go-to-learning"
+                  ref={inputRef}
+                  aria-label="link to my learning repo"
+                  onClick={() =>
+                    window.open(
+                      "https://github.com/hchiam/learning#--",
+                      "_blank"
+                    )
+                  }
+                >
+                  https://github.com/hchiam/learning
+                </button>
+              </p>
+            </div>
+          )}
         </section>
         <div id="cursor-shadow"></div>
       </main>
