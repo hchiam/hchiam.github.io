@@ -8,34 +8,6 @@ function setListeners() {
       .addEventListener("error", imageFallback);
   }
 
-  document.getElementById("a").addEventListener("click", function () {
-    window.open("https://github.com/hchiam", "_blank");
-  });
-  document.getElementById("s").addEventListener("click", function () {
-    window.open("https://codepen.io/hchiam", "_blank");
-  });
-  document.getElementById("d").addEventListener("click", function () {
-    window.open("https://glitch.com/@hchiam", "_blank");
-  });
-  document.getElementById("f").addEventListener("click", function () {
-    window.open("https://ca.linkedin.com/in/howardchiam", "_blank");
-  });
-  document.getElementById("c").addEventListener("click", function () {
-    window.open("https://hchiam.blogspot.com", "_blank");
-  });
-  document.getElementById("space").addEventListener("click", function () {
-    window.open(
-      "https://www.memrise.com/user/hchiam/courses/learning",
-      "_blank"
-    );
-  });
-
-  document
-    .getElementById("go-to-learning")
-    .addEventListener("click", function () {
-      window.open("https://github.com/hchiam/learning#--", "_blank");
-    });
-
   $(document).ready(function () {
     $("#draggable").draggable({
       start: function (event, ui) {
@@ -105,27 +77,6 @@ function showHint() {
 
 function hideHint() {
   document.getElementById("hint").style.visibility = "hidden";
-}
-
-function hideSecretButton() {
-  document.getElementById("secret-button").style.visibility = "hidden";
-}
-
-function focusOnLearningLink() {
-  // a skip link. https://classroom.udacity.com/courses/ud891/lessons/7962031279/concepts/79590516900923
-  document.querySelector("#learning-link button").focus();
-}
-
-function surprise() {
-  document.getElementById("learning-link").style.visibility = "visible";
-  hideSecretButton();
-  hideHint();
-  setTimeout(() => {
-    showHint();
-    focusOnLearningLink();
-    // do this last in case jQuery is unavailable:
-    $("#hint").text("Hint: drag the icon to move things around.");
-  }, 100);
 }
 
 function getRandomNumber(start, stop) {
