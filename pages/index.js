@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import MysterySpawnButton from "../components/MysterySpawnButton.tsx";
+import useKeyPress from "../helpers/useKeyPress.tsx";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -9,10 +11,18 @@ export default function Home() {
   const [showHint, setShowHint] = useState(false);
   const [secretButtonText, setSecretButtonText] = useState("");
   const [hint, setHint] = useState("");
-  const [turnedGameOnOnce, setTurnedGameOnOnce] = useState(false);
-  const [continueGame, setContinueGame] = useState(false);
   const [gameOn, setGameOn] = useState(false);
+  const [continueGame, setContinueGame] = useState(false);
+  const [spawnCount, setSpawnCount] = useState(0);
+  const [showCommandKeys, setShowCommandKeys] = useState(false);
   const inputRef = useRef();
+
+  useKeyPress("a", handleA, [spawnCount, gameOn, continueGame]);
+  useKeyPress("s", handleS, [spawnCount, gameOn, continueGame]);
+  useKeyPress("d", handleD, [spawnCount, gameOn, continueGame]);
+  useKeyPress("f", handleF, [spawnCount, gameOn, continueGame]);
+  useKeyPress("c", handleC, [gameOn, continueGame]);
+  useKeyPress(" ", handleSpace, [gameOn, continueGame]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,16 +38,15 @@ export default function Home() {
     setTimeout(() => {
       showSecretButtonInstructions();
     }, 2000);
-
-    setUpGame();
-  }, []);
+  }, [spawnCount]);
 
   function onDesktop() {
     return window.screen.availWidth > 640;
   }
 
   function getRandomNumber(start, stop) {
-    return Math.floor(Math.random() * stop + start);
+    const output = Math.floor(Math.random() * stop + start);
+    return output;
   }
 
   function surprise() {
@@ -52,9 +61,11 @@ export default function Home() {
   }
 
   function expandButtons() {
-    var btns = Array.prototype.slice.call(document.querySelectorAll("button"));
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].classList.add("view-resize-animation");
+    const buttons = Array.prototype.slice.call(
+      document.querySelectorAll("button")
+    );
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].classList.add("view-resize-animation");
     }
   }
 
@@ -69,111 +80,111 @@ export default function Home() {
     setShowHint(true);
   }
 
-  function setUpGame() {
-    // game controls on:
-    document.getElementById("draggable").onmouseenter = function () {
-      if (turnedGameOnOnce || onDesktop()) {
-        setShowHint(false);
-        if (turnedGameOnOnce) {
-          showGameButtons();
-        }
-      }
-    };
-    // game controls off:
-    document.getElementById("draggable").onmouseleave = function () {
-      if (onDesktop() && !continueGame) {
-        resetGameButtons();
-        setGameOn(false);
-      }
-    };
-  }
-
   function showGameButtons() {
-    alert("showGameButtons");
     var hasSmallScreen = document.documentElement.clientWidth < 640;
     if (hasSmallScreen) return;
 
-    setUpGameButtons();
     setGameOn(true);
-    setTurnedGameOnOnce(true);
+    setUpGameButtons();
   }
 
   function setUpGameButtons() {
-    // $('button:contains("GitHub")')
-    //   .text(" A ")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 65 });";
-    //   });
-    // $('button:contains("CodePen")')
-    //   .text(" S ")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 83 });";
-    //   });
-    // $('button:contains("Glitch")')
-    //   .text(" D ")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 68 });";
-    //   });
-    // $('button:contains("LinkedIn")')
-    //   .text(" F ")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 70 });";
-    //   });
-    // $('button:contains("Blog")')
-    //   .text(" C ")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 67 });";
-    //   });
-    // $('button:contains("Memrise")')
-    //   .text(" SPACE ")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "jQuery.event.trigger({ type : 'keydown', keyCode : 32 });";
-    //   });
+    setGameOn(true);
+    const aButton = document.getElementById("a");
+    aButton.innerText = " A ";
+    const sButton = document.getElementById("s");
+    sButton.innerText = " S ";
+    const dButton = document.getElementById("d");
+    dButton.innerText = " D ";
+    const fButton = document.getElementById("f");
+    fButton.innerText = " F ";
+    const cButton = document.getElementById("c");
+    cButton.innerText = " C ";
+    const spaceButton = document.getElementById("space");
+    spaceButton.innerText = " SPACE ";
   }
 
   function resetGameButtons() {
-    // $('button:contains(" A ")')
-    //   .text("GitHub")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "window.open('https://github.com/hchiam', '_blank');";
-    //   });
-    // $('button:contains(" S ")')
-    //   .text("CodePen")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "window.open('https://codepen.io/hchiam', '_blank');";
-    //   });
-    // $('button:contains(" D ")')
-    //   .text("Glitch")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "window.open('https://glitch.com/@hchiam', '_blank');";
-    //   });
-    // $('button:contains(" F ")')
-    //   .text("LinkedIn")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "window.open('https://ca.linkedin.com/in/howardchiam', '_blank');";
-    //   });
-    // $('button:contains(" C ")')
-    //   .text("Blog")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "window.open('https://hchiam.blogspot.com', '_blank');";
-    //   });
-    // $('button:contains(" SPACE ")')
-    //   .text("Memrise")
-    //   .off("click")
-    //   .on("click", function () {
-    //     "window.open('https://www.memrise.com/user/hchiam/courses/learning', '_blank');";
-    //   });
+    if (continueGame) return;
+    setGameOn(false);
+    const aButton = document.getElementById("a");
+    aButton.innerText = " GitHub ";
+    const sButton = document.getElementById("s");
+    sButton.innerText = " CodePen ";
+    const dButton = document.getElementById("d");
+    dButton.innerText = " Glitch ";
+    const fButton = document.getElementById("f");
+    fButton.innerText = " LinkedIn ";
+    const cButton = document.getElementById("c");
+    cButton.innerText = " Blog ";
+    const spaceButton = document.getElementById("space");
+    spaceButton.innerText = " Memrise ";
+  }
+
+  function handleA() {
+    if (!gameOn) return;
+    setSpawnCount(spawnCount + 1);
+  }
+
+  function handleS() {
+    if (!gameOn) return;
+    setSpawnCount(spawnCount - 1);
+  }
+
+  function handleD() {
+    if (!gameOn) return;
+    setSpawnCount(0);
+  }
+
+  function handleF() {
+    if (!gameOn) return;
+    setSpawnCount(spawnCount + 30);
+  }
+
+  function handleC() {
+    setContinueGame(!continueGame);
+    setGameOn(true);
+  }
+
+  function handleSpace() {
+    if (!gameOn) return;
+    setShowHint(true);
+    setHint("Hint: refresh the page.");
+    childrenExodus("section");
+    childrenExodus("#draggable");
+    setShowCommandKeys(true);
+    scatterSpace();
+  }
+
+  function spawnMysteryButtons() {
+    let buttons = [];
+    for (let i = 0; i < spawnCount; i++) {
+      buttons.push(<MysterySpawnButton key={i} />);
+    }
+    return buttons;
+  }
+
+  function childrenExodus(parentSelector) {
+    // let children = parentSelector.childNodes;
+    // parentSelector.parentElement.removeChild(parentSelector);
+    // children.map((child) => document.body.appendChild(child));
+    // parentSelector.remove();
+  }
+
+  let scatteredSpace = false;
+  function scatterSpace() {
+    document
+      .querySelectorAll("button, img, #hint, h1, p, span")
+      .forEach(function (e) {
+        const myWidth = e.clientWidth;
+        const myHeight = e.clientHeight;
+        const randomLeft = getRandomNumber(0, window.innerWidth - myWidth);
+        const randomTop = getRandomNumber(0, window.innerHeight - myHeight);
+        e.style.position = "absolute";
+        e.style.left = randomLeft + "px";
+        e.style.top = randomTop + "px";
+      });
+    scatteredSpace = true;
   }
 
   return (
@@ -186,7 +197,7 @@ export default function Home() {
         <link rel="shortcut icon" href="htc.png" />
       </Head>
 
-      <main className={`${styles.mainStart} ${slideIn && styles.mainSlideIn}`}>
+      <main>
         <noscript>
           <div id="noscript">
             <p>Please enable JavaScript to learn more about Howard</p>
@@ -207,7 +218,12 @@ export default function Home() {
             {`Hit Enter or Spacebar!` || secretButtonText}
           </button>
         )}
-        <section id="main" className="center">
+        <section
+          id="main"
+          className={`center ${styles.mainStart} ${
+            slideIn && styles.mainSlideIn
+          }`}
+        >
           <div id="cover" aria-hidden="true"></div>
           <h1
             className="tilt"
@@ -234,7 +250,12 @@ export default function Home() {
             ></div>
             <button
               id="a"
-              onClick={() => window.open("https://github.com/hchiam", "_blank")}
+              className={showCommandKeys ? "commandKey" : ""}
+              onClick={() =>
+                gameOn
+                  ? handleA()
+                  : window.open("https://github.com/hchiam", "_blank")
+              }
             >
               GitHub
               <svg view-box="0 0 200 200">
@@ -246,7 +267,12 @@ export default function Home() {
             </button>
             <button
               id="s"
-              onClick={() => window.open("https://codepen.io/hchiam", "_blank")}
+              className={showCommandKeys ? "commandKey" : ""}
+              onClick={() =>
+                gameOn
+                  ? handleS()
+                  : window.open("https://codepen.io/hchiam", "_blank")
+              }
             >
               CodePen
               <svg view-box="0 0 200 200">
@@ -258,8 +284,11 @@ export default function Home() {
             </button>
             <button
               id="d"
+              className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
-                window.open("https://glitch.com/@hchiam", "_blank")
+                gameOn
+                  ? handleD()
+                  : window.open("https://glitch.com/@hchiam", "_blank")
               }
             >
               Glitch
@@ -272,8 +301,14 @@ export default function Home() {
             </button>
             <button
               id="f"
+              className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
-                window.open("https://ca.linkedin.com/in/howardchiam", "_blank")
+                gameOn
+                  ? handleF()
+                  : window.open(
+                      "https://ca.linkedin.com/in/howardchiam",
+                      "_blank"
+                    )
               }
             >
               LinkedIn
@@ -286,8 +321,11 @@ export default function Home() {
             </button>
             <button
               id="c"
+              className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
-                window.open("https://hchiam.blogspot.com", "_blank")
+                gameOn
+                  ? handleC()
+                  : window.open("https://hchiam.blogspot.com", "_blank")
               }
             >
               Blog
@@ -300,11 +338,14 @@ export default function Home() {
             </button>
             <button
               id="space"
+              className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
-                window.open(
-                  "https://www.memrise.com/user/hchiam/courses/learning",
-                  "_blank"
-                )
+                gameOn
+                  ? handleSpace()
+                  : window.open(
+                      "https://www.memrise.com/user/hchiam/courses/learning",
+                      "_blank"
+                    )
               }
             >
               Memrise
@@ -323,8 +364,10 @@ export default function Home() {
               alt="Howard signature icon"
               width="100px"
               draggable="true"
+              onDrag={showGameButtons}
+              onMouseLeave={resetGameButtons}
             />
-            <div id="game-container"></div>
+            <div id="game-container">{spawnMysteryButtons()}</div>
           </div>
           {showHint && (
             <div id="hint" role="status" aria-live="polite">
