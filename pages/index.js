@@ -27,6 +27,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setSlideIn(true);
+      advertiseOfflineAbility();
     }, 10);
 
     setTimeout(() => {
@@ -38,10 +39,19 @@ export default function Home() {
     setTimeout(() => {
       showSecretButtonInstructions();
     }, 2000);
+
+    setUpConsoleFunctions();
   }, [spawnCount]);
 
   function onDesktop() {
     return window.screen.availWidth > 640;
+  }
+
+  function advertiseOfflineAbility() {
+    if (navigator.serviceWorker) {
+      document.getElementById("extra-info").innerText =
+        "(BTW: This page works offline!)";
+    }
   }
 
   function getRandomNumber(start, stop) {
@@ -55,6 +65,7 @@ export default function Home() {
     setShowHint(false);
     setTimeout(() => {
       setShowHint(true);
+      // a skip link. https://classroom.udacity.com/courses/ud891/lessons/7962031279/concepts/79590516900923
       inputRef.current.focus();
       setHint("Hint: drag the icon to move things around.");
     }, 100);
@@ -171,7 +182,6 @@ export default function Home() {
     // parentSelector.remove();
   }
 
-  let scatteredSpace = false;
   function scatterSpace() {
     document
       .querySelectorAll("button, img, #hint, h1, p, span")
@@ -184,7 +194,104 @@ export default function Home() {
         e.style.left = randomLeft + "px";
         e.style.top = randomTop + "px";
       });
-    scatteredSpace = true;
+  }
+
+  function setUpConsoleFunctions() {
+    window.absolutelyAwesomeYouFoundAHiddenCommand = () => {
+      alert("Cool!");
+    };
+
+    window.goToGame = () => {
+      window.location.href = "/phaser-game/index.html";
+    };
+
+    window.goToSNPromptGenerator = () => {
+      window.location.href = "https://sn-prompt-generator.surge.sh";
+    };
+
+    window.goToCRPrep = () => {
+      window.location.href = "https://cr-prep.glitch.me";
+    };
+
+    window.skew = () => {
+      document.body.style.transform = "skewY(-10deg)";
+      document.body.style.transformOrigin = "150% top";
+      document.body.style.background = "black";
+      setTimeout(function () {
+        document.body.style.transform = "";
+        document.body.style.background = "transparent";
+        document.body.style.top = "0";
+      }, 1000);
+    };
+
+    window.slides = () => {
+      location = "https://simple-slides.surge.sh";
+    };
+
+    window.home = () => {
+      location.reload();
+    };
+
+    window.wowYouFoundAHiddenCommand =
+      window.absolutelyAwesomeYouFoundAHiddenCommand;
+    window.game = window.goToGame;
+    window.snpg = window.goToSNPromptGenerator;
+    window.cr = window.goToCRPrep;
+
+    console.log(
+      `%cIf you have an internet connection,
+  you can enter these commands:%c
+  
+  %cskew()%c
+  
+  %cgame()%c
+  
+  %cslides()%c
+  
+  %chome()%c
+  
+  You can see my auto-generated GitHub résumé here: 
+  %chttps://resume.github.io/?hchiam%c
+  `,
+      "color: blue; background: lightgrey;",
+      "",
+      "color: lime; background: black; padding: 5px 10px;",
+      "",
+      "color: lime; background: black; padding: 5px 10px;",
+      "",
+      "color: lime; background: black; padding: 5px 10px;",
+      "",
+      "color: lime; background: black; padding: 5px 10px;",
+      "",
+      "color: lime;",
+      ""
+    );
+
+    detectKonamiCode();
+    function detectKonamiCode() {
+      function onKonamiCode() {
+        goToGame();
+      }
+      // reference: https://www.sitepoint.com/jquery-konami-code-listener
+      if (window.addEventListener) {
+        var seq = [];
+        var konamiAsciiSequence = "38,38,40,40,37,39,37,39,66,65";
+        window.addEventListener(
+          "keydown",
+          function (event) {
+            var key = event.which || event.keyCode;
+            seq.push(key);
+            var hitKonamiSequence =
+              seq.toString().indexOf(konamiAsciiSequence) >= 0;
+            if (hitKonamiSequence) {
+              onKonamiCode();
+              seq = [];
+            }
+          },
+          true
+        );
+      }
+    }
   }
 
   return (
