@@ -4,6 +4,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import MysterySpawnButton from "../components/MysterySpawnButton.tsx";
 import useKeyPress from "../helpers/useKeyPress.tsx";
+import setUpDraggable2DNote from "../helpers/setUpDraggable2DNote.tsx";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -42,10 +43,12 @@ export default function Home() {
     }, 2000);
 
     setUpConsoleFunctions();
-
-    const draggableElement = document.getElementById("draggable");
-    _2DNote.setAs2DArea(draggableElement, callbackUponDrag);
-    makeElementDraggable(draggableElement);
+    setUpDraggable2DNote(
+      _2DNote,
+      makeElementDraggable,
+      document.getElementById("draggable"),
+      callbackUponDrag
+    );
   }, [spawnCount]);
 
   function callbackUponDrag() {
@@ -489,7 +492,6 @@ export default function Home() {
               src="htc.png"
               alt="Howard signature icon"
               width="100px"
-              draggable="true"
               onMouseLeave={resetGameButtons}
             />
             <div id="game-container">{spawnMysteryButtons()}</div>

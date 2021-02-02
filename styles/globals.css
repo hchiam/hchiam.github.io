@@ -80,6 +80,7 @@ button:focus > svg {
   font-size: xx-large;
   font-weight: bolder;
   color: rgb(50, 50, 50);
+  margin-top: 7rem;
 }
 
 #hint:hover {
@@ -142,6 +143,8 @@ a:focus {
   border-radius: 1em;
   font-size: 10px;
   transition: none;
+  z-index: 9001;
+  margin-top: 1rem;
 }
 
 .commandKey {
