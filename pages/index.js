@@ -47,12 +47,19 @@ export default function Home() {
       _2DNote,
       makeElementDraggable,
       document.getElementById("draggable"),
-      callbackUponDrag
+      callbackUponDrag,
+      mouseUpCallback
     );
   }, [spawnCount]);
 
   function callbackUponDrag() {
     showGameButtons();
+    document.getElementById("hint").style.color = "lime";
+    setHint("To stop audio, click off or stop dragging.");
+  }
+
+  function mouseUpCallback() {
+    setHint("");
   }
 
   function onDesktop() {
