@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import "react-dom";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import MysterySpawnButton from "../components/MysterySpawnButton.tsx";
@@ -41,7 +42,15 @@ export default function Home() {
     }, 2000);
 
     setUpConsoleFunctions();
+
+    const draggableElement = document.getElementById("draggable");
+    _2DNote.setAs2DArea(draggableElement, callbackUponDrag);
+    makeElementDraggable(draggableElement);
   }, [spawnCount]);
+
+  function callbackUponDrag() {
+    showGameButtons();
+  }
 
   function onDesktop() {
     return window.screen.availWidth > 640;
@@ -302,6 +311,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="rgb(32,32,32)" />
         <link rel="shortcut icon" href="htc.png" />
+        <script
+          src="https://cdn.jsdelivr.net/gh/hchiam/_2DNote@1.12.3/_2DNote.min.js"
+          integrity="sha384-e0d2dNwg3F9WTJ3jZBF5iUeuVyAtx+zwMnCAvKMiCHtwO2l2dzo3cIMO4+Xqwn5p"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/gh/hchiam/draggable@3.3.2/makeElementDraggable.js"
+          integrity="sha384-o4FiE15Upwm21kbkoEoZLNCBjClbxbxsUq0g52Z06+6JLSguSieyFjsAe5tyHy4k"
+          crossorigin="anonymous"
+        ></script>
       </Head>
 
       <main>
@@ -471,7 +490,6 @@ export default function Home() {
               alt="Howard signature icon"
               width="100px"
               draggable="true"
-              onDrag={showGameButtons}
               onMouseLeave={resetGameButtons}
             />
             <div id="game-container">{spawnMysteryButtons()}</div>
