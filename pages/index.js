@@ -50,6 +50,16 @@ export default function Home() {
       callbackUponDrag,
       mouseUpCallback
     );
+
+    UniversalTilt.init({
+      elements: document.querySelectorAll(".tilt"),
+      settings: {
+        // options...
+      },
+      callbacks: {
+        // callbacks...
+      },
+    });
   }, [spawnCount]);
 
   function callbackUponDrag() {
@@ -329,6 +339,11 @@ export default function Home() {
         <script
           src="https://cdn.jsdelivr.net/gh/hchiam/draggable@3.3.2/makeElementDraggable.js"
           integrity="sha384-o4FiE15Upwm21kbkoEoZLNCBjClbxbxsUq0g52Z06+6JLSguSieyFjsAe5tyHy4k"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://unpkg.com/universal-tilt.js"
+          integrity="sha384-tZhf4CaqdH3Z6krNwpjhIxCHu1fs91yFeMFR/sR2qSRDr78wNeJT0F1ZrULDLg31"
           crossorigin="anonymous"
         ></script>
       </Head>

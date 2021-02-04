@@ -11,13 +11,3 @@ function imageFallback() {
   $("img").remove();
   $("#ascii-art").show();
 }
-
-const tilt = UniversalTilt.init({
-  elements: document.querySelectorAll(".tilt"),
-  settings: {
-    // options...
-  },
-  callbacks: {
-    // callbacks...
-  },
-});
