@@ -8,6 +8,7 @@
     "start": "next start",
     "export": "next export",
     "deploy": "next build && next export && surge out https://hchiam.surge.sh",
+    "surge": "yarn deploy",
     "reminder": "echo; echo 'Reminder: Do you need to \\033[1;34m[skip ci]\\033[0m?'; echo;"
   },
   "dependencies": {
