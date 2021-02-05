@@ -6,6 +6,7 @@ const appShellURLs = [
   "https://cdn.jsdelivr.net/gh/hchiam/_2DNote@1.12.3/_2DNote.min.js",
   "https://cdn.jsdelivr.net/gh/hchiam/draggable@3.3.2/makeElementDraggable.js",
   "https://unpkg.com/universal-tilt.js",
+  "https://cdn.jsdelivr.net/gh/hchiam/flying-focus@1.3.0/flying-focus.js",
   "/_next/static/chunks/main.js",
   "/_next/static/chunks/webpack.js",
   "/_next/static/chunks/pages/_app.js",

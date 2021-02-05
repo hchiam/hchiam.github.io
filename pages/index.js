@@ -351,6 +351,11 @@ export default function Home() {
           integrity="sha384-tZhf4CaqdH3Z6krNwpjhIxCHu1fs91yFeMFR/sR2qSRDr78wNeJT0F1ZrULDLg31"
           crossorigin="anonymous"
         ></script>
+        <script
+          src="https://cdn.jsdelivr.net/gh/hchiam/flying-focus@1.3.0/flying-focus.js"
+          integrity="sha384-R/GTkKePjxM+7NiHK3HnRFNqvOoCND50qZZgnhKN8NsT3cRIIrTRw1EdS61VgW3W"
+          crossorigin="anonymous"
+        ></script>
       </Head>
 
       <main>
