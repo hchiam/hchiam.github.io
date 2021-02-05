@@ -4,7 +4,7 @@ export default function useKeyPress(
   targetKey: string,
   callback: Function,
   dependencies: Array<any> = []
-) {
+): boolean {
   const [keyPressed, setKeyPressed] = useState(false);
 
   function downHandler({ key }) {
@@ -13,12 +13,12 @@ export default function useKeyPress(
     }
   }
 
-  const upHandler = ({ key }) => {
+  function upHandler({ key }) {
     if (key === targetKey) {
       setKeyPressed(false);
       callback();
     }
-  };
+  }
 
   useEffect(() => {
     window.addEventListener("keydown", downHandler);

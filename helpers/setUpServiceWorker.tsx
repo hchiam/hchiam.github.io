@@ -1,4 +1,4 @@
-export default function setUpServiceWorker() {
+export default function setUpServiceWorker(): void {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
       navigator.serviceWorker.register("/sw.js").then(

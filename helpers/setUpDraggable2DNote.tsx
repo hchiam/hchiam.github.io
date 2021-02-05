@@ -4,7 +4,7 @@ export default function setUpDraggable2DNote(
   draggableElement: HTMLElement,
   callbackUponDrag?: Function,
   mouseUpCallback?: Function
-) {
+): void {
   const originalPosition = {
     left: draggableElement.offsetLeft + "px",
     top: draggableElement.offsetTop + "px",
