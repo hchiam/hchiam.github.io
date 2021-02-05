@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import MysterySpawnButton from "../components/MysterySpawnButton.tsx";
 import useKeyPress from "../helpers/useKeyPress.tsx";
 import setUpDraggable2DNote from "../helpers/setUpDraggable2DNote.tsx";
-import setUpServiceWorker from "../helpers/setUpServiceWorker.tsx";
+// import setUpServiceWorker from "../helpers/setUpServiceWorker.tsx";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -28,11 +28,11 @@ export default function Home() {
   useKeyPress(" ", handleSpace, [gameOn, continueGame]);
 
   useEffect(() => {
-    setUpServiceWorker();
+    // setUpServiceWorker();
 
     setTimeout(() => {
       setSlideIn(true);
-      advertiseOfflineAbility();
+      // advertiseOfflineAbility();
     }, 10);
 
     setTimeout(() => {
