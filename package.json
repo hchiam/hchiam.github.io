@@ -15,7 +15,8 @@
     "husky": "^4.3.8",
     "next": "10.0.6",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "styled-jsx": "^3.4.2"
   },
   "husky": {
     "hooks": {
