@@ -233,7 +233,7 @@ export default function Home() {
     };
 
     window.goToGame = () => {
-      window.location.href = "/phaser-game/index.html";
+      window.location.href = "/phaser-game";
     };
 
     window.goToSNPromptGenerator = () => {
