@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect } from "react";
 import "react-dom";
 import Head from "next/head";
 
@@ -29,8 +29,11 @@ you can enter this command:%c
     <div>
       <Head>
         <meta charSet="UTF-8" />
+        <title>Phaser Game Test</title>
+        <meta name="description" content="Phaser Game Test" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title className="title">Phaser Game Test</title>
+        <meta name="theme-color" content="rgb(32,32,32)" />
+        <link rel="shortcut icon" href="htc.png" />
         <script
           type="text/javascript"
           src="https://cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"
