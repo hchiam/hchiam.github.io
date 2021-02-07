@@ -4,7 +4,10 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import MysterySpawnButton from "../components/MysterySpawnButton.tsx";
 import useKeyPress from "../helpers/useKeyPress.tsx";
-import setUpDraggable2DNote from "../helpers/setUpDraggable2DNote.tsx";
+import {
+  setUpDraggable2DNote,
+  indicateNoteWithColour,
+} from "../helpers/setUpDraggable2DNote.tsx";
 import setUpCursorShadow from "../helpers/cursor.tsx";
 // import setUpServiceWorker from "../helpers/setUpServiceWorker.tsx";
 
@@ -13,6 +16,7 @@ export default function Home() {
   const [showSecretButton, setShowSecretButton] = useState(true);
   const [showLearningLink, setShowLearningLink] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [showDragHint, setShowDragHint] = useState(false);
   const [secretButtonText, setSecretButtonText] = useState("");
   const [hint, setHint] = useState("");
   const [gameOn, setGameOn] = useState(false);
@@ -69,11 +73,13 @@ export default function Home() {
 
   function callbackUponDrag() {
     showGameButtons();
-    document.getElementById("hint").style.color = "lime";
+    setShowDragHint(true);
     setHint("To stop audio, click off or stop dragging.");
+    indicateNoteWithColour("#draggable");
   }
 
   function mouseUpCallback() {
+    setShowDragHint(false);
     setHint("");
   }
 
@@ -339,22 +345,22 @@ export default function Home() {
         <script
           src="https://cdn.jsdelivr.net/gh/hchiam/_2DNote@1.12.3/_2DNote.min.js"
           integrity="sha384-e0d2dNwg3F9WTJ3jZBF5iUeuVyAtx+zwMnCAvKMiCHtwO2l2dzo3cIMO4+Xqwn5p"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <script
           src="https://cdn.jsdelivr.net/gh/hchiam/draggable@3.3.2/makeElementDraggable.js"
           integrity="sha384-o4FiE15Upwm21kbkoEoZLNCBjClbxbxsUq0g52Z06+6JLSguSieyFjsAe5tyHy4k"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <script
           src="https://unpkg.com/universal-tilt.js"
           integrity="sha384-tZhf4CaqdH3Z6krNwpjhIxCHu1fs91yFeMFR/sR2qSRDr78wNeJT0F1ZrULDLg31"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <script
           src="https://cdn.jsdelivr.net/gh/hchiam/flying-focus@1.3.0/flying-focus.js"
           integrity="sha384-R/GTkKePjxM+7NiHK3HnRFNqvOoCND50qZZgnhKN8NsT3cRIIrTRw1EdS61VgW3W"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
       </Head>
 
@@ -529,7 +535,12 @@ export default function Home() {
             <div id="game-container">{spawnMysteryButtons()}</div>
           </div>
           {showHint && (
-            <div id="hint" role="status" aria-live="polite">
+            <div
+              id="hint"
+              role="status"
+              aria-live="polite"
+              style={{ color: showDragHint ? "lime" : "" }}
+            >
               {hint}
             </div>
           )}
