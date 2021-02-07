@@ -43,7 +43,7 @@ export function indicateNoteWithColour(selector: string): void {
   frequencyNum = Math.round(frequencyNum);
   let output =
     "hsl(" + String(frequencyNum) + "," + String(volumeNum) + "%, 50%)";
-  document.querySelector(selector).style.background = output;
+  (document.querySelector(selector) as HTMLElement).style.background = output;
 }
 
 function getCoordinates(selector: string): number[] {
