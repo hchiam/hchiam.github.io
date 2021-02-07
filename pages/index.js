@@ -201,8 +201,6 @@ export default function Home() {
     if (!gameOn) return;
     setShowHint(true);
     setHint("Hint: refresh the page.");
-    childrenExodus("section");
-    childrenExodus("#draggable");
     setShowCommandKeys(true);
     scatterSpace();
   }
@@ -213,13 +211,6 @@ export default function Home() {
       buttons.push(<MysterySpawnButton key={i} />);
     }
     return buttons;
-  }
-
-  function childrenExodus(parentSelector) {
-    // let children = parentSelector.childNodes;
-    // parentSelector.parentElement.removeChild(parentSelector);
-    // children.map((child) => document.body.appendChild(child));
-    // parentSelector.remove();
   }
 
   function scatterSpace() {
