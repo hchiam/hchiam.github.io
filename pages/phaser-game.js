@@ -41,37 +41,38 @@ you can enter this command:%c
       </Head>
       <main>
         <h1>Phaser Game Test - Playing With Blocks</h1>
-        <p
-          className="codepen"
-          data-height="585"
-          data-theme-id="light"
-          data-default-tab="result"
-          data-user="hchiam"
-          data-slug-hash="gmvzdo"
-          data-pen-title="new phaser game"
+        <iframe
+          height="265"
+          scrolling="no"
+          title="new phaser game"
+          src="https://codepen.io/hchiam/embed/preview/gmvzdo?height=265&theme-id=dark&default-tab=result"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
         >
-          <span>
-            See the Pen{" "}
-            <a href="https://codepen.io/hchiam/pen/gmvzdo">new phaser game</a>{" "}
-            by hchiam (<a href="https://codepen.io/hchiam">@hchiam</a>) on{" "}
-            <a href="https://codepen.io">CodePen</a>.
-          </span>
-        </p>
-        <script
-          async
-          src="https://cpwebassets.codepen.io/assets/embed/ei.js"
-        ></script>
+          See the Pen{" "}
+          <a href="https://codepen.io/hchiam/pen/gmvzdo">new phaser game</a> by
+          hchiam (<a href="https://codepen.io/hchiam">@hchiam</a>) on{" "}
+          <a href="https://codepen.io">CodePen</a>.
+        </iframe>
       </main>
       <style jsx>{`
-        .codepen {
-          height: 585px;
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
+        main {
+          display: grid;
+          align-content: center;
           justify-content: center;
-          border: 2px solid;
-          margin: 1em 0;
-          padding: 1em;
+        }
+
+        h1 {
+          text-align: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        iframe {
+          width: 80vw;
+          height: 80vh;
         }
       `}</style>
     </div>
