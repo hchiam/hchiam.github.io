@@ -13,10 +13,12 @@
   },
   "dependencies": {
     "husky": "^4.3.8",
-    "next": "10.0.6",
+    "next": "^10.0.6",
+    "next-pwa": "^5.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "styled-jsx": "^3.4.2"
+    "styled-jsx": "^3.4.2",
+    "webpack": "^4.46.0"
   },
   "husky": {
     "hooks": {

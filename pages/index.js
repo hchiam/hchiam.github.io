@@ -60,7 +60,7 @@ export default function Home() {
       mouseUpCallback
     );
 
-    UniversalTilt.init({
+    UniversalTilt?.init({
       elements: document.querySelectorAll(".tilt"),
       settings: {
         // options...
