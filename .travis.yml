@@ -1,13 +1,11 @@
 # automatic testing with Travis CI!
 language: node_js
 node_js:
-  - 10
+  - 12
 cache:
   yarn: true
   directories:
     - node_modules
-install:
-  - yarn
 before_install:
   - yarn global add @lhci/cli@0.3.0-alpha.0
 script:
