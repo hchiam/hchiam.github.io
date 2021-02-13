@@ -2,25 +2,32 @@
 
 ![version](https://img.shields.io/github/release/hchiam/hchiam.github.io) [![Build Status](https://travis-ci.org/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.org/hchiam/hchiam.github.io) [![Coverage Status](https://coveralls.io/repos/github/hchiam/hchiam.github.io/badge.svg?branch=master)](https://coveralls.io/github/hchiam/hchiam.github.io?branch=master)
 
-```bash
-npm i # to get set up
-```
+## One-time initial local setup:
 
 ```bash
-yarn test # or just: jest
-yarn build
-yarn start # for testing locally on localhost:8000
-yarn stop
+yarn # or npm i
 ```
+
+(Don't have `yarn`? Try [installing `yarn`](https://yarnpkg.com/en/docs/install) and try again. Or [try replacing `yarn` with the `npm` equivalents](https://github.com/hchiam/learning-yarn).)
+
+## Try it locally:
+
+```bash
+yarn dev # http://localhost:3000
+```
+
+## Deploy to live site:
+
+```bash
+yarn deploy # https://hchiam.surge.sh
+```
+
+## Lighthouse test:
 
 ```bash
 lhci autorun
 ```
 
-You can automatically rebuild and restart (instead of typing `yarn run start`) every time you edit a file:
+## Suggested starting point to understand the code:
 
-```bash
-yarn run continuous-restart # see package.json for details
-```
-
-(Don't have `yarn`? [Install `yarn`](https://yarnpkg.com/en/docs/install) and try again. Try replacing `yarn` with `npm` in the commands above.)
+`pages/index.js`
