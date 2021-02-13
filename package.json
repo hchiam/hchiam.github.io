@@ -1,31 +1,41 @@
 {
-  "name": "hchiam.github.io",
-  "version": "4.0.0",
-  "private": true,
+  "name": "hchiam.com",
+  "version": "3.0.0",
+  "dependencies": {},
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "deploy": "next build && next export && surge out https://hchiam.surge.sh",
-    "surge": "yarn deploy",
-    "reminder": "echo; echo 'Reminder: Do you need to \\033[1;34m[skip ci]\\033[0m?'; echo;"
+    "test": "jest",
+    "minify": "minify style.css > minified-style.css; minify brain.js sound.js cursor.js flying-focus-ring.js > minified-code.js;",
+    "build": "yarn minify || npm run minify; bash copy-to-public-folder.sh;",
+    "start": "yarn stop || npm run stop; yarn build || npm run build; node index.js & open http://localhost:8000",
+    "stop": "killall -9 node",
+    "sbs": "yarn stop || npm run stop; yarn build || npm run build; yarn start || npm run start;",
+    "continuous-restart": "nodemon -e js,html,css -x 'yarn build; node index.js;' --ignore public --ignore 'minified*.*';",
+    "surge": "yarn build; surge public https://hchiam.surge.sh; open https://hchiam.surge.sh;",
+    "reminder": "echo; echo 'Reminders: Did you build first? Do you need to [skip ci]?'; echo;"
   },
-  "dependencies": {
-    "next": "^10.0.6",
-    "next-pwa": "^5.0.5",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "styled-jsx": "^3.4.2",
-    "webpack": "^4.46.0"
+  "eslintConfig": {},
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "husky": "^4.3.6",
+    "jest-cli": "^26.6.3",
+    "minify": "^5.2.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run reminder"
+      "pre-commit": "npm run reminder; if (npm test); then npm run reminder; else (npm run reminder; exit 1); fi;"
     }
   },
-  "devDependencies": {
-    "@lhci/cli": "^0.7.0",
-    "husky": "^4.3.8"
-  }
+  "license": "MIT"
 }
