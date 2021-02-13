@@ -9,7 +9,6 @@ import {
   indicateNoteWithColour,
 } from "../helpers/setUpDraggable2DNote.tsx";
 import setUpCursorShadow from "../helpers/cursor.tsx";
-// import setUpServiceWorker from "../helpers/setUpServiceWorker.tsx";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -34,11 +33,10 @@ export default function Home() {
 
   useEffect(() => {
     setUpCursorShadow();
-    // setUpServiceWorker();
 
     setTimeout(() => {
       setSlideIn(true);
-      // advertiseOfflineAbility();
+      advertiseOfflineAbility();
     }, 10);
 
     setTimeout(() => {
