@@ -8,6 +8,8 @@
 yarn # or npm i
 ```
 
+(Don't have `yarn`? Try [installing `yarn`](https://yarnpkg.com/en/docs/install) and try again. Or [try replacing `yarn` with the `npm` equivalents](https://github.com/hchiam/learning-yarn).)
+
 ## Try it locally:
 
 ```bash
@@ -20,14 +22,12 @@ yarn dev # http://localhost:3000
 yarn deploy # https://hchiam.surge.sh
 ```
 
-## Test:
+## Lighthouse test:
 
 ```bash
 lhci autorun
 ```
 
-## Starting point to understand the code:
+## Suggested starting point to understand the code:
 
 `pages/index.js`
-
-(Don't have `yarn`? Try [installing `yarn`](https://yarnpkg.com/en/docs/install) and try again. Or [try replacing `yarn` with the `npm` equivalents](https://github.com/hchiam/learning-yarn).)
