@@ -22,6 +22,8 @@ yarn dev # http://localhost:3000
 yarn deploy # https://hchiam.surge.sh and updates gh-pages branch
 ```
 
+But to deploy and update the hchiam.com site, you need to be in the `main` branch, push a commit to the `main` branch, and then in the `main` branch run `yarn deploy:gh-pages` to update the `gh-pages` branch, which will deploy the the hchiam.com site.
+
 ## Lighthouse test:
 
 ```bash
