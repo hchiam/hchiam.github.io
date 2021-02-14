@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next export",
     "deploy": "next build && next export && yarn deploy:pre-deploy && yarn deploy:surge && yarn deploy:gh-pages",
-    "deploy:pre-deploy": "cp {.nojekyll,CNAME,manifest.webmanifest} out && git add out && git commit -m \"Deploy to gh-pages\"",
+    "deploy:pre-deploy": "cp {.nojekyll,CNAME,manifest.webmanifest} out && git add . && git commit -m \"Deploy to gh-pages\" && git push && git status",
     "deploy:surge": "surge out https://hchiam.surge.sh",
     "deploy:gh-pages": "git subtree push --prefix out origin gh-pages",
     "surge": "yarn deploy",

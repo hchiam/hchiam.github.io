@@ -16,20 +16,14 @@ yarn # or npm i
 yarn dev # http://localhost:3000
 ```
 
-## Deploy to live test site:
+## Deploy to live sites:
 
 ```bash
-yarn deploy # https://hchiam.surge.sh
+# make sure you're in the main branch before you run this!
+yarn deploy # https://hchiam.surge.sh and https://hchiam.com
 ```
 
-## Deploy to live production site:
-
-```bash
-# commit to main
-yarn deploy:gh-pages # https://hchiam.com
-```
-
-But to deploy and update the hchiam.com site, you need to be in the `main` branch, push a commit to the `main` branch, and then in the `main` branch run `yarn deploy:gh-pages` to update the `gh-pages` branch, which will deploy the the hchiam.com site.
+You need to be in the `main` branch. This command should deploy and update the hchiam.com site. It should push a commit to the `main` branch, and then in the `main` branch run `yarn deploy:gh-pages` to update the `gh-pages` branch, which will deploy the the hchiam.com site.
 
 ## Lighthouse test:
 
