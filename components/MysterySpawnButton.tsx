@@ -5,10 +5,10 @@ export default function MysterySpawnButton() {
   const ref = useRef();
 
   function handleMouseover() {
-    ref.current.style.color = "transparent";
-    ref.current.style.width = 0;
-    ref.current.style.height = 0;
-    ref.current.style.padding = 0;
+    ref?.current?.style.color = "transparent";
+    ref?.current?.style.width = 0;
+    ref?.current?.style.height = 0;
+    ref?.current?.style.padding = 0;
     setTimeout(function () {
       setShow(false);
     }, 500);
