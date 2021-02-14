@@ -1,14 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 import "react-dom";
 import Head from "next/head";
+import CDNs from "../components/CDNs";
 import styles from "../styles/Home.module.css";
-import MysterySpawnButton from "../components/MysterySpawnButton.tsx";
-import useKeyPress from "../helpers/useKeyPress.tsx";
+import scopedStyles from "../styles/index.css";
+import MysterySpawnButton from "../components/MysterySpawnButton";
+import useKeyPress from "../helpers/useKeyPress";
 import {
   setUpDraggable2DNote,
   indicateNoteWithColour,
-} from "../helpers/setUpDraggable2DNote.tsx";
-import setUpCursorShadow from "../helpers/cursor.tsx";
+} from "../helpers/setUpDraggable2DNote";
+import setUpCursorShadow from "../helpers/cursor";
+import onDesktop from "../helpers/onDesktop";
+import advertiseOfflineAbility from "../helpers/advertiseOfflineAbility";
+import getRandomNumber from "../helpers/getRandomNumber";
+import setUpConsoleFunctions from "../helpers/setUpConsoleFunctions";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -18,11 +24,12 @@ export default function Home() {
   const [showDragHint, setShowDragHint] = useState(false);
   const [secretButtonText, setSecretButtonText] = useState("");
   const [hint, setHint] = useState("");
+  const inputRef = useRef();
+
   const [gameOn, setGameOn] = useState(false);
   const [continueGame, setContinueGame] = useState(false);
   const [spawnCount, setSpawnCount] = useState(0);
   const [showCommandKeys, setShowCommandKeys] = useState(false);
-  const inputRef = useRef();
 
   useKeyPress("a", handleA, [spawnCount, gameOn, continueGame]);
   useKeyPress("s", handleS, [spawnCount, gameOn, continueGame]);
@@ -36,7 +43,7 @@ export default function Home() {
 
     setTimeout(() => {
       setSlideIn(true);
-      advertiseOfflineAbility();
+      advertiseOfflineAbility(document.getElementById("extra-info"));
     }, 10);
 
     setTimeout(() => {
@@ -81,22 +88,6 @@ export default function Home() {
     setHint("");
   }
 
-  function onDesktop() {
-    return window.screen.availWidth > 640;
-  }
-
-  function advertiseOfflineAbility() {
-    if (navigator.serviceWorker) {
-      document.getElementById("extra-info").innerText =
-        "(BTW: This page works offline!)";
-    }
-  }
-
-  function getRandomNumber(start, stop) {
-    const output = Math.floor(Math.random() * stop + start);
-    return output;
-  }
-
   function surprise() {
     setShowLearningLink(true);
     setShowSecretButton(false);
@@ -104,7 +95,7 @@ export default function Home() {
     setTimeout(() => {
       setShowHint(true);
       // a skip link. https://classroom.udacity.com/courses/ud891/lessons/7962031279/concepts/79590516900923
-      inputRef.current.focus();
+      inputRef?.current?.focus();
       setHint("Hint: drag the icon to move things around.");
     }, 100);
   }
@@ -219,108 +210,10 @@ export default function Home() {
         const myHeight = e.clientHeight;
         const randomLeft = getRandomNumber(0, window.innerWidth - myWidth);
         const randomTop = getRandomNumber(0, window.innerHeight - myHeight);
-        e.style.position = "absolute";
-        e.style.left = randomLeft + "px";
-        e.style.top = randomTop + "px";
+        (e as HTMLElement).style.position = "absolute";
+        (e as HTMLElement).style.left = randomLeft + "px";
+        (e as HTMLElement).style.top = randomTop + "px";
       });
-  }
-
-  function setUpConsoleFunctions() {
-    window.absolutelyAwesomeYouFoundAHiddenCommand = () => {
-      alert("Cool!");
-    };
-
-    window.goToGame = () => {
-      window.location.href = "/phaser-game";
-    };
-
-    window.goToSNPromptGenerator = () => {
-      window.location.href = "https://sn-prompt-generator.surge.sh";
-    };
-
-    window.goToCRPrep = () => {
-      window.location.href = "https://cr-prep.glitch.me";
-    };
-
-    window.skew = () => {
-      document.body.style.transform = "skewY(-10deg)";
-      document.body.style.transformOrigin = "150% top";
-      document.body.style.background = "black";
-      setTimeout(function () {
-        document.body.style.transform = "";
-        document.body.style.background = "transparent";
-        document.body.style.top = "0";
-      }, 1000);
-    };
-
-    window.slides = () => {
-      location = "https://simple-slides.surge.sh";
-    };
-
-    window.home = () => {
-      location.reload();
-    };
-
-    window.wowYouFoundAHiddenCommand =
-      window.absolutelyAwesomeYouFoundAHiddenCommand;
-    window.game = window.goToGame;
-    window.snpg = window.goToSNPromptGenerator;
-    window.cr = window.goToCRPrep;
-
-    console.log(
-      `%cIf you have an internet connection,
-  you can enter these commands:%c
-  
-  %cskew()%c
-  
-  %cgame()%c
-  
-  %cslides()%c
-  
-  %chome()%c
-  
-  You can see my auto-generated GitHub résumé here: 
-  %chttps://resume.github.io/?hchiam%c
-  `,
-      "color: blue; background: lightgrey;",
-      "",
-      "color: lime; background: black; padding: 5px 10px;",
-      "",
-      "color: lime; background: black; padding: 5px 10px;",
-      "",
-      "color: lime; background: black; padding: 5px 10px;",
-      "",
-      "color: lime; background: black; padding: 5px 10px;",
-      "",
-      "color: lime;",
-      ""
-    );
-
-    detectKonamiCode();
-    function detectKonamiCode() {
-      function onKonamiCode() {
-        goToGame();
-      }
-      // reference: https://www.sitepoint.com/jquery-konami-code-listener
-      if (window.addEventListener) {
-        var seq = [];
-        var konamiAsciiSequence = "38,38,40,40,37,39,37,39,66,65";
-        window.addEventListener(
-          "keydown",
-          function (event) {
-            var key = event.which || event.keyCode;
-            seq.push(key);
-            var hitKonamiSequence =
-              seq.toString().indexOf(konamiAsciiSequence) >= 0;
-            if (hitKonamiSequence) {
-              onKonamiCode();
-              seq = [];
-            }
-          },
-          true
-        );
-      }
-    }
   }
 
   return (
@@ -331,26 +224,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="rgb(32,32,32)" />
         <link rel="shortcut icon" href="htc.png" />
-        <script
-          src="https://cdn.jsdelivr.net/gh/hchiam/_2DNote@1.12.3/_2DNote.min.js"
-          integrity="sha384-e0d2dNwg3F9WTJ3jZBF5iUeuVyAtx+zwMnCAvKMiCHtwO2l2dzo3cIMO4+Xqwn5p"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/gh/hchiam/draggable@3.3.2/makeElementDraggable.js"
-          integrity="sha384-o4FiE15Upwm21kbkoEoZLNCBjClbxbxsUq0g52Z06+6JLSguSieyFjsAe5tyHy4k"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://unpkg.com/universal-tilt.js"
-          integrity="sha384-tZhf4CaqdH3Z6krNwpjhIxCHu1fs91yFeMFR/sR2qSRDr78wNeJT0F1ZrULDLg31"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/gh/hchiam/flying-focus@1.3.0/flying-focus.js"
-          integrity="sha384-R/GTkKePjxM+7NiHK3HnRFNqvOoCND50qZZgnhKN8NsT3cRIIrTRw1EdS61VgW3W"
-          crossOrigin="anonymous"
-        ></script>
+        <CDNs />
       </Head>
 
       <main>
@@ -559,240 +433,7 @@ export default function Home() {
         <div id="cursor-shadow"></div>
       </main>
 
-      <style jsx>{`
-        #noscript p {
-          text-align: center !important;
-        }
-
-        #hint {
-          font-size: xx-large;
-          font-weight: bolder;
-          color: rgb(50, 50, 50);
-          margin-top: 7rem;
-        }
-
-        #hint:hover {
-          color: lime;
-        }
-
-        #secret-button {
-          position: absolute;
-          left: -100%;
-          z-index: 3;
-        }
-
-        #secret-button:focus {
-          left: 10% !important;
-        }
-
-        @media only screen and (max-device-width: 640px) {
-          button {
-            min-width: 48px;
-            min-height: 48px;
-            margin: 10px;
-          }
-
-          #secret-button {
-            left: 0;
-            top: 120vh;
-          }
-        }
-
-        .view-resize-animation {
-          margin: 10px;
-        }
-
-        #hint,
-        button:hover,
-        button:focus,
-        a:hover,
-        a:focus {
-          animation-name: wobble;
-          animation-duration: 0.5s;
-          animation-iteration-count: infinite;
-        }
-
-        @keyframes wobble {
-          0% {
-            transform: rotate(-5deg);
-          }
-
-          50% {
-            transform: rotate(5deg);
-          }
-
-          100% {
-            transform: rotate(-5deg);
-          }
-        }
-
-        #draggable {
-          cursor: move;
-          border-radius: 1em;
-          font-size: 10px;
-          transition: none;
-          z-index: 9001;
-          margin-top: 1rem;
-        }
-
-        .commandKey {
-          background: navy;
-        }
-
-        #cover {
-          z-index: -1;
-          position: fixed;
-          background: var(--secondary-color);
-          opacity: 0.1;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          clip-path: polygon(0% 0%, 100% 30%, 100% 100%, 0% 80%);
-        }
-
-        #cursor-shadow {
-          position: absolute;
-          box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.1);
-          transition: 0s;
-        }
-
-        #extra-info {
-          color: #808080;
-        }
-
-        .tilt {
-          width: 15ch;
-          margin: auto;
-          transform-style: preserve-3d;
-          border-radius: 3px;
-          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .tilt:hover {
-          background: lime;
-          color: black;
-        }
-
-        .tilt > .tilt-element-inner-text {
-          transform: translateZ(20px);
-          color: white;
-          text-align: center;
-          border-radius: 3px;
-          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-          line-height: 50px;
-          font-family: avenir, arial, tahoma, monospace;
-
-          position: absolute;
-          width: 50px;
-          height: 50px;
-        }
-
-        .tilt > .tilt-element-inner-text.middle {
-          top: 10px;
-          left: 25px;
-          background: rgba(0, 0, 255, 0.75);
-        }
-
-        .tilt > .tilt-element-inner-text.top-right {
-          top: -30px;
-          right: -10px;
-          background: rgba(255, 255, 0, 0.2);
-        }
-
-        #link-to-github-profile {
-          padding: 0;
-        }
-
-        #button-notification {
-          position: absolute;
-          left: -9999px;
-        }
-
-        .draggable-offline {
-          width: 26ch;
-          border-radius: 0 !important;
-        }
-
-        #ascii-art {
-          display: none;
-        }
-
-        #ascii-art > p {
-          padding: 0;
-          margin: -1px;
-          color: black !important;
-        }
-
-        .sequence {
-          width: 33ch;
-          border: none;
-          transition: 0.25s;
-        }
-
-        .sequence span {
-          padding-left: 0;
-          padding-right: 0;
-          border-radius: 0;
-          margin: 0;
-        }
-
-        .sequence span:first-child {
-          padding-left: 10px;
-          border-radius: 10px 0 0 10px;
-        }
-
-        .sequence span:last-child {
-          padding-right: 10px;
-          border-radius: 0 10px 10px 0;
-        }
-
-        .sequence:hover span {
-          background: lime;
-          color: black;
-        }
-
-        .sequence:hover span:nth-child(1) {
-          transition-delay: 0.1s;
-        }
-
-        .sequence:hover span:nth-child(2) {
-          transition-delay: 0.2s;
-        }
-
-        .sequence:hover span:nth-child(3) {
-          transition-delay: 0.3s;
-        }
-
-        .sequence:hover ~ #button-group button[id] {
-          background: lime;
-          color: black;
-        }
-
-        .sequence:hover ~ #button-group button[id]:nth-of-type(1) {
-          transition-delay: 0.4s;
-        }
-
-        .sequence:hover ~ #button-group button[id]:nth-of-type(2) {
-          transition-delay: 0.5s;
-        }
-
-        .sequence:hover ~ #button-group button[id]:nth-of-type(3) {
-          transition-delay: 0.6s;
-        }
-
-        .sequence:hover ~ #button-group button[id]:nth-of-type(4) {
-          transition-delay: 0.7s;
-        }
-
-        .sequence:hover ~ #button-group button[id]:nth-of-type(5) {
-          transition-delay: 0.8s;
-        }
-
-        .sequence:hover ~ #button-group button[id]:nth-of-type(6) {
-          transition-delay: 0.9s;
-        }
-      `}</style>
+      <style jsx>{scopedStyles}</style>
     </div>
   );
 }
