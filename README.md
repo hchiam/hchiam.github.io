@@ -19,7 +19,7 @@ yarn dev # http://localhost:3000
 ## Deploy to live site:
 
 ```bash
-yarn deploy # https://hchiam.surge.sh
+yarn deploy # https://hchiam.surge.sh and updates gh-pages branch
 ```
 
 ## Lighthouse test:

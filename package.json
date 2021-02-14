@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "pre-build": "cp {.nojekyll,CNAME,manifest.webmanifest} out",
+    "build": "yarn pre-build; next build",
     "start": "next start",
     "export": "next export",
     "deploy": "next build && next export && yarn deploy:surge && yarn deploy:gh-pages",
