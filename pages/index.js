@@ -210,9 +210,9 @@ export default function Home() {
         const myHeight = e.clientHeight;
         const randomLeft = getRandomNumber(0, window.innerWidth - myWidth);
         const randomTop = getRandomNumber(0, window.innerHeight - myHeight);
-        (e as HTMLElement).style.position = "absolute";
-        (e as HTMLElement).style.left = randomLeft + "px";
-        (e as HTMLElement).style.top = randomTop + "px";
+        e.style.position = "absolute";
+        e.style.left = randomLeft + "px";
+        e.style.top = randomTop + "px";
       });
   }
 
