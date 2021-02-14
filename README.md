@@ -25,6 +25,7 @@ yarn deploy # https://hchiam.surge.sh
 ## Deploy to live production site:
 
 ```bash
+# commit to main
 yarn deploy:gh-pages # https://hchiam.com
 ```
 
