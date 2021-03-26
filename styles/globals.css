@@ -18,6 +18,10 @@ h1 {
   background: transparent;
 }
 
+section#main {
+  height: 100vh;
+}
+
 button {
   border-radius: 10px;
   border-style: solid;

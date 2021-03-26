@@ -5,6 +5,15 @@ export default css`
     text-align: center !important;
   }
 
+  h1 {
+    font-size: 7vw;
+    letter-spacing: 0.2ch;
+  }
+
+  button {
+    font-family: monospace;
+  }
+
   #hint {
     font-size: xx-large;
     font-weight: bolder;
@@ -24,19 +33,6 @@ export default css`
 
   #secret-button:focus {
     left: 10% !important;
-  }
-
-  @media only screen and (max-device-width: 640px) {
-    button {
-      min-width: 48px;
-      min-height: 48px;
-      margin: 10px;
-    }
-
-    #secret-button {
-      left: 0;
-      top: 120vh;
-    }
   }
 
   .view-resize-animation {
@@ -100,6 +96,11 @@ export default css`
 
   #extra-info {
     color: #808080;
+    width: 100%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .tilt {
@@ -166,6 +167,10 @@ export default css`
   }
 
   .sequence {
+    font-size: 3.5vw;
+    font-weight: 500;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
     width: 33ch;
     border: none;
     transition: 0.25s;
@@ -232,5 +237,23 @@ export default css`
 
   .sequence:hover ~ #button-group button[id]:nth-of-type(6) {
     transition-delay: 0.9s;
+  }
+
+  @media only screen and (max-device-width: 640px) {
+    button {
+      min-width: 48px;
+      min-height: 48px;
+      margin: 10px;
+    }
+
+    #secret-button {
+      left: 0;
+      top: 120vh;
+    }
+
+    .sequence {
+      font-size: medium;
+      text-align: justify;
+    }
   }
 `;
