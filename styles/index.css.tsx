@@ -70,7 +70,10 @@ export default css`
     transition: none;
     z-index: 9001;
     margin-top: 1rem;
-    top: 70%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .commandKey {
