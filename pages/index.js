@@ -15,6 +15,7 @@ import onDesktop from "../helpers/onDesktop";
 import advertiseOfflineAbility from "../helpers/advertiseOfflineAbility";
 import getRandomNumber from "../helpers/getRandomNumber";
 import setUpConsoleFunctions from "../helpers/setUpConsoleFunctions";
+import addUrlQueryWithoutRefreshingPage from "../helpers/addUrlQueryWithoutRefreshingPage";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -74,6 +75,8 @@ export default function Home() {
         // callbacks...
       },
     });
+
+    addUrlQueryWithoutRefreshingPage("can-you-find-all-the-hidden-features?");
   }, [spawnCount]);
 
   function callbackUponDrag() {
