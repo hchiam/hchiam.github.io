@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2 # this will use https://github.com/actions/checkout
-      - run: npm install
-      - run: npm install @lhci/cli@0.3.0-alpha.0
-      - run: npm run build
+      - run: yarn
+      - run: yarn global add @lhci/cli@0.3.0-alpha.0
+      - run: yarn build
       - run: lhci autorun
