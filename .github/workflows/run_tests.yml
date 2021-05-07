@@ -1,4 +1,4 @@
-name: GitHub Action to Run Cypress Tests
+name: GitHub Action to Run Tests
 
 on: pull_request
 
@@ -7,7 +7,7 @@ on: pull_request
 #     types: [review_requested]
 
 jobs:
-  Run-Cypress-Tests:
+  Run-Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
