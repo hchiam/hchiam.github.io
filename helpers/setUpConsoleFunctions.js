@@ -41,8 +41,8 @@ export default function setUpConsoleFunctions() {
   window.cr = window.goToCRPrep;
 
   console.log(
-    `%cIf you have an internet connection,
-  you can enter these commands:%c
+    `%c If you're online, 
+ all of these commands will work: %c
   
   %cskew()%c
   
