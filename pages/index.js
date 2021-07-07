@@ -63,7 +63,8 @@ export default function Home() {
       makeElementDraggable,
       document.getElementById("draggable"),
       callbackUponDrag,
-      mouseUpCallback
+      mouseUpCallback,
+      keyboardMoveCallback
     );
 
     UniversalTilt?.init({
@@ -89,6 +90,12 @@ export default function Home() {
   function mouseUpCallback() {
     setShowDragHint(false);
     setHint("");
+  }
+
+  function keyboardMoveCallback() {
+    showGameButtons();
+    setShowDragHint(true);
+    indicateNoteWithColour("#draggable");
   }
 
   function surprise() {
@@ -397,6 +404,7 @@ export default function Home() {
               alt="Howard signature icon"
               width="100px"
               onMouseLeave={resetGameButtons}
+              tabIndex="0"
             />
             <div id="game-container">{spawnMysteryButtons()}</div>
           </div>

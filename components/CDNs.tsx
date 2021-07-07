@@ -7,8 +7,8 @@ export default function CDNs() {
         crossOrigin="anonymous"
       ></script>
       <script
-        src="https://cdn.jsdelivr.net/gh/hchiam/draggable@3.3.2/makeElementDraggable.js"
-        integrity="sha384-o4FiE15Upwm21kbkoEoZLNCBjClbxbxsUq0g52Z06+6JLSguSieyFjsAe5tyHy4k"
+        src="https://cdn.jsdelivr.net/gh/hchiam/draggable@3.4.4/makeElementDraggable.js"
+        integrity="sha384-qeMZYjNvssfC2HCZuLY1ouJRQOi+NnH8YnBQ1YWWQzv63aWXokJevcK+noP39Uhl"
         crossOrigin="anonymous"
       ></script>
       <script

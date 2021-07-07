@@ -3,7 +3,8 @@ export function setUpDraggable2DNote(
   makeElementDraggable: Function,
   draggableElement: HTMLElement,
   callbackUponDrag?: Function,
-  mouseUpCallback?: Function
+  mouseUpCallback?: Function,
+  keyboardMoveCallback?: Function
 ): void {
   const originalPosition = {
     left: draggableElement.offsetLeft + "px",
@@ -17,6 +18,7 @@ export function setUpDraggable2DNote(
   // draggable:
   const settings = {
     mouseUpCallback,
+    keyboardMoveCallback,
   };
   makeElementDraggable(draggableElement, settings);
 
