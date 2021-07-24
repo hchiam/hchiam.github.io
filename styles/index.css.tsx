@@ -49,6 +49,16 @@ export default css`
     animation-iteration-count: infinite;
   }
 
+  @media (prefers-reduced-motion) {
+    #hint,
+    button:hover,
+    button:focus,
+    a:hover,
+    a:focus {
+      animation-name: none;
+    }
+  }
+
   @keyframes wobble {
     0% {
       transform: rotate(-5deg);
