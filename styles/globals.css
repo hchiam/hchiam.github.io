@@ -1,6 +1,15 @@
 :root {
   --main-color: hsl(0, 0%, 13%);
   --secondary-color: hsl(0, 3%, 23%);
+  --waymo-white: white;
+  --waymo-green: #6ae4a3;
+  --waymo-blue: #2f78f7;
+  --waymo-grey: #959a9f;
+  --waymo-dark-navy: #23233a;
+  --verily-white: white;
+  --verily-pink: #f57180;
+  --verily-red: #df2456;
+  --verily-purple: #7423df;
 }
 
 *:not(div) {
@@ -133,4 +142,114 @@ p {
   100% {
     transform: scale(0);
   }
+}
+
+.collapsible {
+  animation: expand 0.3s forwards;
+}
+
+.collapsible.collapse {
+  animation: collapse 0.3s forwards;
+}
+
+@keyframes collapse {
+  from {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    max-height: 100%;
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    max-height: 0;
+    height: 0;
+  }
+}
+
+@keyframes expand {
+  from {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    max-height: 0;
+    height: 0;
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    max-height: 100%;
+  }
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.d-none {
+  display: none;
+}
+
+.waymo-white-background {
+  background: var(--waymo-white) !important;
+}
+.waymo-green-background {
+  background: var(--waymo-green) !important;
+}
+.waymo-blue-background {
+  background: var(--waymo-blue) !important;
+}
+.waymo-grey-background {
+  background: var(--waymo-grey) !important;
+}
+.waymo-dark-navy-background {
+  background: var(--waymo-dark-navy) !important;
+}
+
+.waymo-white-text {
+  color: var(--waymo-white) !important;
+}
+.waymo-green-text {
+  color: var(--waymo-green) !important;
+}
+.waymo-blue-text {
+  color: var(--waymo-blue) !important;
+}
+.waymo-grey-text {
+  color: var(--waymo-grey) !important;
+}
+.waymo-dark-navy-text {
+  color: var(--waymo-dark-navy) !important;
+}
+
+.verily-white-background {
+  background: var(--verily-white) !important;
+}
+.verily-purple-background {
+  background: var(--verily-purple) !important;
+}
+.verily-red-background {
+  background: var(--verily-red) !important;
+}
+.verily-pink-background {
+  background: var(--verily-pink) !important;
+}
+
+.verily-white-text {
+  color: var(--verily-white) !important;
+}
+.verily-purple-text {
+  color: var(--verily-purple) !important;
+}
+.verily-red-text {
+  color: var(--verily-red) !important;
+}
+.verily-pink-text {
+  color: var(--verily-pink) !important;
+}
+
+#waymo-demo *:not(div) {
+  color: var(--waymo-blue);
+}
+
+#verily-demo *:not(div) {
+  color: var(--verily-purple);
 }

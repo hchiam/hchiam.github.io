@@ -1,3 +1,5 @@
+// yes, this file is very long :) - see https://github.com/hchiam/hchiam.github.io/issues
+
 import { useState, useRef, useEffect } from "react";
 import "react-dom";
 import Head from "next/head";
@@ -16,6 +18,10 @@ import advertiseOfflineAbility from "../helpers/advertiseOfflineAbility";
 import getRandomNumber from "../helpers/getRandomNumber";
 import setUpConsoleFunctions from "../helpers/setUpConsoleFunctions";
 import addUrlQueryWithoutRefreshingPage from "../helpers/addUrlQueryWithoutRefreshingPage";
+import scrollToRef from "../helpers/scrollToRef";
+
+import WaymoDemo from "../components/WaymoDemo";
+import VerilyDemo from "../components/VerilyDemo";
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -26,11 +32,16 @@ export default function Home() {
   const [secretButtonText, setSecretButtonText] = useState("");
   const [hint, setHint] = useState("");
   const inputRef = useRef();
+  const waymoDemoRef = useRef(null);
+  const verilyDemoRef = useRef(null);
 
   const [gameOn, setGameOn] = useState(false);
   const [continueGame, setContinueGame] = useState(false);
   const [spawnCount, setSpawnCount] = useState(0);
   const [showCommandKeys, setShowCommandKeys] = useState(false);
+
+  const [showWaymoDemo, setShowWaymoDemo] = useState(false);
+  const [showVerilyDemo, setShowVerilyDemo] = useState(false);
 
   useKeyPress("a", handleA, [spawnCount, gameOn, continueGame]);
   useKeyPress("s", handleS, [spawnCount, gameOn, continueGame]);
@@ -224,6 +235,33 @@ export default function Home() {
         e.style.left = randomLeft + "px";
         e.style.top = randomTop + "px";
       });
+  }
+
+  function justShowWaymoDemo(showWaymoDemo) {
+    setShowWaymoDemo(showWaymoDemo);
+    if (showWaymoDemo) {
+      setShowVerilyDemo(!showWaymoDemo);
+      scrollToWaymoDemo();
+    }
+    // document.querySelector("#waymo-demo").scrollIntoView();
+  }
+
+  function scrollToWaymoDemo() {
+    // WaymoDemo.executeScroll();
+    // waymoDemoRef?.current?.scrollIntoView();
+    // document.querySelector("#waymo-demo")?.scrollIntoView();
+    // waymoDemoEl?.scrollIntoView();
+    // console.log("scrollToWaymoDemo");
+    scrollToRef(waymoDemoRef);
+  }
+
+  function justShowVerilyDemo(showVerilyDemo) {
+    setShowVerilyDemo(showVerilyDemo);
+    if (showVerilyDemo) {
+      setShowWaymoDemo(!showVerilyDemo);
+    }
+    // document.querySelector("#verily-demo").scrollIntoView();
+    // VerilyDemo.executeScroll();
   }
 
   return (
@@ -440,6 +478,36 @@ export default function Home() {
               </p>
             </div>
           )}
+        </section>
+        <section id="demos" className="d-none">
+          <section className="demo">
+            <button
+              id="waymo"
+              onClick={() => justShowWaymoDemo(!showWaymoDemo)}
+            >
+              AV fleet panel
+            </button>
+            <div
+              ref={waymoDemoRef}
+              className={"collapsible " + (showWaymoDemo ? "" : "collapse ")}
+            >
+              <WaymoDemo />
+            </div>
+          </section>
+          <section className="demo">
+            <button
+              id="verily"
+              onClick={() => justShowVerilyDemo(!showVerilyDemo)}
+            >
+              EMR dashboard
+            </button>
+            <div
+              ref={verilyDemoRef}
+              className={"collapsible " + (showVerilyDemo ? "" : "collapse")}
+            >
+              <VerilyDemo />
+            </div>
+          </section>
         </section>
         <div id="cursor-shadow"></div>
       </main>
