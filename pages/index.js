@@ -479,13 +479,13 @@ export default function Home() {
             </div>
           )}
         </section>
-        <section id="demos" className="d-none">
-          <section className="demo">
+        <section id="demos" className="transparent-background d-none">
+          <section className="demo transparent-background">
             <button
               id="waymo"
               onClick={() => justShowWaymoDemo(!showWaymoDemo)}
             >
-              AV fleet panel
+              AV fleet panel (MOCK)
             </button>
             <div
               ref={waymoDemoRef}
@@ -494,12 +494,12 @@ export default function Home() {
               <WaymoDemo />
             </div>
           </section>
-          <section className="demo">
+          <section className="demo transparent-background d-none">
             <button
               id="verily"
               onClick={() => justShowVerilyDemo(!showVerilyDemo)}
             >
-              EMR dashboard
+              EMR dashboard (MOCK)
             </button>
             <div
               ref={verilyDemoRef}
