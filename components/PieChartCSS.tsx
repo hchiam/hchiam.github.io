@@ -44,7 +44,7 @@ export const PieChartCSS = (props: PieChartProps) => {
 
   return (
     <>
-      <div className={"pie"} tabindex={0}>
+      <div className={"pie"} tabIndex={0}>
         {data.map((slice) => {
           const startDeg = Math.round((slice.start / total) * 360);
           const endDeg = Math.round((slice.end / total) * 360);
@@ -62,11 +62,11 @@ export const PieChartCSS = (props: PieChartProps) => {
             <div
               className={"slice"}
               style={style as React.CSSProperties}
-              tabindex={0}
+              tabIndex={0}
             ></div>
           );
         })}
-        <div className={"slice"} tabindex={-1}></div>
+        <div className={"slice"} tabIndex={-1}></div>
       </div>
       <style jsx>{chartCssStyle}</style>
     </>

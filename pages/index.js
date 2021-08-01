@@ -431,7 +431,7 @@ export default function Home() {
               alt="Howard signature icon"
               width="100px"
               onMouseLeave={resetGameButtons}
-              tabindex={0}
+              tabIndex={0}
             />
             <div id="game-container">{spawnMysteryButtons()}</div>
           </div>
