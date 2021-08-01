@@ -20,6 +20,10 @@
   transition: 0.2s;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 main,
 section#main,
@@ -270,12 +274,12 @@ p {
   color: var(--verily-pink) !important;
 }
 
-#waymo-demo * {
+#waymo-demo p {
   background: var(--waymo-white);
   color: var(--waymo-blue);
 }
 
-#verily-demo * {
+#verily-demo p {
   background: var(--verily-white);
   color: var(--verily-purple);
 }

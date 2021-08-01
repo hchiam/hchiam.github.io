@@ -241,27 +241,16 @@ export default function Home() {
     setShowWaymoDemo(showWaymoDemo);
     if (showWaymoDemo) {
       setShowVerilyDemo(!showWaymoDemo);
-      scrollToWaymoDemo();
+      scrollToRef(waymoDemoRef);
     }
-    // document.querySelector("#waymo-demo").scrollIntoView();
-  }
-
-  function scrollToWaymoDemo() {
-    // WaymoDemo.executeScroll();
-    // waymoDemoRef?.current?.scrollIntoView();
-    // document.querySelector("#waymo-demo")?.scrollIntoView();
-    // waymoDemoEl?.scrollIntoView();
-    // console.log("scrollToWaymoDemo");
-    scrollToRef(waymoDemoRef);
   }
 
   function justShowVerilyDemo(showVerilyDemo) {
     setShowVerilyDemo(showVerilyDemo);
     if (showVerilyDemo) {
       setShowWaymoDemo(!showVerilyDemo);
+      scrollToRef(verilyDemoRef);
     }
-    // document.querySelector("#verily-demo").scrollIntoView();
-    // VerilyDemo.executeScroll();
   }
 
   return (
