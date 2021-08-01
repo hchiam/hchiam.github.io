@@ -431,7 +431,7 @@ export default function Home() {
               alt="Howard signature icon"
               width="100px"
               onMouseLeave={resetGameButtons}
-              tabIndex="0"
+              tabindex={0}
             />
             <div id="game-container">{spawnMysteryButtons()}</div>
           </div>
@@ -468,7 +468,7 @@ export default function Home() {
             </div>
           )}
         </section>
-        <section id="demos" className="transparent-background d-none">
+        <section id="demos" className="transparent-background">
           <section className="demo transparent-background">
             <button
               id="waymo"
