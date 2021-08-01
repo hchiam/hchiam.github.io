@@ -3,6 +3,8 @@
 import chartCssStyle from "./PieChartCSS.css";
 
 export interface PieChartProps {
+  id: string;
+  title?: string;
   pieChartData: PieChartData[];
 }
 
