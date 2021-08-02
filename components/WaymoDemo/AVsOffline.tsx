@@ -7,9 +7,7 @@ export default function AVsOffline() {
       <h3 className="waymo-dark-navy-text waymo-white-background my-0 p-0">
         Offline: 11/20600
       </h3>
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
+      <div className="d-flex wrap justify-center">
         <PieChartCSS
           id="avs-offline"
           title={"Offline: 11"}
@@ -30,14 +28,16 @@ export default function AVsOffline() {
         />
         <div style={{ margin: "0 1rem" }}>
           <p
-            className={"square-before-chart-label"}
-            style={{ color: "white", background: "var(--waymo-blue)" }}
+            className={
+              "square-before-chart-label white-text waymo-blue-background"
+            }
           >
             &nbsp;Repairing: 10
           </p>
           <p
-            className={"triangle-before-chart-label"}
-            style={{ color: "white", background: "var(--verily-red)" }}
+            className={
+              "triangle-before-chart-label white-text verily-red-background"
+            }
           >
             &nbsp;Unaccounted: 1
           </p>

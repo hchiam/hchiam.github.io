@@ -261,6 +261,15 @@ p {
 .d-none {
   display: none;
 }
+.d-flex {
+  display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
 
 .transparent-background {
   background: transparent;
@@ -352,6 +361,13 @@ p {
 #verily-demo-main-content {
   margin: auto;
   width: min(max-content, 100%);
+}
+
+.waymo-demo-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 #waymo-demo h2,

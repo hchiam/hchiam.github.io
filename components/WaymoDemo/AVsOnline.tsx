@@ -7,9 +7,7 @@ export default function AVsOnline() {
       <h3 className="waymo-dark-navy-text waymo-white-background my-0 p-0">
         Online: 20589/20600
       </h3>
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
+      <div className="d-flex wrap justify-center">
         <PieChartCSS
           id="avs-online"
           title={"Online: 20589"}
@@ -35,28 +33,18 @@ export default function AVsOnline() {
           ]}
         />
         <div style={{ margin: "0 1rem" }}>
-          <p
-            className={"circle-before-chart-label"}
-            style={{ color: "white", background: "var(--waymo-blue)" }}
-          >
+          <p className="circle-before-chart-label white-text waymo-blue-background">
             &nbsp;Allocated: 14986
           </p>
-          <p
-            className={"square-before-chart-label"}
-            style={{ color: "white", background: "var(--verily-red)" }}
-          >
+          <p className="square-before-chart-label white-text verily-red-background">
             {" "}
             &nbsp;Charging: 4323
           </p>
-          <p
-            className={"triangle-before-chart-label"}
-            style={{ color: "white", background: "var(--waymo-green)" }}
-          >
+          <p className="triangle-before-chart-label white-text waymo-green-background">
             &nbsp;
             <span
+              className="black-text waymo-green-background"
               style={{
-                color: "black",
-                background: "var(--waymo-green)",
                 paddingLeft: 0,
               }}
             >

@@ -14,36 +14,20 @@ export default function WaymoDemo() {
         <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
           Autonomous Vehicles: <span className="py-0">20600</span>
         </h2>
-        <div
-          className="mb-1"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "1rem",
-          }}
-        >
+        <div className="mb-1 waymo-demo-group">
           <AVsOnline />
           <AVsOffline />
         </div>
-        <div
-          className="mb-1"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "1rem",
-          }}
-        >
+        <div className="mb-1 waymo-demo-group">
           <div>
             <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
               Passengers: <span className="py-0">14986</span>
             </h2>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div className="d-flex wrap">
               <Passengers />
             </div>
           </div>
-          <div className="mb-1" style={{ display: "flex", flexWrap: "wrap" }}>
+          <div className="mb-1 d-flex wrap">
             <AVMap />
           </div>
         </div>
