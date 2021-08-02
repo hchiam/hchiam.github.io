@@ -31,7 +31,7 @@ export interface Style {
 }
 
 export const PieChartCSS = (props: PieChartProps) => {
-  const { pieChartData, hideTextLabels } = props;
+  const { id, pieChartData, hideTextLabels } = props;
 
   let total = 0;
   const data: PieChartData[] = [];
@@ -48,7 +48,7 @@ export const PieChartCSS = (props: PieChartProps) => {
 
   return (
     <>
-      <div className={"pie"} tabIndex={0}>
+      <div id={id} className={"pie"} tabIndex={0}>
         {data.map((slice) => {
           const startDeg = Math.round((slice.start / total) * 360);
           const endDeg = Math.round((slice.end / total) * 360);
