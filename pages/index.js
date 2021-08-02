@@ -20,8 +20,14 @@ import setUpConsoleFunctions from "../helpers/setUpConsoleFunctions";
 import addUrlQueryWithoutRefreshingPage from "../helpers/addUrlQueryWithoutRefreshingPage";
 import scrollToRef from "../helpers/scrollToRef";
 
-import WaymoDemo from "../components/WaymoDemo";
-import VerilyDemo from "../components/VerilyDemo";
+import dynamic from "next/dynamic";
+
+const LazyWaymoDemo = dynamic(() => import("../components/WaymoDemo"), {
+  loading: () => <p>...</p>,
+});
+const LazyVerilyDemo = dynamic(() => import("../components/VerilyDemo"), {
+  loading: () => <p>...</p>,
+});
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -480,7 +486,7 @@ export default function Home() {
               ref={waymoDemoRef}
               className={"collapsible " + (showWaymoDemo ? "" : "collapse ")}
             >
-              <WaymoDemo />
+              <LazyWaymoDemo />
             </div>
           </section>
           <section className="demo transparent-background d-none">
@@ -494,7 +500,7 @@ export default function Home() {
               ref={verilyDemoRef}
               className={"collapsible " + (showVerilyDemo ? "" : "collapse")}
             >
-              <VerilyDemo />
+              <LazyVerilyDemo />
             </div>
           </section>
         </section>
