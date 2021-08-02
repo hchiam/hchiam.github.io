@@ -17,19 +17,19 @@ export default function WaymoDemo() {
             title={"Online: 20589"}
             pieChartData={[
               {
-                color: "#22a7f0",
+                color: "var(--waymo-blue)",
                 text: "⦿",
                 number: 14986,
                 textStartAdjust: "1em",
               },
               {
-                color: "#db0a5b",
+                color: "var(--verily-red)",
                 text: "◼",
                 number: 4323,
                 textStartAdjust: "2em",
               },
               {
-                color: "#2ecc71",
+                color: "var(--waymo-green)",
                 text: "▲",
                 number: 1280,
                 textStartAdjust: "2em",
@@ -39,19 +39,19 @@ export default function WaymoDemo() {
           <div>
             <p
               className={"circle-before-chart-label"}
-              style={{ color: "white", background: "#22a7f0" }}
+              style={{ color: "white", background: "var(--waymo-blue)" }}
             >
               : Allocated: 14986
             </p>
             <p
               className={"square-before-chart-label"}
-              style={{ color: "white", background: "#db0a5b" }}
+              style={{ color: "white", background: "var(--verily-red)" }}
             >
               : Charging: 4323
             </p>
             <p
               className={"triangle-before-chart-label"}
-              style={{ color: "white", background: "#2ecc71" }}
+              style={{ background: "var(--waymo-green)" }}
             >
               : Available: 1280
             </p>
@@ -61,13 +61,13 @@ export default function WaymoDemo() {
             title={"Offline: 11"}
             pieChartData={[
               {
-                color: "#22a7f0",
+                color: "var(--waymo-blue)",
                 text: "◼",
                 number: 10,
                 textStartAdjust: "1em",
               },
               {
-                color: "#2ecc71",
+                color: "var(--verily-red)",
                 text: "▲",
                 number: 1,
                 textStartAdjust: "2em",
@@ -77,13 +77,13 @@ export default function WaymoDemo() {
           <div>
             <p
               className={"square-before-chart-label"}
-              style={{ color: "white", background: "#22a7f0" }}
+              style={{ color: "white", background: "var(--waymo-blue)" }}
             >
               : Repairing: 10
             </p>
             <p
               className={"triangle-before-chart-label"}
-              style={{ color: "white", background: "#2ecc71" }}
+              style={{ color: "white", background: "var(--verily-red)" }}
             >
               : Unaccounted: 1
             </p>
@@ -98,13 +98,13 @@ export default function WaymoDemo() {
                 title={"Passengers: 14986"}
                 pieChartData={[
                   {
-                    color: "#22a7f0",
+                    color: "var(--waymo-blue)",
                     text: "⦿",
                     number: 112,
                     textStartAdjust: "1em",
                   },
                   {
-                    color: "#db0a5b",
+                    color: "var(--verily-red)",
                     text: "▲",
                     number: 2,
                     textStartAdjust: "3em",
@@ -114,13 +114,13 @@ export default function WaymoDemo() {
               <div>
                 <p
                   className={"circle-before-chart-label"}
-                  style={{ color: "white", background: "#22a7f0" }}
+                  style={{ color: "white", background: "var(--waymo-blue)" }}
                 >
                   : Hailing: 112
                 </p>
                 <p
                   className={"triangle-before-chart-label"}
-                  style={{ color: "white", background: "#db0a5b" }}
+                  style={{ color: "white", background: "var(--verily-red)" }}
                 >
                   : Requesting assistance: 2
                 </p>
