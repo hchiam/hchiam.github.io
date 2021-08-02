@@ -41,19 +41,20 @@ export default function WaymoDemo() {
               className={"circle-before-chart-label"}
               style={{ color: "white", background: "var(--waymo-blue)" }}
             >
-              : Allocated: 14986
+              &nbsp;Allocated: 14986
             </p>
             <p
               className={"square-before-chart-label"}
               style={{ color: "white", background: "var(--verily-red)" }}
             >
-              : Charging: 4323
+              {" "}
+              &nbsp;Charging: 4323
             </p>
             <p
               className={"triangle-before-chart-label"}
               style={{ background: "var(--waymo-green)" }}
             >
-              : Available: 1280
+              &nbsp;Available: 1280
             </p>
           </div>
           <PieChartCSS
@@ -79,13 +80,13 @@ export default function WaymoDemo() {
               className={"square-before-chart-label"}
               style={{ color: "white", background: "var(--waymo-blue)" }}
             >
-              : Repairing: 10
+              &nbsp;Repairing: 10
             </p>
             <p
               className={"triangle-before-chart-label"}
               style={{ color: "white", background: "var(--verily-red)" }}
             >
-              : Unaccounted: 1
+              &nbsp;Unaccounted: 1
             </p>
           </div>
         </div>
@@ -116,13 +117,13 @@ export default function WaymoDemo() {
                   className={"circle-before-chart-label"}
                   style={{ color: "white", background: "var(--waymo-blue)" }}
                 >
-                  : Hailing: 112
+                  &nbsp;Hailing: 112
                 </p>
                 <p
                   className={"triangle-before-chart-label"}
                   style={{ color: "white", background: "var(--verily-red)" }}
                 >
-                  : Requesting assistance: 2
+                  &nbsp;Requesting assistance: 2
                 </p>
               </div>
             </p>
