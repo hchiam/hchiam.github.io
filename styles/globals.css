@@ -297,3 +297,18 @@ p {
   fill: white;
   /* color: white; won't work inside SVG */
 }
+
+.circle-before-chart-label:before {
+  content: "⦿";
+}
+.square-before-chart-label:before {
+  content: "◼";
+}
+.triangle-before-chart-label:before {
+  content: "▲";
+}
+.circle-before-chart-label:before,
+.square-before-chart-label:before,
+.triangle-before-chart-label:before {
+  mix-blend-mode: difference;
+}

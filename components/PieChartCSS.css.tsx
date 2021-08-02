@@ -45,8 +45,22 @@ export default css`
     color: #fff;
     mix-blend-mode: difference;
     position: relative;
-    left: var(--text-left);
-    top: var(--text-top);
+    left: var(--text-left, 50%);
+    top: var(--text-top, calc(50% - 0.5em));
+    --have-left: var(--text-left, 0);
+    --have-top: var(--text-top, 0);
+    --not-manually-set-left: calc(1 - var(--have-left, 0));
+    --not-manually-set-top: calc(1 - var(--have-top, 0));
+    --no-manual-pos: calc(
+      var(--not-manually-set-left, 0) * var(--not-manually-set-top, 0)
+    );
+    --mid: calc(var(--no-manual-pos) * (var(--start) + var(--end)) / 2);
+    transform: rotate(var(--mid, 0))
+      translate(
+        calc(1em * var(--no-manual-pos, 1) + var(--text-start-adjust, 0px))
+      );
+    transform-origin: left;
+    display: block;
   }
 
   .pie,

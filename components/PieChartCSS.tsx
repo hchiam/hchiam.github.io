@@ -6,10 +6,10 @@ export interface PieChartProps {
   id: string;
   title?: string;
   pieChartData: PieChartData[];
+  hideTextLabels?: boolean;
 }
 
 export interface PieChartData {
-  name: string;
   number: number;
   start?: number;
   end?: number;
@@ -17,6 +17,7 @@ export interface PieChartData {
   text?: string;
   textLeft?: string;
   textTop?: string;
+  textStartAdjust?: string;
 }
 
 export interface Style {
@@ -26,13 +27,14 @@ export interface Style {
   "--text"?: string;
   "--text-left"?: string;
   "--text-top"?: string;
+  "--text-start-adjust"?: string;
 }
 
 export const PieChartCSS = (props: PieChartProps) => {
-  const { pieChartData } = props;
+  const { pieChartData, hideTextLabels } = props;
 
   let total = 0;
-  const data = [];
+  const data: PieChartData[] = [];
   for (let i = 0; i < pieChartData.length; i++) {
     const slice = pieChartData[i];
     const d: PieChartData = {
@@ -56,15 +58,19 @@ export const PieChartCSS = (props: PieChartProps) => {
             "--color": slice.color,
           };
           if (endDeg - startDeg > 180) style["--over180"] = 1;
-          if (slice.text) style["--text"] = slice.text;
+          if (slice.text && !hideTextLabels)
+            style["--text"] = `'${slice.text}'`;
           if (slice.textLeft) style["--text-left"] = slice.textLeft;
           if (slice.textTop) style["--text-top"] = slice.textTop;
+          if (slice.textStartAdjust)
+            style["--text-start-adjust"] = slice.textStartAdjust;
 
           return (
             <div
               className={"slice"}
               style={style as React.CSSProperties}
               tabIndex={0}
+              aria-label={`${slice.text}: ${slice.number}`}
             ></div>
           );
         })}

@@ -16,19 +16,78 @@ export default function WaymoDemo() {
             id="avs-online"
             title={"Online: 20589"}
             pieChartData={[
-              { color: "#db0a5b", name: "Allocated", number: 14986 },
-              { color: "#22a7f0", name: "Charging", number: 4323 },
-              { color: "#2ecc71", name: "Available", number: 1280 },
+              {
+                color: "#22a7f0",
+                text: "⦿",
+                number: 14986,
+                textStartAdjust: "1em",
+              },
+              {
+                color: "#db0a5b",
+                text: "◼",
+                number: 4323,
+                textStartAdjust: "2em",
+              },
+              {
+                color: "#2ecc71",
+                text: "▲",
+                number: 1280,
+                textStartAdjust: "2em",
+              },
             ]}
           />
+          <div>
+            <p
+              className={"circle-before-chart-label"}
+              style={{ color: "white", background: "#22a7f0" }}
+            >
+              : Allocated: 14986
+            </p>
+            <p
+              className={"square-before-chart-label"}
+              style={{ color: "white", background: "#db0a5b" }}
+            >
+              : Charging: 4323
+            </p>
+            <p
+              className={"triangle-before-chart-label"}
+              style={{ color: "white", background: "#2ecc71" }}
+            >
+              : Available: 1280
+            </p>
+          </div>
           <PieChartCSS
             id="avs-offline"
             title={"Offline: 11"}
             pieChartData={[
-              { color: "#22a7f0", name: "Repairing", number: 10 },
-              { color: "#2ecc71", name: "Unaccounted", number: 1 },
+              {
+                color: "#22a7f0",
+                text: "◼",
+                number: 10,
+                textStartAdjust: "1em",
+              },
+              {
+                color: "#2ecc71",
+                text: "▲",
+                number: 1,
+                textStartAdjust: "2em",
+              },
             ]}
           />
+          <div>
+            <p
+              className={"square-before-chart-label"}
+              style={{ color: "white", background: "#22a7f0" }}
+            >
+              : Repairing: 10
+            </p>
+            <p
+              className={"triangle-before-chart-label"}
+              style={{ color: "white", background: "#2ecc71" }}
+            >
+              : Unaccounted: 1
+            </p>
+          </div>
         </div>
         <div>
           <p>Passengers: 14,986</p>
@@ -39,17 +98,33 @@ export default function WaymoDemo() {
                 title={"Passengers: 14986"}
                 pieChartData={[
                   {
-                    color: "#db0a5b",
-                    name: "Hailing (blue circle)",
+                    color: "#22a7f0",
+                    text: "⦿",
                     number: 112,
+                    textStartAdjust: "1em",
                   },
                   {
-                    color: "#22a7f0",
-                    name: "Requesting assistance (red octagon)",
+                    color: "#db0a5b",
+                    text: "▲",
                     number: 2,
+                    textStartAdjust: "3em",
                   },
                 ]}
               />
+              <div>
+                <p
+                  className={"circle-before-chart-label"}
+                  style={{ color: "white", background: "#22a7f0" }}
+                >
+                  : Hailing: 112
+                </p>
+                <p
+                  className={"triangle-before-chart-label"}
+                  style={{ color: "white", background: "#db0a5b" }}
+                >
+                  : Requesting assistance: 2
+                </p>
+              </div>
             </p>
           </div>
         </div>
@@ -60,12 +135,12 @@ export default function WaymoDemo() {
         <div>
           <p>Requests + AVs map:</p>
           {/* - Phoenix, Arizona simple shape
-              - Blue circles = hailing
-              - Red octagons = requesting assistance
-              - White rectangles = AV
+              - 🔵 = hailing
+              - 🛑 = requesting assistance
+              - ⬜ = AV
                 - Indicate nearest available (and time)
-              - Green square = charging stations
-              - Yellow triangle = roadside assistance */}
+              - 🔋 = charging stations
+              - ⚠️ = roadside assistance */}
         </div>
       </section>
     </section>

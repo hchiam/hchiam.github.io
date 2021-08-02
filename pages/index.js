@@ -468,7 +468,7 @@ export default function Home() {
             </div>
           )}
         </section>
-        <section id="demos" className="transparent-background">
+        <section id="demos" className="transparent-background d-none">
           <section className="demo transparent-background">
             <button
               id="waymo"
