@@ -189,4 +189,10 @@ export default css`
       top: 86%;
     }
   }
+
+  @media (prefers-reduced-motion) {
+    [class*="moving-"] {
+      animation-name: none;
+    }
+  }
 `;
