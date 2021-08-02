@@ -31,6 +31,7 @@ export default css`
     width: 180px; /* just need some value, like min(50vw, 50vh) */
     height: 180px; /* just need some value, like min(50vw, 50vh) */
     transform: rotate(-90deg);
+    margin: 1rem;
   }
 
   .slice {

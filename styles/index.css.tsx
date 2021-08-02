@@ -183,8 +183,7 @@ export default css`
   .sequence {
     font-size: 3.5vw;
     font-weight: 500;
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
+    margin: 0.25em auto;
     width: 33ch;
     border: none;
     transition: 0.25s;
