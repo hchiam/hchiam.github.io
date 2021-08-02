@@ -3,7 +3,9 @@ import { PieChartCSS } from "../PieChartCSS";
 
 export default function Passengers() {
   return (
-    <div style={{ display: "flex", flexWrap: "nowrap" }}>
+    <div
+      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+    >
       <PieChartCSS
         id="passengers"
         title={"Passengers: 14986"}
@@ -22,7 +24,7 @@ export default function Passengers() {
           },
         ]}
       />
-      <div style={{ marginRight: "1rem" }}>
+      <div style={{ margin: "0 1rem" }}>
         <p
           className={"circle-before-chart-label"}
           style={{ color: "white", background: "var(--waymo-blue)" }}

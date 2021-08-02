@@ -30,6 +30,7 @@ export default css`
     position: relative;
     width: 180px; /* just need some value, like min(50vw, 50vh) */
     height: 180px; /* just need some value, like min(50vw, 50vh) */
+    aspect-ratio: 1;
     transform: rotate(-90deg);
     margin: 1rem;
   }

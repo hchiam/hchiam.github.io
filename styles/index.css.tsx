@@ -261,7 +261,7 @@ export default css`
 
     #secret-button {
       left: 0;
-      top: 120vh;
+      bottom: -10vh;
     }
 
     .sequence {

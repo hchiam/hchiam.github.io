@@ -10,29 +10,53 @@ export default function WaymoDemo() {
       <p className="waymo-white-text waymo-blue-background">
         AV fleet infrastructure panel
       </p>
-      <section className="p-0 waymo-white-background">
-        <h2 className="waymo-blue-text waymo-white-background">AVs: 20,600</h2>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <section id="waymo-demo-main-content" className="waymo-white-background">
+        <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
+          Autonomous Vehicles: <span className="py-0">20600</span>
+        </h2>
+        <div
+          className="mb-1"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
           <AVsOnline />
           <AVsOffline />
         </div>
-        <h2 className="waymo-blue-text waymo-white-background">
-          Passengers: 14,986
-        </h2>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          <Passengers />
+        <div
+          className="mb-1"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
+          <div>
+            <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
+              Passengers: <span className="py-0">14986</span>
+            </h2>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <Passengers />
+            </div>
+          </div>
+          <div className="mb-1" style={{ display: "flex", flexWrap: "wrap" }}>
+            <AVMap />
+          </div>
         </div>
-        <h2 className="waymo-blue-text waymo-white-background">
-          Miles of XP: 20,900,913
+        <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
+          Miles of XP: <span className="py-0">20900913</span>
         </h2>
-        <h2 className="waymo-blue-text waymo-white-background">
-          Incidences resolved: 47
+        <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
+          Incidences resolved: <span className="py-0">47</span>
         </h2>
-        <h2 className="waymo-blue-text waymo-white-background">
-          Requests + AVs map:
-        </h2>
-        <AVMap />
       </section>
+      <small style={{ textAlign: "right", display: "block" }} className="p-0">
+        (Note: this is a mock demo with simulated data.)
+      </small>
     </section>
   );
 }

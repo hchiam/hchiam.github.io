@@ -22,6 +22,11 @@
 
 html {
   scroll-behavior: smooth;
+  padding: 0;
+}
+
+body {
+  padding: 0;
 }
 
 body,
@@ -203,6 +208,18 @@ p {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.pt-0 {
+  padding-top: 0;
+}
+.pt-1 {
+  padding-top: 1rem;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+.pb-1 {
+  padding-bottom: 1rem;
+}
 
 .m-0 {
   margin: 0;
@@ -228,6 +245,18 @@ p {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
 
 .d-none {
   display: none;
@@ -235,6 +264,20 @@ p {
 
 .transparent-background {
   background: transparent;
+}
+
+.black-background {
+  background: black !important;
+}
+.white-background {
+  background: white !important;
+}
+
+.black-text {
+  color: black !important;
+}
+.white-text {
+  color: white !important;
 }
 
 .waymo-white-background {
@@ -296,13 +339,25 @@ p {
 }
 
 #waymo-demo p {
-  background: var(--waymo-white);
+  background: transparent;
   color: var(--waymo-blue);
 }
 
 #verily-demo p {
-  background: var(--verily-white);
+  background: transparent;
   color: var(--verily-purple);
+}
+
+#waymo-demo-main-content,
+#verily-demo-main-content {
+  margin: auto;
+  width: min(max-content, 100%);
+}
+
+#waymo-demo h2,
+#waymo-demo h3 {
+  width: 100%;
+  text-align: center;
 }
 
 .slice:focus {

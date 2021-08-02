@@ -6,7 +6,10 @@ export default function VerilyDemo() {
       <p className="verily-white-text verily-pink-background">
         Electronic Medical Record dashboard
       </p>
-      <section className="p-0 verily-white-background">
+      <section
+        id="verily-demo-main-content"
+        className="p-0 verily-white-background"
+      >
         <p>:)</p>
       </section>
     </section>
