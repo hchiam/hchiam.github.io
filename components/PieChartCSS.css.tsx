@@ -61,6 +61,9 @@ export default css`
       translate(
         calc(1em * var(--no-manual-pos, 1) + var(--text-start-adjust, 0px))
       );
+    // transform: rotate(var(--mid, 0))
+    //   translate(calc(1em * var(--no-manual-pos, 1) + 45px))
+    //   rotate(calc(var(--mid, 0) * -1)) translate(-5%);
     transform-origin: left;
     display: block;
   }
