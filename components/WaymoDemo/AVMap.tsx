@@ -10,7 +10,7 @@ export default function AVMap() {
   return (
     <div>
       <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
-        Requests + AVs map: <span className="py-0">20714</span>
+        Requests + AVs map: <span className="animated-text py-0">20714</span>
       </h2>
       <div className="av-map-container">
         <div

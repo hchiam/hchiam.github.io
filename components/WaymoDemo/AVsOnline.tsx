@@ -5,7 +5,11 @@ export default function AVsOnline() {
   return (
     <div>
       <h3 className="waymo-dark-navy-text waymo-white-background my-0 p-0">
-        Online: 20589/20600
+        Online:{" "}
+        <span className="animated-text waymo-dark-navy-text waymo-white-background px-0">
+          20589
+        </span>
+        /20600
       </h3>
       <div className="d-flex wrap justify-center">
         <PieChartCSS
