@@ -72,7 +72,7 @@ export default css`
     top: 0;
     left: 0;
   }
-  .av-map.spread-out-map-icons.activate > * {
+  .av-map.spread-out-map-icons > * {
     animation: spread-out-map-icons 0.2s forwards;
   }
 
