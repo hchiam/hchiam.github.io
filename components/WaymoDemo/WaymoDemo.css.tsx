@@ -1,9 +1,10 @@
 import css from "styled-jsx/css";
 
 export default css`
-  .collapsible:not(.collapse) .animated-text,
-  .collapsible:not(.collapse) [class*="-before-chart-label"] {
+  .showWaymoDemo .animated-text,
+  .showWaymoDemo [class*="-before-chart-label"] {
     animation: animated-text 0.5s forwards;
+    animation-play-state: paused;
   }
 
   @keyframes animated-text {

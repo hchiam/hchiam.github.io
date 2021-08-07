@@ -6,6 +6,7 @@ import Head from "next/head";
 import CDNs from "../components/CDNs";
 import styles from "../styles/Home.module.css";
 import scopedStyles from "../styles/index.css";
+
 import MysterySpawnButton from "../components/MysterySpawnButton";
 import useKeyPress from "../helpers/useKeyPress";
 import {
@@ -248,6 +249,10 @@ export default function Home() {
     if (showWaymoDemo) {
       setShowVerilyDemo(!showWaymoDemo);
       scrollToRef(waymoDemoRef);
+      // document.querySelect(".moving-9").classList.add("activate");
+      // Array.from(document.querySelectAll(".animated-text")).map((x) =>
+      //   x.classList.add("activate")
+      // );
     }
   }
 
@@ -484,7 +489,9 @@ export default function Home() {
             </button>
             <div
               ref={waymoDemoRef}
-              className={"collapsible " + (showWaymoDemo ? "" : "collapse ")}
+              className={
+                "collapsible " + (showWaymoDemo ? "showWaymoDemo" : "collapse ")
+              }
             >
               <LazyWaymoDemo />
             </div>
@@ -498,7 +505,10 @@ export default function Home() {
             </button>
             <div
               ref={verilyDemoRef}
-              className={"collapsible " + (showVerilyDemo ? "" : "collapse")}
+              className={
+                "collapsible " +
+                (showVerilyDemo ? "showVerilyDemo" : "collapse")
+              }
             >
               <LazyVerilyDemo />
             </div>

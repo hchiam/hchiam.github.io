@@ -72,7 +72,7 @@ export default css`
     top: 0;
     left: 0;
   }
-  .av-map.spread-out-map-icons > * {
+  .av-map.spread-out-map-icons.activate > * {
     animation: spread-out-map-icons 0.2s forwards;
   }
 
@@ -92,6 +92,7 @@ export default css`
   [class*="moving"] {
     animation-duration: 5s;
     animation-iteration-count: infinite;
+    animation-play-state: paused;
   }
 
   .moving-1 {

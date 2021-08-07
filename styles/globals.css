@@ -404,3 +404,23 @@ p {
 .triangle-before-chart-label:before {
   mix-blend-mode: difference;
 }
+
+/* scoping these styles to a component won't work: */
+.showWaymoDemo .animated-text,
+.showWaymoDemo [class*="-before-chart-label"],
+.showWaymoDemo [class*="moving"] {
+  animation-play-state: running !important;
+}
+.showWaymoDemo .animated-text,
+.showWaymoDemo [class*="-before-chart-label"] {
+  animation: animated-text 0.5s forwards;
+}
+/* scoping these styles to a component won't work: */
+@keyframes animated-text {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+  to {
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+  }
+}

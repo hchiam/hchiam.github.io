@@ -17,6 +17,7 @@ export default function AVMap() {
           className={`av-map ${spreadOutMapIcons && "spread-out-map-icons"}`}
           onClick={() => setSpreadOutMapIcons(!spreadOutMapIcons)}
           tabIndex={0}
+          role="button"
         >
           {simulatedMapItems.map((item) => (
             <AVMapPoint
