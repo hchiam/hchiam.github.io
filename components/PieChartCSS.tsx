@@ -18,6 +18,9 @@ export interface PieChartData {
   textLeft?: string;
   textTop?: string;
   textStartAdjust?: string;
+  sliceId?: string;
+  sliceClass?: string;
+  highlightedSlice?: boolean;
 }
 
 export interface Style {
@@ -67,7 +70,13 @@ export const PieChartCSS = (props: PieChartProps) => {
 
           return (
             <div
-              className={"slice"}
+              id={slice.sliceId || ""}
+              className={
+                "slice " +
+                (slice.sliceClass || " ") +
+                " " +
+                (slice.highlightedSlice ? "highlightedSlice " : " ")
+              }
               style={style as React.CSSProperties}
               tabIndex={0}
               aria-label={`${slice.text}: ${slice.number}`}

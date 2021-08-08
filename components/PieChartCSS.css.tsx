@@ -24,6 +24,7 @@ export default css`
     display: block;
     border-radius: 50%;
     background-color: white; /* white x color = color */
+    cursor: pointer;
   }
 
   .pie {
@@ -75,7 +76,8 @@ export default css`
 
   .pie:hover,
   .pie:focus,
-  .slice:focus {
+  .slice:focus,
+  .highlightedSlice {
     transform: scale(1.1);
   }
 

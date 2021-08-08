@@ -29,17 +29,31 @@ export default function AVMap() {
           ))}
         </div>
         <div className="legend">
-          <p className="my-0 py-0 waymo-dark-navy-text">🔵 = Hailing</p>
           <p className="my-0 py-0 waymo-dark-navy-text">
-            🛑 = Requesting Assistance
+            🔵 <span className="waymo-blue-background py-0">Hailing</span>
           </p>
-          <p className="my-0 py-0 waymo-dark-navy-text">⬜ = AV</p>
+          <p className="my-0 py-0 waymo-dark-navy-text">
+            🛑{" "}
+            <span className="verily-red-background py-0">
+              Requesting Assistance
+            </span>
+          </p>
+          <p className="my-0 py-0 waymo-dark-navy-text">
+            ⬜{" "}
+            <span className="black-background waymo-white-text py-0">AV</span>
+          </p>
           {/* BONUS: indicate nearest available (and time) */}
           <p className="my-0 py-0 waymo-dark-navy-text">
-            🔋 = Charging Station
+            🔋{" "}
+            <span className="waymo-green-background black-text py-0">
+              Charging Station
+            </span>
           </p>
           <p className="my-0 py-0 waymo-dark-navy-text">
-            ⚠️ = Roadside Assistance
+            ⚠️{" "}
+            <span className="yellow-background black-text py-0">
+              Roadside Assistance
+            </span>
           </p>
         </div>
         <style jsx>{AVMapCSS}</style>

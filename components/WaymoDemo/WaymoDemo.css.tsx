@@ -2,7 +2,7 @@ import css from "styled-jsx/css";
 
 export default css`
   .showWaymoDemo .animated-text,
-  .showWaymoDemo [class*="-before-chart-label"] {
+  .showWaymoDemo [class$="-before-chart-label"] {
     animation: animated-text 0.5s forwards;
     animation-play-state: paused;
   }

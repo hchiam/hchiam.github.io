@@ -49,6 +49,10 @@ export default function Home() {
 
   const [showWaymoDemo, setShowWaymoDemo] = useState(false);
   const [showVerilyDemo, setShowVerilyDemo] = useState(false);
+  const [deferredOverflowHideWaymo, setDeferredOverflowHideWaymo] =
+    useState(false);
+  const [deferredOverflowHideVerily, setDeferredOverflowHideVerily] =
+    useState(false);
 
   useKeyPress("a", handleA, [spawnCount, gameOn, continueGame]);
   useKeyPress("s", handleS, [spawnCount, gameOn, continueGame]);
@@ -245,22 +249,48 @@ export default function Home() {
   }
 
   function justShowWaymoDemo(showWaymoDemo) {
-    setShowWaymoDemo(showWaymoDemo);
     if (showWaymoDemo) {
+      setDeferredOverflowHideWaymo(false);
+      setDeferredOverflowHideVerily(true);
       setShowVerilyDemo(!showWaymoDemo);
-      scrollToRef(waymoDemoRef);
-      // document.querySelect(".moving-9").classList.add("activate");
-      // Array.from(document.querySelectAll(".animated-text")).map((x) =>
-      //   x.classList.add("activate")
-      // );
+      setTimeout(() => {
+        scrollToRef(waymoDemoRef);
+      }, 100);
+      setTimeout(() => {
+        setShowWaymoDemo(true);
+      }, 400);
+    } else {
+      setDeferredOverflowHideVerily(true);
+      setShowWaymoDemo(false);
+      setTimeout(() => {
+        scrollToRef(waymoDemoRef);
+      }, 100);
+      setTimeout(() => {
+        setDeferredOverflowHideWaymo(true);
+      }, 400);
     }
   }
 
   function justShowVerilyDemo(showVerilyDemo) {
-    setShowVerilyDemo(showVerilyDemo);
     if (showVerilyDemo) {
+      setDeferredOverflowHideVerily(false);
+      setDeferredOverflowHideWaymo(true);
       setShowWaymoDemo(!showVerilyDemo);
-      scrollToRef(verilyDemoRef);
+      setTimeout(() => {
+        scrollToRef(verilyDemoRef);
+      }, 100);
+      setTimeout(() => {
+        setShowVerilyDemo(true);
+      }, 400);
+    } else {
+      setDeferredOverflowHideWaymo(true);
+      setShowVerilyDemo(false);
+      setTimeout(() => {
+        scrollToRef(verilyDemoRef);
+      }, 100);
+      setTimeout(() => {
+        setDeferredOverflowHideVerily(true);
+      }, 400);
     }
   }
 
@@ -490,13 +520,15 @@ export default function Home() {
             <div
               ref={waymoDemoRef}
               className={
-                "collapsible " + (showWaymoDemo ? "showWaymoDemo" : "collapse ")
+                "collapsible " +
+                (showWaymoDemo ? "showWaymoDemo " : "collapse ") +
+                (deferredOverflowHideWaymo ? "deferred " : "")
               }
             >
               <LazyWaymoDemo />
             </div>
           </section>
-          <section className="demo transparent-background d-none">
+          <section className="demo transparent-background">
             <button
               id="verily"
               onClick={() => justShowVerilyDemo(!showVerilyDemo)}
@@ -507,7 +539,8 @@ export default function Home() {
               ref={verilyDemoRef}
               className={
                 "collapsible " +
-                (showVerilyDemo ? "showVerilyDemo" : "collapse")
+                (showVerilyDemo ? "showVerilyDemo " : "collapse ") +
+                (deferredOverflowHideVerily ? "deferred " : "")
               }
             >
               <LazyVerilyDemo />

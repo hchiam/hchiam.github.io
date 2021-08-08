@@ -106,8 +106,9 @@ export default css`
   }
   @keyframes moving-1 {
     to {
-      left: 51%;
-      top: 47%;
+      // left: 51%;
+      // top: 47%;
+      transform: translate(-14px, 10px);
     }
   }
 
@@ -116,8 +117,9 @@ export default css`
   }
   @keyframes moving-2 {
     to {
-      left: 30%;
-      top: 73%;
+      // left: 30%;
+      // top: 73%;
+      transform: translate(-15px, -26px);
     }
   }
 
@@ -126,8 +128,9 @@ export default css`
   }
   @keyframes moving-3 {
     to {
-      left: 25%;
-      top: 34%;
+      // left: 25%;
+      // top: 34%;
+      transform: translate(-1px, -25px);
     }
   }
 
@@ -136,8 +139,9 @@ export default css`
   }
   @keyframes moving-4 {
     to {
-      left: 80%;
-      top: 70%;
+      // left: 80%;
+      // top: 70%;
+      transform: translate(5px, -20px);
     }
   }
 
@@ -146,8 +150,9 @@ export default css`
   }
   @keyframes moving-5 {
     to {
-      left: 58%;
-      top: 79%;
+      // left: 58%;
+      // top: 79%;
+      transform: translate(-20px, -20px);
     }
   }
 
@@ -156,8 +161,9 @@ export default css`
   }
   @keyframes moving-6 {
     to {
-      left: 59%;
-      top: 61%;
+      // left: 59%;
+      // top: 61%;
+      transform: translate(5px, -15px);
     }
   }
 
@@ -166,8 +172,9 @@ export default css`
   }
   @keyframes moving-7 {
     to {
-      left: 75%;
-      top: 25%;
+      // left: 75%;
+      // top: 25%;
+      transform: translate(-15px, -30px);
     }
   }
 
@@ -176,8 +183,9 @@ export default css`
   }
   @keyframes moving-8 {
     to {
-      left: 48%;
-      top: 17%;
+      // left: 48%;
+      // top: 17%;
+      transform: translate(5px, -10px);
     }
   }
 
@@ -186,8 +194,9 @@ export default css`
   }
   @keyframes moving-9 {
     to {
-      left: 76%;
-      top: 86%;
+      // left: 76%;
+      // top: 86%;
+      transform: translate(7px, 16px);
     }
   }
 
