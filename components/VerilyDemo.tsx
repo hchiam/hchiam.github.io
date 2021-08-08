@@ -1,4 +1,5 @@
 import "react-dom";
+import VerilyDemoCss from "./VerilyDemo/VerilyDemo.css";
 
 export default function VerilyDemo() {
   return (
@@ -120,6 +121,7 @@ export default function VerilyDemo() {
         </div>
         {/* a simple S line graph (grid with lowering S curve) */}
       </section>
+      <style jsx>{VerilyDemoCss}</style>
     </section>
   );
 }
