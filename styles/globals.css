@@ -471,3 +471,30 @@ p {
 [class*="-before-chart-label"]:focus {
   transform: scale(1.1);
 }
+
+/* scoping these styles to a component won't work: */
+#verily-demo-main-content fieldset {
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transform: scale(0);
+  transform-origin: top left;
+}
+.showVerilyDemo fieldset {
+  --delay: 0.1s;
+  transform: scale(1) !important;
+}
+.showVerilyDemo fieldset:nth-child(2) {
+  transition-delay: calc(var(--delay) * 1);
+}
+.showVerilyDemo fieldset:nth-child(3) {
+  transition-delay: calc(var(--delay) * 2);
+}
+.showVerilyDemo fieldset:nth-child(4) {
+  transition-delay: calc(var(--delay) * 3);
+}
+.showVerilyDemo fieldset:nth-child(5) {
+  transition-delay: calc(var(--delay) * 4);
+}
+.showVerilyDemo fieldset:nth-child(6) {
+  transition-delay: calc(var(--delay) * 5);
+}
