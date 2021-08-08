@@ -1,6 +1,12 @@
 import css from "styled-jsx/css";
 
 export default css`
+  .baymax-scan-results {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+  }
+
   fieldset {
     height: max-content;
     min-width: 5ch;

@@ -3,7 +3,7 @@ import BaymaxScanResultsCss from "./BaymaxScanResults.css";
 
 export default function BaymaxScanResults() {
   return (
-    <>
+    <div className="baymax-scan-results">
       {/* google image search for "baymax scanner screen" */}
 
       <div className="section-1">
@@ -114,6 +114,6 @@ export default function BaymaxScanResults() {
       </div>
       {/* TODO: a simple S line graph (grid with lowering S curve) */}
       <style jsx>{BaymaxScanResultsCss}</style>
-    </>
+    </div>
   );
 }

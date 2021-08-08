@@ -498,3 +498,7 @@ p {
 .showVerilyDemo fieldset:nth-child(6) {
   transition-delay: calc(var(--delay) * 5);
 }
+
+/* .tab-1:not(:focus) ~ .tab-content-1 > * {
+  height: 0;
+} */
