@@ -47,6 +47,7 @@ export default function Home() {
   const [spawnCount, setSpawnCount] = useState(0);
   const [showCommandKeys, setShowCommandKeys] = useState(false);
 
+  const [hideDemos, setHideDemos] = useState(false);
   const [showWaymoDemo, setShowWaymoDemo] = useState(false);
   const [showVerilyDemo, setShowVerilyDemo] = useState(false);
   const [deferredOverflowHideWaymo, setDeferredOverflowHideWaymo] =
@@ -246,6 +247,7 @@ export default function Home() {
         e.style.left = randomLeft + "px";
         e.style.top = randomTop + "px";
       });
+    setHideDemos(true);
   }
 
   function justShowWaymoDemo(showWaymoDemo) {
@@ -509,7 +511,10 @@ export default function Home() {
             </div>
           )}
         </section>
-        <section id="demos" className="transparent-background">
+        <section
+          id="demos"
+          className={"transparent-background " + (hideDemos ? "d-none " : "")}
+        >
           <section className="demo transparent-background">
             <button
               id="waymo"
