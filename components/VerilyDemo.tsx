@@ -119,8 +119,11 @@ export default function VerilyDemo() {
             </small>
           </fieldset>
         </div>
-        {/* a simple S line graph (grid with lowering S curve) */}
+        {/* TODO: a simple S line graph (grid with lowering S curve) */}
       </section>
+      <small style={{ textAlign: "right", display: "block" }} className="p-0">
+        (Note: this is a mock demo with simulated data.)
+      </small>
       <style jsx>{VerilyDemoCss}</style>
     </section>
   );
