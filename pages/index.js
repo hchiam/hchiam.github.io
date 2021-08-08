@@ -493,7 +493,7 @@ export default function Home() {
             <div id="learning-link">
               {/* <!-- You've found one of the hidden features! :) --> */}
               <p>
-                Here are things I've been learning and working on:
+                Here are things I've been learning and working on:&nbsp;
                 <button
                   id="go-to-learning"
                   ref={inputRef}
