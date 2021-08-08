@@ -548,7 +548,7 @@ export default function Home() {
                 (deferredOverflowHideVerily ? "deferred " : "")
               }
             >
-              <LazyVerilyDemo />
+              <LazyVerilyDemo showVerilyDemo={showVerilyDemo} />
             </div>
           </section>
         </section>

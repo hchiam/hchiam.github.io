@@ -1,8 +1,18 @@
 import "react-dom";
+import { useRef, useEffect } from "react";
 import VerilyDemoCss from "./VerilyDemo/VerilyDemo.css";
 import BaymaxScanResults from "./VerilyDemo/BaymaxScanResults";
 
-export default function VerilyDemo() {
+export default function VerilyDemo(props) {
+  const { showVerilyDemo } = props;
+  const defaultTabRef = useRef(null);
+
+  useEffect(() => {
+    if (showVerilyDemo) {
+      defaultTabRef.current.focus();
+    }
+  }, [showVerilyDemo]);
+
   return (
     <section id="verily-demo" className="p-0 verily-white-background">
       <p className="verily-white-text verily-blue-to-red">
@@ -12,7 +22,9 @@ export default function VerilyDemo() {
         id="verily-demo-main-content"
         className="verily-white-background"
       >
-        <button className="tab-1">Baymax Scan Results</button>
+        <button ref={defaultTabRef} className="tab-1">
+          Baymax Scan Results
+        </button>
         <button className="tab-2">Patient Billing</button>
         <button className="tab-3">Pathology</button>
         <button className="tab-4">Radiology</button>
