@@ -528,7 +528,7 @@ export default function Home() {
               <LazyWaymoDemo />
             </div>
           </section>
-          <section className="demo transparent-background">
+          <section className="demo transparent-background d-none">
             <button
               id="verily"
               onClick={() => justShowVerilyDemo(!showVerilyDemo)}
