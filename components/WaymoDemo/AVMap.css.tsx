@@ -1,5 +1,7 @@
 import css from "styled-jsx/css";
 
+// TODO: consider using GSAP instead for better perf
+
 export default css`
   --clip-path: polygon(
     51px 2px,

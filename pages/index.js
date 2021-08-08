@@ -51,9 +51,9 @@ export default function Home() {
   const [showWaymoDemo, setShowWaymoDemo] = useState(false);
   const [showVerilyDemo, setShowVerilyDemo] = useState(false);
   const [deferredOverflowHideWaymo, setDeferredOverflowHideWaymo] =
-    useState(false);
+    useState(true);
   const [deferredOverflowHideVerily, setDeferredOverflowHideVerily] =
-    useState(false);
+    useState(true);
 
   useKeyPress("a", handleA, [spawnCount, gameOn, continueGame]);
   useKeyPress("s", handleS, [spawnCount, gameOn, continueGame]);
@@ -533,7 +533,7 @@ export default function Home() {
               <LazyWaymoDemo />
             </div>
           </section>
-          <section className="demo transparent-background d-none">
+          <section className="demo transparent-background">
             <button
               id="verily"
               onClick={() => justShowVerilyDemo(!showVerilyDemo)}
