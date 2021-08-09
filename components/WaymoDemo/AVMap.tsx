@@ -16,6 +16,7 @@ export default function AVMap() {
         <div
           className={`av-map ${spreadOutMapIcons && "spread-out-map-icons"}`}
           onClick={() => setSpreadOutMapIcons(!spreadOutMapIcons)}
+          onKeyUp={() => setSpreadOutMapIcons(!spreadOutMapIcons)}
           tabIndex={0}
           role="button"
         >
