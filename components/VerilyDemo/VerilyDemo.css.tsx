@@ -41,6 +41,7 @@ export default css`
     text-decoration: none;
     height: max-content;
     padding: 1rem 5px 5px;
+    margin: 1px;
     border-radius: 1rem 1rem 0 0;
     border: none;
     transform: scale(1, 0.9);
