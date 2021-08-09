@@ -7,7 +7,7 @@ import AVMap from "./WaymoDemo/AVMap";
 export default function WaymoDemo() {
   return (
     <section id="waymo-demo" className="p-0 waymo-white-background">
-      <p className="waymo-white-text waymo-blue-background">
+      <p className="waymo-white-text waymo-blue-to-green">
         AV fleet infrastructure panel
       </p>
       <section id="waymo-demo-main-content" className="waymo-white-background">

@@ -283,6 +283,29 @@ p {
   background: transparent;
 }
 
+.white-text-outline {
+  --w: 0.5px; /* text outline width */
+  --c: white; /* text outline color */
+  /* simulated text outline: */
+  text-shadow: var(--w) var(--w) 0 var(--c),
+    calc(-1 * var(--w)) calc(-1 * var(--w)) 0 var(--c),
+    var(--w) calc(-1 * var(--w)) 0 var(--c),
+    calc(-1 * var(--w)) var(--w) 0 var(--c), 0 var(--w) 0 var(--c),
+    0 calc(-1 * var(--w)) 0 var(--c), var(--w) 0 0 var(--c),
+    calc(-1 * var(--w)) 0 0 var(--c);
+}
+.black-text-outline {
+  --w: 1px; /* text outline width */
+  --c: black; /* text outline color */
+  /* simulated text outline: */
+  text-shadow: var(--w) var(--w) 0 var(--c),
+    calc(-1 * var(--w)) calc(-1 * var(--w)) 0 var(--c),
+    var(--w) calc(-1 * var(--w)) 0 var(--c),
+    calc(-1 * var(--w)) var(--w) 0 var(--c), 0 var(--w) 0 var(--c),
+    0 calc(-1 * var(--w)) 0 var(--c), var(--w) 0 0 var(--c),
+    calc(-1 * var(--w)) 0 0 var(--c);
+}
+
 .black-background {
   background: black !important;
 }
@@ -370,7 +393,16 @@ p {
   color: var(--verily-pink) !important;
 }
 
-.verily-blue-to-red {
+.waymo-blue-to-green {
+  background: var(--waymo-blue) !important;
+  background: linear-gradient(
+    to right,
+    var(--waymo-blue),
+    var(--waymo-green)
+  ) !important;
+}
+
+.verily-red-to-blue {
   background: var(--verily-pink) !important;
   background: linear-gradient(
     to right,
@@ -498,7 +530,3 @@ p {
 .showVerilyDemo fieldset:nth-child(6) {
   transition-delay: calc(var(--delay) * 5);
 }
-
-/* .tab-1:not(:focus) ~ .tab-content-1 > * {
-  height: 0;
-} */

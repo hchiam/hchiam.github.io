@@ -518,6 +518,7 @@ export default function Home() {
           <section className="demo transparent-background">
             <button
               id="waymo"
+              className="white-text waymo-blue-to-green black-text-outline"
               onClick={() => justShowWaymoDemo(!showWaymoDemo)}
             >
               AV fleet panel (MOCK)
@@ -536,6 +537,7 @@ export default function Home() {
           <section className="demo transparent-background">
             <button
               id="verily"
+              className="white-text verily-red-to-blue black-text-outline"
               onClick={() => justShowVerilyDemo(!showVerilyDemo)}
             >
               EMR dashboard (MOCK)

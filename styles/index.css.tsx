@@ -44,9 +44,10 @@ export default css`
   button:focus,
   a:hover,
   a:focus {
-    animation-name: wobble;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
+    // animation-name: wobble;
+    // animation-duration: 0.5s;
+    // animation-iteration-count: infinite;
+    animation: wobble forwards infinite 0.5s, rest forwards 3s;
   }
 
   @media (prefers-reduced-motion) {
@@ -70,6 +71,12 @@ export default css`
 
     100% {
       transform: rotate(-5deg);
+    }
+  }
+
+  @keyframes rest {
+    100% {
+      transform: rotate(0deg);
     }
   }
 
