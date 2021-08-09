@@ -87,4 +87,19 @@ export default css`
     display: inline-block;
     text-align: left;
   }
+
+  @media only screen and (max-width: 480px) {
+    .section-1,
+    .section-2,
+    .section-3 {
+      display: block !important;
+      width: 90% !important;
+      margin: auto !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    fieldset {
+      margin-top: 1.25rem !important;
+    }
+  }
 `;
