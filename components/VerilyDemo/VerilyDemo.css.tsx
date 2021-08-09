@@ -51,15 +51,24 @@ export default css`
     box-shadow: none;
   }
 
+  .tab-content-container {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+  }
+
   [class*="tab-"] ~ div [class*="tab-content-"] {
     background: var(--verily-white-background);
     padding: 0;
     animation: collapse 0.3s forwards;
     position: absolute;
     height: 0;
+    width: 100%;
     overflow: auto;
-    // display: grid;
-    // place-items: center;
+    display: flex;
+    align-content: start;
+    align-items: start;
+    justify-content: center;
   }
 
   [class*="tab-"]:not(:focus) ~ div [class*="tab-content-"] > * {

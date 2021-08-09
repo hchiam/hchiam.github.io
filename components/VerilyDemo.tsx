@@ -36,44 +36,59 @@ export default function VerilyDemo(props) {
         <button className="tab-10">Pharmacology</button>
         <button className="tab-11">MPI</button>
 
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-        >
+        <div className="tab-content-container">
           <section className="tab-content-1">
             <BaymaxScanResults />
           </section>
           <section className="tab-content-2">
-            <p className="white-text verily-blue-background m-0">N/A</p>
+            <p className="white-text verily-blue-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-3">
-            <p className="white-text verily-pink-background m-0">N/A</p>
+            <p className="white-text verily-pink-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-4">
-            <p className="white-text verily-purple-background m-0">N/A</p>
+            <p className="white-text verily-purple-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-5">
-            <p className="white-text verily-red-background m-0">N/A</p>
+            <p className="white-text verily-red-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-6">
-            <p className="white-text verily-gray-background m-0">N/A</p>
+            <p className="white-text verily-gray-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-7">
-            <p className="white-text verily-blue-background m-0">N/A</p>
+            <p className="white-text verily-blue-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-8">
-            <p className="white-text verily-pink-background m-0">N/A</p>
+            <p className="white-text verily-pink-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-9">
-            <p className="white-text verily-purple-background m-0">N/A</p>
+            <p className="white-text verily-purple-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-10">
-            <p className="white-text verily-red-background m-0">N/A</p>
+            <p className="white-text verily-red-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
           <section className="tab-content-11">
-            <p className="white-text verily-gray-background m-0">N/A</p>
+            <p className="white-text verily-gray-background m-0">
+              N/A (this is just a mock demo)
+            </p>
           </section>
         </div>
       </section>
