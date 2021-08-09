@@ -57,6 +57,28 @@ export default css`
     padding: 1rem 0;
   }
 
+  .tab-content-container::after {
+    content: "How can I help?";
+    position: absolute;
+    width: 15ch;
+    padding: 0.5rem;
+    left: calc(50% - 15ch / 2);
+    text-align: center;
+    z-index: 0;
+    background: linear-gradient(
+      to right,
+      var(--verily-red),
+      var(--verily-blue)
+    );
+    background-size: 200% 100%;
+    background-position: right;
+    transition: background-position 0.5s;
+  }
+
+  .tab-content-container:hover::after {
+    background-position: left;
+  }
+
   [class*="tab-"] ~ div [class*="tab-content-"] {
     background: var(--verily-white-background);
     padding: 0;
@@ -69,6 +91,7 @@ export default css`
     align-content: start;
     align-items: start;
     justify-content: center;
+    z-index: 2;
   }
 
   [class*="tab-"]:not(:focus) ~ div [class*="tab-content-"] > * {
