@@ -83,7 +83,7 @@ export const PieChartCSS = (props: PieChartProps) => {
             ></div>
           );
         })}
-        <div className={"slice"} tabIndex={-1}></div>
+        <div className={"slice always-tabindex-1"} tabIndex={-1}></div>
       </div>
       <style jsx>{chartCssStyle}</style>
     </>

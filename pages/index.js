@@ -101,6 +101,31 @@ export default function Home() {
     });
 
     addUrlQueryWithoutRefreshingPage("can-you-find-all-the-hidden-features?");
+
+    window.disableTabbableChildren = (selector) => {
+      Array.from(
+        document
+          .querySelector(selector)
+          .querySelectorAll('button, a, [tabindex="0"]')
+      ).forEach((child) => {
+        child.tabIndex = -1;
+      });
+    };
+
+    window.enableTabbableChildren = (selector) => {
+      Array.from(
+        document
+          .querySelector(selector)
+          .querySelectorAll('[tabindex="-1"]:not(.always-tabindex-1)')
+      ).forEach((child) => {
+        child.tabIndex = 0;
+      });
+    };
+
+    setTimeout(() => {
+      window.disableTabbableChildren("#waymo-demo");
+      window.disableTabbableChildren("#verily-demo");
+    }, 1000);
   }, [spawnCount]);
 
   function callbackUponDrag() {
@@ -254,16 +279,19 @@ export default function Home() {
     if (showWaymoDemo) {
       setDeferredOverflowHideWaymo(false);
       setDeferredOverflowHideVerily(true);
-      setShowVerilyDemo(!showWaymoDemo);
+      setShowVerilyDemo(false);
+      disableTabbableChildren("#verily-demo");
       setTimeout(() => {
         scrollToRef(waymoDemoRef);
       }, 100);
       setTimeout(() => {
         setShowWaymoDemo(true);
+        enableTabbableChildren("#waymo-demo");
       }, 400);
     } else {
       setDeferredOverflowHideVerily(true);
       setShowWaymoDemo(false);
+      disableTabbableChildren("#waymo-demo");
       setTimeout(() => {
         scrollToRef(waymoDemoRef);
       }, 100);
@@ -277,16 +305,19 @@ export default function Home() {
     if (showVerilyDemo) {
       setDeferredOverflowHideVerily(false);
       setDeferredOverflowHideWaymo(true);
-      setShowWaymoDemo(!showVerilyDemo);
+      setShowWaymoDemo(false);
+      disableTabbableChildren("#waymo-demo");
       setTimeout(() => {
         scrollToRef(verilyDemoRef);
       }, 100);
       setTimeout(() => {
         setShowVerilyDemo(true);
+        enableTabbableChildren("#verily-demo");
       }, 400);
     } else {
       setDeferredOverflowHideWaymo(true);
       setShowVerilyDemo(false);
+      disableTabbableChildren("#verily-demo");
       setTimeout(() => {
         scrollToRef(verilyDemoRef);
       }, 100);
