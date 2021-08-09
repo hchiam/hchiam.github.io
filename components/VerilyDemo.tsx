@@ -23,7 +23,7 @@ export default function VerilyDemo(props) {
         className="verily-white-background"
       >
         <button ref={defaultTabRef} className="tab-1">
-          Baymax Scan Results
+          Scan Results
         </button>
         <button className="tab-2">Admission</button>
         <button className="tab-3">Scheduling</button>
