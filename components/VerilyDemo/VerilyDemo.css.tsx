@@ -8,7 +8,8 @@ export default css`
     font-size: 1rem;
     position: relative;
     height: 100vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   @keyframes collapse {
@@ -92,7 +93,7 @@ export default css`
     position: absolute;
     height: 0;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
     display: flex;
     align-content: start;
     align-items: start;
