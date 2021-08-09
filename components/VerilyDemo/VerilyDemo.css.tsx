@@ -37,13 +37,23 @@ export default css`
     }
   }
 
-  [class*="tab-"] {
+  [class*="tab-"]:not([class*="tab-content-"]) {
     text-decoration: none;
     height: max-content;
+    padding: 1rem 5px 5px;
+    border-radius: 1rem 1rem 0 0;
+    border: none;
+    transform: scale(1, 0.9);
+    transform-origin: bottom;
+    transition: transform 0.1s;
+    background: var(--verily-blue);
   }
-  [class*="tab-"]:hover,
-  [class*="tab-"]:focus {
+  [class*="tab-"]:not([class*="tab-content-"]):hover,
+  [class*="tab-"]:not([class*="tab-content-"]):focus {
     box-shadow: none;
+    transform: scale(1);
+    background: var(--verily-red);
+    color: var(--verily-white);
   }
 
   .tab-content-container {
