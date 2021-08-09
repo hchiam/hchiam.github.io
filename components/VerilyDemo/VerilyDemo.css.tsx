@@ -9,11 +9,6 @@ export default css`
     position: relative;
     height: 100vh;
     overflow: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  #verily-demo-main-content ::-webkit-scrollbar {
-    display: none;
   }
 
   @keyframes collapse {
