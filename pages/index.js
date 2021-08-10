@@ -546,14 +546,20 @@ export default function Home() {
           id="demos"
           className={"transparent-background " + (hideDemos ? "d-none " : "")}
         >
-          <section className="demo transparent-background">
-            <button
-              id="waymo"
-              className="white-text waymo-blue-to-green black-text-outline"
-              onClick={() => justShowWaymoDemo(!showWaymoDemo)}
+          <section className="demo transparent-background ">
+            <p
+              className={
+                "my-0 " + (showWaymoDemo ? "waymo-blue-to-green " : "")
+              }
             >
-              AV fleet panel (MOCK)
-            </button>
+              <button
+                id="waymo"
+                className="white-text waymo-blue-to-green black-text-outline"
+                onClick={() => justShowWaymoDemo(!showWaymoDemo)}
+              >
+                AV fleet panel (MOCK)
+              </button>
+            </p>
             <div
               ref={waymoDemoRef}
               className={
@@ -566,13 +572,19 @@ export default function Home() {
             </div>
           </section>
           <section className="demo transparent-background">
-            <button
-              id="verily"
-              className="white-text verily-red-to-blue black-text-outline"
-              onClick={() => justShowVerilyDemo(!showVerilyDemo)}
+            <p
+              className={
+                "my-0 " + (showVerilyDemo ? "verily-red-to-blue " : "")
+              }
             >
-              EMR dashboard (MOCK)
-            </button>
+              <button
+                id="verily"
+                className="white-text verily-red-to-blue black-text-outline"
+                onClick={() => justShowVerilyDemo(!showVerilyDemo)}
+              >
+                EMR dashboard (MOCK)
+              </button>
+            </p>
             <div
               ref={verilyDemoRef}
               className={

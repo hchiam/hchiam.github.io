@@ -278,6 +278,9 @@ p {
 .justify-center {
   justify-content: center;
 }
+.text-center {
+  text-align: center;
+}
 
 .transparent-background {
   background: transparent;
@@ -529,4 +532,8 @@ p {
 }
 .showVerilyDemo fieldset:nth-child(6) {
   transition-delay: calc(var(--delay) * 5);
+}
+
+.demo {
+  transition: background-image 1s;
 }
