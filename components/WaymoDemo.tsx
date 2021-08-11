@@ -1,10 +1,20 @@
 import "react-dom";
+import { useEffect } from "react";
 import AVsOnline from "./WaymoDemo/AVsOnline";
 import AVsOffline from "./WaymoDemo/AVsOffline";
 import Passengers from "./WaymoDemo/Passengers";
 import AVMap from "./WaymoDemo/AVMap";
+import getMockData from "../helpers/getMockData";
 
 export default function WaymoDemo() {
+  useEffect(() => {
+    fetchData();
+    async function fetchData() {
+      console.log(await getMockData("waymo"));
+      console.log(await getMockData("verily"));
+    }
+  }, []);
+
   return (
     <section id="waymo-demo" className="p-0 waymo-white-background">
       <h2 className="waymo-white-text waymo-blue-to-green my-0 text-center text-center">
