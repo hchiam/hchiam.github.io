@@ -424,6 +424,7 @@ p {
 #waymo,
 #verily {
   font-size: 1.1rem;
+  font-family: arial;
 }
 
 #waymo-demo p {
