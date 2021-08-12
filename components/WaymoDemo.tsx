@@ -7,12 +7,13 @@ import AVMap from "./WaymoDemo/AVMap";
 import getMockData from "../helpers/getMockData";
 
 export default function WaymoDemo() {
+  async function fetchData() {
+    const mockWaymoData = await getMockData("waymo");
+    console.log(mockWaymoData);
+  }
+
   useEffect(() => {
     fetchData();
-    async function fetchData() {
-      console.log(await getMockData("waymo"));
-      console.log(await getMockData("verily"));
-    }
   }, []);
 
   return (

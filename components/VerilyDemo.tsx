@@ -2,10 +2,20 @@ import "react-dom";
 import { useRef, useEffect } from "react";
 import VerilyDemoCss from "./VerilyDemo/VerilyDemo.css";
 import BaymaxScanResults from "./VerilyDemo/BaymaxScanResults";
+import getMockData from "../helpers/getMockData";
 
 export default function VerilyDemo(props) {
   const { showVerilyDemo } = props;
   const defaultTabRef = useRef(null);
+
+  async function fetchData() {
+    const mockVerilyData = await getMockData("verily");
+    console.log(mockVerilyData);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     if (showVerilyDemo) {
