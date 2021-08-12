@@ -34,27 +34,53 @@ export default function AVMap(props) {
         </div>
         <div className="legend">
           <p className="my-0 py-0 waymo-dark-navy-text">
-            🔵 <span className="waymo-blue-background py-0">Hailing</span>
+            <span
+              className="white-background p-0 text-center"
+              style={{ width: "1.5rem", display: "inline-block" }}
+            >
+              🔵
+            </span>
+            <span className="waymo-blue-background py-0">Hailing</span>
           </p>
           <p className="my-0 py-0 waymo-dark-navy-text">
-            🛑{" "}
+            <span
+              className="white-background p-0 text-center"
+              style={{ width: "1.5rem", display: "inline-block" }}
+            >
+              🛑
+            </span>
             <span className="verily-red-background py-0">
               Requesting Assistance
             </span>
           </p>
           <p className="my-0 py-0 waymo-dark-navy-text">
-            ⬜{" "}
+            <span
+              className="white-background p-0 text-center"
+              style={{ width: "1.5rem", display: "inline-block" }}
+            >
+              ⬜
+            </span>
             <span className="black-background waymo-white-text py-0">AV</span>
           </p>
           {/* BONUS: indicate nearest available (and time) */}
           <p className="my-0 py-0 waymo-dark-navy-text">
-            🔋{" "}
+            <span
+              className="white-background p-0 text-center"
+              style={{ width: "1.5rem", display: "inline-block" }}
+            >
+              🔋
+            </span>
             <span className="waymo-green-background black-text py-0">
               Charging Station
             </span>
           </p>
           <p className="my-0 py-0 waymo-dark-navy-text">
-            ⚠️{" "}
+            <span
+              className="white-background p-0 text-center"
+              style={{ width: "1.5rem", display: "inline-block" }}
+            >
+              ⚠️
+            </span>
             <span className="yellow-background black-text py-0">
               Roadside Assistance
             </span>
