@@ -65,10 +65,11 @@ export default css`
   }
 
   .tab-content-container::after {
-    content: "How can I help?";
+    content: "Click one of the tabs above";
     position: absolute;
     width: 15ch;
     padding: 0.5rem;
+    margin-top: 20%;
     left: calc(50% - 15ch / 2);
     text-align: center;
     z-index: 0;
@@ -86,9 +87,14 @@ export default css`
     background-position: left;
   }
 
+  [class*="tab-"]:not([class*="tab-content-"]):focus
+    ~ .tab-content-container::after {
+    display: none;
+  }
+
   [class*="tab-"] ~ div [class*="tab-content-"] {
     background: var(--verily-white-background);
-    padding: 0;
+    padding: 1rem 0 0;
     animation: collapse 0.3s forwards;
     position: absolute;
     height: 0;
@@ -147,5 +153,10 @@ export default css`
 
   .tab-11:focus ~ div .tab-content-11 {
     animation: expand 0.3s forwards !important;
+  }
+
+  .filler {
+    width: 80%;
+    text-align: center;
   }
 `;

@@ -58,52 +58,52 @@ export default function VerilyDemo(props) {
             <BaymaxScanResults data={mockVerilyData} />
           </section>
           <section className="tab-content-2">
-            <p className="white-text verily-blue-background m-0">
+            <p className="filler white-text verily-blue-background m-0">
               Admission: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-3">
-            <p className="white-text verily-pink-background m-0">
+            <p className="filler white-text verily-pink-background m-0">
               Scheduling: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-4">
-            <p className="white-text verily-purple-background m-0">
+            <p className="filler white-text verily-purple-background m-0">
               ICU and ER: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-5">
-            <p className="white-text verily-red-background m-0">
+            <p className="filler white-text verily-red-background m-0">
               Laboratory: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-6">
-            <p className="white-text verily-gray-background m-0">
+            <p className="filler white-text verily-gray-background m-0">
               Pharmacology: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-7">
-            <p className="white-text verily-blue-background m-0">
+            <p className="filler white-text verily-blue-background m-0">
               MPI: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-8">
-            <p className="white-text verily-pink-background m-0">
+            <p className="filler white-text verily-pink-background m-0">
               Radiology: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-9">
-            <p className="white-text verily-purple-background m-0">
+            <p className="filler white-text verily-purple-background m-0">
               Pathology: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-10">
-            <p className="white-text verily-red-background m-0">
+            <p className="filler white-text verily-red-background m-0">
               Discharge and Transfer: N/A (this is just a mock demo)
             </p>
           </section>
           <section className="tab-content-11">
-            <p className="white-text verily-gray-background m-0">
+            <p className="filler white-text verily-gray-background m-0">
               Patient Billing: N/A (this is just a mock demo)
             </p>
           </section>
