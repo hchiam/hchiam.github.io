@@ -568,7 +568,7 @@ export default function Home() {
                 (deferredOverflowHideWaymo ? "deferred " : "")
               }
             >
-              <LazyWaymoDemo />
+              <LazyWaymoDemo showWaymoDemo={showWaymoDemo} />
             </div>
           </section>
           <section className="demo transparent-background">

@@ -3,14 +3,17 @@ import { useState } from "react";
 import AVMapCSS from "./AVMap.css";
 import { simulatedMapItems } from "../../helpers/AVMapSimulatedItems";
 
-export default function AVMap() {
+export default function AVMap(props) {
+  const { requestsPlusAVs } = props;
+
   // just for fun:
   const [spreadOutMapIcons, setSpreadOutMapIcons] = useState(false);
 
   return (
     <div>
       <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">
-        Requests + AVs map: <span className="animated-text py-0">20714</span>
+        Requests + AVs map:{" "}
+        <span className="animated-text py-0">{requestsPlusAVs || 20714}</span>
       </h2>
       <div className="av-map-container">
         <div

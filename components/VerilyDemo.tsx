@@ -1,26 +1,34 @@
 import "react-dom";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import VerilyDemoCss from "./VerilyDemo/VerilyDemo.css";
 import BaymaxScanResults from "./VerilyDemo/BaymaxScanResults";
 import getMockData from "../helpers/getMockData";
 
 export default function VerilyDemo(props) {
   const { showVerilyDemo } = props;
+
+  const [mockVerilyData, setMockVerilyData] = useState({});
+
   const defaultTabRef = useRef(null);
 
   async function fetchData() {
-    const mockVerilyData = await getMockData("verily");
-    console.log(mockVerilyData);
+    const rawData = await getMockData("verily");
+    setMockVerilyData(rawData);
+    console.log(rawData);
   }
 
+  let timer;
   useEffect(() => {
-    fetchData();
-  }, []);
+    clearInterval(timer);
+    timer = setInterval(() => {
+      if (showVerilyDemo) fetchData();
+    }, 3000);
 
-  useEffect(() => {
     if (showVerilyDemo) {
       defaultTabRef.current.focus();
     }
+
+    return () => clearInterval(timer); // stop fetching data when hidden
   }, [showVerilyDemo]);
 
   return (
@@ -48,7 +56,7 @@ export default function VerilyDemo(props) {
 
         <div className="tab-content-container">
           <section className="tab-content-1">
-            <BaymaxScanResults />
+            <BaymaxScanResults data={mockVerilyData} />
           </section>
           <section className="tab-content-2">
             <p className="white-text verily-blue-background m-0">

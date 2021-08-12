@@ -2,7 +2,16 @@ import "react-dom";
 import { useState } from "react";
 import { PieChartCSS } from "../PieChartCSS";
 
-export default function Passengers() {
+export default function Passengers(props) {
+  const { data } = props;
+  const Passengers =
+    data?.Passengers?.Hailing +
+    data?.Passengers?.Serving +
+    data?.Passengers?.RequestingAssistance;
+  const Hailing = data?.Passengers?.Hailing;
+  const Serving = data?.Passengers?.Serving;
+  const RequestingAssistance = data?.Passengers?.RequestingAssistance;
+
   const [highlightSlice1, setHighlightSlice1] = useState(false);
   const [highlightSlice2, setHighlightSlice2] = useState(false);
 
@@ -10,19 +19,19 @@ export default function Passengers() {
     <div className="d-flex wrap justify-center">
       <PieChartCSS
         id="passengers"
-        title={"Passengers: 14986"}
+        title={`Passengers: ${Passengers || 14986}`}
         pieChartData={[
           {
             color: "var(--waymo-blue)",
             text: "⦿",
-            number: 112,
+            number: Hailing || 112,
             textStartAdjust: "1em",
             highlightedSlice: highlightSlice1,
           },
           {
             color: "var(--verily-red)",
             text: "▲",
-            number: 2,
+            number: RequestingAssistance || 2,
             textStartAdjust: "3em",
             highlightedSlice: highlightSlice2,
           },
@@ -45,7 +54,7 @@ export default function Passengers() {
             setHighlightSlice1(false);
           }}
         >
-          &nbsp;Hailing: 112
+          &nbsp;Hailing: {Hailing || 112}
         </p>
         <p
           className="triangle-before-chart-label white-text verily-red-background"
@@ -63,7 +72,13 @@ export default function Passengers() {
             setHighlightSlice2(false);
           }}
         >
-          &nbsp;Requesting assistance: 2
+          &nbsp;Requesting assistance: {RequestingAssistance || 2}
+        </p>
+        <p
+          className="square-before-chart-label black-text waymo-white-background"
+          tabIndex={0}
+        >
+          &nbsp;(Serving: {Serving || 14872})
         </p>
       </div>
     </div>

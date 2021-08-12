@@ -2,7 +2,14 @@ import "react-dom";
 import { useState } from "react";
 import { PieChartCSS } from "../PieChartCSS";
 
-export default function AVsOffline() {
+export default function AVsOffline(props) {
+  const { data } = props;
+  const Offline =
+    data?.AutonomousVehicles?.Offline?.Repairing +
+    data?.AutonomousVehicles?.Offline?.Unaccounted;
+  const Repairing = data?.AutonomousVehicles?.Offline?.Repairing;
+  const Unaccounted = data?.AutonomousVehicles?.Offline?.Unaccounted;
+
   const [highlightSlice1, setHighlightSlice1] = useState(false);
   const [highlightSlice2, setHighlightSlice2] = useState(false);
 
@@ -11,26 +18,26 @@ export default function AVsOffline() {
       <h3 className="waymo-dark-navy-text waymo-white-background my-0 p-0">
         Offline:{" "}
         <span className="animated-text waymo-dark-navy-text waymo-white-background px-0">
-          11
+          {Offline || 11}
         </span>
         /20600
       </h3>
       <div className="d-flex wrap justify-center">
         <PieChartCSS
           id="avs-offline"
-          title={"Offline: 11"}
+          title={`Offline: ${Offline || 11}`}
           pieChartData={[
             {
               color: "var(--waymo-blue)",
               text: "◼",
-              number: 10,
+              number: Repairing || 10,
               textStartAdjust: "1em",
               highlightedSlice: highlightSlice1,
             },
             {
               color: "var(--verily-red)",
               text: "▲",
-              number: 1,
+              number: Unaccounted || 1,
               textStartAdjust: "2em",
               highlightedSlice: highlightSlice2,
             },
@@ -55,7 +62,7 @@ export default function AVsOffline() {
               setHighlightSlice1(false);
             }}
           >
-            &nbsp;Repairing: 10
+            &nbsp;Repairing: {Repairing || 10}
           </p>
           <p
             className={
@@ -75,7 +82,7 @@ export default function AVsOffline() {
               setHighlightSlice2(false);
             }}
           >
-            &nbsp;Unaccounted: 1
+            &nbsp;Unaccounted: {Unaccounted || 1}
           </p>
         </div>
       </div>

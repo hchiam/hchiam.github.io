@@ -2,7 +2,18 @@ import "react-dom";
 import { useState } from "react";
 import { PieChartCSS } from "../PieChartCSS";
 
-export default function AVsOnline() {
+export default function AVsOnline(props) {
+  const { data } = props;
+  const Online =
+    data?.AutonomousVehicles?.Online?.AllocatedAVs +
+    data?.AutonomousVehicles?.Online?.ChargingAVs +
+    data?.AutonomousVehicles?.Online?.AvailableAVs -
+    data?.AutonomousVehicles?.Offline?.Repairing -
+    data?.AutonomousVehicles?.Offline?.Unaccounted;
+  const AllocatedAVs = data?.AutonomousVehicles?.Online?.AllocatedAVs;
+  const ChargingAVs = data?.AutonomousVehicles?.Online?.ChargingAVs;
+  const AvailableAVs = data?.AutonomousVehicles?.Online?.AvailableAVs;
+
   const [highlightSlice1, setHighlightSlice1] = useState(false);
   const [highlightSlice2, setHighlightSlice2] = useState(false);
   const [highlightSlice3, setHighlightSlice3] = useState(false);
@@ -12,20 +23,20 @@ export default function AVsOnline() {
       <h3 className="waymo-dark-navy-text waymo-white-background my-0 p-0">
         Online:{" "}
         <span className="animated-text waymo-dark-navy-text waymo-white-background px-0">
-          20589
+          {Online || 20589}
         </span>
         /20600
       </h3>
       <div className="d-flex wrap justify-center">
         <PieChartCSS
           id="avs-online"
-          title={"Online: 20589"}
+          title={`Online: ${Online || 20589}`}
           pieChartData={[
             {
               sliceId: "Allocated",
               color: "var(--waymo-blue)",
               text: "⦿",
-              number: 14986,
+              number: AllocatedAVs || 14986,
               textStartAdjust: "1em",
               highlightedSlice: highlightSlice1,
             },
@@ -33,7 +44,7 @@ export default function AVsOnline() {
               sliceId: "Charging",
               color: "var(--verily-red)",
               text: "◼",
-              number: 4323,
+              number: ChargingAVs || 4323,
               textStartAdjust: "2em",
               highlightedSlice: highlightSlice2,
             },
@@ -41,7 +52,7 @@ export default function AVsOnline() {
               sliceId: "Available",
               color: "var(--waymo-green)",
               text: "▲",
-              number: 1280,
+              number: AvailableAVs || 1280,
               textStartAdjust: "2em",
               highlightedSlice: highlightSlice3,
             },
@@ -64,7 +75,7 @@ export default function AVsOnline() {
               setHighlightSlice1(false);
             }}
           >
-            &nbsp;Allocated: 14986
+            &nbsp;Allocated: {AllocatedAVs || 14986}
           </p>
           <p
             className="square-before-chart-label white-text verily-red-background"
@@ -83,7 +94,7 @@ export default function AVsOnline() {
             }}
           >
             {" "}
-            &nbsp;Charging: 4323
+            &nbsp;Charging: {ChargingAVs || 4323}
           </p>
           <p
             className="triangle-before-chart-label white-text waymo-green-background"
@@ -108,7 +119,7 @@ export default function AVsOnline() {
                 paddingLeft: 0,
               }}
             >
-              Available: 1280
+              Available: {AvailableAVs || 1280}
             </span>
           </p>
         </div>
