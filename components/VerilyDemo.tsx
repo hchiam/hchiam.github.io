@@ -14,7 +14,6 @@ export default function VerilyDemo(props) {
   async function fetchData() {
     const rawData = await getMockData("verily");
     setMockVerilyData(rawData);
-    console.log(rawData);
   }
 
   let timer;

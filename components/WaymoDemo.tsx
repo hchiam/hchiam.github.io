@@ -20,7 +20,6 @@ export default function WaymoDemo(props) {
     setPassengers(rawData?.AutonomousVehicles?.Online?.AllocatedAVs);
     setMilesOfXP(rawData?.MilesOfXP);
     setIncidencesResolved(rawData?.IncidencesResolved);
-    console.log(rawData);
   }
 
   let timer;
