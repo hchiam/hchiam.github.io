@@ -421,6 +421,11 @@ p {
   overflow: hidden;
 }
 
+#waymo,
+#verily {
+  font-size: 1.1rem;
+}
+
 #waymo-demo p {
   background: transparent;
   color: var(--waymo-blue);
