@@ -7,7 +7,6 @@ export default function getRandomNumber(
   minInclusive: number,
   maxInclusive: number
 ): number {
-  const offSet1IfMin0 = minInclusive === 0 ? 1 : 0;
   const delta = maxInclusive - minInclusive;
-  return Math.floor(Math.random() * (delta + offSet1IfMin0)) + minInclusive;
+  return Math.floor(Math.random() * (delta + 1)) + minInclusive;
 }
