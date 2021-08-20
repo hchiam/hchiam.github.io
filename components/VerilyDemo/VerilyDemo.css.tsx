@@ -62,15 +62,18 @@ export default css`
     width: 100%;
     height: 100%;
     padding: 1rem 0;
+    display: flex;
+    justify-content: center;
   }
 
   .tab-content-container::after {
     content: "Click one of the tabs above";
     position: absolute;
     width: 15ch;
+    height: max-content;
     padding: 0.5rem;
     margin-top: 20%;
-    left: calc(50% - 15ch / 2);
+    // left: calc(50% - 15ch / 2);
     text-align: center;
     z-index: 0;
     background: linear-gradient(

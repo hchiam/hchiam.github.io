@@ -3,6 +3,7 @@ import css from "styled-jsx/css";
 export default css`
   .baymax-scan-results {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     font-size: 1rem;
   }
