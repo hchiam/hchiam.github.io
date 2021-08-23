@@ -35,6 +35,7 @@ export default css`
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       max-height: 100%;
       height: 100%;
+      overflow-y: auto;
     }
   }
 
@@ -102,7 +103,6 @@ export default css`
     position: absolute;
     height: 0;
     width: 100%;
-    overflow-y: auto;
     display: flex;
     align-content: start;
     align-items: start;
