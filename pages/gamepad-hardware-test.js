@@ -1,7 +1,7 @@
 // inspired by: https://github.com/hchiam/learning-js/blob/master/get-gamepad-hardware-events.html
 
 // https://raw.githubusercontent.com/hchiam/phaserGame/master/retrolink_usb_controller.jpg
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import setUpConsoleFunctions from "../helpers/setUpConsoleFunctions";
 
 function GamepadHandlerTest() {

@@ -35,7 +35,7 @@ export default function setUpConsoleFunctions() {
   };
 
   window.home = () => {
-    location.reload();
+    window.location.href = "/";
   };
 
   window.wowYouFoundAHiddenCommand =
