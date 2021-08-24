@@ -30,6 +30,10 @@ export default function setUpConsoleFunctions() {
     location = "https://simple-slides.surge.sh";
   };
 
+  window.gamepadHardware = () => {
+    window.location.href = "/gamepad-hardware-test";
+  };
+
   window.home = () => {
     location.reload();
   };
@@ -49,6 +53,8 @@ export default function setUpConsoleFunctions() {
   %cgame()%c
   
   %cslides()%c
+
+  %cgamepadHardware()%c
   
   %chome()%c
   
@@ -56,6 +62,8 @@ export default function setUpConsoleFunctions() {
   %chttps://resume.github.io/?hchiam%c
   `,
     "color: blue; background: lightgrey;",
+    "",
+    "color: lime; background: black; padding: 5px 10px;",
     "",
     "color: lime; background: black; padding: 5px 10px;",
     "",
