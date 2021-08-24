@@ -89,7 +89,7 @@ ${axes.length} axes (for directional buttons)`;
         height="200"
       />
       <p className="hide">
-        Buttons on: <span id="buttons_on">...</span>
+        Buttons on: <span id="buttons_on"></span>
       </p>
       <p className="hide pb-0 mb-0">Axes (directional buttons):</p>
       <p id="axes" className="p-0 mt-0"></p>
