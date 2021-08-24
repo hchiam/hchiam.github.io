@@ -82,7 +82,7 @@ ${axes.length} axes (for directional buttons)`;
 
   return (
     <div>
-      <p>Press any key on your gamepad to start.</p>
+      <p>Press any key on your physical gamepad to start.</p>
       <img
         src="https://raw.githubusercontent.com/hchiam/phaserGame/master/retrolink_usb_controller.jpg"
         alt="Gamepad controller"
