@@ -53,7 +53,7 @@ export default function VerilyDemo(props) {
         <button className="tab-10">Discharge and Transfer</button>
         <button className="tab-11">Patient Billing</button>
 
-        <div className="tab-content-container">
+        <div className="tab-content-container" aria-hidden="true">
           <section className="tab-content-1">
             <BaymaxScanResults data={mockVerilyData} />
           </section>
