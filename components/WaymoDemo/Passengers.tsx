@@ -24,6 +24,7 @@ export default function Passengers(props) {
           {
             color: "var(--waymo-blue)",
             text: "⦿",
+            ariaLabel: "⦿ Hailing: " + (Hailing || 112),
             number: Hailing || 112,
             textStartAdjust: "1em",
             highlightedSlice: highlightSlice1,
@@ -31,6 +32,7 @@ export default function Passengers(props) {
           {
             color: "var(--verily-red)",
             text: "▲",
+            ariaLabel: "▲ Unaccounted: " + (RequestingAssistance || 2),
             number: RequestingAssistance || 2,
             textStartAdjust: "3em",
             highlightedSlice: highlightSlice2,

@@ -30,6 +30,7 @@ export default function AVsOffline(props) {
             {
               color: "var(--waymo-blue)",
               text: "◼",
+              ariaLabel: "◼ Repairing: " + (Repairing || 10),
               number: Repairing || 10,
               textStartAdjust: "1em",
               highlightedSlice: highlightSlice1,
@@ -37,6 +38,7 @@ export default function AVsOffline(props) {
             {
               color: "var(--verily-red)",
               text: "▲",
+              ariaLabel: "▲ Unaccounted: " + (Unaccounted || 1),
               number: Unaccounted || 1,
               textStartAdjust: "2em",
               highlightedSlice: highlightSlice2,

@@ -17,11 +17,13 @@ export default function AVMap(props) {
       </h2>
       <div className="av-map-container">
         <div
-          className={`av-map ${spreadOutMapIcons && "spread-out-map-icons"}`}
+          className={`av-map ${
+            spreadOutMapIcons && "spread-out-map-icons"
+          } always-tabindex-1`}
           onClick={() => setSpreadOutMapIcons(!spreadOutMapIcons)}
           onKeyUp={() => setSpreadOutMapIcons(!spreadOutMapIcons)}
-          tabIndex={0}
-          role="button"
+          tabIndex={-1}
+          aria-hidden="true"
         >
           {simulatedMapItems.map((item) => (
             <AVMapPoint
@@ -96,7 +98,9 @@ function AVMapPoint(props) {
   return (
     <>
       <span
-        className={props.p + " " + props.extraClasses}
+        tabIndex={-1}
+        aria-hidden="true"
+        className={props.p + " always-tabindex-1 " + props.extraClasses}
         style={
           { "--left": props.left, "--top": props.top } as React.CSSProperties
         }

@@ -15,6 +15,7 @@ export interface PieChartData {
   end?: number;
   color: string;
   text?: string;
+  ariaLabel: string;
   textLeft?: string;
   textTop?: string;
   textStartAdjust?: string;
@@ -79,7 +80,7 @@ export const PieChartCSS = (props: PieChartProps) => {
               }
               style={style as React.CSSProperties}
               tabIndex={0}
-              aria-label={`${slice.text}: ${slice.number}`}
+              aria-label={slice.ariaLabel}
             ></div>
           );
         })}
