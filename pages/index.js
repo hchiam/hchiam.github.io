@@ -576,9 +576,9 @@ export default function Home() {
               }
             >
               <button
-                type="button"
-                role="switch"
+                role="checkbox"
                 aria-checked={showWaymoDemo ? true : false}
+                aria-label="Show AV fleet panel mock"
                 id="waymo"
                 className="white-text waymo-blue-to-green black-text-outline"
                 onClick={() => justShowWaymoDemo(!showWaymoDemo)}
@@ -604,9 +604,9 @@ export default function Home() {
               }
             >
               <button
-                type="button"
-                role="switch"
+                role="checkbox"
                 aria-checked={showVerilyDemo ? true : false}
+                aria-label="Show EMR dashboard mock"
                 id="verily"
                 className="white-text verily-red-to-blue black-text-outline"
                 onClick={() => justShowVerilyDemo(!showVerilyDemo)}
