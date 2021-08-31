@@ -190,16 +190,22 @@ export default function Home() {
     setGameOn(true);
     const aButton = document.getElementById("a");
     aButton.innerText = " A ";
+    aButton.role = "button";
     const sButton = document.getElementById("s");
     sButton.innerText = " S ";
+    sButton.role = "button";
     const dButton = document.getElementById("d");
     dButton.innerText = " D ";
+    dButton.role = "button";
     const fButton = document.getElementById("f");
     fButton.innerText = " F ";
+    fButton.role = "button";
     const cButton = document.getElementById("c");
     cButton.innerText = " C ";
+    cButton.role = "button";
     const spaceButton = document.getElementById("space");
     spaceButton.innerText = " SPACE ";
+    spaceButton.role = "button";
   }
 
   function resetGameButtons() {
@@ -207,16 +213,22 @@ export default function Home() {
     setGameOn(false);
     const aButton = document.getElementById("a");
     aButton.innerText = " GitHub ";
+    aButton.role = "link";
     const sButton = document.getElementById("s");
     sButton.innerText = " CodePen ";
+    sButton.role = "link";
     const dButton = document.getElementById("d");
     dButton.innerText = " Glitch ";
+    dButton.role = "link";
     const fButton = document.getElementById("f");
     fButton.innerText = " LinkedIn ";
+    fButton.role = "link";
     const cButton = document.getElementById("c");
     cButton.innerText = " Blog ";
+    cButton.role = "link";
     const spaceButton = document.getElementById("space");
     spaceButton.innerText = " Memrise ";
+    spaceButton.role = "link";
   }
 
   function handleA() {
@@ -355,7 +367,11 @@ export default function Home() {
           </div>
         </noscript>
         {showSecretButton && (
-          <button id="secret-button" onClick={() => surprise()}>
+          <button
+            id="secret-button"
+            onClick={() => surprise()}
+            aria-label="Hit Enter or Spacebar to reveal a hidden button!"
+          >
             {`Hit Enter or Spacebar!` || secretButtonText}
           </button>
         )}
@@ -390,6 +406,7 @@ export default function Home() {
               aria-live="polite"
             ></div>
             <button
+              role="link"
               id="a"
               className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
@@ -407,6 +424,7 @@ export default function Home() {
               </svg>
             </button>
             <button
+              role="link"
               id="s"
               className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
@@ -424,6 +442,7 @@ export default function Home() {
               </svg>
             </button>
             <button
+              role="link"
               id="d"
               className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
@@ -441,6 +460,7 @@ export default function Home() {
               </svg>
             </button>
             <button
+              role="link"
               id="f"
               className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
@@ -461,6 +481,7 @@ export default function Home() {
               </svg>
             </button>
             <button
+              role="link"
               id="c"
               className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
@@ -478,6 +499,7 @@ export default function Home() {
               </svg>
             </button>
             <button
+              role="link"
               id="space"
               className={showCommandKeys ? "commandKey" : ""}
               onClick={() =>
@@ -526,6 +548,7 @@ export default function Home() {
               <p>
                 Here are things I've been learning and working on:&nbsp;
                 <button
+                  role="link"
                   id="go-to-learning"
                   ref={inputRef}
                   aria-label="link to my learning repo"
@@ -553,6 +576,9 @@ export default function Home() {
               }
             >
               <button
+                type="button"
+                role="switch"
+                aria-checked={showWaymoDemo ? true : false}
                 id="waymo"
                 className="white-text waymo-blue-to-green black-text-outline"
                 onClick={() => justShowWaymoDemo(!showWaymoDemo)}
@@ -578,6 +604,9 @@ export default function Home() {
               }
             >
               <button
+                type="button"
+                role="switch"
+                aria-checked={showVerilyDemo ? true : false}
                 id="verily"
                 className="white-text verily-red-to-blue black-text-outline"
                 onClick={() => justShowVerilyDemo(!showVerilyDemo)}
