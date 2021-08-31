@@ -190,22 +190,22 @@ export default function Home() {
     setGameOn(true);
     const aButton = document.getElementById("a");
     aButton.innerText = " A ";
-    aButton.role = "button";
+    aButton.setAttribute("role", "button");
     const sButton = document.getElementById("s");
     sButton.innerText = " S ";
-    sButton.role = "button";
+    sButton.setAttribute("role", "button");
     const dButton = document.getElementById("d");
     dButton.innerText = " D ";
-    dButton.role = "button";
+    dButton.setAttribute("role", "button");
     const fButton = document.getElementById("f");
     fButton.innerText = " F ";
-    fButton.role = "button";
+    fButton.setAttribute("role", "button");
     const cButton = document.getElementById("c");
     cButton.innerText = " C ";
-    cButton.role = "button";
+    cButton.setAttribute("role", "button");
     const spaceButton = document.getElementById("space");
     spaceButton.innerText = " SPACE ";
-    spaceButton.role = "button";
+    spaceButton.setAttribute("role", "button");
   }
 
   function resetGameButtons() {
@@ -213,22 +213,22 @@ export default function Home() {
     setGameOn(false);
     const aButton = document.getElementById("a");
     aButton.innerText = " GitHub ";
-    aButton.role = "link";
+    aButton.setAttribute("role", "link");
     const sButton = document.getElementById("s");
     sButton.innerText = " CodePen ";
-    sButton.role = "link";
+    sButton.setAttribute("role", "link");
     const dButton = document.getElementById("d");
     dButton.innerText = " Glitch ";
-    dButton.role = "link";
+    dButton.setAttribute("role", "link");
     const fButton = document.getElementById("f");
     fButton.innerText = " LinkedIn ";
-    fButton.role = "link";
+    fButton.setAttribute("role", "link");
     const cButton = document.getElementById("c");
     cButton.innerText = " Blog ";
-    cButton.role = "link";
+    cButton.setAttribute("role", "link");
     const spaceButton = document.getElementById("space");
     spaceButton.innerText = " Memrise ";
-    spaceButton.role = "link";
+    spaceButton.setAttribute("role", "link");
   }
 
   function handleA() {
