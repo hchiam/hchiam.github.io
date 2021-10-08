@@ -569,8 +569,8 @@ export default function Home() {
           id="demos"
           className={"transparent-background " + (hideDemos ? "d-none " : "")}
         >
-          <h2 className="m-1">Mock dashboards:</h2>
-          <section className="demo transparent-background ">
+          <h2 className="m-1 text-center">Mock dashboards:</h2>
+          <section className="demo transparent-background text-center">
             <p
               className={
                 "my-0 " + (showWaymoDemo ? "waymo-blue-to-green " : "")
@@ -598,7 +598,7 @@ export default function Home() {
               <LazyWaymoDemo showWaymoDemo={showWaymoDemo} />
             </div>
           </section>
-          <section className="demo transparent-background">
+          <section className="demo transparent-background text-center">
             <p
               className={
                 "my-0 " + (showVerilyDemo ? "verily-red-to-blue " : "")

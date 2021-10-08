@@ -267,13 +267,14 @@ export default css`
     }
 
     #secret-button {
-      left: 0;
+      width: 26ch;
+      left: calc(50% - 14ch);
       bottom: -10vh;
     }
 
     .sequence {
       font-size: medium;
-      text-align: justify;
+      text-align: center;
     }
   }
 `;
