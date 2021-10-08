@@ -35,7 +35,7 @@ export default function WaymoDemo(props) {
   return (
     <section id="waymo-demo" className="p-0 waymo-white-background">
       <h2 className="waymo-white-text waymo-blue-to-green my-0 text-center text-center">
-        AV fleet infrastructure panel
+        AV fleet infrastructure panel (MOCK)
       </h2>
       <section id="waymo-demo-main-content" className="waymo-white-background">
         <h2 className="waymo-blue-text waymo-white-background mb-0 px-0">

@@ -33,7 +33,7 @@ export default function VerilyDemo(props) {
   return (
     <section id="verily-demo" className="p-0 verily-white-background">
       <h2 className="verily-white-text verily-red-to-blue my-0 text-center">
-        Electronic Medical Record dashboard
+        Electronic Medical Record dashboard (MOCK)
       </h2>
       <section
         id="verily-demo-main-content"
