@@ -390,7 +390,7 @@ export default function Home() {
             data-shine-opacity="0.5"
             data-shine-save="true"
             tilt-change=""
-            title="This is my name"
+            title="This is my name."
           >
             Howard Chiam
           </h1>
