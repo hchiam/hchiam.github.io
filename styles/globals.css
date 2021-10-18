@@ -543,3 +543,7 @@ p {
 .demo {
   transition: background-image 1s;
 }
+
+#threejs-scene-container canvas {
+  padding: 0;
+}

@@ -20,29 +20,16 @@ import getRandomNumber from "../helpers/getRandomNumber";
 import setUpConsoleFunctions from "../helpers/setUpConsoleFunctions";
 import addUrlQueryWithoutRefreshingPage from "../helpers/addUrlQueryWithoutRefreshingPage";
 import scrollToRef from "../helpers/scrollToRef";
+import { threeJsDemo } from "../components/threeJsDemo";
 
 import dynamic from "next/dynamic";
 
-const LazyWaymoDemo = dynamic(
-  () => {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(import("../components/WaymoDemo")), 3000);
-    });
-  },
-  {
-    loading: () => <p>...</p>,
-  }
-);
-const LazyVerilyDemo = dynamic(
-  () => {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(import("../components/VerilyDemo")), 3000);
-    });
-  },
-  {
-    loading: () => <p>...</p>,
-  }
-);
+const LazyWaymoDemo = dynamic(() => import("../components/WaymoDemo"), {
+  loading: () => <p>...</p>,
+});
+const LazyVerilyDemo = dynamic(() => import("../components/VerilyDemo"), {
+  loading: () => <p>...</p>,
+});
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -93,6 +80,10 @@ export default function Home() {
     setTimeout(() => {
       showSecretButtonInstructions();
     }, 2000);
+
+    setTimeout(() => {
+      threeJsDemo("#threejs-scene-container");
+    }, 3000);
 
     setUpConsoleFunctions();
     setUpDraggable2DNote(
@@ -645,6 +636,8 @@ export default function Home() {
         </section>
         <div id="cursor-shadow"></div>
       </main>
+
+      <div id="threejs-scene-container"></div>
 
       <style jsx>{scopedStyles}</style>
     </div>

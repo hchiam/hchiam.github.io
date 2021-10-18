@@ -21,6 +21,7 @@ export default function CDNs() {
         integrity="sha384-R/GTkKePjxM+7NiHK3HnRFNqvOoCND50qZZgnhKN8NsT3cRIIrTRw1EdS61VgW3W"
         crossOrigin="anonymous"
       ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js"></script>
     </>
   );
 }
