@@ -1,5 +1,5 @@
 export function threeJsDemo(containerSelector) {
-  if (typeof THREE === "undefined") return;
+  if (!("THREE" in window)) return;
 
   // canvas <- renderer <- scene, camera, mesh
   // mesh <- geometry, material
