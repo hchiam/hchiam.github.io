@@ -569,7 +569,9 @@ export default function Home() {
           id="demos"
           className={"transparent-background " + (hideDemos ? "d-none " : "")}
         >
-          <h2 className="m-1 text-center">Mock dashboards:</h2>
+          <h2 className="m-1 transparent-background text-center">
+            Mock dashboards:
+          </h2>
           <section className="demo transparent-background text-center">
             <p
               className={
