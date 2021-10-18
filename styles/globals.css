@@ -546,4 +546,5 @@ p {
 
 #threejs-scene-container canvas {
   padding: 0;
+  background: transparent;
 }
