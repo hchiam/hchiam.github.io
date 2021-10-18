@@ -1,4 +1,6 @@
 export function threeJsDemo(containerSelector) {
+  if (!THREE) return;
+
   // canvas <- renderer <- scene, camera, mesh
   // mesh <- geometry, material
   let mesh;
