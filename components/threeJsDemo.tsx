@@ -7,9 +7,14 @@ export function threeJsDemo(containerSelector) {
   const aspectRatio =
     document.documentElement.clientWidth /
     document.documentElement.clientHeight;
-  const camera = new THREE.PerspectiveCamera(100, aspectRatio, 0.1, 10000);
-  const scene = new THREE.Scene();
-  const renderer = new THREE.WebGLRenderer({
+  const camera = new window.THREE.PerspectiveCamera(
+    100,
+    aspectRatio,
+    0.1,
+    10000
+  );
+  const scene = new window.THREE.Scene();
+  const renderer = new window.THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
   });
@@ -22,16 +27,19 @@ export function threeJsDemo(containerSelector) {
   setUpCanvas();
 
   function setUpMesh() {
-    const myMaterial = new THREE.MeshPhongMaterial({
-      color: new THREE.Color("green"),
-      emissive: new THREE.Color("green"),
-      specular: new THREE.Color("#636363"),
+    const myMaterial = new window.THREE.MeshPhongMaterial({
+      color: new window.THREE.Color("green"),
+      emissive: new window.THREE.Color("green"),
+      specular: new window.THREE.Color("#636363"),
       shininess: 10,
-      shading: THREE.FlatShading,
+      shading: window.THREE.FlatShading,
       opacity: 0.75,
     });
 
-    mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(50, 1), myMaterial);
+    mesh = new window.THREE.Mesh(
+      new window.THREE.IcosahedronGeometry(50, 1),
+      myMaterial
+    );
     mesh.rotation.z = 0.5;
     mesh.position.z = -100;
   }
@@ -55,13 +63,13 @@ export function threeJsDemo(containerSelector) {
   function setUpScene() {
     scene.add(camera);
 
-    const light1 = new THREE.PointLight(0xffffff, 1);
+    const light1 = new window.THREE.PointLight(0xffffff, 1);
     light1.position.z = 100;
     light1.position.y = 100;
     light1.position.x = 100;
     scene.add(light1);
 
-    const light2 = new THREE.PointLight(0xffffff, 0.8);
+    const light2 = new window.THREE.PointLight(0xffffff, 0.8);
     light2.position.z = 200;
     light2.position.y = 50;
     light2.position.x = -100;
