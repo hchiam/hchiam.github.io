@@ -52,8 +52,8 @@ export const PieChartCSS = (props: PieChartProps) => {
 
   return (
     <>
-      <div id={id} className={"pie"} tabIndex={0}>
-        {data.map((slice) => {
+      <div id={id} key={id} className={"pie"} tabIndex={0}>
+        {data.map((slice, i) => {
           const startDeg = Math.round((slice.start / total) * 360);
           const endDeg = Math.round((slice.end / total) * 360);
           const style: Style = {
@@ -72,6 +72,7 @@ export const PieChartCSS = (props: PieChartProps) => {
           return (
             <div
               id={slice.sliceId || ""}
+              key={`${i}_${new Date().getTime()}`}
               className={
                 "slice " +
                 (slice.sliceClass || " ") +

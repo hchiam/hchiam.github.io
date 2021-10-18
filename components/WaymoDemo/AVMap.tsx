@@ -25,12 +25,13 @@ export default function AVMap(props) {
           tabIndex={-1}
           aria-hidden="true"
         >
-          {simulatedMapItems.map((item) => (
+          {simulatedMapItems.map((item, i) => (
             <AVMapPoint
               p={item[0]}
               left={`${item[1]}%`}
               top={`${item[2]}%`}
               extraClasses={item[3]}
+              key={i}
             />
           ))}
         </div>
