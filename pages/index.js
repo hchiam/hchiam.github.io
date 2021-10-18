@@ -23,12 +23,26 @@ import scrollToRef from "../helpers/scrollToRef";
 
 import dynamic from "next/dynamic";
 
-const LazyWaymoDemo = dynamic(() => import("../components/WaymoDemo"), {
-  loading: () => <p>...</p>,
-});
-const LazyVerilyDemo = dynamic(() => import("../components/VerilyDemo"), {
-  loading: () => <p>...</p>,
-});
+const LazyWaymoDemo = dynamic(
+  () => {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(import("../components/WaymoDemo")), 3000);
+    });
+  },
+  {
+    loading: () => <p>...</p>,
+  }
+);
+const LazyVerilyDemo = dynamic(
+  () => {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(import("../components/VerilyDemo")), 3000);
+    });
+  },
+  {
+    loading: () => <p>...</p>,
+  }
+);
 
 export default function Home() {
   const [slideIn, setSlideIn] = useState(false);
@@ -103,21 +117,21 @@ export default function Home() {
     addUrlQueryWithoutRefreshingPage("can-you-find-all-the-hidden-features?");
 
     window.disableTabbableChildren = (selector) => {
-      Array.from(
-        document
-          .querySelector(selector)
-          .querySelectorAll('button, a, [tabindex="0"]')
-      ).forEach((child) => {
+      const items = document
+        .querySelector(selector)
+        ?.querySelectorAll('button, a, [tabindex="0"]');
+      if (!items) return;
+      Array.from(items).forEach((child) => {
         child.tabIndex = -1;
       });
     };
 
     window.enableTabbableChildren = (selector) => {
-      Array.from(
-        document
-          .querySelector(selector)
-          .querySelectorAll('[tabindex="-1"]:not(.always-tabindex-1)')
-      ).forEach((child) => {
+      const items = document
+        .querySelector(selector)
+        ?.querySelectorAll('[tabindex="-1"]:not(.always-tabindex-1)');
+      if (!items) return;
+      Array.from(items).forEach((child) => {
         child.tabIndex = 0;
       });
     };
