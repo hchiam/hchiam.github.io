@@ -277,4 +277,10 @@ export default css`
       text-align: center;
     }
   }
+
+  #threejs-scene-container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
 `;

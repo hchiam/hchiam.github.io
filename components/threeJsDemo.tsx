@@ -79,10 +79,7 @@ export function threeJsDemo(containerSelector) {
   }
 
   function setUpRenderer() {
-    renderer.setSize(
-      document.documentElement.clientWidth,
-      document.documentElement.clientHeight
-    );
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
     function render() {
       requestAnimationFrame(render);
