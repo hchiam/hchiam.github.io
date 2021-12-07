@@ -1,6 +1,7 @@
 // yes, this file is very long :) - see https://github.com/hchiam/hchiam.github.io/issues
 
 import overwriteConsoleWarn from "../helpers/overwriteConsoleWarn";
+import overwriteConsoleLog from "../helpers/overwriteConsoleLog";
 
 import { useState, useRef, useEffect } from "react";
 import "react-dom";
@@ -66,6 +67,7 @@ export default function Home() {
   useKeyPress(" ", handleSpace, [gameOn, continueGame]);
 
   overwriteConsoleWarn();
+  overwriteConsoleLog();
 
   useEffect(() => {
     setUpCursorShadow();
