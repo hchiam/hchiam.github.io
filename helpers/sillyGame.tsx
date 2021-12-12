@@ -124,8 +124,11 @@ export function spawnMysteryButtons(spawnCount: number) {
 }
 
 export function scatterSpace() {
+  document.querySelector("main").style.height = "0";
   document
-    .querySelectorAll("button, img, #hint, h1, p, span")
+    .querySelectorAll(
+      "button, img, #hint, h1, p, span, #threejs-scene-container"
+    )
     .forEach(function (e: Element) {
       const myWidth = e.clientWidth;
       const myHeight = e.clientHeight;

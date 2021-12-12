@@ -284,8 +284,11 @@ export default function Home() {
   }
 
   function scatterSpace() {
+    document.querySelector("main").style.height = "0";
     document
-      .querySelectorAll("button, img, #hint, h1, p, span")
+      .querySelectorAll(
+        "button, img, #hint, h1, p, span, #threejs-scene-container"
+      )
       .forEach(function (e) {
         const myWidth = e.clientWidth;
         const myHeight = e.clientHeight;
