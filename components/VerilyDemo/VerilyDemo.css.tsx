@@ -10,6 +10,7 @@ export default css`
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
+    isolation: isolate;
   }
 
   @keyframes collapse {

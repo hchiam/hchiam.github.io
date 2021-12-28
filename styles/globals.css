@@ -450,6 +450,18 @@ p {
   gap: 1rem;
 }
 
+#waymo-demo,
+#verily-demo {
+  isolation: isolate;
+}
+
+#waymo-demo > h2:first-of-type,
+#verily-demo > h2:first-of-type {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 #waymo-demo h2,
 #waymo-demo h3 {
   width: 100%;
