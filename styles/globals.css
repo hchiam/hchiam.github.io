@@ -117,6 +117,10 @@ p {
   display: block;
 }
 
+.gameOn {
+  overflow: hidden;
+}
+
 #flying-focus-ring-element {
   position: absolute;
   background: transparent;
