@@ -194,6 +194,7 @@ export default function Home() {
     if (hasSmallScreen) return;
 
     setGameOn(true);
+    document.querySelector("body").classList.add("gameOn");
     setUpGameButtons();
   }
 
