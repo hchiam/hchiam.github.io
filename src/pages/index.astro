@@ -82,6 +82,7 @@ import Link from '../components/Link.astro';
 
 <style lang="scss">
 	@import '../styles/focus-style';
+	@import '../styles/grow-circle-path';
 
 	main {
 		width: fit-content;
@@ -99,6 +100,7 @@ import Link from '../components/Link.astro';
 		h2 {
 			background: black;
 			border-radius: 0.5rem 0.5rem 0 0;
+			color: var(--accent-colour);
 			margin-bottom: var(--size-3);
 		}
 
@@ -122,11 +124,29 @@ import Link from '../components/Link.astro';
 	p {
 		width: fit-content;
 		margin: auto;
-		padding: var(--size-1);
+	}
+
+	h1 {
+		font-size: 5rem;
+		font-variant: small-caps;
+		padding: 0;
+		position: relative;
+
+		&:after {
+			content: "Howard Chiam";
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: var(--accent-colour);
+			@include grow-circle-path
+		}
 	}
 
 	.tagline {
-		padding: 0 var(--size-3) var(--size-3);
+		background: transparent;
+		font-size: var(--font-size-6);
+		margin-bottom: var(--size-10);
+		padding-top: 0;
 	}
 
 	.link-group {
