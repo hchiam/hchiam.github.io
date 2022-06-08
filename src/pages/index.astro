@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImageLink from '../components/ImageLink.astro';
+import Link from '../components/Link.astro';
+---
+
+<Layout title="Howard Chiam">
+	<main>
+		<img src="htc.png"
+				 alt="Howard signature icon"
+				 width="100px"
+				 tabindex={0} />
+
+		<h1 title="This is my name.">Howard Chiam</h1>
+
+		<p class="tagline">Learning. Languages. Other stuff.</p>
+
+
+		<section>
+			<h2>CodePen Projects:</h2>
+			<h3><a href="https://github.com/hchiam/html-template-generator"
+					 target="_blank"><code>html-template-generator</code></a></h3>
+			<p>Generate form HTML with a visual UI.</p>
+			<ImageLink alt="HTML template generator demo animation"
+								 href="https://html-template-generator.surge.sh"
+								 src="template_demo.gif"
+								 width={300} />
+			<h3>Conway's Game of Life - Using React:</h3>
+			<ImageLink alt="React app of Conway's Game of Life"
+								 href="https://codepen.io/hchiam/full/boRvYg"
+								 src="conways_game_of_life.png"
+								 width={300} />
+			<h3><a href="https://github.com/hchiam/_2DNote"
+					 target="_blank"><code>2D Note</code></a> generator with vanilla JS:</h3>
+			<ImageLink alt="2D note demo"
+								 href="https://codepen.io/hchiam/full/eYYdVeX"
+								 src="2d_note_demo.png"
+								 width={300} />
+		</section>
+
+		<section>
+			<h2>GitHub Projects:</h2>
+			<div class="link-group column">
+				<Link url="https://github.com/GoogleChromeLabs/ProjectVisBug"
+							text="VisBug - A GoogleChromeLabs Project" />
+				<Link url="https://github.com/hchiam/slides"
+							text="Slides - A Streamlined Slides App" />
+				<Link url="https://github.com/hchiam/code-tutor"
+							text="Code Tutor - A Google Assistant App" />
+			</div>
+		</section>
+
+		<section>
+			<h2>Certificates:</h2>
+
+			<ImageLink alt="Certificate for IAAP WAS"
+								 width={400}
+								 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
+								 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
+
+			<ImageLink alt="Certificate for Joshua Comeau's CSS Course"
+								 height={250}
+								 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
+								 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
+
+		</section>
+
+		<section>
+			<h2>Links:</h2>
+
+			<div class="link-group">
+				<Link url="https://github.com/hchiam"
+							text="GitHub" />
+				<Link url="https://codepen.io/hchiam"
+							text="CodePen" />
+				<Link url="https://ca.linkedin.com/in/howardchiam"
+							text="LinkedIn" />
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style lang="scss">
+	@import '../styles/focus-style';
+
+	main {
+		width: fit-content;
+		height: 100%;
+		margin: auto;
+		text-align: center;
+		background: transparent;
+	}
+
+	section {
+		background: #21252980;
+		margin: var(--size-5) 0;
+		padding-bottom: var(--size-3);
+
+		h2 {
+			background: black;
+			border-radius: 0.5rem 0.5rem 0 0;
+			margin-bottom: var(--size-3);
+		}
+
+		h3 {
+			background: #353535;
+		}
+
+		h3:not(:first-of-type) {
+			margin-top: var(--size-7);
+		}
+	}
+
+	img {
+		margin: auto;
+		background: transparent;
+		@include focus-style;
+	}
+
+	h1,
+	.tagline,
+	p {
+		width: fit-content;
+		margin: auto;
+		padding: var(--size-1);
+	}
+
+	.tagline {
+		padding: 0 var(--size-3) var(--size-3);
+	}
+
+	.link-group {
+		background: transparent;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.link-group.column {
+		flex-direction: column;
+	}
+</style>
