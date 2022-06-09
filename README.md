@@ -1,6 +1,6 @@
 # [hchiam.com](https://hchiam.com)
 
-![version](https://img.shields.io/github/release/hchiam/hchiam.github.io) [![Build Status](https://travis-ci.org/hchiam/hchiam.github.io.svg?branch=master)](https://travis-ci.org/hchiam/hchiam.github.io) [![Coverage Status](https://coveralls.io/repos/github/hchiam/hchiam.github.io/badge.svg?branch=master)](https://coveralls.io/github/hchiam/hchiam.github.io?branch=master)
+![version](https://img.shields.io/github/release/hchiam/hchiam.github.io)
 
 Generated with [Astro](https://github.com/hchiam/learning-astro).
 
