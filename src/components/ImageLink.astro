@@ -22,21 +22,20 @@ const { href, alt, src, width, height, target = '_blank' } = Astro.props;
   @import '../styles/focus-style';
 
   a {
+    background: transparent;
     padding: 0;
+    width: fit-content;
+    margin: auto;
 
     &:after {
       display: none;
     }
-
-    &:hover,
-    &:focus {
-      background: black;
-    }
   }
 
   img {
-    margin: var(--size-3) auto 0;
+    margin: auto;
     object-fit: cover;
+    background: white;
 
     @include focus-style;
   }
