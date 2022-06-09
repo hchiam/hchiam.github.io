@@ -4,8 +4,7 @@
   clip-path: circle(100%);
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: grow-circle-path 0.3s;
-    transition: clip-path 0.3s;
+    animation: grow-circle-path 3s;
     transition-delay: 5s;
 
     @keyframes grow-circle-path {

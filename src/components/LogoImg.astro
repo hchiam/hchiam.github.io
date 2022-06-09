@@ -1,0 +1,42 @@
+---
+export interface Props {
+  src: string,
+  alt: string,
+  width?: string,
+  height?: string,
+  tabindex?: string,
+}
+const { src, alt, width, height, tabindex } = Astro.props;
+---
+
+<div class="wrapper">
+  <img src={src}
+       alt={alt}
+       loading="eager"
+       width={width||''}
+       height={height||''}
+       tabindex={tabindex||''}>
+</div>
+
+<style lang="scss">
+  @import '../styles/fade-in';
+  @import '../styles/focus-style';
+
+  .wrapper {
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    overflow: hidden;
+    padding: 10px;
+    background: white;
+    @include focus-style;
+    @include fade-in;
+  }
+
+  img {
+    margin: auto;
+    background: white;
+    text-align: center;
+  }
+</style>

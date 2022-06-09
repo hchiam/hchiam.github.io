@@ -1,38 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LogoImg from '../components/LogoImg.astro';
 import ImageLink from '../components/ImageLink.astro';
 import Link from '../components/Link.astro';
 ---
 
 <Layout title="Howard Chiam">
 	<main>
-		<img src="htc.png"
-				 alt="Howard signature icon"
-				 width="100px"
-				 tabindex={0} />
+		<div class="logo-section">
+			<LogoImg client:load
+							 src="htc.png"
+							 alt="HTC"
+							 width="100px"
+							 height="100px"
+							 tabindex="0" />
+		</div>
 
-		<h1 title="This is my name.">Howard Chiam</h1>
-
-		<p class="tagline">Learning. Languages. Other stuff.</p>
-
+		<div class="name-section">
+			<h1 title="This is my name.">Howard Chiam</h1>
+			<p class="tagline">Learning. Languages. Other stuff.</p>
+		</div>
 
 		<section>
 			<h2>CodePen Projects:</h2>
 			<h3><a href="https://github.com/hchiam/html-template-generator"
 					 target="_blank"><code>html-template-generator</code></a></h3>
 			<p>Generate form HTML with a visual UI.</p>
-			<ImageLink alt="HTML template generator demo animation"
+			<ImageLink client:visible
+								 alt="HTML template generator demo animation"
 								 href="https://html-template-generator.surge.sh"
 								 src="template_demo.gif"
 								 width={300} />
 			<h3>Conway's Game of Life - Using React:</h3>
-			<ImageLink alt="React app of Conway's Game of Life"
+			<ImageLink client:visible
+								 alt="React app of Conway's Game of Life"
 								 href="https://codepen.io/hchiam/full/boRvYg"
 								 src="conways_game_of_life.png"
 								 width={300} />
 			<h3><a href="https://github.com/hchiam/_2DNote"
 					 target="_blank"><code>2D Note</code></a> generator with vanilla JS:</h3>
-			<ImageLink alt="2D note demo"
+			<ImageLink client:visible
+								 alt="2D note demo"
 								 href="https://codepen.io/hchiam/full/eYYdVeX"
 								 src="2d_note_demo.png"
 								 width={300} />
@@ -53,12 +61,14 @@ import Link from '../components/Link.astro';
 		<section>
 			<h2>Certificates:</h2>
 
-			<ImageLink alt="Certificate for IAAP WAS"
+			<ImageLink client:visible
+								 alt="Certificate for IAAP WAS"
 								 width={400}
 								 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
 								 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
 
-			<ImageLink alt="Certificate for Joshua Comeau's CSS Course"
+			<ImageLink client:visible
+								 alt="Certificate for Joshua Comeau's CSS Course"
 								 height={250}
 								 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
 								 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
@@ -81,6 +91,7 @@ import Link from '../components/Link.astro';
 </Layout>
 
 <style lang="scss">
+	@import '../styles/fade-in';
 	@import '../styles/focus-style';
 	@import '../styles/grow-circle-path';
 
@@ -97,10 +108,14 @@ import Link from '../components/Link.astro';
 		margin: var(--size-5) 0;
 		padding-bottom: var(--size-3);
 
+		@include fade-in;
+		--fade-in-delay: 1s;
+
 		h2 {
 			background: black;
 			border-radius: 0.5rem 0.5rem 0 0;
 			color: var(--accent-colour);
+			font-size: var(--size-4);
 			margin-bottom: var(--size-3);
 		}
 
@@ -127,24 +142,37 @@ import Link from '../components/Link.astro';
 	}
 
 	h1 {
+		background: transparent;
 		font-size: 5rem;
 		font-variant: small-caps;
 		padding: 0;
 		position: relative;
+		line-height: 100%;
 
 		&:after {
 			content: "Howard Chiam";
 			position: absolute;
 			top: 0;
 			left: 0;
+			line-height: 100%;
 			color: var(--accent-colour);
-			@include grow-circle-path
+			@include grow-circle-path;
 		}
+	}
+
+	.logo-section {
+		background: transparent;
+		height: 30vh;
+		display: flex;
+	}
+
+	.name-section {
+		background: transparent;
 	}
 
 	.tagline {
 		background: transparent;
-		font-size: var(--font-size-6);
+		font-size: var(--font-size-5);
 		margin-bottom: var(--size-10);
 		padding-top: 0;
 	}
