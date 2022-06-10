@@ -1,5 +1,5 @@
 # build output
-dist/
+# dist/ # comment out so this works: git subtree push --prefix dist origin gh-pages
 .output/
 
 # dependencies
