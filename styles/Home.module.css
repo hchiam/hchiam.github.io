@@ -1,0 +1,8 @@
+.mainStart {
+  position: relative;
+  top: -100vh;
+}
+
+.mainSlideIn {
+  top: 0;
+}
