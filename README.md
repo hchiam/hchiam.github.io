@@ -28,6 +28,12 @@ yarn deploy # https://hchiam.surge.sh and https://hchiam.com
 
 You need to be in the `main` branch. This command should deploy and update the hchiam.com site. It should push a commit to the `main` branch, and then in the `main` branch run `yarn deploy:gh-pages` to update the `gh-pages` branch, which will deploy the the hchiam.com site.
 
+Note for `.gitignore`:
+
+```sh
+# dist # comment out so this works: git subtree push --prefix out origin gh-pages
+```
+
 ## Suggested starting point to understand the code
 
 `/src/pages/index.astro`
