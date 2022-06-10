@@ -1,0 +1,30 @@
+---
+export interface Props {
+  text: string,
+  url: string,
+  target?: string,
+}
+const { text, url, target = '_blank' } = Astro.props;
+---
+
+<a href={url}
+   target={target}>{text}</a>
+
+<style lang="scss">
+  @import '../styles/focus-style';
+
+  a {
+    padding: var(--size-3);
+    margin: var(--size-1) var(--size-3);
+    background: white;
+    color: black;
+    text-decoration: none;
+
+    @include focus-style;
+
+    &:hover,
+    &:focus {
+      background: black;
+    }
+  }
+</style>
