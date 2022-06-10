@@ -177,13 +177,8 @@ import Link from '../components/Link.astro';
 		font-size: 5rem;
 		font-variant: small-caps;
 		padding: 0;
-		position: sticky;
-		top: 0;
+		position: relative;
 		line-height: 100%;
-		z-index: 1;
-		will-change: transform;
-		transform: scale(var(--h1-scale));
-		transform-origin: top;
 		box-shadow: 3px 5px 15px var(--transparent-grey);
 		border: var(--size-2) solid black;
 
@@ -195,6 +190,16 @@ import Link from '../components/Link.astro';
 			line-height: 100%;
 			color: var(--accent-colour);
 			@include grow-circle-path;
+		}
+
+		@media (min-width: 1100px) {
+			// laptop: (1100px is to the left but spaced away from likely laptop sizes)
+			position: sticky;
+			top: 0;
+			z-index: 1;
+			will-change: transform;
+			transform: scale(var(--h1-scale));
+			transform-origin: top;
 		}
 	}
 
