@@ -1,0 +1,19 @@
+// note to self: re-run yarn dev if you make edits to this mixin
+
+@mixin fade-in {
+  --fade-in-time: 2s;
+  --fade-in-delay: 0s;
+  transition: opacity 0.5s;
+  animation: fade-in var(--fade-in-time) both;
+  animation-delay: var(--fade-in-delay);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
