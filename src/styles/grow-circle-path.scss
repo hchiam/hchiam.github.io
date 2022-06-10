@@ -1,0 +1,19 @@
+// note to self: re-run yarn dev if you make edits to this mixin
+
+@mixin grow-circle-path {
+  clip-path: circle(100%);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: grow-circle-path 3s;
+    transition-delay: 5s;
+
+    @keyframes grow-circle-path {
+      from {
+        clip-path: circle(0%);
+      }
+      to {
+        clip-path: circle(100%);
+      }
+    }
+  }
+}
