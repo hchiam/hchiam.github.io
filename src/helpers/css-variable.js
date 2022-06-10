@@ -14,15 +14,12 @@ console.log(getCSSVariable(cssVariableName));
 setCSSVariable(cssVariableName, "lime");
 */
 
-export function getCSSVariable(name: string): string {
+export function getCSSVariable(name) {
   return getComputedStyle(document.querySelector(":root"))
     .getPropertyValue(name)
     .trim();
 }
 
-export function setCSSVariable(name: string, value: string): void {
-  (document.querySelector(":root") as HTMLElement).style.setProperty(
-    name,
-    value
-  );
+export function setCSSVariable(name, value) {
+  document.querySelector(":root").style.setProperty(name, value);
 }
