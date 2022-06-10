@@ -7,10 +7,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && npm run deploy:pre-deploy && npm run deploy:surge && npm run deploy:gh-pages",
-    "deploy:pre-deploy": "cp {.nojekyll,CNAME,manifest.webmanifest} dist && git add . && git commit -m \"Deploy to gh-pages\" && git push && git status",
-    "deploy:gh-pages": "git subtree push --prefix=dist origin gh-pages",
-    "deploy:surge": "surge dist https://hchiam-test.surge.sh",
+    "deploy": "astro build && npm run deploy:pre-deploy && npm run deploy:gh-pages",
+    "deploy:pre-deploy": "cp {.nojekyll,CNAME,manifest.webmanifest} dist",
+    "deploy:gh-pages": "git subtree push --prefix=dist origin test-main-as-gh-pages",
     "reminder": "echo; echo 'Reminder: Do you need to \\033[1;34m[skip ci]\\033[0m?'; echo;"
   },
   "devDependencies": {
