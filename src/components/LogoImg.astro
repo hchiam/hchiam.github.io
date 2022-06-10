@@ -29,14 +29,27 @@ const { src, alt, width, height, tabindex } = Astro.props;
     margin: auto;
     overflow: hidden;
     padding: 10px;
-    background: white;
+    background: var(--accent-colour);
     @include focus-style;
     @include fade-in;
+    position: relative;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: jump-up 1s both;
+      will-change: transform;
+      transform-origin: center; // need center for both focus-style and jump-up
+    }
+  }
+
+  @keyframes jump-up {
+    from {
+      transform: translateY(calc(50% + 30vh / 2)) rotate(-0.1turn) scale(0);
+    }
   }
 
   img {
     margin: auto;
-    background: white;
+    background: inherit;
     text-align: center;
   }
 </style>

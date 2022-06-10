@@ -16,15 +16,23 @@ import Link from '../components/Link.astro';
 							 tabindex="0" />
 		</div>
 
+		<h1 title="This is my name.">Howard Chiam</h1>
+
 		<div class="name-section">
-			<h1 title="This is my name.">Howard Chiam</h1>
-			<p class="tagline">Learning. Languages. Other stuff.</p>
+			<h2 class="tagline">Learning. Languages. Other stuff.</h2>
+			<div class="tagline-details">
+				<ul>
+					<li>I'm a Front-End web developer and language nerd with interests in education and accessibility.</li>
+					<li>I like building tools to make learning more fun and accessible.</li>
+					<li>Think differently. Enjoy learning and growing.</li>
+				</ul>
+			</div>
 		</div>
 
-		<section>
+		<section class="interactive-projects-section">
 			<h2>Interactive Projects:</h2>
-			<h3><a href="https://github.com/hchiam/html-template-generator"
-					 target="_blank"><code>html-template-generator</code></a></h3>
+			<h3>The <a href="https://github.com/hchiam/html-template-generator"
+					 target="_blank">html-template-generator</a> Project</h3>
 			<p>Generate form HTML with a visual UI.</p>
 			<div class="image-link-wrapper"
 					 class="image-link-wrapper">
@@ -43,7 +51,7 @@ import Link from '../components/Link.astro';
 									 width={300} />
 			</div>
 			<h3><a href="https://github.com/hchiam/_2DNote"
-					 target="_blank"><code>2D Note</code></a> generator with vanilla JS:</h3>
+					 target="_blank">2D Note</a> generator with vanilla JS:</h3>
 			<div class="image-link-wrapper">
 				<ImageLink client:visible
 									 alt="2D note demo"
@@ -53,7 +61,7 @@ import Link from '../components/Link.astro';
 			</div>
 		</section>
 
-		<section>
+		<section class="github-projects-section">
 			<h2>GitHub Projects:</h2>
 			<div class="link-group column">
 				<Link url="https://github.com/GoogleChromeLabs/ProjectVisBug"
@@ -65,18 +73,18 @@ import Link from '../components/Link.astro';
 			</div>
 		</section>
 
-		<section>
+		<section class="certificates-section">
 			<h2>Certificates:</h2>
 
 			<div class="certificates">
 				<ImageLink client:visible
-									 alt="Certificate for IAAP WAS"
+									 alt="PDF Certificate for IAAP WAS"
 									 width={400}
 									 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
 									 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
 
 				<ImageLink client:visible
-									 alt="Certificate for Joshua Comeau's CSS Course"
+									 alt="PDF Certificate for Joshua Comeau's CSS Course"
 									 height={250}
 									 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
 									 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
@@ -84,7 +92,7 @@ import Link from '../components/Link.astro';
 
 		</section>
 
-		<section>
+		<section class="links-section">
 			<h2>Links:</h2>
 
 			<div class="link-group row">
@@ -113,6 +121,11 @@ import Link from '../components/Link.astro';
 	@import '../styles/focus-style';
 	@import '../styles/grow-circle-path';
 
+	:root {
+		--transparent-grey: #21252980;
+		--h1-scale: 1;
+	}
+
 	main {
 		width: fit-content;
 		height: 100%;
@@ -122,7 +135,7 @@ import Link from '../components/Link.astro';
 	}
 
 	section {
-		background: #21252980;
+		background: var(--transparent-grey);
 		margin: var(--size-5) 0;
 		padding-bottom: var(--size-3);
 
@@ -160,12 +173,19 @@ import Link from '../components/Link.astro';
 	}
 
 	h1 {
-		background: transparent;
+		background: black;
 		font-size: 5rem;
 		font-variant: small-caps;
 		padding: 0;
-		position: relative;
+		position: sticky;
+		top: 0;
 		line-height: 100%;
+		z-index: 1;
+		will-change: transform;
+		transform: scale(var(--h1-scale));
+		transform-origin: top;
+		box-shadow: 3px 5px 15px var(--transparent-grey);
+		border: var(--size-2) solid black;
 
 		&:after {
 			content: "Howard Chiam";
@@ -180,19 +200,34 @@ import Link from '../components/Link.astro';
 
 	.logo-section {
 		background: transparent;
-		height: 30vh;
+		min-height: 30vh;
 		display: flex;
 	}
 
 	.name-section {
 		background: transparent;
+		margin-bottom: var(--size-8);
 	}
 
 	.tagline {
 		background: transparent;
 		font-size: var(--font-size-5);
-		margin-bottom: var(--size-10);
 		padding-top: 0;
+		@include fade-in;
+		--fade-in-delay: 0.1s;
+	}
+
+	.tagline-details {
+		background: var(--transparent-grey);
+		padding: var(--size-3);
+		text-align: left;
+		margin-top: var(--size-4);
+		@include fade-in;
+		--fade-in-delay: 0.5s;
+	}
+
+	.tagline-details * {
+		background: transparent;
 	}
 
 	.image-link-wrapper {
@@ -222,5 +257,26 @@ import Link from '../components/Link.astro';
 
 	.link-group.row {
 		gap: var(--size-7);
+		max-width: 500px;
+		margin: auto;
 	}
 </style>
+
+<script>
+	import { setCSSVariable } from '../helpers/css-variable';
+
+	document.addEventListener('scroll', () => {
+		const scrollTop = document.documentElement.scrollTop;
+		const maxScroll = document.documentElement.scrollHeight;
+		const percentDown = Math.round(100 * scrollTop / maxScroll);
+		const minimumScale = 70;
+		const scale = Math.max(minimumScale, (100 - percentDown)) / 100;
+
+		const h1 = document.querySelector('h1');
+		const stickyTopTriggered = Math.round(h1.offsetTop) <= Math.round(scrollTop);
+
+		if (stickyTopTriggered) {
+			setCSSVariable('--h1-scale', scale);
+		}
+	});
+</script>
