@@ -7,10 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && npm run deploy:gh-pages && npm run deploy:surge",
-    "deploy:gh-pages": "cp -r dist/* docs && cp {.nojekyll,CNAME,manifest.webmanifest} docs && git add . && git commit -m \"Deploy to gh-pages\" && git push && git status",
+    "deploy": "astro build && yarn deploy:gh-pages && yarn deploy:surge",
+    "deploy:gh-pages": "yarn ghp-1 && yarn ghp-2 && yarn ghp-3",
+    "ghp-1": "cp -r dist/* docs && cp {.nojekyll,CNAME,manifest.webmanifest} docs",
+    "ghp-2": "git add . && git commit -m \"Deploy to ghp\" && git push && git status",
+    "ghp-3": "git push origin main:gh-pages",
     "deploy:surge": "surge docs https://hchiam.surge.sh",
-    "surge": "npm run deploy:surge",
+    "surge": "yarn deploy:surge",
     "reminder": "echo; echo 'Reminder: Do you need to \\033[1;34m[skip ci]\\033[0m?'; echo;"
   },
   "devDependencies": {
