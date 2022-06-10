@@ -26,31 +26,24 @@ import Link from '../components/Link.astro';
 			<h3><a href="https://github.com/hchiam/html-template-generator"
 					 target="_blank"><code>html-template-generator</code></a></h3>
 			<p>Generate form HTML with a visual UI.</p>
-			<div class="image-link-wrapper"
-					 class="image-link-wrapper">
-				<ImageLink client:visible
-									 alt="HTML template generator demo animation"
-									 href="https://html-template-generator.surge.sh"
-									 src="template_demo.gif"
-									 width={300} />
-			</div>
+			<ImageLink client:visible
+								 alt="HTML template generator demo animation"
+								 href="https://html-template-generator.surge.sh"
+								 src="template_demo.gif"
+								 width={300} />
 			<h3>Conway's Game of Life - Using React:</h3>
-			<div class="image-link-wrapper">
-				<ImageLink client:visible
-									 alt="React app of Conway's Game of Life"
-									 href="https://codepen.io/hchiam/full/boRvYg"
-									 src="conways_game_of_life.png"
-									 width={300} />
-			</div>
+			<ImageLink client:visible
+								 alt="React app of Conway's Game of Life"
+								 href="https://codepen.io/hchiam/full/boRvYg"
+								 src="conways_game_of_life.png"
+								 width={300} />
 			<h3><a href="https://github.com/hchiam/_2DNote"
 					 target="_blank"><code>2D Note</code></a> generator with vanilla JS:</h3>
-			<div class="image-link-wrapper">
-				<ImageLink client:visible
-									 alt="2D note demo"
-									 href="https://codepen.io/hchiam/full/eYYdVeX"
-									 src="2d_note_demo.png"
-									 width={300} />
-			</div>
+			<ImageLink client:visible
+								 alt="2D note demo"
+								 href="https://codepen.io/hchiam/full/eYYdVeX"
+								 src="2d_note_demo.png"
+								 width={300} />
 		</section>
 
 		<section>
@@ -68,41 +61,30 @@ import Link from '../components/Link.astro';
 		<section>
 			<h2>Certificates:</h2>
 
-			<div class="certificates">
-				<ImageLink client:visible
-									 alt="Certificate for IAAP WAS"
-									 width={400}
-									 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
-									 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
+			<ImageLink client:visible
+								 alt="Certificate for IAAP WAS"
+								 width={400}
+								 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
+								 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
 
-				<ImageLink client:visible
-									 alt="Certificate for Joshua Comeau's CSS Course"
-									 height={250}
-									 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
-									 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
-			</div>
+			<ImageLink client:visible
+								 alt="Certificate for Joshua Comeau's CSS Course"
+								 height={250}
+								 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
+								 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
 
 		</section>
 
 		<section>
 			<h2>Links:</h2>
 
-			<div class="link-group row">
-				<ImageLink client:visible
-									 alt="GitHub"
-									 href="https://github.com/hchiam"
-									 src="/GitHubIcon.png"
-									 height={40} />
-				<ImageLink client:visible
-									 alt="CodePen"
-									 href="https://codepen.io/hchiam"
-									 src="/CodePenIcon.png"
-									 height={40} />
-				<ImageLink client:visible
-									 alt="LinkedIn"
-									 href="https://ca.linkedin.com/in/howardchiam"
-									 src="/LinkedInIcon.png"
-									 height={40} />
+			<div class="link-group">
+				<Link url="https://github.com/hchiam"
+							text="GitHub" />
+				<Link url="https://codepen.io/hchiam"
+							text="CodePen" />
+				<Link url="https://ca.linkedin.com/in/howardchiam"
+							text="LinkedIn" />
 			</div>
 		</section>
 	</main>
@@ -195,19 +177,6 @@ import Link from '../components/Link.astro';
 		padding-top: 0;
 	}
 
-	.image-link-wrapper {
-		width: fit-content;
-		margin: auto;
-	}
-
-	.certificates {
-		background: transparent;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		gap: var(--size-3);
-	}
-
 	.link-group {
 		background: transparent;
 		padding: 0;
@@ -218,9 +187,5 @@ import Link from '../components/Link.astro';
 
 	.link-group.column {
 		flex-direction: column;
-	}
-
-	.link-group.row {
-		gap: var(--size-7);
 	}
 </style>
