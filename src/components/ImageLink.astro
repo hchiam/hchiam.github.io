@@ -6,16 +6,20 @@ export interface Props {
   width?: number,
   height?: number,
   target?: string,
+  aStyle?: string,
+  imgStyle?: string,
 }
-const { href, alt, src, width, height, target = '_blank' } = Astro.props;
+const { href, alt, src, width, height, target = '_blank', aStyle, imgStyle } = Astro.props;
 ---
 
 <a href={href}
-   target={target}>
+   target={target}
+   style={aStyle}>
   <img alt={alt}
        src={src}
        width={width}
-       height={height}>
+       height={height}
+       style={imgStyle}>
 </a>
 
 <style lang="scss">

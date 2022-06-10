@@ -3,6 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import LogoImg from '../components/LogoImg.astro';
 import ImageLink from '../components/ImageLink.astro';
 import Link from '../components/Link.astro';
+
+const linkImageStyles = `
+		--img-size: 75px;
+		border-radius: 50%;
+		height: var(--img-size);
+		width: var(--img-size);
+		padding: var(--size-2);
+`;
 ---
 
 <Layout title="Howard Chiam">
@@ -100,17 +108,20 @@ import Link from '../components/Link.astro';
 									 alt="GitHub"
 									 href="https://github.com/hchiam"
 									 src="/GitHubIcon.png"
-									 height={40} />
+									 height={40}
+									 imgStyle={linkImageStyles} />
 				<ImageLink client:visible
 									 alt="CodePen"
 									 href="https://codepen.io/hchiam"
 									 src="/CodePenIcon.png"
-									 height={40} />
+									 height={40}
+									 imgStyle={linkImageStyles} />
 				<ImageLink client:visible
 									 alt="LinkedIn"
 									 href="https://ca.linkedin.com/in/howardchiam"
 									 src="/LinkedInIcon.png"
-									 height={40} />
+									 height={40}
+									 imgStyle={linkImageStyles} />
 			</div>
 		</section>
 	</main>
@@ -232,6 +243,10 @@ import Link from '../components/Link.astro';
 		box-shadow: var(--box-shadow);
 		@include fade-in;
 		--fade-in-delay: 0.5s;
+
+		li::marker {
+			color: var(--accent-colour);
+		}
 	}
 
 	.tagline-details * {
