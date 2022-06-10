@@ -1,5 +1,5 @@
 # build output
-# dist/ # for deploy to work from GitHub pages
+dist/
 .output/
 
 # dependencies
