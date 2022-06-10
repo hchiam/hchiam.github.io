@@ -124,6 +124,7 @@ import Link from '../components/Link.astro';
 	:root {
 		--transparent-grey: #21252980;
 		--h1-scale: 1;
+		--box-shadow: 3px 5px 15px var(--transparent-grey);
 	}
 
 	main {
@@ -138,6 +139,7 @@ import Link from '../components/Link.astro';
 		background: var(--transparent-grey);
 		margin: var(--size-5) 0;
 		padding-bottom: var(--size-3);
+		box-shadow: var(--box-shadow);
 
 		@include fade-in;
 		--fade-in-delay: 1s;
@@ -179,7 +181,7 @@ import Link from '../components/Link.astro';
 		padding: 0;
 		position: relative;
 		line-height: 100%;
-		box-shadow: 3px 5px 15px var(--transparent-grey);
+		box-shadow: var(--box-shadow);
 		border: var(--size-2) solid black;
 
 		&:after {
@@ -227,6 +229,7 @@ import Link from '../components/Link.astro';
 		padding: var(--size-3);
 		text-align: left;
 		margin-top: var(--size-4);
+		box-shadow: var(--box-shadow);
 		@include fade-in;
 		--fade-in-delay: 0.5s;
 	}
