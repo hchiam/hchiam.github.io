@@ -268,7 +268,8 @@ import Link from '../components/Link.astro';
 </style>
 
 <script>
-	import { setCSSVariable } from '../helpers/css-variable.js';
+	import { setCSSVariable } from '../helpers/css-variable.ts';
+	import { prefersReducedMotion } from '../helpers/prefers-reduced-motion.ts';
 
 	document.addEventListener('scroll', () => {
 		const scrollTop = document.documentElement.scrollTop;
@@ -280,7 +281,7 @@ import Link from '../components/Link.astro';
 		const h1 = document.querySelector('h1');
 		const stickyTopTriggered = Math.round(h1.offsetTop) <= Math.round(scrollTop);
 
-		if (stickyTopTriggered) {
+		if (stickyTopTriggered && !prefersReducedMotion()) {
 			setCSSVariable('--h1-scale', scale);
 		}
 	});
