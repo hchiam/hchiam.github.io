@@ -1,0 +1,20 @@
+// note to self: re-run yarn dev if you make edits to this mixin
+
+@mixin focus-style {
+  transition: transform var(--transition-speed);
+
+  &:focus,
+  &:hover {
+    transform: scale(1.1) rotate(0deg);
+    transition: transform var(--focus-transition-speed);
+    filter: drop-shadow(0 0 10px white);
+  }
+
+  --transition-speed: 0;
+  --focus-transition-speed: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --transition-speed: 0.3s;
+    --focus-transition-speed: 0.1s;
+  }
+}
