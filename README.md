@@ -31,7 +31,7 @@ You need to be in the `main` branch. This command should deploy and update the h
 Note for `.gitignore`:
 
 ```sh
-# dist # comment out so this works: git subtree push --prefix dist origin gh-pages
+# dist # comment out so this works: git subtree push --prefix out origin gh-pages
 ```
 
 ## Suggested starting point to understand the code
