@@ -26,7 +26,9 @@ git pull
 yarn deploy # https://hchiam.surge.sh and https://hchiam.com
 ```
 
-You need to be in the `main` branch. This command should deploy and update the hchiam.com site. It should push a commit to the `main` branch, and then in the `main` branch update the /docs sub-folder for GitHub Pages to use as the root for the hchiam.com site.
+You need to be in the `main` branch. This command should deploy and update the hchiam.com site. It should push a (modified) commit to the `main` branch and the `gh-pages` branch. GitHub pages should be set up to use the `/docs` sub-folder of the `gh-pages` branch.
+
+![use the gh-pages /docs folder in GitHub settings](gh-pages-docs.png)
 
 ## Suggested starting point to understand the code
 

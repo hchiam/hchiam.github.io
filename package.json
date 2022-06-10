@@ -10,7 +10,7 @@
     "deploy": "astro build && yarn deploy:gh-pages && yarn deploy:surge",
     "deploy:gh-pages": "yarn ghp-1 && yarn ghp-2 && yarn ghp-3",
     "ghp-1": "cp -r dist/* docs && cp {.nojekyll,CNAME,manifest.webmanifest} docs",
-    "ghp-2": "git add . && git commit -m \"Deploy to ghp\" && git push && git status",
+    "ghp-2": "git add . && git commit -m \"Deploy to gh-pages/docs\" && git push && git status",
     "ghp-3": "git push origin main:gh-pages",
     "deploy:surge": "surge docs https://hchiam.surge.sh",
     "surge": "yarn deploy:surge",
