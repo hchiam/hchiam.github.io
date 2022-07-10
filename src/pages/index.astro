@@ -30,8 +30,8 @@ const linkImageStyles = `
 			<h2 class="tagline">Learning. Languages. Other stuff.</h2>
 			<div class="tagline-details">
 				<ul>
-					<li>I'm a Front-End web developer and language nerd with interests in education and accessibility.</li>
-					<li>I like building tools to make learning more fun and accessible.</li>
+					<li>Front-End web developer and language nerd with interests in education and accessibility.</li>
+					<li>Builds tools to make learning more fun/accessible.</li>
 					<li>Think differently. Enjoy learning and growing.</li>
 				</ul>
 			</div>
@@ -39,45 +39,60 @@ const linkImageStyles = `
 
 		<section class="interactive-projects-section">
 			<h2>Interactive Projects:</h2>
-			<h3>The <a href="https://github.com/hchiam/html-template-generator"
-					 target="_blank">html-template-generator</a> Project</h3>
-			<p>Generate form HTML with a visual UI.</p>
-			<div class="image-link-wrapper"
-					 class="image-link-wrapper">
-				<ImageLink client:visible
-									 alt="HTML template generator demo animation"
-									 href="https://html-template-generator.surge.sh"
-									 src="template_demo.gif"
-									 width={300} />
+
+			<div class="spaced-group">
+				<h3>The <a href="https://github.com/hchiam/html-template-generator"
+						 target="_blank">html-template-generator</a> Project</h3>
+				<p>Generate form HTML with a visual UI.</p>
+				<div class="image-link-wrapper"
+						 class="image-link-wrapper">
+					<ImageLink client:visible
+										 alt="HTML template generator demo animation"
+										 href="https://html-template-generator.surge.sh"
+										 src="template_demo.gif"
+										 width={300} />
+				</div>
 			</div>
-			<h3>Conway's Game of Life - Using React:</h3>
-			<div class="image-link-wrapper">
-				<ImageLink client:visible
-									 alt="React app of Conway's Game of Life"
-									 href="https://codepen.io/hchiam/full/boRvYg"
-									 src="conways_game_of_life.png"
-									 width={300} />
+
+			<div class="spaced-group">
+				<h3>Conway's Game of Life - Using React:</h3>
+				<div class="image-link-wrapper">
+					<ImageLink client:visible
+										 alt="React app of Conway's Game of Life"
+										 href="https://codepen.io/hchiam/full/boRvYg"
+										 src="conways_game_of_life.png"
+										 width={300} />
+				</div>
 			</div>
-			<h3><a href="https://github.com/hchiam/_2DNote"
-					 target="_blank">2D Note</a> generator with vanilla JS:</h3>
-			<div class="image-link-wrapper">
-				<ImageLink client:visible
-									 alt="2D note demo"
-									 href="https://codepen.io/hchiam/full/eYYdVeX"
-									 src="2d_note_demo.png"
-									 width={300} />
+
+			<div class="spaced-group">
+				<h3><a href="https://github.com/hchiam/_2DNote"
+						 target="_blank">2D Note</a> generator with vanilla JS:</h3>
+				<div class="image-link-wrapper">
+					<ImageLink client:visible
+										 alt="2D note demo"
+										 href="https://codepen.io/hchiam/full/eYYdVeX"
+										 src="2d_note_demo.png"
+										 width={300} />
+				</div>
 			</div>
 		</section>
 
 		<section class="github-projects-section">
 			<h2>GitHub Projects:</h2>
 			<div class="link-group column">
-				<Link url="https://github.com/GoogleChromeLabs/ProjectVisBug"
-							text="VisBug - A GoogleChromeLabs Project" />
-				<Link url="https://github.com/hchiam/slides"
-							text="Slides - A Streamlined Slides App" />
-				<Link url="https://github.com/hchiam/code-tutor"
-							text="Code Tutor - A Google Assistant App" />
+				<div class="spaced-group">
+					<Link url="https://github.com/GoogleChromeLabs/ProjectVisBug"
+								text="VisBug - A GoogleChromeLabs Project" />
+				</div>
+				<div class="spaced-group">
+					<Link url="https://github.com/hchiam/slides"
+								text="Slides - A Streamlined Slides App" />
+				</div>
+				<div class="spaced-group">
+					<Link url="https://github.com/hchiam/code-tutor"
+								text="Code Tutor - A Google Assistant App" />
+				</div>
 			</div>
 		</section>
 
@@ -85,23 +100,29 @@ const linkImageStyles = `
 			<h2>Certificates:</h2>
 
 			<div class="certificates">
-				<ImageLink client:visible
-									 alt="IAAP WAS Badge"
-									 width={100}
-									 href="https://www.credly.com/badges/d55cf9c8-a31d-4bd7-8250-81743cbd8b21/public_url"
-									 src="/IAAP-WAS-badge.png" />
+				<div class="spaced-group">
+					<ImageLink client:visible
+										 alt="IAAP WAS Badge"
+										 width={100}
+										 href="https://www.credly.com/badges/d55cf9c8-a31d-4bd7-8250-81743cbd8b21/public_url"
+										 src="/IAAP-WAS-badge.png" />
+				</div>
 
-				<ImageLink client:visible
-									 alt="PDF Certificate for IAAP WAS"
-									 width={400}
-									 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
-									 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
+				<div class="spaced-group">
+					<ImageLink client:visible
+										 alt="PDF Certificate for IAAP WAS"
+										 width={400}
+										 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
+										 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
+				</div>
 
-				<ImageLink client:visible
-									 alt="PDF Certificate for Joshua Comeau's CSS Course"
-									 height={250}
-									 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
-									 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
+				<div class="spaced-group">
+					<ImageLink client:visible
+										 alt="PDF Certificate for Joshua Comeau's CSS Course"
+										 height={250}
+										 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
+										 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
+				</div>
 			</div>
 
 		</section>
@@ -154,12 +175,12 @@ const linkImageStyles = `
 
 	section {
 		background: var(--transparent-grey);
-		margin: var(--size-5) 0;
+		margin: var(--size-5) 0 var(--size-10);
 		padding-bottom: var(--size-3);
 		box-shadow: var(--box-shadow);
 
-		@include fade-in;
-		--fade-in-delay: 1s;
+		@include fade-in-and-slide-up;
+		// --fade-in-delay: 0s;
 
 		h2 {
 			background: black;
@@ -171,6 +192,7 @@ const linkImageStyles = `
 
 		h3 {
 			background: #353535;
+			margin-bottom: var(--size-3);
 		}
 
 		h3:not(:first-of-type) {
@@ -233,6 +255,12 @@ const linkImageStyles = `
 		margin-bottom: var(--size-8);
 	}
 
+	.spaced-group {
+		min-height: var(--size-10);
+		margin: var(--size-3);
+		padding: var(--size-3);
+	}
+
 	.tagline {
 		background: transparent;
 		font-size: var(--font-size-5);
@@ -244,11 +272,22 @@ const linkImageStyles = `
 	.tagline-details {
 		background: var(--transparent-grey);
 		padding: var(--size-3);
+		margin: auto;
+		max-width: 450px;
 		text-align: left;
 		margin-top: var(--size-4);
 		box-shadow: var(--box-shadow);
+
 		@include fade-in;
 		--fade-in-delay: 0.5s;
+
+		ul {
+			padding: 0 var(--size-5);
+		}
+
+		li:not(:last-of-type) {
+			margin-bottom: var(--size-3);
+		}
 
 		li::marker {
 			color: var(--accent-colour);
@@ -278,6 +317,12 @@ const linkImageStyles = `
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+
+		.spaced-group {
+			display: flex;
+			align-content: center;
+			justify-content: center;
+		}
 	}
 
 	.link-group.column {

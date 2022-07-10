@@ -4,7 +4,8 @@
   --fade-in-time: 2s;
   --fade-in-delay: 0s;
   transition: opacity 0.5s;
-  animation: fade-in var(--fade-in-time) both;
+  animation: fade-in both;
+  animation-duration: var(--fade-in-time);
   animation-delay: var(--fade-in-delay);
 
   @keyframes fade-in {
@@ -15,5 +16,30 @@
     to {
       opacity: 1;
     }
+  }
+}
+
+@mixin fade-in-and-slide-up {
+  --fade-in-time: 2s;
+  --fade-in-delay: 0s;
+  transition: opacity 0.5s;
+  animation: fade-in both;
+  animation-duration: var(--fade-in-time);
+  animation-delay: var(--fade-in-delay);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fade-in both, var(--animation-slide-in-up) both;
+    animation-duration: var(--fade-in-time);
+    animation-delay: var(--fade-in-delay);
   }
 }
