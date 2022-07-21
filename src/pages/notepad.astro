@@ -1,0 +1,156 @@
+---
+// import Layout from '../layouts/Layout.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width">
+	<link rel="icon"
+				type="image/x-icon"
+				href="/htc.png" />
+	<title>notepad</title>
+</head>
+
+<body tabindex={-1}>
+	<textarea autofocus
+						cols={1}></textarea>
+</body>
+
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		background: #222;
+		color: white;
+		display: flex;
+		justify-content: center;
+	}
+
+	textarea {
+		padding: 3rem;
+		padding-left: calc(3rem + 1ch);
+		margin: auto;
+		resize: none;
+		height: 100vh;
+		background: transparent;
+		color: white;
+		font-family: monospace;
+		font-size: 2rem;
+		border: none;
+		outline: none;
+	}
+
+	textarea:not(.ready-to-edit) {
+		opacity: 0;
+	}
+
+	@media (max-width: 550px) {
+		textarea {
+			font-size: 1rem;
+			padding: 1.5rem;
+		}
+	}
+</style>
+
+<script>
+	var screenWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
+	var isLikelyMobile = screenWidth < 550;
+
+	var textarea = document.querySelector("textarea");
+	textarea.focus();
+
+	var rememberedText = localStorage.getItem("simple-notepad");
+	var yes = !rememberedText || confirm("Restore previous?");
+	textarea.value = yes && rememberedText ? rememberedText : "";
+	updateTextareaWidth();
+	textarea.classList.add("ready-to-edit");
+
+	textarea.addEventListener("keydown", function () {
+		updateTextareaWidth();
+	});
+
+	function updateTextareaWidth() {
+		var minWidth = isLikelyMobile ? 30 : 0;
+		textarea.setAttribute(
+			"cols",
+			1 +
+			Math.max(
+				minWidth,
+				Math.max.apply(
+					null,
+					textarea.value.split("\n").map(function (line) {
+						return line.length;
+					})
+				)
+			)
+		);
+	}
+
+	textarea.addEventListener("keyup", function () {
+		localStorage.setItem("simple-notepad", textarea.value);
+	});
+
+	window.addEventListener("beforeunload", function (e) {
+		localStorage.setItem("simple-notepad", textarea.value);
+	});
+
+	document.addEventListener(
+		"keydown",
+		function (e) {
+			if (
+				(e.key === "s" || e.keyCode === 83) &&
+				(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)
+			) {
+				e.preventDefault();
+				var data = textarea.value;
+				var filename = "notepad" + getTimeStamp() + ".txt";
+				var type = "text/plain;charset=utf-8";
+				download(data, filename, type);
+			}
+		},
+		false
+	);
+
+	function download(data, filename, type) {
+		var file = new Blob([data], { type: type });
+
+		var isIE10OrLater = window.navigator.msSaveOrOpenBlob;
+		if (isIE10OrLater) {
+			window.navigator.msSaveOrOpenBlob(file, filename);
+		} else {
+			var a = document.createElement("a");
+			var url = URL.createObjectURL(file);
+			a.href = url;
+			a.download = filename;
+			document.body.appendChild(a);
+			a.click();
+			setTimeout(function () {
+				document.body.removeChild(a);
+				window.URL.revokeObjectURL(url);
+			}, 0);
+		}
+	}
+
+	function getTimeStamp() {
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = pad(date.getMonth());
+		var day = pad(date.getDate());
+		var hours = pad(date.getHours());
+		var minutes = pad(date.getMinutes());
+		var seconds = pad(date.getSeconds());
+		return "_" + year + month + day + hours + minutes + seconds;
+	}
+
+	function pad(number) {
+		return String(number).padStart(2, 0);
+	}
+</script>
