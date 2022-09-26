@@ -1,29 +1,32 @@
 ---
 export interface Props {
-  href: string,
-  alt: string,
-  src: string,
-  width?: number,
-  height?: number,
-  target?: string,
-  aStyle?: string,
-  imgStyle?: string,
+  href: string;
+  alt: string;
+  src: string;
+  width?: number;
+  height?: number;
+  target?: string;
+  aStyle?: string;
+  imgStyle?: string;
 }
-const { href, alt, src, width, height, target = '_blank', aStyle, imgStyle } = Astro.props;
+const {
+  href,
+  alt,
+  src,
+  width,
+  height,
+  target = "_blank",
+  aStyle,
+  imgStyle,
+} = Astro.props;
 ---
 
-<a href={href}
-   target={target}
-   style={aStyle}>
-  <img alt={alt}
-       src={src}
-       width={width}
-       height={height}
-       style={imgStyle}>
+<a href={href} target={target} style={aStyle} rel="noopener noreferrer">
+  <img alt={alt} src={src} width={width} height={height} style={imgStyle} />
 </a>
 
 <style lang="scss">
-  @import '../styles/focus-style';
+  @import "../styles/focus-style";
 
   a {
     background: transparent;
