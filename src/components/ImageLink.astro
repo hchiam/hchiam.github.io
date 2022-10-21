@@ -8,6 +8,7 @@ export interface Props {
   target?: string;
   aStyle?: string;
   imgStyle?: string;
+  extraButton?: boolean;
 }
 const {
   href,
@@ -18,12 +19,26 @@ const {
   target = "_blank",
   aStyle,
   imgStyle,
+  extraButton = true,
 } = Astro.props;
 ---
 
 <a href={href} target={target} style={aStyle} rel="noopener noreferrer">
   <img alt={alt} src={src} width={width} height={height} style={imgStyle} />
 </a>
+{extraButton ? <button data-href={href}>VIEW</button> : ""}
+
+<script>
+  function handleClick(href) {
+    document.querySelector(`a[href="${href}"]`).click();
+  }
+  [...document.querySelectorAll("button[data-href]")].forEach((b) =>
+    b.addEventListener("click", function (e) {
+      const href = e.target.getAttribute("data-href");
+      handleClick(href);
+    })
+  );
+</script>
 
 <style lang="scss">
   @import "../styles/focus-style";
@@ -45,5 +60,13 @@ const {
     background: white;
 
     @include focus-style;
+  }
+
+  button {
+    margin-top: var(--size-3);
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 </style>

@@ -1,0 +1,14 @@
+// note to self: re-run yarn dev if you make edits to this mixin
+
+@mixin angled-box {
+  --angled-box-padding: 50px;
+
+  clip-path: polygon(
+    calc(0% + var(--angled-box-padding) / 2) 0%,
+    100% 0%,
+    calc(100% - var(--angled-box-padding) / 2) 100%,
+    0% 100%
+  );
+
+  padding-inline: var(--angled-box-padding);
+}
