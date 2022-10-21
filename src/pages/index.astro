@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import LogoImg from '../components/LogoImg.astro';
-import ImageLink from '../components/ImageLink.astro';
-import Link from '../components/Link.astro';
+import Layout from "../layouts/Layout.astro";
+import LogoImg from "../components/LogoImg.astro";
+import ImageLink from "../components/ImageLink.astro";
+import Link from "../components/Link.astro";
 
 const linkImageStyles = `
 		--img-size: 75px;
@@ -14,344 +14,378 @@ const linkImageStyles = `
 ---
 
 <Layout title="Howard Chiam">
-	<main>
-		<div class="logo-section">
-			<LogoImg client:load
-							 src="htc.png"
-							 alt="HC"
-							 width="100px"
-							 height="100px"
-							 tabindex="0" />
-		</div>
+  <main>
+    <div class="logo-section">
+      <LogoImg
+        client:load
+        src="htc.png"
+        alt="HC"
+        width="100px"
+        height="100px"
+        tabindex="0"
+      />
+    </div>
 
-		<h1 title="This is my name.">Howard Chiam</h1>
+    <h1 title="This is my name.">Howard Chiam</h1>
 
-		<div class="name-section">
-			<h2 class="tagline">Learning. Languages. Other stuff.</h2>
-			<div class="tagline-details">
-				<ul>
-					<li>Front-End web developer and language nerd with interests in education and accessibility.</li>
-					<li>Builds tools to make learning more fun/accessible.</li>
-					<li>Think differently. Enjoy learning and growing.</li>
-				</ul>
-			</div>
-		</div>
+    <div class="name-section">
+      <h2 class="tagline">Learning. Languages. Other stuff.</h2>
+      <div class="tagline-details">
+        <ul>
+          <li>
+            Front-End web developer and language nerd with interests in
+            education and accessibility.
+          </li>
+          <li>Builds tools to make learning more fun/accessible.</li>
+          <li>Think differently. Enjoy learning and growing.</li>
+        </ul>
+      </div>
+    </div>
 
-		<section class="interactive-projects-section">
-			<h2>Interactive Projects:</h2>
+    <section class="interactive-projects-section">
+      <h2>Interactive Projects:</h2>
 
-			<div class="spaced-group">
-				<h3>The <a href="https://github.com/hchiam/html-template-generator"
-						 target="_blank">html-template-generator</a> Project</h3>
-				<p>Generate form HTML with a visual UI.</p>
-				<div class="image-link-wrapper"
-						 class="image-link-wrapper">
-					<ImageLink client:visible
-										 alt="HTML template generator demo animation"
-										 href="https://html-template-generator.surge.sh"
-										 src="template_demo.gif"
-										 width={300} />
-				</div>
-			</div>
+      <div class="spaced-group">
+        <h3>
+          The <a
+            href="https://github.com/hchiam/html-template-generator"
+            target="_blank">html-template-generator</a
+          > Project
+        </h3>
+        <p>Generate form HTML with a visual UI.</p>
+        <div class="image-link-wrapper" class="image-link-wrapper">
+          <ImageLink
+            client:visible
+            alt="HTML template generator demo animation"
+            href="https://html-template-generator.surge.sh"
+            src="template_demo.gif"
+            width={300}
+          />
+        </div>
+      </div>
 
-			<div class="spaced-group">
-				<h3>Conway's Game of Life - Using React:</h3>
-				<div class="image-link-wrapper">
-					<ImageLink client:visible
-										 alt="React app of Conway's Game of Life"
-										 href="https://codepen.io/hchiam/full/boRvYg"
-										 src="conways_game_of_life.png"
-										 width={300} />
-				</div>
-			</div>
+      <div class="spaced-group">
+        <h3>Conway's Game of Life - Using React:</h3>
+        <div class="image-link-wrapper">
+          <ImageLink
+            client:visible
+            alt="React app of Conway's Game of Life"
+            href="https://codepen.io/hchiam/full/boRvYg"
+            src="conways_game_of_life.png"
+            width={300}
+          />
+        </div>
+      </div>
 
-			<div class="spaced-group">
-				<h3><a href="https://github.com/hchiam/_2DNote"
-						 target="_blank">2D Note</a> generator with vanilla JS:</h3>
-				<div class="image-link-wrapper">
-					<ImageLink client:visible
-										 alt="2D note demo"
-										 href="https://codepen.io/hchiam/full/eYYdVeX"
-										 src="2d_note_demo.png"
-										 width={300} />
-				</div>
-			</div>
-		</section>
+      <div class="spaced-group">
+        <h3>
+          <a href="https://github.com/hchiam/_2DNote" target="_blank">2D Note</a
+          > generator with vanilla JS:
+        </h3>
+        <div class="image-link-wrapper">
+          <ImageLink
+            client:visible
+            alt="2D note demo"
+            href="https://codepen.io/hchiam/full/eYYdVeX"
+            src="2d_note_demo.png"
+            width={300}
+          />
+        </div>
+      </div>
+    </section>
 
-		<section class="github-projects-section">
-			<h2>GitHub Projects:</h2>
-			<div class="link-group column">
-				<div class="spaced-group">
-					<Link url="https://github.com/GoogleChromeLabs/ProjectVisBug"
-								text="VisBug - A GoogleChromeLabs Project" />
-				</div>
-				<div class="spaced-group">
-					<Link url="https://github.com/hchiam/slides"
-								text="Slides - A Streamlined Slides App" />
-				</div>
-				<div class="spaced-group">
-					<Link url="https://github.com/hchiam/code-tutor"
-								text="Code Tutor - A Google Assistant App" />
-				</div>
-			</div>
-		</section>
+    <section class="github-projects-section">
+      <h2>GitHub Projects:</h2>
+      <div class="link-group column">
+        <div class="spaced-group">
+          <Link
+            url="https://github.com/GoogleChromeLabs/ProjectVisBug"
+            text="VisBug - A GoogleChromeLabs Project"
+          />
+        </div>
+        <div class="spaced-group">
+          <Link
+            url="https://github.com/hchiam/slides"
+            text="Slides - A Streamlined Slides App"
+          />
+        </div>
+        <div class="spaced-group">
+          <Link
+            url="https://github.com/hchiam/code-tutor"
+            text="Code Tutor - A Google Assistant App"
+          />
+        </div>
+      </div>
+    </section>
 
-		<section class="certificates-section">
-			<h2>Certificates:</h2>
+    <section class="certificates-section">
+      <h2>Certificates:</h2>
 
-			<div class="certificates">
-				<div class="spaced-group">
-					<ImageLink client:visible
-										 alt="IAAP WAS Badge"
-										 width={100}
-										 href="https://www.credly.com/badges/d55cf9c8-a31d-4bd7-8250-81743cbd8b21/public_url"
-										 src="/IAAP-WAS-badge.png" />
-				</div>
+      <div class="certificates">
+        <div class="spaced-group">
+          <ImageLink
+            client:visible
+            alt="IAAP WAS Badge"
+            width={100}
+            href="https://www.credly.com/badges/d55cf9c8-a31d-4bd7-8250-81743cbd8b21/public_url"
+            src="/IAAP-WAS-badge.png"
+          />
+        </div>
 
-				<div class="spaced-group">
-					<ImageLink client:visible
-										 alt="PDF Certificate for IAAP WAS"
-										 width={400}
-										 href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
-										 src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png" />
-				</div>
+        <div class="spaced-group">
+          <ImageLink
+            client:visible
+            alt="PDF Certificate for IAAP WAS"
+            width={400}
+            href="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.pdf"
+            src="/Howard_Chiam_IAAP_WAS_Certification_Preparation_Curriculum_Package_Completion_Certificate.png"
+          />
+        </div>
 
-				<div class="spaced-group">
-					<ImageLink client:visible
-										 alt="PDF Certificate for Joshua Comeau's CSS Course"
-										 height={250}
-										 href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
-										 src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png" />
-				</div>
-			</div>
+        <div class="spaced-group">
+          <ImageLink
+            client:visible
+            alt="PDF Certificate for Joshua Comeau's CSS Course"
+            height={250}
+            href="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.pdf"
+            src="/CSS_for_JavaScript_Developers_Course_Certificate_of_Completion_Josh_W_Comeaus_Course_Platform.png"
+          />
+        </div>
+      </div>
+    </section>
 
-		</section>
+    <section class="links-section">
+      <h2>Links:</h2>
 
-		<section class="links-section">
-			<h2>Links:</h2>
-
-			<div class="link-group row">
-				<ImageLink client:visible
-									 alt="GitHub"
-									 href="https://github.com/hchiam"
-									 src="/GitHubIcon.png"
-									 height={40}
-									 imgStyle={linkImageStyles} />
-				<ImageLink client:visible
-									 alt="CodePen"
-									 href="https://codepen.io/hchiam"
-									 src="/CodePenIcon.png"
-									 height={40}
-									 imgStyle={linkImageStyles} />
-				<ImageLink client:visible
-									 alt="LinkedIn"
-									 href="https://ca.linkedin.com/in/howardchiam"
-									 src="/LinkedInIcon.png"
-									 height={40}
-									 imgStyle={linkImageStyles} />
-			</div>
-		</section>
-	</main>
+      <div class="link-group row">
+        <ImageLink
+          client:visible
+          alt="GitHub"
+          href="https://github.com/hchiam"
+          src="/GitHubIcon.png"
+          height={40}
+          imgStyle={linkImageStyles}
+        />
+        <ImageLink
+          client:visible
+          alt="CodePen"
+          href="https://codepen.io/hchiam"
+          src="/CodePenIcon.png"
+          height={40}
+          imgStyle={linkImageStyles}
+        />
+        <ImageLink
+          client:visible
+          alt="LinkedIn"
+          href="https://ca.linkedin.com/in/howardchiam"
+          src="/LinkedInIcon.png"
+          height={40}
+          imgStyle={linkImageStyles}
+        />
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style lang="scss">
-	@import '../styles/fade-in';
-	@import '../styles/focus-style';
-	@import '../styles/grow-circle-path';
+  @import "../styles/fade-in";
+  @import "../styles/focus-style";
+  @import "../styles/grow-circle-path";
 
-	:root {
-		--transparent-grey: #21252980;
-		--h1-scale: 1;
-		--box-shadow: 3px 5px 15px var(--transparent-grey);
-	}
+  :root {
+    --transparent-grey: #21252980;
+    --h1-scale: 1;
+    --box-shadow: 3px 5px 15px var(--transparent-grey);
+  }
 
-	main {
-		width: fit-content;
-		height: 100%;
-		margin: auto;
-		text-align: center;
-		background: transparent;
-	}
+  main {
+    width: fit-content;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+    background: transparent;
+  }
 
-	section {
-		background: var(--transparent-grey);
-		margin: var(--size-5) 0 var(--size-10);
-		padding-bottom: var(--size-3);
-		box-shadow: var(--box-shadow);
+  section {
+    background: var(--transparent-grey);
+    margin: var(--size-5) 0 var(--size-10);
+    padding-bottom: var(--size-3);
+    box-shadow: var(--box-shadow);
 
-		@include fade-in-and-slide-up;
-		// --fade-in-delay: 0s;
+    @include fade-in-and-slide-up;
+    // --fade-in-delay: 0s;
 
-		h2 {
-			background: black;
-			border-radius: 0.5rem 0.5rem 0 0;
-			color: var(--accent-colour);
-			font-size: var(--size-7);
-			margin-bottom: var(--size-3);
-		}
+    h2 {
+      background: black;
+      border-radius: 0.5rem 0.5rem 0 0;
+      color: var(--accent-colour);
+      font-size: var(--size-7);
+      margin-bottom: var(--size-3);
+    }
 
-		h3 {
-			background: #353535;
-			margin-bottom: var(--size-3);
-		}
+    h3 {
+      background: #353535;
+      margin-bottom: var(--size-3);
+    }
 
-		h3:not(:first-of-type) {
-			margin-top: var(--size-7);
-		}
-	}
+    h3:not(:first-of-type) {
+      margin-top: var(--size-7);
+    }
+  }
 
-	img {
-		margin: auto;
-		background: transparent;
-		@include focus-style;
-	}
+  img {
+    margin: auto;
+    background: transparent;
+    @include focus-style;
+  }
 
-	h1,
-	.tagline,
-	p {
-		width: fit-content;
-		margin: auto;
-	}
+  h1,
+  .tagline,
+  p {
+    width: fit-content;
+    margin: auto;
+  }
 
-	h1 {
-		background: black;
-		font-size: 5rem;
-		font-variant: small-caps;
-		padding: 0;
-		position: relative;
-		line-height: 100%;
-		box-shadow: var(--box-shadow);
-		border: var(--size-2) solid black;
+  h1 {
+    background: black;
+    font-size: 5rem;
+    font-variant: small-caps;
+    padding: 0;
+    position: relative;
+    line-height: 100%;
+    box-shadow: var(--box-shadow);
+    border: var(--size-2) solid black;
 
-		&:after {
-			content: "Howard Chiam";
-			position: absolute;
-			top: 0;
-			left: 0;
-			line-height: 100%;
-			color: var(--accent-colour);
-			@include grow-circle-path;
-		}
+    &:after {
+      content: "Howard Chiam";
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 100%;
+      color: var(--accent-colour);
+      @include grow-circle-path;
+    }
 
-		@media (min-width: 1100px) {
-			// laptop: (1100px is to the left but spaced away from likely laptop sizes)
-			position: sticky;
-			top: 0;
-			z-index: 1;
-			will-change: transform;
-			transform: scale(var(--h1-scale));
-			transform-origin: top;
-		}
-	}
+    @media (min-width: 1100px) {
+      // laptop: (1100px is to the left but spaced away from likely laptop sizes)
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      will-change: transform;
+      transform: scale(var(--h1-scale));
+      transform-origin: top;
+    }
+  }
 
-	.logo-section {
-		background: transparent;
-		min-height: 30vh;
-		display: flex;
-	}
+  .logo-section {
+    background: transparent;
+    min-height: 30vh;
+    display: flex;
+  }
 
-	.name-section {
-		background: transparent;
-		margin-bottom: var(--size-8);
-	}
+  .name-section {
+    background: transparent;
+    margin-bottom: var(--size-8);
+  }
 
-	.spaced-group {
-		min-height: var(--size-10);
-		margin: var(--size-3);
-		padding: var(--size-3);
-	}
+  .spaced-group {
+    min-height: var(--size-10);
+    margin: var(--size-3);
+    padding: var(--size-3);
+  }
 
-	.tagline {
-		background: transparent;
-		font-size: var(--font-size-5);
-		padding-top: 0;
-		@include fade-in;
-		--fade-in-delay: 0.1s;
-	}
+  .tagline {
+    background: transparent;
+    font-size: var(--font-size-5);
+    padding-top: 0;
+    @include fade-in;
+    --fade-in-delay: 0.1s;
+  }
 
-	.tagline-details {
-		background: var(--transparent-grey);
-		padding: var(--size-3);
-		margin: auto;
-		max-width: 450px;
-		text-align: left;
-		margin-top: var(--size-4);
-		box-shadow: var(--box-shadow);
+  .tagline-details {
+    background: var(--transparent-grey);
+    padding: var(--size-3);
+    margin: auto;
+    max-width: 450px;
+    text-align: left;
+    margin-top: var(--size-4);
+    box-shadow: var(--box-shadow);
 
-		@include fade-in;
-		--fade-in-delay: 0.5s;
+    @include fade-in;
+    --fade-in-delay: 0.5s;
 
-		ul {
-			padding: 0 var(--size-5);
-		}
+    ul {
+      padding: 0 var(--size-5);
+    }
 
-		li:not(:last-of-type) {
-			margin-bottom: var(--size-3);
-		}
+    li:not(:last-of-type) {
+      margin-bottom: var(--size-3);
+    }
 
-		li::marker {
-			color: var(--accent-colour);
-		}
-	}
+    li::marker {
+      color: var(--accent-colour);
+    }
+  }
 
-	.tagline-details * {
-		background: transparent;
-	}
+  .tagline-details * {
+    background: transparent;
+  }
 
-	.image-link-wrapper {
-		width: fit-content;
-		margin: auto;
-	}
+  .image-link-wrapper {
+    width: fit-content;
+    margin: auto;
+  }
 
-	.certificates {
-		background: transparent;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		gap: var(--size-3);
-	}
+  .certificates {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--size-3);
+  }
 
-	.link-group {
-		background: transparent;
-		padding: 0;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+  .link-group {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-		.spaced-group {
-			display: flex;
-			align-content: center;
-			justify-content: center;
-		}
-	}
+    .spaced-group {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+  }
 
-	.link-group.column {
-		flex-direction: column;
-	}
+  .link-group.column {
+    flex-direction: column;
+  }
 
-	.link-group.row {
-		gap: var(--size-7);
-		max-width: 500px;
-		margin: auto;
-	}
+  .link-group.row {
+    gap: var(--size-7);
+    max-width: 500px;
+    margin: auto;
+  }
 </style>
 
 <script>
-	import { setCSSVariable } from '../helpers/css-variable.ts';
-	import { prefersReducedMotion } from '../helpers/prefers-reduced-motion.ts';
+  import { setCSSVariable } from "../helpers/css-variable.ts";
+  import { prefersReducedMotion } from "../helpers/prefers-reduced-motion.ts";
 
-	document.addEventListener('scroll', () => {
-		const scrollTop = document.documentElement.scrollTop;
-		const maxScroll = document.documentElement.scrollHeight;
-		const percentDown = Math.round(100 * scrollTop / maxScroll);
-		const minimumScale = 70;
-		const scale = Math.max(minimumScale, (100 - percentDown)) / 100;
+  document.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const maxScroll = document.documentElement.scrollHeight;
+    const percentDown = Math.round((100 * scrollTop) / maxScroll);
+    const minimumScale = 70;
+    const scale = Math.max(minimumScale, 100 - percentDown) / 100;
 
-		const h1 = document.querySelector('h1');
-		const stickyTopTriggered = Math.round(h1.offsetTop) <= Math.round(scrollTop);
+    const h1 = document.querySelector("h1");
+    const stickyTopTriggered =
+      Math.round(h1.offsetTop) <= Math.round(scrollTop);
 
-		if (stickyTopTriggered && !prefersReducedMotion()) {
-			setCSSVariable('--h1-scale', scale);
-		}
-	});
+    if (stickyTopTriggered && !prefersReducedMotion()) {
+      setCSSVariable("--h1-scale", scale);
+    }
+  });
 </script>
