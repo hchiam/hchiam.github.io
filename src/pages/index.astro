@@ -398,8 +398,8 @@ const linkImageStyles = `
 </style>
 
 <script>
-  import { setCSSVariable } from "../helpers/css-variable";
-  import { prefersReducedMotion } from "../helpers/prefers-reduced-motion";
+  import { setCSSVariable } from "../helpers/css-variable.ts";
+  import { prefersReducedMotion } from "../helpers/prefers-reduced-motion.ts";
 
   document.addEventListener("scroll", () => {
     const scrollTop = document.documentElement.scrollTop;
