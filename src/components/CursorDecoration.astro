@@ -26,6 +26,10 @@
     cursorTop = e.clientY;
     cursorShadow.style.left = cursorLeft + "px";
     cursorShadow.style.top = cursorTop + "px";
+    fadeOrbits();
+    setTimeout(() => {
+      unfadeOrbits();
+    }, 300);
   });
 
   delayShowingOrbits();
@@ -52,6 +56,14 @@
     cursorShadow.classList.add("show-orbits");
   }
 
+  function fadeOrbits() {
+    cursorShadow.classList.add("fade-orbits");
+  }
+
+  function unfadeOrbits() {
+    cursorShadow.classList.remove("fade-orbits");
+  }
+
   function animateOrbits() {
     clearInterval(orbitTimer);
     orbitTimer = setInterval(() => {
@@ -74,7 +86,7 @@
 
 <style lang="scss">
   #cursor-shadow {
-    position: absolute;
+    position: fixed;
     box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.2);
     transition: 0s;
     &:not(.show-orbits) * {
@@ -88,6 +100,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    &.fade-orbits * {
+      opacity: 0.25;
     }
   }
 </style>
