@@ -1,0 +1,93 @@
+<div id="cursor-shadow">
+  <div>A</div>
+  <div>㆗</div>
+  <div>é</div>
+</div>
+
+<script>
+  import { isUsingTouchScreen } from "../helpers/is-using-touchscreen";
+  import { prefersReducedMotion } from "../helpers/prefers-reduced-motion";
+
+  const scale = 100;
+  const granularity = 0.01;
+  const timeStepSize = 10;
+  const delayBeforeShowOrbits = 4000;
+  let delayTimer = null;
+  let orbitTimer = null;
+  let left = 0;
+  let top = 0;
+  let t = 0;
+  let cursorLeft = -scale;
+  let cursorTop = -scale;
+
+  const cursorShadow = document.querySelector("#cursor-shadow");
+  document.addEventListener("mousemove", function (e) {
+    cursorLeft = e.clientX;
+    cursorTop = e.clientY;
+    cursorShadow.style.left = cursorLeft + "px";
+    cursorShadow.style.top = cursorTop + "px";
+  });
+
+  delayShowingOrbits();
+
+  function delayShowingOrbits() {
+    hideOrbits();
+
+    if (!prefersReducedMotion() && !isUsingTouchScreen()) {
+      clearTimeout(delayTimer);
+      delayTimer = setTimeout(() => {
+        showOrbits();
+        animateOrbits();
+      }, delayBeforeShowOrbits);
+    } else {
+      cursorShadow.querySelectorAll("*").forEach((e) => e.remove());
+    }
+  }
+
+  function hideOrbits() {
+    cursorShadow.classList.remove("show-orbits");
+  }
+
+  function showOrbits() {
+    cursorShadow.classList.add("show-orbits");
+  }
+
+  function animateOrbits() {
+    clearInterval(orbitTimer);
+    orbitTimer = setInterval(() => {
+      const innerElements = [...cursorShadow.querySelectorAll("*")];
+      innerElements.forEach(function (e, i) {
+        t += granularity;
+        const offset = (i * scale) / 5;
+        left = cursorLeft;
+        top = cursorTop;
+        left += (scale * Math.round(Math.sin(-t + offset) * 1000)) / 1000;
+        top += (scale * Math.round(Math.cos(t + offset) * 1000)) / 1000;
+        left -= 8;
+        top -= 8;
+        e.style.left = left + "px";
+        e.style.top = top + "px";
+      });
+    }, timeStepSize);
+  }
+</script>
+
+<style lang="scss">
+  #cursor-shadow {
+    position: absolute;
+    box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    &:not(.show-orbits) * {
+      display: none;
+    }
+    &.show-orbits * {
+      position: fixed;
+      border-radius: 50%;
+      width: 1.25rem;
+      height: 1.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>
