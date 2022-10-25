@@ -216,7 +216,7 @@ const linkImageStyles = `
   h4,
   h5,
   h6 {
-    font-family: monospace;
+    font-family: Georgia, "Times New Roman", Times, monospace, serif;
   }
 
   section {
@@ -308,7 +308,12 @@ const linkImageStyles = `
     margin: var(--size-3);
     padding: var(--size-3);
     overflow: hidden;
-    @include angled-box;
+
+    @media (min-width: 550px) {
+      /* tablet and above */
+
+      @include angled-box;
+    }
 
     h3 a {
       transition: 0s; // prevent making heading change size
@@ -317,7 +322,7 @@ const linkImageStyles = `
 
   .tagline {
     background: transparent;
-    font-size: var(--font-size-5);
+    font-size: 1.75rem;
     padding-top: 0;
     @include fade-in;
     --fade-in-delay: 0.1s;
