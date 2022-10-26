@@ -267,11 +267,12 @@ const linkImageStyles = `
     background: black;
     font-size: 5rem;
     font-variant: small-caps;
-    padding: 0;
+    padding: var(--size-5);
     position: relative;
     line-height: 100%;
     box-shadow: var(--box-shadow);
     border: var(--size-2) solid black;
+    border-radius: var(--radius-blob-2);
 
     &:after {
       content: "Howard Chiam";
@@ -279,6 +280,7 @@ const linkImageStyles = `
       top: 0;
       left: 0;
       line-height: 100%;
+      padding: var(--size-5);
       color: var(--accent-colour);
       @include grow-circle-path;
     }
