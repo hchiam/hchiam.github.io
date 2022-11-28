@@ -54,7 +54,10 @@ const linkImageStyles = `
             target="_blank">html-template-generator</a
           > Project
         </h3>
-        <p>Generate form HTML with a visual UI.</p>
+        <p>
+          Generate code without typing code! This visual UI can generate HTML
+          form template code for you.
+        </p>
         <div class="image-link-wrapper" class="image-link-wrapper">
           <ImageLink
             client:visible
@@ -68,6 +71,7 @@ const linkImageStyles = `
 
       <div class="spaced-group">
         <h3>Conway's Game of Life - Using React:</h3>
+        <p>Just something fun built with React.js</p>
         <div class="image-link-wrapper">
           <ImageLink
             client:visible
@@ -84,6 +88,10 @@ const linkImageStyles = `
           <a href="https://github.com/hchiam/_2DNote" target="_blank">2D Note</a
           > generator with vanilla JS:
         </h3>
+        <p>
+          Potential: power 2D apps that people can use together, regardless of
+          vision capabilities?
+        </p>
         <div class="image-link-wrapper">
           <ImageLink
             client:visible
@@ -104,18 +112,30 @@ const linkImageStyles = `
             url="https://github.com/GoogleChromeLabs/ProjectVisBug"
             text="VisBug - A GoogleChromeLabs Project"
           />
+          <p>Enable designers to edit any webpage live, in any state.</p>
         </div>
         <div class="spaced-group">
           <Link
             url="https://github.com/hchiam/slides"
             text="Slides - A Streamlined Slides App"
           />
+          <p>
+            Easily edit, share, and present slides.
+            <a href="https://simple-slides.surge.sh" target="_blank"
+              >https://simple-slides.surge.sh</a
+            >
+          </p>
         </div>
         <div class="spaced-group">
           <Link
             url="https://github.com/hchiam/code-tutor"
             text="Code Tutor - A Google Assistant App"
           />
+          <p>
+            Let's help people who can't use their hands to learn to code by
+            talking to the Google Assistant (voice assistant). Listed in Google
+            Assistant web directory in 2022.
+          </p>
         </div>
       </div>
     </section>
@@ -322,6 +342,12 @@ const linkImageStyles = `
     h3 a {
       transition: 0s; // prevent making heading change size
     }
+
+    p {
+      max-width: var(--size-14);
+      text-align: left;
+      padding-bottom: var(--size-3);
+    }
   }
 
   .tagline {
@@ -385,6 +411,7 @@ const linkImageStyles = `
       display: flex;
       align-content: center;
       justify-content: center;
+      flex-direction: column;
     }
   }
 
