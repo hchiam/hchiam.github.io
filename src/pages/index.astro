@@ -371,6 +371,7 @@ const linkImageStyles = `
     margin: var(--size-3);
     padding: var(--size-3);
     overflow: hidden;
+    border-radius: var(--size-6);
 
     @media (min-width: 550px) {
       /* tablet and above */
@@ -378,8 +379,12 @@ const linkImageStyles = `
       @include angled-box;
     }
 
-    h3 a {
-      transition: 0s; // prevent making heading change size
+    h3 {
+      margin-top: calc(-1 * var(--size-3));
+      padding: var(--size-3);
+      a {
+        transition: 0s; // prevent making heading change size
+      }
     }
 
     p {

@@ -64,6 +64,16 @@ const {
 
   button {
     margin-top: var(--size-3);
+    background: var(--my-gradient);
+    color: black;
+
+    @include focus-style;
+
+    &:hover,
+    &:focus {
+      background: black;
+      color: var(--accent-colour);
+    }
   }
 
   button:hover {
