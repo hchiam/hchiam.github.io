@@ -23,6 +23,7 @@ const { title, description } = Astro.props as Props;
   <body>
     <slot />
   </body>
+  <div id="border-bottom"></div>
 </html>
 
 <style lang="scss">
@@ -45,12 +46,19 @@ const { title, description } = Astro.props as Props;
       var(--gray-9);
     background-attachment: fixed;
     height: fit-content;
-    border-bottom: var(--size-3) solid var(--accent-colour);
+    // border-bottom: var(--size-3) solid var(--accent-colour);
+    border-radius: 0;
+  }
+
+  #border-bottom {
+    height: var(--size-3);
+    background: var(--my-gradient);
     border-radius: 0;
   }
 
   body {
     background: transparent;
     height: 100%;
+    padding: 0;
   }
 </style>
