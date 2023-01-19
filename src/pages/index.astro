@@ -293,7 +293,8 @@ const linkImageStyles = `
     }
 
     h3 {
-      background: #334d33;
+      background: var(--my-gradient);
+      color: black;
       margin-bottom: var(--size-3);
       margin-inline: calc(-1 * var(--angled-box-padding));
       border-radius: 0;
@@ -384,6 +385,7 @@ const linkImageStyles = `
       padding: var(--size-3);
       a {
         transition: 0s; // prevent making heading change size
+        padding: var(--size-1);
       }
     }
 
