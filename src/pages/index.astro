@@ -393,9 +393,17 @@ const linkImageStyles = `
     h3 {
       margin-top: calc(-1 * var(--size-3));
       padding: var(--size-3);
+
+      @media (max-width: 550px) {
+        /* mobile */
+        margin-left: -1rem;
+        margin-right: -1rem;
+      }
+
       a {
         transition: 0s; // prevent making heading change size
         padding: var(--size-1);
+        white-space: nowrap;
       }
     }
 
