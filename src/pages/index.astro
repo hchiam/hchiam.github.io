@@ -38,13 +38,9 @@ const linkImageStyles = `
       <div class="tagline-details">
         <p>Front-End web dev and language nerd with interests in:</p>
         <ul>
-          <li>
-             education,
-          </li>
-          <li>
-            accessibility, and
-          </li>
-          <li>machine learning</li>
+          <li>education, </li>
+          <li>accessibility, and </li>
+          <li>machine learning.</li>
         </ul>
       </div>
     </div>
@@ -234,6 +230,7 @@ const linkImageStyles = `
 
 <style lang="scss">
   @import "../styles/angled-box";
+  @import "../styles/custom-bullets";
   @import "../styles/fade-in";
   @import "../styles/focus-style";
   @import "../styles/grow-circle-path";
@@ -418,9 +415,7 @@ const linkImageStyles = `
     @include fade-in;
     --fade-in-delay: 0.5s;
 
-    li::marker {
-      color: var(--accent-colour);
-    }
+    @include custom-bullets;
   }
 
   .tagline-details * {

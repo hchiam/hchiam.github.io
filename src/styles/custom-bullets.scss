@@ -1,0 +1,39 @@
+// note to self: re-run yarn dev if you make edits to this mixin
+
+// @import "../../public/book.svg";
+// @import "../../public/a11y.svg";
+// @import "../../public/robot.svg";
+
+@mixin custom-bullets {
+  li {
+    list-style: none;
+  }
+
+  li:before {
+    margin-block: -0.5rem;
+    margin-inline-end: 0.5rem;
+    vertical-align: middle;
+    color: black;
+    background: var(--my-gradient);
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0.25rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    transform: rotate(-0.03turn) scale(0.5);
+  }
+
+  li:nth-child(1):before {
+    content: url(../../public/book.svg);
+  }
+  li:nth-child(2):before {
+    content: url(../../public/a11y.svg);
+  }
+  li:nth-child(3):before {
+    content: url(../../public/robot.svg);
+  }
+
+  li::marker {
+    color: var(--accent-colour);
+  }
+}
