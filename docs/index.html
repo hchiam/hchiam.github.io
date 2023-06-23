@@ -8,7 +8,7 @@
     <script src="/flying-focus.js"></script>
     <title>Howard Chiam</title>
     <meta name="description" content="Howard's profile page - a sample of projects, certificates, and starting points to explore.">
-  <link rel="stylesheet" href="/assets/asset.c8fd65d8.css" /><script type="module" src="/entry.4621eb8e.js"></script>
+  <link rel="stylesheet" href="/assets/asset.f21aa0a2.css" /><script type="module" src="/entry.a93e3f9d.js"></script>
 </head>
 
   <body>
@@ -298,15 +298,75 @@
     <section class="contact-section astro-W7XG4MHW">
       <h2 class="astro-W7XG4MHW">Contact</h2>
 
-      <button id="contact_button" class="astro-P6SQAQJE">SHOW FORM</button>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform?usp=sf_link" target="_blank">Go to form</a>
 
-<div id="contact_container" class="astro-P6SQAQJE">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform?embedded=true" width="640" height="750" frameborder="0" marginheight="0" marginwidth="0" class="astro-P6SQAQJE">Loading…</iframe>
+<!-- <button id="contact_button">SHOW FORM</button>
+
+<div id="contact_container">
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform?embedded=true"
+    width="640"
+    height="750"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0">Loading…</iframe
+  >
 </div>
 
+<script>
+  const contactButton = document.querySelector("#contact_button");
+  const contactContainer = document.querySelector("#contact_container");
+  contactButton.addEventListener("click", () => {
+    contactButton.classList.add("hide");
+    contactContainer.classList.add("show");
+  });
+</script>
 
+<style lang="scss">
+  @import "../styles/focus-style";
 
+  #contact_button {
+    transition: height 0.2s transform 0.2s;
+    &.hide {
+      height: 0;
+      transform: scale(0);
+      margin: 0;
+      padding: 0;
+    }
+  }
 
+  #contact_container {
+    height: 0;
+    overflow: hidden;
+    transform: scale(0);
+    transform-origin: top;
+    transition: height 0.2s transform 0.2s;
+    &.show {
+      height: auto;
+      overflow: auto;
+      transform: scale(1);
+    }
+  }
+
+  button {
+    margin-top: var(--size-2);
+    margin-bottom: var(--size-3);
+    background: var(--my-gradient);
+    color: black;
+
+    @include focus-style;
+
+    &:hover,
+    &:focus {
+      background: black;
+      color: var(--accent-colour);
+    }
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+</style> -->
     </section>
   </main>
   <div id="border-bottom" class="astro-7FWXTHB6"></div>
