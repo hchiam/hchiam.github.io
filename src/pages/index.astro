@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import LogoImg from "../components/LogoImg.astro";
 import ImageLink from "../components/ImageLink.astro";
-import Link from "../components/Link.astro";
 import CursorDecoration from "../components/CursorDecoration.astro";
 
 const linkImageStyles = `
@@ -40,17 +39,108 @@ const linkImageStyles = `
           I'm a Front-End web developer and language nerd with interests in
           things like:
         </p>
-        <br />
         <ul>
           <li>education,</li>
-          <li>accessibility, and</li>
+          <li>accessibility, <i>and</i></li>
           <li>machine learning.</li>
         </ul>
       </div>
     </div>
 
-    <section class="interactive-projects-section">
-      <h2>Interactive Projects:</h2>
+    <section class="projects-section">
+      <h2>Projects:</h2>
+
+      <div class="spaced-group">
+        <h3>
+          <a
+            href="https://github.com/GoogleChromeLabs/ProjectVisBug"
+            target="_blank">VisBug</a
+          > - a GoogleChromeLabs project
+        </h3>
+        <div class="image-link-wrapper">
+          <ImageLink
+            client:visible
+            alt="ProjectVisBug on GitHub"
+            href="https://github.com/GoogleChromeLabs/ProjectVisBug"
+            src="visbug.png"
+            width={100}
+          />
+        </div>
+        <p>
+          Enable designers to edit any webpage live, in any state, with an
+          experimental chrome extension project led by <a
+            href="https://github.com/argyleink"
+            target="_blank">Adam Argyle</a
+          >.
+        </p>
+      </div>
+
+      <div class="spaced-group">
+        <h3>
+          <a href="https://github.com/hchiam/code-tutor" target="_blank"
+            >Code Tutor</a
+          > - a Google Assistant app
+        </h3>
+        <div class="image-link-wrapper">
+          <ImageLink
+            client:visible
+            alt="Code Tutor listed in Google Assistant web directory in 2022"
+            href="https://github.com/hchiam/code-tutor"
+            src="code-tutor-directory-screenshot.png"
+            width={300}
+          />
+        </div>
+        <p>
+          Let's help people who can't use their hands to learn to code by
+          talking to the Google voice assistant. <i
+            >(Listed in Google Assistant web directory in 2022. Conversational
+            Actions were sunset in 2023.)</i
+          >
+        </p>
+        <p>
+          <a
+            href="https://github.com/hchiam/code-tutor#previous-work"
+            target="_blank">Previous work/iterations</a
+          > - I experimented with using api.ai (now named Dialogflow),
+          <br />
+          <span>&rarr; then Mac VoiceOver + web interface,</span>
+          <br />
+          <span>&rarr; then voice programming languages,</span>
+          <br />
+          <span>&rarr; then a mini JARVIS in the browser,</span>
+          <br />
+          <span>&rarr; then a couple Google Assistant apps.</span>
+        </p>
+      </div>
+
+      <div class="spaced-group">
+        <h3>
+          A streamlined <a
+            href="https://github.com/hchiam/slides"
+            target="_blank">slides</a
+          > app
+        </h3>
+        <div class="image-link-wrapper">
+          <ImageLink
+            client:visible
+            alt="screenshot simple slides interface"
+            href="https://github.com/hchiam/slides"
+            src="simple-slides.png"
+            width={300}
+          />
+        </div>
+        <p>
+          Easily edit, share, and present slides.
+          <a href="https://simple-slides.surge.sh" target="_blank"
+            >https://simple-slides.surge.sh</a
+          >
+        </p>
+        <p>
+          Built for and tested by a senior with low digital literacy confidence.
+          This slides app ended up being a stepping stone for them to switch to
+          Google Slides.
+        </p>
+      </div>
 
       <div class="spaced-group">
         <h3>
@@ -59,10 +149,6 @@ const linkImageStyles = `
             target="_blank">html-template-generator</a
           > Project
         </h3>
-        <p>
-          Generate code without typing code! This visual UI can generate HTML
-          form template code for you.
-        </p>
         <div class="image-link-wrapper" class="image-link-wrapper">
           <ImageLink
             client:visible
@@ -72,17 +158,17 @@ const linkImageStyles = `
             width={300}
           />
         </div>
+        <p>
+          Generate code without typing code! This visual UI can generate HTML
+          form template code for you.
+        </p>
       </div>
 
       <div class="spaced-group">
         <h3>
           <a href="https://github.com/hchiam/_2DNote" target="_blank">2D Note</a
-          > generator with vanilla JS:
+          > generator with vanilla JS
         </h3>
-        <p>
-          Potential: power 2D apps that people can use together, regardless of
-          vision capabilities?
-        </p>
         <div class="image-link-wrapper">
           <ImageLink
             client:visible
@@ -92,42 +178,10 @@ const linkImageStyles = `
             width={300}
           />
         </div>
-      </div>
-    </section>
-
-    <section class="github-projects-section">
-      <h2>GitHub Projects:</h2>
-      <div class="link-group column">
-        <div class="spaced-group">
-          <Link
-            url="https://github.com/GoogleChromeLabs/ProjectVisBug"
-            text="VisBug - A GoogleChromeLabs Project"
-          />
-          <p>Enable designers to edit any webpage live, in any state.</p>
-        </div>
-        <div class="spaced-group">
-          <Link
-            url="https://github.com/hchiam/slides"
-            text="Slides - A Streamlined Slides App"
-          />
-          <p>
-            Easily edit, share, and present slides.
-            <a href="https://simple-slides.surge.sh" target="_blank"
-              >https://simple-slides.surge.sh</a
-            >
-          </p>
-        </div>
-        <div class="spaced-group">
-          <Link
-            url="https://github.com/hchiam/code-tutor"
-            text="Code Tutor - A Google Assistant App"
-          />
-          <p>
-            Let's help people who can't use their hands to learn to code by
-            talking to the Google Assistant (voice assistant). Listed in Google
-            Assistant web directory in 2022.
-          </p>
-        </div>
+        <p>
+          Potential: power 2D apps that people can use together, regardless of
+          vision capabilities?
+        </p>
       </div>
     </section>
 
@@ -318,6 +372,7 @@ const linkImageStyles = `
     font-size: 5rem;
     font-variant: small-caps;
     padding: var(--size-5);
+    margin-block-end: 1rem;
     position: relative;
     line-height: 100%;
     box-shadow: var(--box-shadow);
@@ -411,13 +466,17 @@ const linkImageStyles = `
     background: var(--transparent-grey);
     padding: var(--size-3);
     margin: auto;
-    max-width: 450px;
+    max-width: 397px;
     text-align: left;
     margin-top: var(--size-4);
     box-shadow: var(--box-shadow);
 
     @include fade-in;
     --fade-in-delay: 0.5s;
+
+    > p {
+      margin-bottom: 0.75rem;
+    }
 
     @include custom-bullets;
   }
@@ -489,6 +548,10 @@ const linkImageStyles = `
       bottom: 0;
       transition-delay: #{$i}s;
     }
+  }
+
+  i {
+    color: #a2a2a2;
   }
 </style>
 
