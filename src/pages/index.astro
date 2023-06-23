@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import LogoImg from "../components/LogoImg.astro";
 import ImageLink from "../components/ImageLink.astro";
 import CursorDecoration from "../components/CursorDecoration.astro";
+import Contact from "../components/Contact.astro";
 
 const linkImageStyles = `
 		--img-size: 75px;
@@ -290,6 +291,12 @@ const linkImageStyles = `
           extraButton={false}
         />
       </div>
+    </section>
+
+    <section class="contact-section">
+      <h2>Contact</h2>
+
+      <Contact />
     </section>
   </main>
 </Layout>
