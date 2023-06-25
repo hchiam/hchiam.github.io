@@ -31,7 +31,7 @@ const linkImageStyles = `
       />
     </div>
 
-    <h1 title="This is my name.">Howard Chiam</h1>
+    <h1 title="This is my name." tabindex={0}>Howard Chiam</h1>
 
     <div class="name-section">
       <h2 class="tagline">Learning. Languages. Other&nbsp;stuff.</h2>
@@ -575,6 +575,14 @@ const linkImageStyles = `
   import { IntersectionObserverManager } from "../helpers/intersection-observer-manager.ts";
   import { prefersReducedMotion } from "../helpers/prefers-reduced-motion.ts";
 
+  document.querySelector("h1").addEventListener("click", () => {
+    const scrollSettings = { top: 0, left: 0 };
+    if (!prefersReducedMotion()) {
+      scrollSettings["behavior"] = "smooth";
+    }
+    window.scrollTo(scrollSettings);
+  });
+
   document.addEventListener("scroll", () => {
     const scrollTop = document.documentElement.scrollTop;
     const maxScroll = document.documentElement.scrollHeight;
@@ -587,7 +595,7 @@ const linkImageStyles = `
       Math.round(h1.offsetTop) <= Math.round(scrollTop);
 
     if (stickyTopTriggered && !prefersReducedMotion()) {
-      setCSSVariable("--h1-scale", scale);
+      setCSSVariable("--h1-scale", String(scale));
     }
   });
 

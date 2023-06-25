@@ -22,7 +22,6 @@ const { src, alt, width, height, tabindex } = Astro.props;
 
 <style lang="scss">
   @import "../styles/fade-in";
-  @import "../styles/focus-style";
 
   .wrapper {
     border-radius: 50%;
@@ -32,7 +31,6 @@ const { src, alt, width, height, tabindex } = Astro.props;
     overflow: hidden;
     padding: 10px;
     background: var(--my-gradient);
-    @include focus-style;
     @include fade-in;
     position: relative;
     z-index: 1;
