@@ -32,13 +32,13 @@
   }
 
   li:nth-child(1):before {
-    content: url(../../public/book.svg);
+    content: url(book.svg);
   }
   li:nth-child(2):before {
-    content: url(../../public/a11y.svg);
+    content: url(a11y.svg);
   }
   li:nth-child(3):before {
-    content: url(../../public/robot.svg);
+    content: url(robot.svg);
   }
 
   li::marker {

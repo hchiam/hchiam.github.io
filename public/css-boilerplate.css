@@ -121,7 +121,8 @@ a[target="_blank"]::after {
   font-size: 0px;
 }
 
-code {
+code,
+kbd {
   font-family: monospace;
 }
 
