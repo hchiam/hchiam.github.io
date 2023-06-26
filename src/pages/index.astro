@@ -354,6 +354,11 @@ const linkImageStyles = `
 
       <Contact />
     </section>
+
+    <section class="sr-only">
+      <button class="hidden-button">You found a hidden button to a game!</button
+      >
+    </section>
   </main>
 </Layout>
 
@@ -624,12 +629,24 @@ const linkImageStyles = `
   i {
     color: #a2a2a2;
   }
+
+  .sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
 </style>
 
 <script>
   import { setCSSVariable } from "../helpers/css-variable.ts";
   import { IntersectionObserverManager } from "../helpers/intersection-observer-manager.ts";
   import { prefersReducedMotion } from "../helpers/prefers-reduced-motion.ts";
+  import "../helpers/go-to";
 
   document.querySelector("h1").addEventListener("click", () => {
     const scrollSettings = { top: 0, left: 0 };
@@ -673,4 +690,12 @@ const linkImageStyles = `
         iom.observe(element);
       });
   }
+
+  document.querySelector(".hidden-button").addEventListener("click", () => {
+    game();
+  });
+
+  console.log("https://resume.github.io/?hchiam");
+  console.log("https://github.com/hchiam/learning#--");
+  console.log("https://hchiam.com/notepad");
 </script>
