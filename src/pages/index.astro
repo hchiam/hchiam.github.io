@@ -197,6 +197,16 @@ const linkImageStyles = `
     <section class="certificates-section">
       <h2>Certificates</h2>
 
+      <div class="spaced-group d-none">
+        <ImageLink
+          client:visible
+          alt="PDF of Google Career Certificate for User Experience (UX) Design on Coursera"
+          height={250}
+          href="/Google_Career_Cert_Foundations_of_User_Experience_UX_Design_Course_1.pdf"
+          src="/Google_Career_Cert_Foundations_of_User_Experience_UX_Design_Course_1.png"
+        />
+      </div>
+
       <div class="spaced-group">
         <ImageLink
           client:visible
@@ -666,6 +676,10 @@ const linkImageStyles = `
     overflow: hidden;
     padding: 0;
     position: absolute;
+  }
+
+  .d-none {
+    display: none !important;
   }
 </style>
 
