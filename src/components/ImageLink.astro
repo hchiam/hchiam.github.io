@@ -24,7 +24,14 @@ const {
 ---
 
 <a href={href} target={target} style={aStyle} rel="noopener noreferrer">
-  <img alt={alt} src={src} width={width} height={height} style={imgStyle} />
+  <img
+    client:visible
+    alt={alt}
+    src={src}
+    width={width}
+    height={height}
+    style={imgStyle}
+  />
 </a>
 {extraButton ? <button data-href={href}>VIEW</button> : ""}
 
