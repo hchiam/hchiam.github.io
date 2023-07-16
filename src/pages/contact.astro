@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CursorDecoration from "../components/CursorDecoration.astro";
-
-return Astro.redirect(
-  "https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform"
-);
 ---
+
+<script>
+  window.location.href =
+    "https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform";
+</script>
 
 <Layout
   title="Howard Chiam"
