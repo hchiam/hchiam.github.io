@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CursorDecoration from "../components/CursorDecoration.astro";
+
+const contactFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform";
 ---
 
-<script>
-  window.location.href =
-    "https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform";
+<script define:vars={{ contactFormUrl }}>
+window.location.href = contactFormUrl;
 </script>
 
 <Layout
@@ -15,10 +17,18 @@ import CursorDecoration from "../components/CursorDecoration.astro";
   <CursorDecoration />
   <main>
     <h1>Redirecting...</h1>
+    <p>
+      If you're not automatically redirected in a few seconds, go to <a
+        href={contactFormUrl}
+        target="_blank">{contactFormUrl}</a
+      >
+    </p>
   </main>
 </Layout>
 
 <style lang="scss">
+  @import "../styles/fade-in";
+
   :root {
     --my-gradient: conic-gradient(at top left, lime 45deg, cyan 150deg);
     --transparent-grey: #21252980;
@@ -32,20 +42,20 @@ import CursorDecoration from "../components/CursorDecoration.astro";
 
   body {
     height: calc(100% - var(--size-3));
-  }
-
-  main {
-    width: fit-content;
-    height: 100%;
-    margin: auto;
-    text-align: center;
-    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  main > * {
+  main {
+    width: min-content;
+    max-width: 100%; /* for mobile to look OK still */
+    margin: auto;
+    text-align: center;
+    background: transparent;
+  }
+
+  h1 {
     background: var(--my-gradient);
     color: black;
     margin-bottom: var(--size-3);
@@ -54,7 +64,9 @@ import CursorDecoration from "../components/CursorDecoration.astro";
     padding: var(--size-2) var(--size-3);
   }
 
-  #border-bottom {
-    display: none !important;
+  p {
+    // @include fade-in-and-slide-up;
+    @include fade-in;
+    --fade-in-time: 2s;
   }
 </style>
