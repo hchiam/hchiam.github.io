@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CursorDecoration from "../components/CursorDecoration.astro";
+
+return Astro.redirect(
+  "https://docs.google.com/forms/d/e/1FAIpQLSc6YqCDPJzQKFi43EDPyU9W9mQq7TOdmlZOrhlgsTdcthaGYA/viewform"
+);
+---
+
+<Layout
+  title="Howard Chiam"
+  description="Howard's profile page - a sample of projects, certificates, and starting points to explore."
+>
+  <CursorDecoration />
+  <main>
+    <h1>Redirecting...</h1>
+  </main>
+</Layout>
+
+<style lang="scss">
+  :root {
+    --my-gradient: conic-gradient(at top left, lime 45deg, cyan 150deg);
+    --transparent-grey: #21252980;
+    --h1-scale: 1;
+    --box-shadow: 3px 5px 15px var(--transparent-grey);
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: calc(100% - var(--size-3));
+  }
+
+  main {
+    width: fit-content;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main > * {
+    background: var(--my-gradient);
+    color: black;
+    margin-bottom: var(--size-3);
+    margin-inline: calc(-1 * var(--angled-box-padding));
+    border-radius: 0.5rem;
+    padding: var(--size-2) var(--size-3);
+  }
+
+  #border-bottom {
+    display: none !important;
+  }
+</style>
