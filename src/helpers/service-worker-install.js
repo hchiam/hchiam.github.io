@@ -4,7 +4,7 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     // Try to register the service worker.
     try {
-      await fetch("/offline.html").catch(() => {});
+      await fetch("/offline").catch(() => {});
 
       // Capture the registration for later use, if needed
       let registration;
