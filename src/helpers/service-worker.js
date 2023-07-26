@@ -28,7 +28,7 @@ function setUpPageCache() {
   });
   warmStrategyCache({
     // urls: ["/index.html", "/"],
-    urls: ["/", "/offline"],
+    urls: ["/", "/offline/"],
     strategy: pageCache,
   });
   registerRoute(({ request }) => request.mode === "navigate", pageCache);
