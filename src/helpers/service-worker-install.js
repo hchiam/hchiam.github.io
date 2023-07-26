@@ -4,12 +4,12 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     // Try to register the service worker.
     try {
-      await fetch("/offline").catch(() => {});
+      await fetch("/offline.html").catch(() => {});
 
       // Capture the registration for later use, if needed
       let registration;
 
-      const swPath = "/src/helpers/service-worker.js";
+      const swPath = "/service-worker.js";
 
       // import.meta.env.DEV is a special environment variable injected by Vite to let us know we're in development mode. Here, we can use the JS Module form of our service worker because we can control our browsers in dev.
       if (import.meta.env.DEV) {
