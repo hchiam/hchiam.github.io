@@ -13,7 +13,7 @@
     "ghp-2": "git add . && git commit -m \"Deploy to gh-pages/docs\" && git push && git status",
     "ghp-3": "git push origin main:gh-pages",
     "deploy:surge": "surge docs https://hchiam.surge.sh",
-    "surge": "yarn deploy:surge",
+    "surge": "astro build && yarn deploy:surge",
     "reminder": "echo; echo 'Reminder: Do you need to \\033[1;34m[skip ci]\\033[0m?'; echo;"
   },
   "devDependencies": {
