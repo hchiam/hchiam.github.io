@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro build; astro preview",
     "deploy": "astro build && yarn deploy:gh-pages && yarn deploy:surge",
     "deploy:gh-pages": "yarn ghp-1 && yarn ghp-2 && yarn ghp-3",
     "ghp-1": "cp -r dist/* docs && cp {.nojekyll,CNAME,manifest.webmanifest} docs",

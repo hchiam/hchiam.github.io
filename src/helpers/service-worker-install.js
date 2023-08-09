@@ -16,14 +16,14 @@ if ("serviceWorker" in navigator) {
         registration = await navigator.serviceWorker.register(swPath, {
           type: "module",
         });
-        console.log("Service worker registered! 😎", registration);
+        console.log("Service worker registered." /*, registration*/);
       } else {
         // In production, we use the normal service worker registration
         registration = await navigator.serviceWorker.register(swPath);
       }
     } catch (err) {
       if (import.meta.env.DEV) {
-        console.log("😥 Service worker registration failed: ", err);
+        console.log("Service worker registration failed: ", err);
       }
     }
   });

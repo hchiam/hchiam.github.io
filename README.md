@@ -20,6 +20,14 @@ yarn dev # http://localhost:3000
 
 ## Deploy to live sites
 
+Simulate deploy locally:
+
+```bash
+yarn preview # http://localhost:3000
+```
+
+Then actually deploy:
+
 ```bash
 # make sure you're in the main branch before you run this!
 git pull
