@@ -53,5 +53,15 @@
         online.
       </p>
     </div>
+    <script>
+      setInterval(() => {
+        if (isOnline()) {
+          location.reload();
+        }
+      }, 5000);
+      function isOnline() {
+        return !("onLine" in navigator) || navigator.onLine;
+      }
+    </script>
   </body>
 </html>
