@@ -657,9 +657,10 @@ const linkImageStyles = `
   }
 
   section {
-    width: 100vw;
-    width: 100dvw;
+    width: calc(100vw - 2rem);
+    width: calc(100dvw - 2rem);
     max-width: 700px;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
   }
