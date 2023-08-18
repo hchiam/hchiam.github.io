@@ -30,7 +30,9 @@ const linkImageStyles = `
       />
     </div>
 
-    <h1 title="This is my name. Hi!" tabindex={0}>Howard Chiam</h1>
+    <h1 class="animation" title="This is my name. Hi!" tabindex={0}>
+      Howard Chiam
+    </h1>
 
     <div class="name-section">
       <h2 class="tagline">Learning. Languages. Other&nbsp;stuff.</h2>
@@ -497,6 +499,9 @@ const linkImageStyles = `
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: var(--accent-colour);
+    }
+
+    &.animation:after {
       @include grow-circle-path;
     }
 
@@ -698,18 +703,26 @@ const linkImageStyles = `
 </style>
 
 <script>
-  import { setCSSVariable } from "../helpers/css-variable.ts";
-  import { IntersectionObserverManager } from "../helpers/intersection-observer-manager.ts";
-  import { prefersReducedMotion } from "../helpers/prefers-reduced-motion.ts";
+  import { setCSSVariable } from "../helpers/css-variable";
+  import { IntersectionObserverManager } from "../helpers/intersection-observer-manager";
+  import { prefersReducedMotion } from "../helpers/prefers-reduced-motion";
+  import { restartCssAnimation } from "../helpers/restartCssAnimation";
   import "../helpers/go-to.js";
   import "../helpers/service-worker-install.js";
+  import { hitEnter, hitSpacebar } from "../helpers/hitKeys";
 
-  document.querySelector("h1").addEventListener("click", () => {
+  const h1 = document.querySelector("h1");
+  function onH1Click() {
     const scrollSettings = { top: 0, left: 0 };
-    if (!prefersReducedMotion()) {
-      scrollSettings["behavior"] = "smooth";
-    }
+    if (!prefersReducedMotion()) scrollSettings["behavior"] = "smooth";
     window.scrollTo(scrollSettings);
+    restartCssAnimation(h1, "animation");
+  }
+  h1.addEventListener("click", () => {
+    onH1Click();
+  });
+  h1.addEventListener("keypress", (event) => {
+    if (hitEnter(event) || hitSpacebar(event)) onH1Click();
   });
 
   document.addEventListener("scroll", () => {
