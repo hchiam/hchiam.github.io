@@ -433,7 +433,7 @@ const linkImageStyles = `
       background: black;
       border-radius: 0.5rem 0.5rem 0 0;
       color: var(--accent-colour);
-      font-size: var(--size-8);
+      font-size: var(--size-9);
       margin-bottom: var(--size-3);
     }
 
@@ -654,6 +654,25 @@ const linkImageStyles = `
 
   i {
     color: #a2a2a2;
+  }
+
+  section {
+    width: 100vw;
+    width: 100dvw;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+  }
+  section > div {
+    &:nth-of-type(odd) {
+      align-self: flex-start;
+    }
+    &:nth-of-type(even) {
+      align-self: flex-end;
+    }
+    &:only-of-type {
+      align-self: center;
+    }
   }
 
   .sr-only {

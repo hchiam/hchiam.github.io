@@ -5,7 +5,7 @@
 
   clip-path: polygon(
     calc(0% + var(--angled-box-padding) / 2) 0%,
-    100% 0%,
+    calc(100% + 2px) 0%,
     calc(100% - var(--angled-box-padding) / 2) 100%,
     0% 100%
   );
