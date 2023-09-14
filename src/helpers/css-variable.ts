@@ -30,5 +30,5 @@ export function setCSSVariable(
 ): void {
   (
     element || (document.querySelector(":root") as HTMLElement)
-  ).style.setProperty(name, value);
+  ).style.setProperty("--" + name.replace(/^--/, ""), value);
 }
