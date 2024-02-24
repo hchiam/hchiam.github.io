@@ -1,34 +1,51 @@
 ---
-// import Layout from '../layouts/Layout.astro';
-import Favicon from "../components/Favicon.astro";
+import Layout from "../layouts/Layout.astro";
+
+const redirectUrl =
+  "https://drive.google.com/drive/folders/1d5DnnJA9bMuo7xoFanJyaB71DtDJ5qLs";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <Favicon />
-    <title>UX</title>
-  </head>
+<Layout
+  title="Howard Chiam - UX"
+  description="Redirecting to: Howard's UX design portfolio project folder (Google Career Certificate program)"
+>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-  <body>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
+    html,
+    body {
+      height: 100%;
+    }
 
-      body {
-        background: #222;
-        color: white;
-        display: flex;
-        justify-content: center;
-      }
-    </style>
-    <script>
-      import "../helpers/go-to.js";
-    </script>
-  </body>
-</html>
+    body {
+      background: #222;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      text-align: center;
+    }
+  </style>
+  <main>
+    <h1>
+      Redirecting to: <br />
+      <a href={redirectUrl} target="_blank"
+        >Howard's UX design portfolio project folder</a
+      >
+    </h1>
+    <p><small>(Google Career Certificate program)</small></p>
+  </main>
+  <script>
+    import "../helpers/go-to.js";
+  </script>
+  <script define:vars={{ redirectUrl }}>
+    location.href = redirectUrl;
+  </script>
+</Layout>
