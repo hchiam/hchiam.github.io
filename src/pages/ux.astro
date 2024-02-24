@@ -1,13 +1,14 @@
 ---
 // import Layout from '../layouts/Layout.astro';
+import Favicon from "../components/Favicon.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/htc.png" />
+    <Favicon />
     <title>UX</title>
   </head>
 
@@ -26,9 +27,8 @@
         justify-content: center;
       }
     </style>
+    <script>
+      import "../helpers/go-to.js";
+    </script>
   </body>
 </html>
-
-<script>
-  import "../helpers/go-to.js";
-</script>

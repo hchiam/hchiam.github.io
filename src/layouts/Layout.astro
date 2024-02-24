@@ -1,4 +1,6 @@
 ---
+import Favicon from "../components/Favicon.astro";
+
 export interface Props {
   title: string;
   description: string;
@@ -12,7 +14,7 @@ const { title, description } = Astro.props as Props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/htc_favicon.png" />
+    <Favicon />
     <link rel="stylesheet" href="/open-props.min.css" />
     <link rel="stylesheet" href="/css-boilerplate.css" />
     <script src="/flying-focus.js" is:inline></script>
@@ -22,43 +24,41 @@ const { title, description } = Astro.props as Props;
 
   <body>
     <slot />
-  </body>
-  <div id="border-bottom"></div>
-</html>
-
-<style lang="scss">
-  html {
-    background:
+    <div id="border-bottom"></div>
+  </body><style lang="scss">
+    html {
+      background:
                   /* first in list is layered on top: */ linear-gradient(
-        calc(180deg - 25deg),
-        transparent 0%,
-        transparent 50%,
-        var(--gray-7) 50%,
-        var(--gray-7) 100%
-      ),
-      linear-gradient(
-        calc(180deg + 15deg),
-        transparent 0%,
-        transparent 50%,
-        var(--gray-8) 50%,
-        var(--gray-8) 100%
-      ),
-      var(--gray-9);
-    background-attachment: fixed;
-    height: fit-content;
-    // border-bottom: var(--size-3) solid var(--accent-colour);
-    border-radius: 0;
-  }
+          calc(180deg - 25deg),
+          transparent 0%,
+          transparent 50%,
+          var(--gray-7) 50%,
+          var(--gray-7) 100%
+        ),
+        linear-gradient(
+          calc(180deg + 15deg),
+          transparent 0%,
+          transparent 50%,
+          var(--gray-8) 50%,
+          var(--gray-8) 100%
+        ),
+        var(--gray-9);
+      background-attachment: fixed;
+      height: fit-content;
+      // border-bottom: var(--size-3) solid var(--accent-colour);
+      border-radius: 0;
+    }
 
-  #border-bottom {
-    height: var(--size-3);
-    background: var(--my-gradient);
-    border-radius: 0;
-  }
+    #border-bottom {
+      height: var(--size-3);
+      background: var(--my-gradient);
+      border-radius: 0;
+    }
 
-  body {
-    background: transparent;
-    height: calc(100% - var(--size-3));
-    padding: 0;
-  }
-</style>
+    body {
+      background: transparent;
+      height: calc(100% - var(--size-3));
+      padding: 0;
+    }
+  </style>
+</html>
