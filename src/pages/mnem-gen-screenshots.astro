@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const redirectUrl =
+  "https://drive.google.com/drive/folders/16Jgy1uhNv0dcPRSchGMGMfzJSVsQ3gT1";
+---
+
+<Layout
+  title="Howard Chiam - Mnemonic Generator Screenshots"
+  description="Redirecting to: Mnemonic Generator Screenshots"
+>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background: #222;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      text-align: center;
+    }
+  </style>
+  <main>
+    <h1>
+      Redirecting to: <br />
+      <a href={redirectUrl} target="_blank"
+        >Mnemonic Generator Screenshots (google drive folder)</a
+      >
+    </h1>
+  </main>
+  <script>
+    import "../helpers/go-to.js";
+  </script>
+  <script define:vars={{ redirectUrl }}>
+    location.href = redirectUrl;
+  </script>
+</Layout>
