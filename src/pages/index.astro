@@ -36,7 +36,7 @@ const linkImageStyles = `
 
     <div class="name-section">
       <h2 class="tagline">Learning. Languages. Other&nbsp;stuff.</h2>
-      <div class="tagline-details">
+      <div id="tagline_details" class="tagline-details">
         <p>
           I'm a Front-End web developer and language nerd with interests in
           things like:
@@ -49,7 +49,7 @@ const linkImageStyles = `
       </div>
     </div>
 
-    <section class="projects-section">
+    <section class="projects-section" id="collapsible_section_1">
       <h2>Projects</h2>
 
       <div class="spaced-group">
@@ -191,7 +191,7 @@ const linkImageStyles = `
       </div>
     </section>
 
-    <section class="certificates-section">
+    <section class="certificates-section" id="collapsible_section_2">
       <h2>Continuous Learning</h2>
 
       <div class="spaced-group">
@@ -345,7 +345,7 @@ const linkImageStyles = `
       </div>
     </section>
 
-    <section class="book-section">
+    <section class="book-section" id="collapsible_section_3">
       <h2>Book</h2>
 
       <div class="spaced-group">
@@ -374,7 +374,7 @@ const linkImageStyles = `
       </div>
     </section>
 
-    <section class="links-section">
+    <section class="links-section" id="collapsible_section_4">
       <h2>Links</h2>
 
       <div class="link-group row">
@@ -413,7 +413,7 @@ const linkImageStyles = `
       </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" id="collapsible_section_5">
       <h2>Contact</h2>
 
       <Contact />
@@ -762,6 +762,24 @@ const linkImageStyles = `
   .d-none {
     display: none !important;
   }
+
+  // for collapsible sections:
+  h2 {
+    cursor: grab;
+    position: relative;
+    &:after {
+      content: "▼";
+      -webkit-text-fill-color: white;
+      position: relative;
+      display: inline-block;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.2s;
+      }
+    }
+    &[aria-expanded="false"]:after {
+      transform: rotate(0.5turn);
+    }
+  }
 </style>
 
 <script>
@@ -772,6 +790,7 @@ const linkImageStyles = `
   import "../helpers/go-to.js";
   import "../helpers/service-worker-install.js";
   import { hitEnter, hitSpacebar } from "../helpers/hitKeys";
+  import "../helpers/collapsible-sections";
 
   const h1 = document.querySelector("h1");
   function onH1Click() {
