@@ -46,6 +46,17 @@
     inset-block-start: var(--size-3);
     inset-inline-end: var(--size-3);
     z-index: 1;
+
+    opacity: 0;
+    pointer-events: none;
+    animation: show-translate-button forwards 0s;
+    animation-delay: 1s;
+  }
+  @keyframes show-translate-button {
+    100% {
+      opacity: 1;
+      pointer-events: revert;
+    }
   }
 
   #translate-button {
