@@ -38,7 +38,7 @@ async function translateOneElement(element, reverse = false) {
   let translation = element.getAttribute(
     reverse ? "data-english" : "data-translation"
   );
-  let english = element.innerText;
+  let english = element.innerText.trim();
   element.setAttribute(reverse ? "data-translation" : "data-english", english);
   const maxLen = Math.max(translation.length, english.length) + 1;
   translation = translation.padEnd(maxLen, " ");
