@@ -765,19 +765,32 @@ const linkImageStyles = `
 
   // for collapsible sections:
   h2 {
-    cursor: grab;
+    cursor: pointer;
     position: relative;
+    &:hover:after {
+      transform: scale(1.1);
+    }
     &:after {
-      content: "▼";
-      -webkit-text-fill-color: white;
+      content: "";
+      background: white;
+      width: 0.5em;
+      height: 0.5em;
+      clip-path: polygon(0% 20%, 100% 20%, 50% 100%);
+      margin-inline-start: 10px;
       position: relative;
       display: inline-block;
       @media (prefers-reduced-motion: no-preference) {
-        transition: transform 0.2s;
+        transition:
+          transform 0.5s,
+          opacity 0.5s;
       }
+    }
+    &[aria-expanded="false"]:hover:after {
+      transform: scale(1.1) rotate(0.5turn);
     }
     &[aria-expanded="false"]:after {
       transform: rotate(0.5turn);
+      opacity: 0.5;
     }
   }
 </style>
