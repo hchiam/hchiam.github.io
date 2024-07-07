@@ -2,6 +2,7 @@
 export interface Props {
   href: string;
   alt: string;
+  dataTranslationAlt?: string;
   src: string;
   width?: number;
   height?: number;
@@ -13,6 +14,7 @@ export interface Props {
 const {
   href,
   alt,
+  dataTranslationAlt,
   src,
   width,
   height,
@@ -27,13 +29,22 @@ const {
   <img
     client:visible
     alt={alt}
+    data-translation-alt={dataTranslationAlt}
     src={src}
     width={width}
     height={height}
     style={imgStyle}
   />
 </a>
-{extraButton ? <button data-href={href}>VIEW</button> : ""}
+{
+  extraButton ? (
+    <button data-href={href} data-translation="VOIR">
+      VIEW
+    </button>
+  ) : (
+    ""
+  )
+}
 
 <script>
   function handleClick(href) {

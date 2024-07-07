@@ -1,0 +1,91 @@
+<div>
+  <button
+    id="translate-button"
+    data-current-language="en"
+    data-translation-aria-label="Translate to English"
+    aria-label="Traduire en français"
+  >
+    <span class="fr">Français</span><span class="en">English</span><span
+      class="spinner"
+      data-translation="Traduction en cours ..."
+      >Translation in progress...</span
+    >
+  </button>
+</div>
+
+<script>
+  import {
+    translationAnimation,
+    translationReverseAnimation,
+  } from "../helpers/translationAnimation";
+  const translateButton = document.querySelector("#translate-button");
+  translateButton.addEventListener("click", async () => {
+    translateButton.blur();
+    const currentLanguage = translateButton.getAttribute(
+      "data-current-language"
+    );
+    if (currentLanguage === "en") {
+      translateButton.setAttribute("data-current-language", "fr");
+      translateButton.classList.add("translating");
+      await translationAnimation();
+      translateButton.classList.remove("translating");
+    } else {
+      translateButton.setAttribute("data-current-language", "en");
+      translateButton.classList.add("translating");
+      await translationReverseAnimation();
+      translateButton.classList.remove("translating");
+    }
+  });
+</script>
+
+<style lang="scss">
+  div {
+    text-align: end;
+    background: transparent;
+    position: fixed;
+    inset-block-start: var(--size-3);
+    inset-inline-end: var(--size-3);
+    z-index: 1;
+  }
+
+  #translate-button {
+    padding: var(--size-3);
+    cursor: pointer;
+
+    * {
+      background: transparent;
+    }
+
+    &[data-current-language="en"] {
+      .en {
+        display: none;
+      }
+    }
+    &[data-current-language="fr"] {
+      .fr {
+        display: none;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      span {
+        color: inherit;
+      }
+    }
+
+    .spinner {
+      display: none;
+    }
+    &.translating {
+      pointer-events: none;
+      .spinner {
+        display: revert;
+      }
+      .fr,
+      .en {
+        display: none;
+      }
+    }
+  }
+</style>
