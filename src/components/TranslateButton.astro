@@ -51,6 +51,7 @@
   #translate-button {
     padding: var(--size-3);
     cursor: pointer;
+    transition: background 0.5s;
 
     * {
       background: transparent;
@@ -78,6 +79,8 @@
       display: none;
     }
     &.translating {
+      transition: background 2s;
+      background-color: var(--red-9);
       pointer-events: none;
       .spinner {
         display: revert;
