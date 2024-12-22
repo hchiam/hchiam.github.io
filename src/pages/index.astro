@@ -631,6 +631,21 @@ const linkImageStyles = `
     font-weight: var(--font-weight-9);
   }
 
+  // h1,
+  // h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,span {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 3px #202020;
+    paint-order: stroke fill;
+  }
+  h3 > span {
+    background: transparent;
+  }
+
   section {
     background: var(--transparent-grey);
     background-image: linear-gradient(
@@ -713,6 +728,7 @@ const linkImageStyles = `
     box-shadow: var(--box-shadow);
     border: var(--size-2) solid black;
     border-radius: var(--radius-blob-2);
+    outline: 7px solid #202020;
 
     &:after {
       content: "Howard Chiam";
@@ -800,6 +816,10 @@ const linkImageStyles = `
     padding-top: 0;
     @include fade-in;
     --fade-in-delay: 0.1s;
+
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 7px #202020;
+    paint-order: stroke fill;
   }
 
   .tagline-details {
