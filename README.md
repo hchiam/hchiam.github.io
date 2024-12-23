@@ -15,7 +15,7 @@ yarn # or npm i
 ## Try it locally
 
 ```bash
-yarn dev # http://localhost:3000
+yarn dev # http://localhost:4321
 ```
 
 ## Deploy to live sites
@@ -23,7 +23,7 @@ yarn dev # http://localhost:3000
 Simulate deploy locally:
 
 ```bash
-yarn preview # http://localhost:3000
+yarn preview # http://localhost:4321
 ```
 
 Then actually deploy:
