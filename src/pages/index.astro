@@ -802,11 +802,7 @@ const linkImageStyles = `
     overflow: hidden;
     border-radius: var(--size-6);
 
-    @media (min-width: 550px) {
-      /* tablet and above */
-
-      @include angled-box;
-    }
+    @include angled-box;
 
     h3 {
       margin-top: calc(-1 * var(--size-3));
@@ -842,7 +838,9 @@ const linkImageStyles = `
 
   .tagline-details-shadow-container {
     background: transparent;
-    filter: drop-shadow(var(--size-1) var(--size-2) var(--size-1) var(--transparent-grey));
+    filter: drop-shadow(
+      var(--size-1) var(--size-2) var(--size-1) var(--transparent-grey)
+    );
   }
 
   .tagline-details {
