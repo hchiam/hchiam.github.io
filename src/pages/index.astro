@@ -280,6 +280,7 @@ const linkImageStyles = `
       <h2 data-translation="L'apprentissage continu">Continuous Learning</h2>
 
       <div class="spaced-group">
+        <h3 tabindex="0"></h3>
         <ImageLink
           alt="PDF of Google Career Certificate for User Experience (UX) Design on Coursera"
           data-translation-alt="PDF du certificat de carrière Google pour la conception d'expérience utilisateur (UX) sur Coursera"
@@ -333,6 +334,7 @@ const linkImageStyles = `
       </div>
 
       <div class="spaced-group">
+        <h3 tabindex="0"></h3>
         <ImageLink
           alt="PDF certificate for DeepLearning.AI TensorFlow Developer Specialization on Coursera"
           data-translation-alt="Certificat PDF pour la spécialisation de développeur DeepLearning.AI TensorFlow sur Coursera"
@@ -367,6 +369,7 @@ const linkImageStyles = `
       </div>
 
       <div class="spaced-group">
+        <h3 tabindex="0"></h3>
         <ImageLink
           alt="PDF certificate for Prompt Engineering course completion on Udemy"
           data-translation-alt="Certificat PDF pour l'achèvement du cours Prompt Engineering sur Udemy"
@@ -423,6 +426,7 @@ const linkImageStyles = `
       </div>
 
       <div class="spaced-group">
+        <h3 tabindex="0"></h3>
         <ImageLink
           alt="PDF Certificate for Joshua Comeau's CSS Course"
           data-translation-alt="Certificat PDF pour le cours CSS de Joshua Comeau"
@@ -452,6 +456,7 @@ const linkImageStyles = `
       </div>
 
       <div class="spaced-group">
+        <h3 tabindex="0"></h3>
         <ImageLink
           alt="IAAP WAS Badge"
           data-translation-alt="Insigne IAAP WAS"
@@ -517,6 +522,7 @@ const linkImageStyles = `
       <h2 data-translation="Livre">Book</h2>
 
       <div class="spaced-group">
+        <h3 tabindex="0"></h3>
         <ImageLink
           alt="Chinese Vocab Mnemonics Storybook - HSK 1"
           width={150}
@@ -732,11 +738,14 @@ const linkImageStyles = `
     padding: var(--size-5);
     margin-block-end: 1rem;
     position: relative;
-    min-height: 20vh;
     line-height: 100%;
     box-shadow: var(--box-shadow);
     border: var(--size-2) solid black;
-    border-radius: var(--radius-blob-2);
+    // border-radius: var(--radius-blob-2);
+    @include angled-box;
+    --angled-box-padding: var(
+      --size-5
+    ); // so angled-box doesn't mess up alignment of :after
 
     &:after {
       content: "Howard Chiam";
@@ -758,7 +767,7 @@ const linkImageStyles = `
     @media (min-width: 1100px) {
       // laptop: (1100px is to the left but spaced away from likely laptop sizes)
       position: sticky;
-      top: -0.3em;
+      top: -5px;
       z-index: 1;
       will-change: transform;
       transform: scale(var(--h1-scale));
@@ -778,12 +787,15 @@ const linkImageStyles = `
     background: transparent;
     margin-bottom: var(--size-8);
     min-height: 50vh;
+
+    #tagline_details {
+      @include angled-box;
+    }
   }
 
   .spaced-group {
     min-height: var(--size-10);
     margin: var(--size-3);
-    padding: var(--size-3);
     overflow: hidden;
     border-radius: var(--size-6);
 
@@ -795,13 +807,7 @@ const linkImageStyles = `
 
     h3 {
       margin-top: calc(-1 * var(--size-3));
-      padding: var(--size-3);
-
-      @media (max-width: 550px) {
-        /* mobile */
-        margin-left: -1rem;
-        margin-right: -1rem;
-      }
+      padding: var(--size-8) var(--size-3) var(--size-3);
 
       a {
         transition: 0s; // prevent making heading change size
@@ -815,6 +821,7 @@ const linkImageStyles = `
       text-align: left;
       padding-bottom: var(--size-3);
       text-wrap: balance;
+      margin: var(--size-5);
     }
   }
 
