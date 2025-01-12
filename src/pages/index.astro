@@ -625,6 +625,7 @@ const linkImageStyles = `
     margin: auto;
     text-align: center;
     background: transparent;
+    padding: 0;
   }
 
   // h1,
@@ -684,6 +685,7 @@ const linkImageStyles = `
     // --fade-in-delay: 0s;
 
     h2 {
+      flex: 1 0 100%;
       background: black;
       border-radius: 0.5rem 0.5rem 0 0;
       color: var(--accent-colour);
@@ -921,24 +923,14 @@ const linkImageStyles = `
   }
 
   section {
-    width: calc(100vw - 2rem);
-    width: calc(100dvw - 2rem);
-    max-width: 700px;
-    margin-inline: auto;
-    margin-block-end: var(--size-12);
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   section > div {
-    &:nth-of-type(odd) {
-      align-self: flex-start;
-    }
-    &:nth-of-type(even) {
-      align-self: flex-end;
-    }
-    &:only-of-type {
-      align-self: center;
-    }
+    align-self: flex-start;
+    max-width: 24rem;
   }
 
   .sr-only {
