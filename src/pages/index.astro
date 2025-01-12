@@ -47,35 +47,37 @@ const linkImageStyles = `
       >
         Learning. Languages. Other&nbsp;stuff.
       </h2>
-      <div id="tagline_details" class="tagline-details">
-        <p
-          data-translation="Chuis développeur web front-end et nerd des langues, qui s'intéresse à plusieurs choses telles que :"
-        >
-          I'm a Front-End web developer and language nerd with interests in
-          things like:
-        </p>
-        <ul>
-          <li>
-            <span data-translation="l'éducation,">education,</span>
-          </li>
-          <li>
-            <span data-translation="l'accessibilité web,"
-              >web accessibility,</span
-            >
-            <i data-translation="et">and</i>
-          </li>
-          <li>
-            <span data-translation="l'apprentissage automatique."
-              >machine learning.</span
-            >
-          </li>
-        </ul>
-        <p
-          data-translation="Je créais des jeux pour le plaisir et pour la recherche. Par example, j'ai créé deux jeux vidéo simples pour les survivants d'un AVC."
-        >
-          I've been making games for fun and for research. For example, I built
-          a couple simple video games for stroke survivors.
-        </p>
+      <div class="tagline-details-shadow-container">
+        <div id="tagline_details" class="tagline-details">
+          <p
+            data-translation="Chuis développeur web front-end et nerd des langues, qui s'intéresse à plusieurs choses telles que :"
+          >
+            I'm a Front-End web developer and language nerd with interests in
+            things like:
+          </p>
+          <ul>
+            <li>
+              <span data-translation="l'éducation,">education,</span>
+            </li>
+            <li>
+              <span data-translation="l'accessibilité web,"
+                >web accessibility,</span
+              >
+              <i data-translation="et">and</i>
+            </li>
+            <li>
+              <span data-translation="l'apprentissage automatique."
+                >machine learning.</span
+              >
+            </li>
+          </ul>
+          <p
+            data-translation="Je créais des jeux pour le plaisir et pour la recherche. Par example, j'ai créé deux jeux vidéo simples pour les survivants d'un AVC."
+          >
+            I've been making games for fun and for research. For example, I
+            built a couple simple video games for stroke survivors.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -838,6 +840,11 @@ const linkImageStyles = `
     paint-order: stroke fill;
   }
 
+  .tagline-details-shadow-container {
+    background: transparent;
+    filter: drop-shadow(var(--size-1) var(--size-2) var(--size-1) var(--transparent-grey));
+  }
+
   .tagline-details {
     background: var(--transparent-grey);
     padding: var(--size-3);
@@ -845,7 +852,7 @@ const linkImageStyles = `
     max-width: 397px;
     text-align: left;
     margin-top: var(--size-4);
-    box-shadow: var(--box-shadow);
+    // box-shadow: var(--box-shadow);
 
     @include fade-in;
     --fade-in-delay: 0.5s;
