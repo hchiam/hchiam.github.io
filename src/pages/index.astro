@@ -1010,8 +1010,12 @@ const linkImageStyles = `
     }
   }
 
-  * {
-    @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) {
+    h1,
+    .name-section h2,
+    .name-section p,
+    .name-section span,
+    .name-section i {
       font-family: "PenFriendlyBraille";
       src: url("./fonts/PenFriendlyBraille.ttf") format("truetype");
     }
