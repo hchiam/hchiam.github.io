@@ -1009,6 +1009,13 @@ const linkImageStyles = `
       opacity: 0.5;
     }
   }
+
+  * {
+    @media (prefers-reduced-motion: no-preference) {
+      font-family: "PenFriendlyBraille";
+      src: url("./fonts/PenFriendlyBraille.ttf") format("truetype");
+    }
+  }
 </style>
 
 <script>
@@ -1021,6 +1028,7 @@ const linkImageStyles = `
   import { hitEnter, hitSpacebar } from "../helpers/hitKeys";
   import "../helpers/collapsible-sections";
   import "../helpers/translationAnimation";
+  import "../helpers/animate-font-change";
 
   const h1 = document.querySelector("h1");
   function onH1Click() {
