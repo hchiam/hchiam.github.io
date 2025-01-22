@@ -20,45 +20,53 @@ const { title, description } = Astro.props as Props;
     <script src="/flying-focus.js" is:inline></script>
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link
+      rel="preload"
+      as="font"
+      type="font/ttf"
+      href="./fonts/PenFriendlyBraille.ttf"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
     <slot />
     <div id="border-bottom"></div>
-  </body><style lang="scss">
-    html {
-      background:
+    <style lang="scss">
+      html {
+        background:
                   /* first in list is layered on top: */ linear-gradient(
-          calc(180deg - 25deg),
-          transparent 0%,
-          transparent 50%,
-          var(--gray-7) 50%,
-          var(--gray-7) 100%
-        ),
-        linear-gradient(
-          calc(180deg + 15deg),
-          transparent 0%,
-          transparent 50%,
-          var(--gray-8) 50%,
-          var(--gray-8) 100%
-        ),
-        var(--gray-9);
-      background-attachment: fixed;
-      height: fit-content;
-      // border-bottom: var(--size-3) solid var(--accent-colour);
-      border-radius: 0;
-    }
+            calc(180deg - 25deg),
+            transparent 0%,
+            transparent 50%,
+            var(--gray-7) 50%,
+            var(--gray-7) 100%
+          ),
+          linear-gradient(
+            calc(180deg + 15deg),
+            transparent 0%,
+            transparent 50%,
+            var(--gray-8) 50%,
+            var(--gray-8) 100%
+          ),
+          var(--gray-9);
+        background-attachment: fixed;
+        height: fit-content;
+        // border-bottom: var(--size-3) solid var(--accent-colour);
+        border-radius: 0;
+      }
 
-    #border-bottom {
-      height: var(--size-3);
-      background: var(--my-gradient);
-      border-radius: 0;
-    }
+      #border-bottom {
+        height: var(--size-3);
+        background: var(--my-gradient);
+        border-radius: 0;
+      }
 
-    body {
-      background: transparent;
-      height: calc(100% - var(--size-3));
-      padding: 0;
-    }
-  </style>
+      body {
+        background: transparent;
+        height: calc(100% - var(--size-3));
+        padding: 0;
+      }
+    </style>
+  </body>
 </html>
