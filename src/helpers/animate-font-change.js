@@ -14,9 +14,9 @@ async function animateFontChange(
     'url("./fonts/PenFriendlyBraille.ttf") format("truetype")';
   const styleClass = "PenFriendlyBraille";
 
-  const suffix = /*"U+" +*/ rangeEndHex.toString(16).toUpperCase();
-  for (let i = rangeStartHex; i <= rangeEndHex; i++) {
-    const prefix = "U+" + i.toString(16).toUpperCase() + "-";
+  const prefix = "U+" + rangeStartHex.toString(16).toUpperCase() + "-";
+  for (let i = rangeEndHex; i >= rangeStartHex; i--) {
+    const suffix = /*"U+" +*/ i.toString(16).toUpperCase();
     updateFontUnicodeRange(prefix + suffix, overrideFontSrc, styleClass);
     await sleep(speedMs);
   }
