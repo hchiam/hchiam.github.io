@@ -680,6 +680,25 @@ const linkImageStyles = `
     background: transparent;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .name-section h2,
+    .name-section p,
+    .name-section span,
+    .name-section i {
+      font-family: "PenFriendlyBraille";
+      src: url("./fonts/PenFriendlyBraille.ttf") format("truetype");
+      filter: blur(1rem);
+      transition: filter 0.2s;
+      animation: unblur 0.2s both;
+      animation-delay: 1s;
+    }
+  }
+  @keyframes unblur {
+    to {
+      filter: blur(0);
+    }
+  }
+
   section {
     background: var(--transparent-grey);
     background-image: linear-gradient(
@@ -1007,17 +1026,6 @@ const linkImageStyles = `
     &[aria-expanded="false"]:after {
       transform: rotate(0.5turn);
       opacity: 0.5;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    h1,
-    .name-section h2,
-    .name-section p,
-    .name-section span,
-    .name-section i {
-      font-family: "PenFriendlyBraille";
-      src: url("./fonts/PenFriendlyBraille.ttf") format("truetype");
     }
   }
 </style>
