@@ -1,7 +1,9 @@
 import { prefersReducedMotion } from "./prefers-reduced-motion";
 
 if (!prefersReducedMotion()) {
-  animateFontChange();
+  setTimeout(() => {
+    animateFontChange();
+  }, 1000);
 }
 async function animateFontChange(
   rangeStartHex = 0x0041, // 'A'
