@@ -1,0 +1,6 @@
+@mixin text-outline {
+    --text-outline-size: 3px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: var(--text-outline-size) #202020;
+    paint-order: stroke fill;
+}
