@@ -41,13 +41,14 @@ function makeSectionsCollapsibleByH2s() {
     }
   });
 
+  const bigMaxHeightToAllowAnimation = "5000vh";
   nonTaglineH2s.forEach((x, i) => {
     const isLastSection = i === nonTaglineH2s.length - 1;
     x.setAttribute("tabindex", "0");
     x.setAttribute("role", "button");
     x.setAttribute("aria-controls", "collapsible_section_" + (i + 1));
     const section = x.parentElement;
-    section.style.maxHeight = "500vh";
+    section.style.maxHeight = bigMaxHeightToAllowAnimation;
     if (!prefersReducedMotion()) {
       section.style.transition = "max-height 0.2s";
     }
@@ -57,13 +58,13 @@ function makeSectionsCollapsibleByH2s() {
       const directChildDivs = [...section.children].filter(
         (x) => x.tagName.toLowerCase() === "div"
       );
-      if (section.style.maxHeight === "500vh") {
+      if (section.style.maxHeight === bigMaxHeightToAllowAnimation) {
         section.style.maxHeight = x.clientHeight + "px";
         if (!isLastSection) section.style.marginBlockEnd = "0px";
         directChildDivs.map((x) => x.setAttribute("inert", "true"));
         x.setAttribute("aria-expanded", "false");
       } else {
-        section.style.maxHeight = "500vh";
+        section.style.maxHeight = bigMaxHeightToAllowAnimation;
         if (!isLastSection) section.style.marginBlockEnd = "var(--size-12)";
         directChildDivs.map((x) => x.removeAttribute("inert"));
         x.setAttribute("aria-expanded", "true");
