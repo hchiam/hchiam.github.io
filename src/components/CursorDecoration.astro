@@ -85,15 +85,12 @@
       pointer-events: none;
     }
     & * {
-      font-size: 1.25rem;
+      font-size: 1.75rem;
       background: transparent;
       color: white;
-      --text-outline-colour: black;
-      text-shadow: -1px -1px var(--text-outline-colour),
-        0px -1px var(--text-outline-colour), 1px -1px var(--text-outline-colour),
-        -1px 0px var(--text-outline-colour), 1px 0px var(--text-outline-colour),
-        -1px 1px var(--text-outline-colour), 0px 1px var(--text-outline-colour),
-        1px 1px var(--text-outline-colour);
+      -webkit-text-fill-color: white;
+      -webkit-text-stroke: 0.5rem #202020;
+      paint-order: stroke fill;
     }
     &:not(.show-orbits) * {
       display: none;
