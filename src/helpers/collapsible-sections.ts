@@ -5,7 +5,9 @@ makeSectionsCollapsibleByH2s();
 
 function makeSectionsCollapsibleByH2s() {
   const taglineH2 = document.querySelector("h2.tagline");
-  const nonTaglineH2s = document.querySelectorAll("h2:not(.tagline)");
+  const nonTaglineH2sAndMore = document.querySelectorAll(
+    "h2:not(.tagline), .collapsible-heading"
+  );
 
   taglineH2.setAttribute("tabindex", "0");
   taglineH2.setAttribute("role", "button");
@@ -42,8 +44,11 @@ function makeSectionsCollapsibleByH2s() {
   });
 
   const bigMaxHeightToAllowAnimation = "5000vh";
-  nonTaglineH2s.forEach((x, i) => {
-    const isLastSection = i === nonTaglineH2s.length - 1;
+  nonTaglineH2sAndMore.forEach((x, i) => {
+    const isLastSection = i === nonTaglineH2sAndMore.length - 1;
+    const isExtraCollapsibleHeading = x.classList.contains(
+      "collapsible-heading"
+    );
     x.setAttribute("tabindex", "0");
     x.setAttribute("role", "button");
     x.setAttribute("aria-controls", "collapsible_section_" + (i + 1));
@@ -53,19 +58,26 @@ function makeSectionsCollapsibleByH2s() {
       section.style.transition = "max-height 0.2s";
     }
     section.style.overflow = "hidden";
-    x.setAttribute("aria-expanded", "true");
+    x.setAttribute("aria-expanded", x.getAttribute("aria-expanded") || "true");
+    const startCollapsed = x.getAttribute("aria-expanded") === "false";
+    if (startCollapsed) toggleH2();
     function toggleH2() {
       const directChildDivs = [...section.children].filter(
         (x) => x.tagName.toLowerCase() === "div"
       );
       if (section.style.maxHeight === bigMaxHeightToAllowAnimation) {
-        section.style.maxHeight = x.clientHeight + "px";
-        if (!isLastSection) section.style.marginBlockEnd = "0px";
+        const factor = isExtraCollapsibleHeading ? 1.7 : 1;
+        section.style.maxHeight = x.clientHeight * factor + "px";
+        if (!isLastSection) {
+          section.style.marginBlockEnd = "0px";
+        }
         directChildDivs.map((x) => x.setAttribute("inert", "true"));
         x.setAttribute("aria-expanded", "false");
       } else {
         section.style.maxHeight = bigMaxHeightToAllowAnimation;
-        if (!isLastSection) section.style.marginBlockEnd = "var(--size-12)";
+        if (!isLastSection && !isExtraCollapsibleHeading) {
+          section.style.marginBlockEnd = "var(--size-12)";
+        }
         directChildDivs.map((x) => x.removeAttribute("inert"));
         x.setAttribute("aria-expanded", "true");
       }
