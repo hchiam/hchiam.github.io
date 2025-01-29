@@ -107,6 +107,7 @@ const linkImageStyles = `
           </div>
           <div>
             <h3 class="collapsible-heading" aria-expanded="false">Info</h3>
+            <h4 data-translation="Pourquoi :">Why:</h4>
             <p>
               <span
                 data-translation="Permettre aux concepteurs à modifier n'importe quelle page web en direct, dans n'importe quel état. Un projet expérimental d'extension Chrome dirigé par"
@@ -117,6 +118,7 @@ const linkImageStyles = `
                 >Adam Argyle</a
               >.
             </p>
+            <h4 data-translation="Ce que j'ai fait :">What I did:</h4>
             <p>
               <span
                 data-translation="J'ai contribué plus de 8 PR (Pull Requests), y compris"
@@ -154,6 +156,7 @@ const linkImageStyles = `
           </div>
           <div>
             <h3 class="collapsible-heading" aria-expanded="false">Info</h3>
+            <h4 data-translation="Pourquoi :">Why:</h4>
             <p>
               <span
                 data-translation="Aidons les personnes qui ne peuvent pas utiliser leurs mains à apprendre à coder en parlant à l'assistant vocal de Google."
@@ -166,6 +169,7 @@ const linkImageStyles = `
                 Conversational Actions were sunset in 2023.)</i
               >
             </p>
+            <h4 data-translation="Comment :">How:</h4>
             <p>
               <a
                 href="https://github.com/hchiam/code-tutor#previous-work"
@@ -221,12 +225,18 @@ const linkImageStyles = `
           </div>
           <div>
             <h3 class="collapsible-heading" aria-expanded="false">Info</h3>
+            <h4 data-translation="Pourquoi :">Why:</h4>
             <p
-              data-translation="Générer du code sans taper de code ! Cette interface utilisateur visuelle génère un formulaire HTML lorsque tu choisisses des modèles d'entrée et que tu modifies et exportes le tout dans le navigateur. Aucune installation requise."
+              data-translation="Générer du code de formulaires sans taper aucun code !"
             >
-              Generate code without typing code! This visual UI generates an
-              HTML form as you choose input templates and edit and export all in
-              the browser. No install required.
+              Generate code for forms without typing any code!
+            </p>
+            <h4 data-translation="Comment :">How:</h4>
+            <p
+              data-translation="Cette interface utilisateur visuelle génère un formulaire HTML lors de choisir des modèles d'entrée, les modifier, et les exporter - tout ça dans le navigateur. Aucune installation requise."
+            >
+              This visual UI generates an HTML form as you choose input
+              templates, edit, export - all in the browser. No install required.
             </p>
             <p
               data-translation="Je m'amusais à redécouvrir et implémenter la technique FLIP d'animation (avant les avancées récentes dans CSS)."
@@ -270,6 +280,7 @@ const linkImageStyles = `
           </div>
           <div>
             <h3 class="collapsible-heading" aria-expanded="false">Info</h3>
+            <h4 data-translation="Pourquoi :">Why:</h4>
             <p>
               <span
                 data-translation="Modifier, partager et présenter facilement des diapositives."
@@ -279,6 +290,7 @@ const linkImageStyles = `
                 >https://simple-slides.surge.sh</a
               >
             </p>
+            <h4 data-translation="Comment :">How:</h4>
             <p
               data-translation="Conçu pour et testé par une personne âgée ayant une faible confiance en connaissances numériques. Cette appli de diapositives a fini par être un tremplin pour passer à Google Slides."
             >
@@ -314,6 +326,7 @@ const linkImageStyles = `
           </div>
           <div>
             <h3 class="collapsible-heading" aria-expanded="false">Info</h3>
+            <h4 data-translation="Pourquoi :">Why:</h4>
             <p
               data-translation="Potentiel : alimenter des applications 2D que les utilisateurs peuvent utiliser ensemble, quelles que soient leurs capacités de vision ?"
             >
@@ -970,7 +983,7 @@ const linkImageStyles = `
         max-width: var(--size-14);
         text-align: left;
         padding-bottom: var(--size-3);
-        text-wrap: balance;
+        // text-wrap: balance;
         margin: var(--size-5);
       }
     }
