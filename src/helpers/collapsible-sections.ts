@@ -66,8 +66,7 @@ function makeSectionsCollapsibleByH2s() {
         (x) => x.tagName.toLowerCase() === "div"
       );
       if (section.style.maxHeight === bigMaxHeightToAllowAnimation) {
-        const factor = isExtraCollapsibleHeading ? 1.7 : 1;
-        section.style.maxHeight = x.clientHeight * factor + "px";
+        section.style.maxHeight = x.clientHeight + "px";
         if (!isLastSection) {
           section.style.marginBlockEnd = "0px";
         }
