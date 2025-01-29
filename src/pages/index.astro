@@ -757,7 +757,7 @@ const linkImageStyles = `
 
   // h1,
   // h2,
-  h3,
+  h3:not(.collapsible-heading),
   h4,
   h5,
   h6,
@@ -832,6 +832,14 @@ const linkImageStyles = `
       border-radius: 0.5rem 0.5rem 0 0;
       color: var(--accent-colour);
       margin-bottom: var(--size-3);
+    }
+
+    .collapsible-heading {
+      -webkit-text-fill-color: white;
+      &:focus,
+      &:hover {
+        -webkit-text-fill-color: var(--accent-colour);
+      }
     }
 
     h2:not(.tagline) {
