@@ -1,14 +1,13 @@
 import { prefersReducedMotion } from "./prefers-reduced-motion";
 
 if (!prefersReducedMotion()) {
-  setTimeout(() => {
-    animateFontChange();
-  }, 500);
+  animateFontChange();
 }
 async function animateFontChange(
   rangeStartHex = 0x0041, // 'A'
   rangeEndHex = 0x007a, // 'z'
-  speedMs = 50
+  speedMs = 50,
+  delayAfterFirstLoad = 1000
 ) {
   const overrideFontSrc =
     'url("./fonts/PenFriendlyBraille.ttf") format("truetype")';
@@ -19,6 +18,7 @@ async function animateFontChange(
     const suffix = /*"U+" +*/ i.toString(16).toUpperCase();
     updateFontUnicodeRange(prefix + suffix, overrideFontSrc, styleClass);
     await sleep(speedMs);
+    if (i === rangeEndHex) await sleep(delayAfterFirstLoad);
   }
   // updateFontUnicodeRange(""); // now target all characters for completion
   document.querySelector("style." + styleClass).remove();
