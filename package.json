@@ -17,12 +17,12 @@
     "reminder": "echo; echo 'Reminder: Do you need to \\033[1;34m[skip ci]\\033[0m?'; echo;"
   },
   "devDependencies": {
-    "@astrojs/react": "^0.1.3",
+    "@astrojs/react": "0.1.3",
     "astro": "4.16.18",
     "babel-plugin-styled-components": "1.13.3",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "sass": "^1.52.2"
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "sass": "1.52.2"
   },
   "dependencies": {
     "workbox-cacheable-response": "7.0.0",
