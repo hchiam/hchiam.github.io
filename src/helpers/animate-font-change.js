@@ -3,7 +3,7 @@ import { prefersReducedMotion } from "./prefers-reduced-motion";
 if (!prefersReducedMotion()) {
   setTimeout(() => {
     animateFontChange();
-  }, 1000);
+  }, 200);
 }
 async function animateFontChange(
   rangeStartHex = 0x0041, // 'A'
@@ -27,18 +27,24 @@ async function animateFontChange(
 function updateFontUnicodeRange(newUnicodeRange, overrideFontSrc, styleClass) {
   let style = document.querySelector("style." + styleClass);
   const alreadyHadStyleTag = !!style;
-  if (!alreadyHadStyleTag) {
+  if (alreadyHadStyleTag) {
+    style.textContent = style.textContent.replace(
+      /unicode-range: [^;]+;/,
+      `unicode-range: ${newUnicodeRange};`
+    );
+  } else {
     style = document.createElement("style");
     style.classList.add(styleClass);
+    const newFontFaceRule = `
+        @font-face {
+          font-family: ${styleClass};
+          src: ${overrideFontSrc};
+          unicode-range: ${newUnicodeRange};
+          font-display: block;
+        }
+      `;
+    style.textContent = newFontFaceRule;
   }
-  const newFontFaceRule = `
-      @font-face {
-        font-family: ${styleClass};
-        src: ${overrideFontSrc};
-        unicode-range: ${newUnicodeRange};
-      }
-    `;
-  style.textContent = newFontFaceRule;
   if (!alreadyHadStyleTag) document.head.appendChild(style);
 }
 
