@@ -843,6 +843,11 @@ const linkImageStyles = `
   @import "../styles/grow-circle-path";
   @import "../styles/text-outline";
 
+  @font-face {
+      font-family: "CustomFont";
+      src: url(../../public/fonts/fredoka/Fredoka-SemiBold.ttf) format("truetype");
+  }
+
   :root {
     --my-gradient-colour-1: lime;
     --my-gradient-colour-2: cyan;
@@ -854,6 +859,10 @@ const linkImageStyles = `
     --transparent-grey: #21252980;
     --h1-scale: 1;
     --box-shadow: 3px 5px 15px var(--transparent-grey);
+  }
+
+  * {
+    font-family: "CustomFont", avenir, calibri, arial, helvetica, sans-serif;
   }
 
   main {
@@ -905,7 +914,7 @@ const linkImageStyles = `
     .name-section p,
     .name-section span,
     .name-section i {
-      font-family: "PenFriendlyBraille", avenir, calibri, arial, helvetica,
+      font-family: "PenFriendlyBraille", "CustomFont", avenir, calibri, arial, helvetica,
         sans-serif;
       src: url("./fonts/PenFriendlyBraille.ttf") format("truetype");
       filter: blur(1rem);

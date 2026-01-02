@@ -39,6 +39,10 @@
 </script>
 
 <style lang="scss">
+  * {
+    font-family: "CustomFont", avenir, calibri, arial, helvetica, sans-serif;
+  }
+
   div {
     text-align: end;
     background: transparent;
@@ -93,6 +97,7 @@
       transition: background 4s;
       background-color: var(--red-9);
       pointer-events: none;
+      cursor: wait;
       .spinner {
         display: revert;
       }
