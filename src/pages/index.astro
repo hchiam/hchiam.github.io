@@ -49,6 +49,9 @@ const linkImageStyles = `
       </h2>
       <div class="tagline-details-shadow-container">
         <div id="tagline_details" class="tagline-details">
+          <div id="duolingo-avatar" class="row">
+            <img src="./public/hchiam_Duolingo_avatar.svg" alt="" />
+          </div>
           <p
             data-translation="Chuis développeur web front-end et nerd des langues, qui repense ce qui est possible et amusant avec des choses comme :"
           >
@@ -1280,6 +1283,18 @@ const linkImageStyles = `
     &[aria-expanded="false"]:after {
       transform: rotate(0.5turn);
       opacity: 0.5;
+    }
+  }
+
+  #duolingo-avatar {
+    width:100%;
+    background: transparent;
+    img {
+      width: 100px;
+      &:hover {
+        transform: none;
+        filter: none;
+      }
     }
   }
 </style>
