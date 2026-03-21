@@ -49,6 +49,9 @@ const linkImageStyles = `
       </h2>
       <div class="tagline-details-shadow-container">
         <div id="tagline_details" class="tagline-details">
+          <div id="duolingo-avatar" class="row">
+            <img src="hchiam_Duolingo_avatar.svg" alt="" />
+          </div>
           <p
             data-translation="Chuis développeur web front-end et nerd des langues, qui repense ce qui est possible et amusant avec des choses comme :"
           >
@@ -843,6 +846,11 @@ const linkImageStyles = `
   @import "../styles/grow-circle-path";
   @import "../styles/text-outline";
 
+  @font-face {
+      font-family: "CustomFont";
+      src: url(../../public/fonts/fredoka/Fredoka-SemiBold.ttf) format("truetype");
+  }
+
   :root {
     --my-gradient-colour-1: lime;
     --my-gradient-colour-2: cyan;
@@ -854,6 +862,10 @@ const linkImageStyles = `
     --transparent-grey: #21252980;
     --h1-scale: 1;
     --box-shadow: 3px 5px 15px var(--transparent-grey);
+  }
+
+  * {
+    font-family: "CustomFont", avenir, calibri, arial, helvetica, sans-serif;
   }
 
   main {
@@ -905,7 +917,7 @@ const linkImageStyles = `
     .name-section p,
     .name-section span,
     .name-section i {
-      font-family: "PenFriendlyBraille", avenir, calibri, arial, helvetica,
+      font-family: "PenFriendlyBraille", "CustomFont", avenir, calibri, arial, helvetica,
         sans-serif;
       src: url("./fonts/PenFriendlyBraille.ttf") format("truetype");
       filter: blur(1rem);
@@ -1271,6 +1283,18 @@ const linkImageStyles = `
     &[aria-expanded="false"]:after {
       transform: rotate(0.5turn);
       opacity: 0.5;
+    }
+  }
+
+  #duolingo-avatar {
+    width:100%;
+    background: transparent;
+    img {
+      width: 100px;
+      &:hover {
+        transform: none;
+        filter: none;
+      }
     }
   }
 </style>
